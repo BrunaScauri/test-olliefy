@@ -21,7 +21,7 @@ class MainScreen extends StatelessWidget {
                 const SizedBox(height: 130),
                 SvgPicture.asset(
                   'assets/skateboard_only_logo.svg',
-                  colorFilter: const ColorFilter.mode(black, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(AppColors.black, BlendMode.srcIn),
                   height: 70,
                 ),
                 const SizedBox(height: 30),

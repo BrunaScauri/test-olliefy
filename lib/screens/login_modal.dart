@@ -36,7 +36,7 @@ class _LoginModalState extends State<LoginModal> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        color: Colors.white,
+        color: AppColors.white,
       ),
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -59,7 +59,8 @@ class _LoginModalState extends State<LoginModal> {
                 style: GoogleFonts.openSans(
                   fontSize: 12,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(132, 129, 117, 1)
+                  color: Color.fromRGBO(132, 129, 117, 1),
+                  letterSpacing: 3.0,
                 ),
               ),
             ),
@@ -82,7 +83,7 @@ class _LoginModalState extends State<LoginModal> {
             // onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
-              minimumSize: Size(350, 50),
+              minimumSize: Size(350, 60),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -95,7 +96,7 @@ class _LoginModalState extends State<LoginModal> {
                     style: GoogleFonts.openSans(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: _isButtonEnabled ? AppColors.white : AppColors.black),
                     children: [
                       TextSpan(text: 'Log in'),
                     ],
@@ -112,8 +113,11 @@ class _LoginModalState extends State<LoginModal> {
               // Your onPressed logic here
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              minimumSize: Size(350, 50),
+              backgroundColor: AppColors.white,
+              minimumSize: Size(350, 60),
+              shadowColor: Colors.black,
+              elevation: 3.0,
+              // offset: Offset(0, 0),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -141,12 +145,12 @@ class _LoginModalState extends State<LoginModal> {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          const SizedBox(height: 15),
           ElevatedButton(
             onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
-              minimumSize: Size(350, 50),
+              minimumSize: Size(350, 60),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -156,7 +160,7 @@ class _LoginModalState extends State<LoginModal> {
               children: [
                 SvgPicture.asset(
                   'assets/Apple_logo.svg',
-                  colorFilter: const ColorFilter.mode(white, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
                   height: 15,
                 ),
                 RichText(
@@ -164,7 +168,7 @@ class _LoginModalState extends State<LoginModal> {
                     style: GoogleFonts.openSans(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                        color: AppColors.white),
                     children: [
                       TextSpan(text: '  Continue with Apple'),
                     ],
