@@ -18,7 +18,7 @@ class MainScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const SizedBox(height: 90),
+                const SizedBox(height: 130),
                 SvgPicture.asset(
                   'assets/skateboard_only_logo.svg',
                   colorFilter: const ColorFilter.mode(black, BlendMode.srcIn),
@@ -37,6 +37,7 @@ class MainScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Container(
+                  constraints: BoxConstraints(maxWidth: 450),
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: Text(
@@ -44,7 +45,7 @@ class MainScreen extends StatelessWidget {
                     )
                   )
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 20),
                 Column(
                   children: [
                     Padding(
@@ -101,8 +102,8 @@ class MainScreen extends StatelessWidget {
                 Flexible(flex: 5, child: Container()),
                 Image.asset(
                   'assets/main_screen.png',
-                  fit: BoxFit.fitWidth,
                   alignment: Alignment.bottomCenter,
+                  fit: BoxFit.fill,
                   opacity: const AlwaysStoppedAnimation(.8),
                 ),
               ],
