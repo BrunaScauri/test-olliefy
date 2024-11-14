@@ -74,12 +74,12 @@ class _LoginModalState extends State<LoginModal> {
           ),
           SizedBox(height: 15),
           ElevatedButton(
-            // onPressed: _isButtonEnabled ? () {
-            //   Navigator.of(context).pushReplacement(
-            //     MaterialPageRoute(builder: (context) => Map()),
-            //   );
-            // } : null,
-            onPressed: () {},
+            onPressed: _isButtonEnabled ? () {
+              Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => Map()),
+              );
+            } : null,
+            // onPressed: () {},
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.black,
               minimumSize: Size(350, 50),
