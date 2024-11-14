@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ToBeImplementedWidget extends StatelessWidget {
+class Map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
