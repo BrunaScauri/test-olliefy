@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/screens/login_modal.dart';
+import 'package:test_olliefy/screens/register_modal.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -81,8 +82,24 @@ class MainScreen extends StatelessWidget {
                       padding: EdgeInsets.symmetric(horizontal: 10.0),
                       child: Column(
                         children: [
-                        OutlinedButton(
+                          OutlinedButton(
                           onPressed: () {
+                          Navigator.of(context).pushReplacement(
+                              PageRouteBuilder(
+                                  pageBuilder:(context, animation, secondaryAnimation) => RegisterModal(),
+                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                    const begin = Offset(1.0, 0.0);
+                                    const end = Offset.zero;
+                                    const curve = Curves.ease;
+                                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                    var offsetAnimation = animation.drive(tween);
+                                    return SlideTransition(
+                                      position: offsetAnimation,
+                                      child: child,
+                                    );
+                                  },
+                                ),
+                            );
                           },
                           child: RichText(
                               text:TextSpan(style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black), children: [
@@ -92,7 +109,8 @@ class MainScreen extends StatelessWidget {
                             
                             style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, minimumSize: Size(320, 60), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))
                             )
-                        )
+                        ),
+                        
 
                         ]
                       )
