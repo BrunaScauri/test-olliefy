@@ -178,7 +178,7 @@ class _LoginModalState extends State<LoginModal> {
               ]
             )
           ),
-          const SizedBox(height: 30),
+          const SizedBox(height: 15),
           RichText(
             text: TextSpan(
               style: GoogleFonts.openSans(fontSize: 14, color: Colors.black),
