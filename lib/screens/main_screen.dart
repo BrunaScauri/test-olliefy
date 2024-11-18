@@ -13,7 +13,7 @@ class MainScreen extends StatelessWidget {
     children: <Widget>[
       Expanded(
         child: Scaffold(
-          backgroundColor: const Color.fromRGBO(222, 199, 55, 1),
+          backgroundColor: AppColors.primaryGold,
           body: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
