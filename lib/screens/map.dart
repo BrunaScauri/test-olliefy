@@ -4,6 +4,7 @@ class Map extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
+      // pageBuilder: (context, animation, secondaryAnimation) => SecondPage(),
       child: Container(
         padding: EdgeInsets.all(16.0),
         decoration: BoxDecoration(
