@@ -1,10 +1,18 @@
+import 'package:provider/provider.dart';
+import 'package:flutter/foundation.dart';
+
 class UserModal extends ChangeNotifier {
-  final String? username;
-  final String? email;
-  final String? phoneNumber;
-  final String? password;
+  String? username;
+  String? email;
+  String? phoneNumber;
+  String? password;
+
 
   int activeIndex = 0;
   int totalIndex = 2;
 
+  changeIndex(int index) {
+    activeIndex = index;
+    notifyListeners();
+  }
 }
