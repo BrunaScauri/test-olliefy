@@ -123,6 +123,7 @@ class MainScreen extends StatelessWidget {
                   alignment: Alignment.bottomCenter,
                   fit: BoxFit.fill,
                   opacity: const AlwaysStoppedAnimation(.8),
+                  width: MediaQuery.of(context).size.width,
                 ),
               ],
             ),
