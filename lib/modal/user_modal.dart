@@ -9,7 +9,7 @@ class UserModal extends ChangeNotifier {
 
 
   int activeIndex = 0;
-  int totalIndex = 2;
+  int totalIndex = 3;
 
   changeIndex(int index) {
     activeIndex = index;
