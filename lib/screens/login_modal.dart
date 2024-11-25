@@ -3,6 +3,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:test_olliefy/screens/map.dart';
+import 'package:test_olliefy/utils/styles/fields.dart';
 
 class LoginModal extends StatefulWidget {
   @override
@@ -66,13 +67,21 @@ class _LoginModalState extends State<LoginModal> {
             ),
           ),
           SizedBox(height: 30),
-          TextField(
-            controller: _controller,
-            decoration: InputDecoration(
-              labelText: 'Phone, email or username',
-              border: OutlineInputBorder(),
+          Container(
+          constraints: BoxConstraints(maxWidth: 450),
+            child: TextFormField(
+              controller: _controller,
+              onChanged: (value) {
+              final emailRegExp = RegExp(
+                r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
+              );
+              setState(() {
+                  _isButtonEnabled = emailRegExp.hasMatch(value);
+                });
+              },
+              decoration: FormDecorations.textFieldDecoration(labelText: 'Phone, email or username'),
             ),
-          ),
+          ), 
           SizedBox(height: 15),
           ElevatedButton(
             onPressed: _isButtonEnabled ? () {
@@ -104,8 +113,9 @@ class _LoginModalState extends State<LoginModal> {
                 ),
 
               ]
-            )
+            ),
           ),
+            
           const SizedBox(height: 10),
           Divider(height: 60, thickness: 0.8),
           ElevatedButton(
