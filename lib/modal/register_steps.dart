@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_olliefy/utils/styles/fields.dart';
+import 'package:test_olliefy/utils/styles/buttons.dart';
+
 
 class ProfileName extends StatefulWidget {
   @override
@@ -10,6 +13,7 @@ class ProfileName extends StatefulWidget {
 
 class _ProfileNameState extends State<ProfileName> {
 final TextEditingController _usernameController = TextEditingController();
+final TextEditingController _emailController = TextEditingController();
   bool _isButtonEnabled = false;
 
   @override
@@ -63,14 +67,11 @@ final TextEditingController _usernameController = TextEditingController();
                 constraints: BoxConstraints(maxWidth: 450),
                 child: Padding(
                   padding: EdgeInsets.all(15.0),
-                  child: TextField(
-                  controller: _usernameController,
-                    decoration: InputDecoration(
-                      labelText: 'Username',
-                      border: OutlineInputBorder(),
-                    ),
-                  ), 
-                ),
+                  child: TextFormField(
+                    controller: _usernameController,
+                    decoration: FormDecorations.textFieldDecoration(labelText: 'Username'),
+                  ),
+                )
               ),
               Container(
                 constraints: BoxConstraints(maxWidth: 450),
@@ -82,7 +83,6 @@ final TextEditingController _usernameController = TextEditingController();
                         MaterialPageRoute(builder: (context) => PhoneOrEmail()),
                       );
                     } : null,
-                    // onPressed: () {},
                     style: ElevatedButton.styleFrom(
                       backgroundColor: _isButtonEnabled ? AppColors.primaryGold60 : AppColors.buttonDisabled12,
                       minimumSize: Size(350, 60),
