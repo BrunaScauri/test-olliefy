@@ -25,12 +25,6 @@ class Map extends StatelessWidget {
               style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
-            SizedBox(height: 8),
-            Text(
-              'Stay tuned for updates!',
-              style: TextStyle(fontSize: 16),
-              textAlign: TextAlign.center,
-            ),
           ],
         ),
       ),
