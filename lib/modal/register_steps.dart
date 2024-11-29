@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:flutter_svg/svg.dart';
 
 
 class ProfileName extends StatefulWidget {
@@ -47,11 +48,11 @@ class _ProfileNameState extends State<ProfileName> {
                   return Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Container(
-                      constraints: BoxConstraints(maxWidth: 450),
+                      constraints: BoxConstraints(maxWidth: 340),
                       child: TextFormField(
                         controller: _profileNameController,
                         onChanged: (value) {
-                          modal.updateProfileName(value); // Update the modal state
+                          modal.updateProfileName(value);
                         },
                         decoration: FormDecorations.textFieldDecoration(
                           labelText: 'Username',
@@ -102,12 +103,13 @@ final TextEditingController _emailController = TextEditingController();
               ),
             ),
             const SizedBox(height: 20),
+            //TABS GO HERE
             Consumer<UserModal>(
               builder: (context, modal, child) {
                 return Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
-                    constraints: BoxConstraints(maxWidth: 450),
+                    constraints: BoxConstraints(maxWidth: 340),
                     child: TextFormField(
                       controller: _emailController,
                       onChanged: (value) {
@@ -115,12 +117,95 @@ final TextEditingController _emailController = TextEditingController();
                       },
                       decoration: FormDecorations.textFieldDecoration(
                         labelText: 'Email address',
+                        prefixIcon: Icons.email_outlined,
                       ),
                     ),
                   )
                 );
               },
             ),
+            const SizedBox(height: 10),
+          Container(
+            constraints: BoxConstraints(maxWidth: 340),
+            child: Divider(height: 60, thickness: 0.8),
+          ),
+          Container(
+            constraints: BoxConstraints(maxWidth: 370),
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.white,
+                      minimumSize: Size(350, 60),
+                      shadowColor: Colors.black,
+                      elevation: 3.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          'assets/google_logo.png',
+                          height: 12,
+                          width: 12,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            style: GoogleFonts.openSans(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                            children: [
+                              TextSpan(text: '  Continue with Google'),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 15),
+                  ElevatedButton(
+                    onPressed: () {},
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.black,
+                      minimumSize: Size(350, 60),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset(
+                          'assets/Apple_logo.svg',
+                          colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                          height: 15,
+                        ),
+                        RichText(
+                          text: TextSpan(
+                            style: GoogleFonts.openSans(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                                color: AppColors.white),
+                            children: [
+                              TextSpan(text: '  Continue with Apple'),
+                            ],
+                          ),
+                        ),
+                      ]
+                    )
+                  ),
+                ]
+              )
+            )
+          )
           ]
         )
       ),
@@ -171,7 +256,7 @@ class _PasswordState extends State<Password> {
                 return Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Container(
-                    constraints: BoxConstraints(maxWidth: 450),
+                    constraints: BoxConstraints(maxWidth: 340),
                     child: TextFormField(
                       controller: _passwordController,
                       onChanged: (value) {
@@ -199,13 +284,6 @@ class Permissions extends StatefulWidget {
 }
 
 class _PermissionsState extends State<Permissions> {
-  // final TextEditingController _passwordController = TextEditingController();
-
-  // @override
-  // void dispose() {
-  //   _passwordController.dispose();
-  //   super.dispose();
-  // }
 
   @override
     Widget build(BuildContext context) {
@@ -239,9 +317,9 @@ class _PermissionsState extends State<Permissions> {
                             ]
                           )
                         ),
-                        
                         SizedBox(height: 40),
                         Container(
+                          constraints: BoxConstraints(maxWidth: 450),
                           child: Column(
                             children: [
                               Row(
