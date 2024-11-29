@@ -128,7 +128,8 @@ class _RegisterModalState extends State<RegisterModal> {
             ),
             Consumer<UserModal>(
               builder: (context, modal, child) {
-                return Padding(
+                return Center(
+                  child: Padding(
                   padding: const EdgeInsets.all(16.0),
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -161,8 +162,10 @@ class _RegisterModalState extends State<RegisterModal> {
                       ),
                       SizedBox(height: 40),
                     ],
-                  ),
+                  )
+                )
                 );
+                
               },
             ),
           ],
