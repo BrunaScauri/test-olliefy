@@ -69,23 +69,59 @@ class _ProfileNameState extends State<ProfileName> {
   }
 }
 
-class PhoneOrEmail extends StatelessWidget {
+class PhoneOrEmail extends StatefulWidget {
+  @override
+  _PhoneOrEmailState createState() => _PhoneOrEmailState();
+}
+
+class _PhoneOrEmailState extends State<PhoneOrEmail> {
+final TextEditingController _usernameController = TextEditingController();
+final TextEditingController _emailController = TextEditingController();
+  bool _isButtonEnabled = false;
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Center(
-        child: Container(
-          child: OutlinedButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                PageRouteBuilder(
-                  pageBuilder:(context, animation, secondaryAnimation) => Password(),
-                )
-              );
-            },
-            child: Text('password screen')
-          )
+        child: Column(
+          children: [
+            const SizedBox(height: 10),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: RichText(
+                text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                  TextSpan(text:'Add a phone number or email address'),
+                ])
+              ),
+            ),
+            const SizedBox(height: 20),
+            Consumer<UserModal>(
+              builder: (context, modal, child) {
+                return Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    constraints: BoxConstraints(maxWidth: 450),
+                    child: TextFormField(
+                      controller: _emailController,
+                      onChanged: (value) {
+                        modal.updateEmail(value);
+                      },
+                      decoration: FormDecorations.textFieldDecoration(
+                        labelText: 'Email address',
+                      ),
+                    ),
+                  )
+                );
+              },
+            ),
+          ]
         )
       ),
     );
