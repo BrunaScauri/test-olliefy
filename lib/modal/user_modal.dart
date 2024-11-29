@@ -33,6 +33,19 @@ class UserModal extends ChangeNotifier {
       //PLEASE LOOK INTO THIS
     } 
   }
+
+  void updateProfileName(String value) {
+    _profileName = value;
+    _isValid = _profileName.isNotEmpty;
+    notifyListeners();
+  }
+
+  void updateEmail(String value) {
+    final emailRegExp = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    _email = value;
+    _isValid = emailRegExp.hasMatch(value);
+    notifyListeners();
+  }
   void restartEvaluating() {
     if(_activeIndex > 3) {
       _isValid = true;
