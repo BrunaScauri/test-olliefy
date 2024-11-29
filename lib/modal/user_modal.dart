@@ -43,9 +43,21 @@ class UserModal extends ChangeNotifier {
   void updateEmail(String value) {
     final emailRegExp = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
     _email = value;
-    _isValid = emailRegExp.hasMatch(value);
+
+  // void updatePhoneNumber(String value) {
+  //   final emailRegExp = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'); 
+  //   _email = value;
+  //   _isValid = emailRegExp.hasMatch(value);
+  //   notifyListeners();
+  // }
+
+  void updatePassword(String value) {
+    // final emailRegExp = RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$');
+    _email = value;
+    _isValid = value.isNotEmpty;
     notifyListeners();
   }
+
   void restartEvaluating() {
     if(_activeIndex > 3) {
       _isValid = true;
