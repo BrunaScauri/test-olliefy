@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:test_olliefy/screens/map.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
+
+import 'package:test_olliefy/screens/map.dart';
+import 'package:test_olliefy/screens/main_screen.dart';
 
 class LoginModal extends StatefulWidget {
   @override
@@ -66,11 +69,13 @@ class _LoginModalState extends State<LoginModal> {
                     letterSpacing: 3.0,
                   ),
                 ),
-                //IMPLEMENT CLOSING BUTTON LOGIN MODAL
-                Icon(
-                  Icons.close,
-                  size: 30,
+                IconButton(
+                  icon: Icon(Icons.close),
+                  iconSize: 30,
                   color: AppColors.primaryGray30,
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
                 ),
               ]
             )
