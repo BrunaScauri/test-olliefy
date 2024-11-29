@@ -84,35 +84,32 @@ class MainScreen extends StatelessWidget {
                         children: [
                           OutlinedButton(
                           onPressed: () {
-                          Navigator.of(context).pushReplacement(
+                            Navigator.of(context).pushReplacement(
                               PageRouteBuilder(
-                                  pageBuilder:(context, animation, secondaryAnimation) => RegisterModal(),
-                                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                                    const begin = Offset(1.0, 0.0);
-                                    const end = Offset.zero;
-                                    const curve = Curves.ease;
-                                    var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                                    var offsetAnimation = animation.drive(tween);
-                                    return SlideTransition(
-                                      position: offsetAnimation,
-                                      child: child,
-                                    );
-                                  },
-                                ),
+                                pageBuilder:(context, animation, secondaryAnimation) => RegisterModal(),
+                                transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                  const begin = Offset(1.0, 0.0);
+                                  const end = Offset.zero;
+                                  const curve = Curves.ease;
+                                  var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+                                  var offsetAnimation = animation.drive(tween);
+                                  return SlideTransition(
+                                    position: offsetAnimation,
+                                    child: child,
+                                  );
+                                },
+                              ),
                             );
                           },
                           child: RichText(
                               text:TextSpan(style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black), children: [
                                 TextSpan(text:'Register'),
                               ])
-                            ),
-                            
-                            style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, minimumSize: Size(320, 60), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))
-                            )
+                          ),
+                          style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, minimumSize: Size(320, 60), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))
+                          )
                         ),
-                        
-
-                        ]
+                      ]
                       )
                     ),
                   ]
