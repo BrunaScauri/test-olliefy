@@ -1,18 +1,55 @@
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 
+import 'package:test_olliefy/screens/main_screen.dart';
+
 class UserModal extends ChangeNotifier {
-  String? username;
-  String? email;
-  String? phoneNumber;
-  String? password;
+  String _profileName = '';
+  String _email = '';
+  String _phoneNumber = '';
+  String _password = '';
+  
+  int _activeIndex = 0;
+  final int _totalIndex = 3;
+  bool _isValid = false;
 
+  int get activeIndex => _activeIndex;
+  int get totalIndex => _totalIndex;
 
-  int activeIndex = 0;
-  int totalIndex = 3;
+  bool get isStepValid => _isValid;
 
-  changeIndex(int index) {
-    activeIndex = index;
+  void incrementStep(context) {
+    if(_activeIndex >= 0 && _activeIndex <= 3) {
+      _activeIndex++;
+      notifyListeners();
+    }
+  }
+
+  void decrementStep(BuildContext context) {
+    if(_activeIndex > 0) {
+      _activeIndex--;
+      notifyListeners();
+      //PLEASE LOOK INTO THIS
+    } 
+  }
+  void restartEvaluating() {
+    if(_activeIndex > 3) {
+      _isValid = true;
+     notifyListeners();
+    } else {
+    _isValid = false;
+    notifyListeners();
+    }
+  }
+
+  set isStepValid(bool value) {
+    if(_activeIndex == 2) {
+      _isValid = true;
+     notifyListeners();
+    }
+    _isValid = value;
     notifyListeners();
   }
+
 }
