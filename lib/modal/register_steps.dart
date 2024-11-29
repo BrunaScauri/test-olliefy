@@ -127,22 +127,65 @@ final TextEditingController _emailController = TextEditingController();
     );
   }
 }
-class Password extends StatelessWidget {
+
+class Password extends StatefulWidget {
+  @override
+  _PasswordState createState() => _PasswordState();
+}
+
+class _PasswordState extends State<Password> {
+  final TextEditingController _passwordController = TextEditingController();
+
+  @override
+  void dispose() {
+    _passwordController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: Center(
         child: Container(
-          child: OutlinedButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                PageRouteBuilder(
-                  pageBuilder:(context, animation, secondaryAnimation) => Permissions(),
-                )
-              );
-            },
-            child: Text('permissions screen')
+          child: Column(
+            children: [
+              SizedBox(height: 10),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  const SizedBox(height: 10),
+                  Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: RichText(
+                      text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                        TextSpan(text:'Create a password'),
+                      ])
+                    ),
+                  ),
+                ]
+              ),
+              const SizedBox(height: 20),
+              Consumer<UserModal>(
+              builder: (context, modal, child) {
+                return Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: Container(
+                    constraints: BoxConstraints(maxWidth: 450),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      onChanged: (value) {
+                        modal.updatePassword(value);
+                      },
+                      decoration: FormDecorations.textFieldDecoration(
+                        labelText: 'Password',
+                      ),
+                    ),
+                  )
+                );
+              },
+            ),
+            ]
           )
         )
       ),
