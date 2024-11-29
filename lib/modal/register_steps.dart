@@ -192,6 +192,7 @@ class _PasswordState extends State<Password> {
     );
   }
 }
+
 class Permissions extends StatefulWidget {
   @override
   _PermissionsState createState() => _PermissionsState();
