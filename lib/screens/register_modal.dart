@@ -139,8 +139,6 @@ class _RegisterModalState extends State<RegisterModal> {
                             if(modal.isStepValid && modal.activeIndex < 3) {
                               Provider.of<UserModal>(context, listen: false).restartEvaluating();
                               Provider.of<UserModal>(context, listen: false).incrementStep(context);
-                              print(modal.activeIndex);
-                              print(modal.isStepValid);
                             } else if(modal.activeIndex == 3) {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(builder: (context) => Map()),
