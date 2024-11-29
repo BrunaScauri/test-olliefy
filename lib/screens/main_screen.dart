@@ -118,13 +118,17 @@ class MainScreen extends StatelessWidget {
                   ]
                 ),
                 Flexible(flex: 5, child: Container()),
-                Image.asset(
+                Container(
+                  constraints: BoxConstraints(maxWidth: 450),
+                  child: Image.asset(
                   'assets/main_screen.png',
                   alignment: Alignment.bottomCenter,
                   fit: BoxFit.fill,
                   opacity: const AlwaysStoppedAnimation(.8),
                   width: MediaQuery.of(context).size.width,
                 ),
+                ),
+                
               ],
             ),
           ),

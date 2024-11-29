@@ -54,17 +54,27 @@ class _LoginModalState extends State<LoginModal> {
           SizedBox(height: 30),
           Align(
             alignment: Alignment.centerLeft,
-            child: Container(
-              child: Text(
-                'LOG IN',
-                style: GoogleFonts.openSans(
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
-                  color: Color.fromRGBO(132, 129, 117, 1),
-                  letterSpacing: 3.0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'LOG IN',
+                  style: GoogleFonts.openSans(
+                    fontSize: 12,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.primaryGray30,
+                    letterSpacing: 3.0,
+                  ),
                 ),
-              ),
-            ),
+                //IMPLEMENT CLOSING BUTTON LOGIN MODAL
+                Icon(
+                  Icons.close,
+                  size: 30,
+                  color: AppColors.primaryGray30,
+                ),
+              ]
+            )
+            
           ),
           SizedBox(height: 30),
           Container(
