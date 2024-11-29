@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:test_olliefy/utils/colors.dart';
+import 'package:provider/provider.dart';
+
 import 'package:test_olliefy/screens/main_screen.dart';
+import 'package:test_olliefy/modal/user_modal.dart';
+
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
@@ -12,25 +16,11 @@ class ProfileName extends StatefulWidget {
 }
 
 class _ProfileNameState extends State<ProfileName> {
-final TextEditingController _usernameController = TextEditingController();
-final TextEditingController _emailController = TextEditingController();
-  bool _isButtonEnabled = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _usernameController.addListener(_checkIfEmpty);
-  }
-
-  void _checkIfEmpty() {
-    setState(() {
-      _isButtonEnabled = _usernameController.text.isNotEmpty;
-    });
-  }
+  final TextEditingController _profileNameController = TextEditingController();
 
   @override
   void dispose() {
-    _usernameController.dispose();
+    _profileNameController.dispose();
     super.dispose();
   }
 
@@ -42,75 +32,35 @@ final TextEditingController _emailController = TextEditingController();
         child: Container(
           child: Column(
             children: [
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.of(context).pushReplacement(
-                    PageRouteBuilder(
-                      pageBuilder:(context, animation, secondaryAnimation) => PhoneOrEmail(),
-                    )
-                  );
-                },
-                child: Text('phone or email screen')
-              ),
-              Container(
-                //back and close button
-              ),
+              const SizedBox(height: 10),
               Padding(
-                padding: EdgeInsets.all(15.0),
+                padding: EdgeInsets.all(16.0),
                 child: RichText(
                   text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
                     TextSpan(text:'Choose a name for your profile'),
                   ])
                 ),
               ),
-              Container(
-                constraints: BoxConstraints(maxWidth: 450),
-                child: Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: TextFormField(
-                    controller: _usernameController,
-                    decoration: FormDecorations.textFieldDecoration(labelText: 'Username'),
-                  ),
-                )
-              ),
-              Container(
-                constraints: BoxConstraints(maxWidth: 450),
-                child: Padding(
-                  padding: EdgeInsets.all(15.0),
-                  child: ElevatedButton(
-                    onPressed: _isButtonEnabled ? () {
-                      Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (context) => PhoneOrEmail()),
-                      );
-                    } : null,
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: _isButtonEnabled ? AppColors.primaryGold60 : AppColors.buttonDisabled12,
-                      minimumSize: Size(350, 60),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      elevation: 0.0,
-                      shadowColor: Colors.transparent,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        RichText(
-                          text: TextSpan(
-                            style: GoogleFonts.openSans(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                                color: _isButtonEnabled ? AppColors.black : AppColors.primaryGray50),
-                            children: [
-                              TextSpan(text: 'Next'),
-                            ],
-                          ),
+              const SizedBox(height: 20),
+              Consumer<UserModal>(
+                builder: (context, modal, child) {
+                  return Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 450),
+                      child: TextFormField(
+                        controller: _profileNameController,
+                        onChanged: (value) {
+                          modal.updateProfileName(value); // Update the modal state
+                        },
+                        decoration: FormDecorations.textFieldDecoration(
+                          labelText: 'Username',
                         ),
-                      ]
+                      ),
                     )
-                  ),
-                ),
-              ),
+                  );
+                },
+              )
             ]
           )
         )
