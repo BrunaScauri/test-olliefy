@@ -78,7 +78,6 @@ class _LoginModalState extends State<LoginModal> {
           ),
           SizedBox(height: 30),
           Container(
-          constraints: BoxConstraints(maxWidth: 450),
             child: TextFormField(
               controller: _controller,
               onChanged: (value) {
