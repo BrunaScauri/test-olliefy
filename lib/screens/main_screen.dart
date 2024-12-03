@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:test_olliefy/screens/login_modal.dart';
+import 'package:test_olliefy/modal/login_modal.dart';
 import 'package:test_olliefy/screens/register_modal.dart';
 
 class MainScreen extends StatelessWidget {
