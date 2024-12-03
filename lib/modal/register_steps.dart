@@ -283,6 +283,80 @@ final TextEditingController _phoneController = TextEditingController();
   }
 }
 
+class Token extends StatefulWidget {
+  @override
+  _TokenState createState() => _TokenState();
+}
+
+class _TokenState extends State<Token> {
+  final TextEditingController _tokenController = TextEditingController();
+
+  @override
+  void dispose() {
+    _tokenController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColors.white,
+      body: Center(
+        child: Container(
+          child: Consumer<UserModal>(
+              builder: (context, modal, child) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 10),
+                      RichText(
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                          TextSpan(text:'Enter the code'),
+                        ])
+                      ),
+                      SizedBox(height: 16),
+                      RichText(
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: Colors.black), children: [
+                          TextSpan(text:'We sent a code to validate your phone number.'),
+                        ])
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20.0),
+                        child: Text('code')
+                      ),
+                      //code input goes here
+                      RichText(
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: Colors.black), children: [
+                          TextSpan(text:'Didn’t receive the message? '),
+                          TextSpan(
+                            text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                            // onclick: 
+                            ),
+                        ])
+                      ),
+                      Container(
+                        constraints: BoxConstraints(maxWidth: 340),
+                        child: TextFormField(
+                          controller: _tokenController,
+                          onChanged: (value) {
+                            modal.updateToken(value);
+                          },
+                          decoration: FormDecorations.textFieldDecoration(
+                            labelText: 'Phone number',
+                            prefixIcon: Icons.email_outlined,
+                          ),
+                        ),
+                      )
+                    ]
+                  );
+              }
+            )
+        )
+      ),
+    );
+  }
+}
+
 class Password extends StatefulWidget {
   @override
   _PasswordState createState() => _PasswordState();
