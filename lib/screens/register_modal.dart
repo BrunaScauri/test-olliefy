@@ -181,6 +181,8 @@ class _RegisterModalState extends State<RegisterModal> {
       case 1:
         return PhoneOrEmail();
       case 2:
+        return Token();
+      case 3:
         return Password();
       case 3:
         return Permissions();
