@@ -26,3 +26,5 @@ flutter:
     - ./assets/
     - ./assets/icons/
     - ./assets/icons/permissions_page/
+    - ./assets/icons/permissions_page/icons/
+    - ./assets/icons/splashscreen/
