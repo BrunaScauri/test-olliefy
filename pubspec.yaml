@@ -1,6 +1,6 @@
 name: test_olliefy
 description: Testing env for Olliefy.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: "none"
 version: 0.0.1+1
 
 environment:
@@ -24,8 +24,8 @@ flutter:
   uses-material-design: true
   assets:
     - ./assets/
+    - ./assets/splashscreen/
     - ./assets/icons/
     - ./assets/permissions_page/
     - ./assets/icons/permissions_page/icons/
-    - ./assets/splashscreen/
 
