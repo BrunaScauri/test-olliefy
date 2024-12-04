@@ -54,7 +54,7 @@ class Splashscreen extends StatefulWidget {
         const SizedBox(height: 48),
         Flexible(flex: 2, child: Container()),
         // const Image(image: AssetImage('assets/Animation.gif'), height: 100, width: 150),
-        const Image(image: AssetImage('assets/Animation.png'), height: 100, width: 200),
+        const Image(image: AssetImage('assets/splashscreen/Animation.gif'), height: 100, width: 200),
         Container(
           width: 80,
           child: LinearProgressIndicator(value: _progressValue, valueColor: AlwaysStoppedAnimation<Color>(Color.fromRGBO(222, 199, 55, 1)), backgroundColor: Colors.white),
