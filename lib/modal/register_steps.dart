@@ -110,7 +110,7 @@ final TextEditingController _phoneController = TextEditingController();
                       ),
                       const SizedBox(height: 20),
                       DefaultTabController(
-                        initialIndex: 1,
+                        initialIndex: 0,
                         length: 2,
                         child: Center(
                           child: Container(
