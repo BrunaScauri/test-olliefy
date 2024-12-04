@@ -137,10 +137,10 @@ class _RegisterModalState extends State<RegisterModal> {
                       Container(
                         child: ElevatedButton(
                           onPressed: () {
-                            if(modal.isStepValid && modal.activeIndex < 3) {
+                            if(modal.isStepValid && modal.activeIndex < 4) {
                               Provider.of<UserModal>(context, listen: false).restartEvaluating();
                               Provider.of<UserModal>(context, listen: false).incrementStep(context);
-                            } else if(modal.activeIndex == 3) {
+                            } else if(modal.activeIndex == 4) {
                                 Navigator.of(context).pushReplacement(
                                   MaterialPageRoute(builder: (context) => Map()),
                                 );
@@ -149,11 +149,11 @@ class _RegisterModalState extends State<RegisterModal> {
                               null;
                             }
                           },
-                          style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex < 3
+                          style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex < 4
                           ? ButtonStyles.elevatedButtonDisabled() 
                           : ButtonStyles.elevatedButtonEnabled(),
                           child: Text(
-                          modal.activeIndex == 3 ?  'Activate permissions' : 'Next',
+                          modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
                           style: Provider.of<UserModal>(context).isStepValid
                           ? ButtonStyles.elevatedButtonTextEnabled() 
                           : ButtonStyles.elevatedButtonTextDisabled(),
@@ -184,7 +184,7 @@ class _RegisterModalState extends State<RegisterModal> {
         return Token();
       case 3:
         return Password();
-      case 3:
+      case 4:
         return Permissions();
       default:
         return ProfileName();
