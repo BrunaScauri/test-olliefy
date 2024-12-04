@@ -5,6 +5,7 @@ class FormDecorations {
   static InputDecoration textFieldDecoration({
     String? labelText,
     IconData? prefixIcon,
+    Widget? prefixIconWidget,
   }) {
     return InputDecoration(
       border: OutlineInputBorder(
@@ -27,7 +28,12 @@ class FormDecorations {
       floatingLabelStyle: TextStyle(
         color: AppColors.primaryGold70,
       ),
-      prefixIcon: prefixIcon != null ? Icon(prefixIcon) : null,
+      prefixIcon: prefixIconWidget != null 
+        ? Padding(
+          padding: EdgeInsets.all(11.0),
+          child: prefixIconWidget,
+        )
+        : prefixIcon != null ? Icon(prefixIcon) : null,
     );
   }
 }
