@@ -402,6 +402,7 @@ class _PasswordState extends State<Password> {
                   child: Container(
                     constraints: BoxConstraints(maxWidth: 340),
                     child: TextFormField(
+                      obscureText: true,
                       controller: _passwordController,
                       onChanged: (value) {
                         modal.updatePassword(value);
