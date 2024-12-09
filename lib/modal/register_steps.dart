@@ -28,7 +28,7 @@ class _ProfileNameState extends State<ProfileName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           child: Column(
@@ -37,7 +37,7 @@ class _ProfileNameState extends State<ProfileName> {
               Padding(
                 padding: EdgeInsets.all(16.0),
                 child: RichText(
-                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
                     TextSpan(text:'Choose a name for your profile'),
                   ])
                 ),
@@ -89,7 +89,7 @@ final TextEditingController _phoneController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Column(
           children: [
@@ -103,7 +103,7 @@ final TextEditingController _phoneController = TextEditingController();
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
                           TextSpan(text:'Add a phone number or email address'),
                           ])
                         ),
@@ -171,9 +171,9 @@ final TextEditingController _phoneController = TextEditingController();
                                                   onPressed: () {
                                                   },
                                                   style: ElevatedButton.styleFrom(
-                                                    backgroundColor: AppColors.white,
+                                                    backgroundColor: AppColors.primaryWhite,
                                                     minimumSize: Size(350, 60),
-                                                    shadowColor: Colors.black,
+                                                    shadowColor: AppColors.primaryBlack,
                                                     elevation: 3.0,
                                                     shape: RoundedRectangleBorder(
                                                       borderRadius: BorderRadius.circular(8),
@@ -192,7 +192,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                           style: GoogleFonts.openSans(
                                                             fontSize: 16,
                                                             fontWeight: FontWeight.bold,
-                                                            color: Colors.black,
+                                                            color: AppColors.primaryBlack,
                                                           ),
                                                           children: [
                                                             TextSpan(text: '  Continue with Google'),
@@ -206,7 +206,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                 ElevatedButton(
                                                   onPressed: () {},
                                                   style: ElevatedButton.styleFrom(
-                                                    backgroundColor: Colors.black,
+                                                    backgroundColor: AppColors.primaryBlack,
                                                     minimumSize: Size(350, 60),
                                                     shape: RoundedRectangleBorder(
                                                       borderRadius: BorderRadius.circular(8),
@@ -217,7 +217,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                     children: [
                                                       SvgPicture.asset(
                                                         'assets/Apple_logo.svg',
-                                                        colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                                                        colorFilter: const ColorFilter.mode(AppColors.primaryWhite, BlendMode.srcIn),
                                                         height: 15,
                                                       ),
                                                       RichText(
@@ -225,7 +225,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                           style: GoogleFonts.openSans(
                                                               fontSize: 16,
                                                               fontWeight: FontWeight.bold,
-                                                              color: AppColors.white),
+                                                              color: AppColors.primaryWhite),
                                                           children: [
                                                             TextSpan(text: '  Continue with Apple'),
                                                           ],
@@ -300,7 +300,7 @@ class _TokenState extends State<Token> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           child: Consumer<UserModal>(
@@ -310,13 +310,13 @@ class _TokenState extends State<Token> {
                     children: [
                       SizedBox(height: 10),
                       RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
                           TextSpan(text:'Enter the code'),
                         ])
                       ),
                       SizedBox(height: 16),
                       RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: Colors.black), children: [
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: AppColors.primaryBlack), children: [
                           TextSpan(text:'We sent a code to validate your phone number.'),
                         ])
                       ),
@@ -326,7 +326,7 @@ class _TokenState extends State<Token> {
                       ),
                       //code input goes here
                       RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: Colors.black), children: [
+                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: AppColors.primaryBlack), children: [
                           TextSpan(text:'Didn’t receive the message? '),
                           TextSpan(
                             text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
@@ -374,7 +374,7 @@ class _PasswordState extends State<Password> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           child: Column(
@@ -387,7 +387,7 @@ class _PasswordState extends State<Password> {
                   Padding(
                     padding: EdgeInsets.all(16.0),
                     child: RichText(
-                      text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                      text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
                         TextSpan(text:'Create a password'),
                       ])
                     ),
@@ -435,7 +435,7 @@ class _PermissionsState extends State<Permissions> {
     return ChangeNotifierProvider<UserModal>(
       create: (context) => UserModal(),
           child: Scaffold(
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.primaryWhite,
             body: Column(
               children: [
                 Consumer<UserModal>(
@@ -454,7 +454,7 @@ class _PermissionsState extends State<Permissions> {
                               SizedBox(height: 40),
                               Container(
                                   child: RichText(
-                                    text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                                    text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
                                       TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
                                     ])
                                   )
@@ -474,7 +474,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black), children: [
+                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
                                     TextSpan(text:'Location'),
                                     ])
                                   ),
@@ -488,7 +488,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black), children: [
+                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
                                     TextSpan(text:'Camera'),
                                     ])
                                   ),
@@ -502,7 +502,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black), children: [
+                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
                                     TextSpan(text:'Photo gallery'),
                                     ])
                                   ),
@@ -516,7 +516,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: Colors.black), children: [
+                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
                                     TextSpan(text:'Contacts'),
                                     ])
                                   ),

@@ -26,7 +26,7 @@ class _RegisterModalState extends State<RegisterModal> {
           backgroundColor: AppColors.primaryGold60,
           toolbarHeight: 48,
         ),
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.primaryWhite,
         body: Column(
           children: [
             Consumer<UserModal>(

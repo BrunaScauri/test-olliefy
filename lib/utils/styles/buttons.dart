@@ -30,7 +30,7 @@ class ButtonStyles {
     return GoogleFonts.openSans(
       fontSize: 16,
       fontWeight: FontWeight.bold,
-      color: AppColors.black,
+      color: AppColors.primaryBlack,
     );
   }
 

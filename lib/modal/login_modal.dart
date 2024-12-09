@@ -40,7 +40,7 @@ class _LoginModalState extends State<LoginModal> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-        color: AppColors.white,
+        color: AppColors.primaryWhite,
       ),
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -119,7 +119,7 @@ class _LoginModalState extends State<LoginModal> {
                     style: GoogleFonts.openSans(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: _isButtonEnabled ? AppColors.white : AppColors.black),
+                        color: _isButtonEnabled ? AppColors.primaryWhite : AppColors.primaryBlack),
                     children: [
                       TextSpan(text: 'Log in'),
                     ],
@@ -137,7 +137,7 @@ class _LoginModalState extends State<LoginModal> {
               // Your onPressed logic here
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.white,
+              backgroundColor: AppColors.primaryWhite,
               minimumSize: Size(350, 60),
               shadowColor: Colors.black,
               elevation: 3.0,
@@ -184,7 +184,7 @@ class _LoginModalState extends State<LoginModal> {
               children: [
                 SvgPicture.asset(
                   'assets/Apple_logo.svg',
-                  colorFilter: const ColorFilter.mode(AppColors.white, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(AppColors.primaryWhite, BlendMode.srcIn),
                   height: 15,
                 ),
                 RichText(
@@ -192,7 +192,7 @@ class _LoginModalState extends State<LoginModal> {
                     style: GoogleFonts.openSans(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
-                        color: AppColors.white),
+                        color: AppColors.primaryWhite),
                     children: [
                       TextSpan(text: '  Continue with Apple'),
                     ],

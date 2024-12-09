@@ -22,7 +22,7 @@ class MainScreen extends StatelessWidget {
                 const SizedBox(height: 130),
                 SvgPicture.asset(
                   'assets/skateboard_only_logo.svg',
-                  colorFilter: const ColorFilter.mode(AppColors.black, BlendMode.srcIn),
+                  colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn),
                   height: 70,
                 ),
                 const SizedBox(height: 30),
@@ -30,7 +30,7 @@ class MainScreen extends StatelessWidget {
                   child: Padding(
                     padding: EdgeInsets.symmetric(horizontal: 16.0),
                     child: RichText(
-                    text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                    text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
                       TextSpan(text:'Get inspired, find spots, buy and sell.'),
                     ])
                   )

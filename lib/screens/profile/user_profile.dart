@@ -15,7 +15,7 @@ class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),
@@ -30,7 +30,7 @@ class _UserProfileState extends State<UserProfile> {
                     Row(
                     children: [
                       RichText(
-                          text:TextSpan(style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w700, color: Colors.black), children: [
+                          text:TextSpan(style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primaryBlack), children: [
                             TextSpan(text:'Allramps'),
                           ])
                         ),
