@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_olliefy/utils/styles/buttons.dart';
+
 import 'package:test_olliefy/modal/login_modal.dart';
 import 'package:test_olliefy/screens/register_modal.dart';
 
@@ -70,8 +73,7 @@ class MainScreen extends StatelessWidget {
                                 TextSpan(text:'Log in'),
                               ])
                             ),
-                            style: ElevatedButton.styleFrom(backgroundColor: Colors.black, minimumSize: Size(320, 60), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))
-                            )
+                            style: ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack)
                           )
 
                         ]
@@ -106,9 +108,7 @@ class MainScreen extends StatelessWidget {
                                 TextSpan(text:'Register'),
                               ])
                           ),
-                          style: ElevatedButton.styleFrom(backgroundColor: Colors.transparent, minimumSize: Size(320, 60), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8))
-                          )
-                        ),
+                          style: ButtonStyles.elevatedButton(backgroundColor: Colors.transparent)),
                       ]
                       )
                     ),

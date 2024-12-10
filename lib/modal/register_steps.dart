@@ -170,14 +170,8 @@ final TextEditingController _phoneController = TextEditingController();
                                                 ElevatedButton(
                                                   onPressed: () {
                                                   },
-                                                  style: ElevatedButton.styleFrom(
+                                                  style: ButtonStyles.socialsButton(
                                                     backgroundColor: AppColors.primaryWhite,
-                                                    minimumSize: Size(350, 60),
-                                                    shadowColor: AppColors.primaryBlack,
-                                                    elevation: 3.0,
-                                                    shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(8),
-                                                    ),
                                                   ),
                                                   child: Row(
                                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -189,11 +183,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                       ),
                                                       RichText(
                                                         text: TextSpan(
-                                                          style: GoogleFonts.openSans(
-                                                            fontSize: 16,
-                                                            fontWeight: FontWeight.bold,
-                                                            color: AppColors.primaryBlack,
-                                                          ),
+                                                          style: TextStyles.socialsButtonText(color: AppColors.primaryGray50),
                                                           children: [
                                                             TextSpan(text: '  Continue with Google'),
                                                           ],
@@ -205,12 +195,8 @@ final TextEditingController _phoneController = TextEditingController();
                                                 const SizedBox(height: 15),
                                                 ElevatedButton(
                                                   onPressed: () {},
-                                                  style: ElevatedButton.styleFrom(
-                                                    backgroundColor: AppColors.primaryBlack,
-                                                    minimumSize: Size(350, 60),
-                                                    shape: RoundedRectangleBorder(
-                                                      borderRadius: BorderRadius.circular(8),
-                                                    ),
+                                                  style: ButtonStyles.socialsButton(
+                                                    backgroundColor: AppColors.primaryBlack
                                                   ),
                                                   child: Row(
                                                     mainAxisAlignment: MainAxisAlignment.center,
@@ -222,10 +208,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                       ),
                                                       RichText(
                                                         text: TextSpan(
-                                                          style: GoogleFonts.openSans(
-                                                              fontSize: 16,
-                                                              fontWeight: FontWeight.bold,
-                                                              color: AppColors.primaryWhite),
+                                                          style: TextStyles.socialsButtonText(color: AppColors.primaryWhite),
                                                           children: [
                                                             TextSpan(text: '  Continue with Apple'),
                                                           ],
@@ -435,7 +418,7 @@ class _PermissionsState extends State<Permissions> {
     return ChangeNotifierProvider<UserModal>(
       create: (context) => UserModal(),
           child: Scaffold(
-            backgroundColor: Colors.primaryWhite,
+            backgroundColor: AppColors.primaryWhite,
             body: Column(
               children: [
                 Consumer<UserModal>(

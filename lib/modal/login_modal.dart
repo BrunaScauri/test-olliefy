@@ -4,6 +4,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
+import 'package:test_olliefy/utils/styles/buttons.dart';
 
 import 'package:test_olliefy/screens/map.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
@@ -103,23 +104,15 @@ class _LoginModalState extends State<LoginModal> {
                 MaterialPageRoute(builder: (context) => Map()),
               );
             } : null,
-            // onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              minimumSize: Size(350, 60),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
-            ),
+            style: _isButtonEnabled ? ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack) : ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 RichText(
                   text: TextSpan(
-                    style: GoogleFonts.openSans(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: _isButtonEnabled ? AppColors.primaryWhite : AppColors.primaryBlack),
+                    style: _isButtonEnabled 
+                    ? TextStyles.elevatedButtonText(color: AppColors.primaryWhite) 
+                    : TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
                     children: [
                       TextSpan(text: 'Log in'),
                     ],
@@ -136,7 +129,7 @@ class _LoginModalState extends State<LoginModal> {
             onPressed: () {
               // Your onPressed logic here
             },
-            style: ElevatedButton.styleFrom(
+            style: ButtonStyles.socialsButton(
               backgroundColor: AppColors.primaryWhite,
               minimumSize: Size(350, 60),
               shadowColor: Colors.black,
@@ -156,11 +149,7 @@ class _LoginModalState extends State<LoginModal> {
                 ),
                 RichText(
                   text: TextSpan(
-                    style: GoogleFonts.openSans(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
+                    style: TextStyles.socialsButtonText(color: AppColors.primaryGray50),
                     children: [
                       TextSpan(text: '  Continue with Google'),
                     ],
@@ -172,12 +161,8 @@ class _LoginModalState extends State<LoginModal> {
           const SizedBox(height: 15),
           ElevatedButton(
             onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.black,
-              minimumSize: Size(350, 60),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
+            style: ButtonStyles.socialsButton(
+              backgroundColor: AppColors.primaryBlack
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -189,10 +174,7 @@ class _LoginModalState extends State<LoginModal> {
                 ),
                 RichText(
                   text: TextSpan(
-                    style: GoogleFonts.openSans(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryWhite),
+                    style: TextStyles.socialsButtonText(color: AppColors.primaryWhite),
                     children: [
                       TextSpan(text: '  Continue with Apple'),
                     ],

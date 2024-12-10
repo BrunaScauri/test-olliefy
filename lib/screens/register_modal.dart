@@ -61,7 +61,7 @@ class _RegisterModalState extends State<RegisterModal> {
                       ),
                       const SizedBox(height: 40),
                       Container(
-                        color: AppColors.white,
+                        color: AppColors.primaryWhite,
                         child: Padding(
                           padding: EdgeInsets.symmetric(horizontal: 8),
                           child: Row(
@@ -149,16 +149,15 @@ class _RegisterModalState extends State<RegisterModal> {
                             }
                           },
                           style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex < 4
-                          ? ButtonStyles.elevatedButtonDisabled() 
-                          : ButtonStyles.elevatedButtonEnabled(),
+                          ? ButtonStyles.elevatedStepperButton(backgroundColor: AppColors.buttonDisabled12) 
+                          : ButtonStyles.elevatedStepperButton(backgroundColor: AppColors.primaryGold60),
                           child: Text(
                           modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
                           style: Provider.of<UserModal>(context).isStepValid
-                          ? ButtonStyles.elevatedButtonTextEnabled() 
-                          : ButtonStyles.elevatedButtonTextDisabled(),
+                          ? TextStyles.elevatedStepperButtonText(color: AppColors.primaryBlack) 
+                          : TextStyles.elevatedStepperButtonText(color: AppColors.primaryGray50),
                           ),
                         ),
-                      ),
                       SizedBox(height: 40),
                     ],
                   )
