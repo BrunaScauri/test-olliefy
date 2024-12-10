@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/styles/texts.dart';
 
 import 'package:test_olliefy/screens/map.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
@@ -127,17 +128,9 @@ class _LoginModalState extends State<LoginModal> {
           Divider(height: 60, thickness: 0.8),
           ElevatedButton(
             onPressed: () {
-              // Your onPressed logic here
             },
             style: ButtonStyles.socialsButton(
               backgroundColor: AppColors.primaryWhite,
-              minimumSize: Size(350, 60),
-              shadowColor: Colors.black,
-              elevation: 3.0,
-              // offset: Offset(0, 0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
-              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -192,16 +185,14 @@ class _LoginModalState extends State<LoginModal> {
                 TextSpan(text: 'By logging in, you are accepting our ',
                     style: TextStyle(color: Colors.black)),
                 TextSpan(
-                    text: 'Terms and Conditions ',
-                    style: TextStyle(
-                        color: Color.fromRGBO(134, 118, 32, 1),
-                        fontWeight: FontWeight.w900)),
+                  text: 'Terms and Conditions ',
+                  style: TextsStyles.termsAndConditionsBold(),
+                ),
                 TextSpan(text: 'as well as the '),
                 TextSpan(
-                    text: 'Privacy Policy.',
-                    style: TextStyle(
-                        color: Color.fromRGBO(134, 118, 32, 1),
-                        fontWeight: FontWeight.w900)),
+                  text: 'Privacy Policy.',
+                  style: TextsStyles.termsAndConditionsBold(),
+                ),
               ],
             ),
           ),
