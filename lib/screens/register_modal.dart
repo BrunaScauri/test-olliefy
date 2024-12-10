@@ -36,23 +36,23 @@ class _RegisterModalState extends State<RegisterModal> {
                     children: [
                       Row(
                         children: List.generate(
-                          modal.totalIndex,
+                          _getMappedActiveIndex(modal.totalIndex),
                           (index) => Expanded(
                             child: Container(
                               height: 8,
                               decoration: BoxDecoration(
-                                color: index == modal.activeIndex
+                                color: index <= _getMappedActiveIndex(modal.activeIndex)
                                     ? AppColors.primaryGold20Stepper
                                     : AppColors.primaryGold10,
                                 border: Border.all(
-                                  color: index == modal.activeIndex
+                                  color: index == _getMappedActiveIndex(modal.activeIndex)
                                       ? AppColors.primaryGold60
                                       : AppColors.primaryGold40,
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.only(
                                   topLeft: index == 0 ? Radius.circular(40) : Radius.zero,
-                                  topRight: index == modal.totalIndex - 1 ? Radius.circular(40) : Radius.zero,
+                                  topRight: index == _getMappedActiveIndex(modal.activeIndex) - 1 ? Radius.circular(40) : Radius.zero,
                                 ),
                               ),
                             ),
@@ -189,5 +189,14 @@ class _RegisterModalState extends State<RegisterModal> {
       default:
         return ProfileName();
     }
+  }
+
+  int _getMappedActiveIndex(int activeIndex) {
+  if (activeIndex == 1 || activeIndex == 2) return 1;
+  return activeIndex;
+  
+  }
+  int _getMappedTotalSteps(int totalSteps) {
+    return totalSteps - 1; // Reduced by 1 as two steps are grouped
   }
 }
