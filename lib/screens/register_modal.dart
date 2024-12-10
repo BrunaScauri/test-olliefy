@@ -71,27 +71,26 @@ class _RegisterModalState extends State<RegisterModal> {
                                 icon: Icon(Icons.west),
                                 iconSize: 24,
                                 onPressed: () {
-                                  Provider.of<UserModal>(context, listen: false).decrementStep(context);
+                                  if(modal.activeIndex == 0) {
+                                    Navigator.of(context).push(
+                                      pageSlideAnimation(
+                                        MainScreen(), 
+                                      ),
+                                    );
+                                  } else {
+                                    Provider.of<UserModal>(context, listen: false).decrementStep(context);
+                                  }
                                 }
                               ),
                               IconButton(
                                 icon: Icon(Icons.close),
                                 iconSize: 24,
                                 onPressed: () {
-                                  AnimatedSwitcher(
-                                    duration: const Duration(milliseconds: 400),
-                                    transitionBuilder: (Widget child, Animation<double> animation) {
-                                      const begin = Offset(0.0, 1.0);
-                                      const end = Offset.zero;
-                                      const curve = Curves.easeInOut;
-                                      final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                                      final offsetAnimation = animation.drive(tween);
-                                      return SlideTransition(
-                                        position: offsetAnimation,
-                                        child: child,
-                                      );
-                                    },
-                                  child: _getStepContent(modal.activeIndex),
+                                  Navigator.of(context).push(
+                                      pageSlideAnimation(
+                                        MainScreen(), 
+    newPageBegin: const Offset(1.0, 0.0),
+                                      ),
                                   );
                                 }
                               ),

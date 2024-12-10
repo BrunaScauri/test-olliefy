@@ -84,7 +84,7 @@ class MainScreen extends StatelessWidget {
                         children: [
                           OutlinedButton(
                           onPressed: () {
-                            Navigator.of(context).pushReplacement(
+                            Navigator.of(context).push(
                               PageRouteBuilder(
                                 pageBuilder:(context, animation, secondaryAnimation) => RegisterModal(),
                                 transitionsBuilder: (context, animation, secondaryAnimation, child) {
