@@ -9,4 +9,20 @@ class TextsStyles{
       fontWeight: FontWeight.w900,
     );
   }
+
+  static TextStyle profileDataNumbers(){
+    return TextStyle(
+      color: AppColors.primaryBlack,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle profileData(){
+    return TextStyle(
+      color: AppColors.primaryBlack,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+    );
+  }
 }
