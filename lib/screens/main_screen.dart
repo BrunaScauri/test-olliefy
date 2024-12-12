@@ -69,7 +69,7 @@ class MainScreen extends StatelessWidget {
                               );
                             },
                             child: RichText(
-                              text:TextSpan(style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white), children: [
+                              text:TextSpan(style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite), children: [
                                 TextSpan(text:'Log in'),
                               ])
                             ),
@@ -104,7 +104,7 @@ class MainScreen extends StatelessWidget {
                             );
                           },
                           child: RichText(
-                              text:TextSpan(style: GoogleFonts.openSans(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black), children: [
+                              text:TextSpan(style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack), children: [
                                 TextSpan(text:'Register'),
                               ])
                           ),

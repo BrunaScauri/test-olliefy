@@ -43,14 +43,6 @@ class ButtonStyles {
 }
 
 class TextStyles{
-  static TextStyle elevatedStepperButtonText({required Color color}){
-    return GoogleFonts.openSans(
-      fontSize: 16,
-      fontWeight: FontWeight.bold,
-      color: color,
-    );
-  }
-
   static TextStyle elevatedButtonText({required Color color}){
     return GoogleFonts.openSans(
       fontSize: 16,
@@ -59,11 +51,19 @@ class TextStyles{
     );
   }
 
-  static TextStyle socialsButtonText({required Color color}) {
+  static TextStyle primaryHeader(){
     return GoogleFonts.openSans(
-      fontSize: 16,
+      fontSize: 32,
       fontWeight: FontWeight.bold,
-      color: color,
+      color: AppColors.primaryBlack,
     );
   }
+
+  static TextStyle primaryText(){
+    return GoogleFonts.openSans(
+      fontSize: 14,
+      color: AppColors.primaryBlack,
+    );
+  }
+
 }

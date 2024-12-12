@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/buttons.dart';
 import 'package:flutter_svg/svg.dart';
 
 
@@ -37,7 +38,7 @@ class _ProfileNameState extends State<ProfileName> {
               Padding(
                 padding: EdgeInsets.all(16.0),
                 child: RichText(
-                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                  text:TextSpan(style: TextStyles.primaryHeader(), children: [
                     TextSpan(text:'Choose a name for your profile'),
                   ])
                 ),
@@ -103,7 +104,7 @@ final TextEditingController _phoneController = TextEditingController();
                       Padding(
                         padding: const EdgeInsets.all(15.0),
                         child: RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                        text:TextSpan(style: TextStyles.primaryHeader(), children: [
                           TextSpan(text:'Add a phone number or email address'),
                           ])
                         ),
@@ -183,7 +184,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                       ),
                                                       RichText(
                                                         text: TextSpan(
-                                                          style: TextStyles.socialsButtonText(color: AppColors.primaryGray50),
+                                                          style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
                                                           children: [
                                                             TextSpan(text: '  Continue with Google'),
                                                           ],
@@ -208,7 +209,7 @@ final TextEditingController _phoneController = TextEditingController();
                                                       ),
                                                       RichText(
                                                         text: TextSpan(
-                                                          style: TextStyles.socialsButtonText(color: AppColors.primaryWhite),
+                                                          style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite),
                                                           children: [
                                                             TextSpan(text: '  Continue with Apple'),
                                                           ],
@@ -293,13 +294,13 @@ class _TokenState extends State<Token> {
                     children: [
                       SizedBox(height: 10),
                       RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                        text:TextSpan(style: TextStyles.primaryHeader(), children: [
                           TextSpan(text:'Enter the code'),
                         ])
                       ),
                       SizedBox(height: 16),
                       RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: AppColors.primaryBlack), children: [
+                        text:TextSpan(style: TextStyles.primaryText(), children: [
                           TextSpan(text:'We sent a code to validate your phone number.'),
                         ])
                       ),
@@ -309,7 +310,7 @@ class _TokenState extends State<Token> {
                       ),
                       //code input goes here
                       RichText(
-                        text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, color: AppColors.primaryBlack), children: [
+                        text:TextSpan(style: TextStyles.primaryText(), children: [
                           TextSpan(text:'Didn’t receive the message? '),
                           TextSpan(
                             text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
@@ -370,7 +371,7 @@ class _PasswordState extends State<Password> {
                   Padding(
                     padding: EdgeInsets.all(16.0),
                     child: RichText(
-                      text:TextSpan(style: GoogleFonts.openSans(fontSize: 32, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                      text:TextSpan(style: TextStyles.primaryHeader(), children: [
                         TextSpan(text:'Create a password'),
                       ])
                     ),
@@ -457,7 +458,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
+                                  text:TextSpan(style: TextStyles.primaryText(), children: [
                                     TextSpan(text:'Location'),
                                     ])
                                   ),
@@ -471,7 +472,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
+                                  text:TextSpan(style: TextStyles.primaryText(), children: [
                                     TextSpan(text:'Camera'),
                                     ])
                                   ),
@@ -485,7 +486,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
+                                  text:TextSpan(style: TextStyles.primaryText(), children: [
                                     TextSpan(text:'Photo gallery'),
                                     ])
                                   ),
@@ -499,7 +500,7 @@ class _PermissionsState extends State<Permissions> {
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
-                                  text:TextSpan(style: GoogleFonts.openSans(fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primaryBlack), children: [
+                                  text:TextSpan(style: TextStyles.primaryText(), children: [
                                     TextSpan(text:'Contacts'),
                                     ])
                                   ),

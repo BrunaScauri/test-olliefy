@@ -142,7 +142,7 @@ class _LoginModalState extends State<LoginModal> {
                 ),
                 RichText(
                   text: TextSpan(
-                    style: TextStyles.socialsButtonText(color: AppColors.primaryGray50),
+                    style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
                     children: [
                       TextSpan(text: '  Continue with Google'),
                     ],
@@ -167,7 +167,7 @@ class _LoginModalState extends State<LoginModal> {
                 ),
                 RichText(
                   text: TextSpan(
-                    style: TextStyles.socialsButtonText(color: AppColors.primaryWhite),
+                    style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite),
                     children: [
                       TextSpan(text: '  Continue with Apple'),
                     ],
@@ -183,7 +183,7 @@ class _LoginModalState extends State<LoginModal> {
               style: GoogleFonts.openSans(fontSize: 14, color: Colors.black),
               children: [
                 TextSpan(text: 'By logging in, you are accepting our ',
-                    style: TextStyle(color: Colors.black)),
+                    style: TextStyle(color: AppColors.primaryBlack)),
                 TextSpan(
                   text: 'Terms and Conditions ',
                   style: TextsStyles.termsAndConditionsBold(),
