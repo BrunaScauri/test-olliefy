@@ -10,7 +10,7 @@ class TextsStyles{
     );
   }
 
-  static TextStyle profileDataNumbers(){
+  static TextStyle profileDataBold(){
     return TextStyle(
       color: AppColors.primaryBlack,
       fontSize: 16,
@@ -20,9 +20,25 @@ class TextsStyles{
 
   static TextStyle profileData(){
     return TextStyle(
-      color: AppColors.primaryBlack,
+      color: AppColors.primaryGray30,
       fontSize: 12,
       fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle profileDescription(){
+    return TextStyle(
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle profileHyperlink(){
+    return TextStyle(
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
     );
   }
 }
