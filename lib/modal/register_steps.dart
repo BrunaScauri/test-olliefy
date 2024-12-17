@@ -433,7 +433,7 @@ class _PermissionsState extends State<Permissions> {
                             children: [
                               SizedBox(height: 20),
                               Container(
-                                child: Image(image: AssetImage('assets/permissions_page_hero.png'), height: 160, width: 160),
+                                child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
                               ),
                               SizedBox(height: 40),
                               Container(
@@ -454,7 +454,11 @@ class _PermissionsState extends State<Permissions> {
                               Row(
                                 children: [
                                   Container(
-                                    child: Image(image: AssetImage('assets/map_pin.png'), height: 30, width: 30),
+                                    child: SvgPicture.asset(
+                                      'assets/permissions_page/icons/location_icon.svg',
+                                      colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn),
+                                      height: 15,
+                                    )
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
@@ -468,7 +472,7 @@ class _PermissionsState extends State<Permissions> {
                               Row(
                                 children: [
                                   Container(
-                                    child: Image(image: AssetImage('assets/camera.png'), height: 30, width: 30),
+                                    // child: SvgPicture.asset('assets/permissions_page/icons/camera_icon.svg', colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn), height: 2),
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
@@ -482,7 +486,7 @@ class _PermissionsState extends State<Permissions> {
                               Row(
                                 children: [
                                   Container(
-                                    child: Image(image: AssetImage('assets/gallery.png'), height: 30, width: 30),
+                                    // child: Image(image: AssetImage('assets/permissions_page/icons/photo_gallery_icon.svg'), height: 30, width: 30),
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
@@ -496,7 +500,7 @@ class _PermissionsState extends State<Permissions> {
                               Row(
                                 children: [
                                   Container(
-                                    child: Image(image: AssetImage('assets/phone.png'), height: 30, width: 30),
+                                    // child: Image(image: AssetImage('assets/permissions_page/icons/contacts_icon.svg'), height: 10, width: 30),
                                   ),
                                   SizedBox(width: 16),
                                   RichText(
