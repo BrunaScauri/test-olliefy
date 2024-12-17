@@ -105,6 +105,7 @@ class _UserProfileState extends State<UserProfile> {
                       children: [
                         Stack(
                           children: [
+                            CustomBorders.profilePictureBorder(width: 80.0, height: 80.0),
                             Container(
                               width: 80.0,
                               height: 80.0,
@@ -191,6 +192,86 @@ class _UserProfileState extends State<UserProfile> {
                       )
                     )
                     
+                  ]
+                )
+              ),
+              //profile description, optional link container and optional sponsor rows
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                child: Column(
+                  children: [
+                    SizedBox(width: 60),
+                    RichText(
+                      text: TextSpan(style: TextsStyles.profileDescription(), children: [
+                        TextSpan(text:'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi varius lorem eu ultrices maximus. Nulla id feugiat nisi, ac varius nisi. Ut ut enim et lacus tempus ullamcorper molestie ut enim. Sed interdum vehicula felis, nec vestibulum turpis accumsan vitae. Etiam consectetur sapien eget eros tincidunt'),
+                      ])
+                    ),
+                    //profile link
+                    Padding(
+                      padding: EdgeInsets.only(top: 4.0),
+                      child: Row(
+                        children: [
+                          ImageIcon(
+                            AssetImage('assets/profile_page/icons/profile_link_icon.png'),
+                            size: 14,
+                          ),
+                          SizedBox(width: 8),
+                          InkWell(
+                            child: RichText(
+                              text:TextSpan(style: TextsStyles.profileHyperlink(), children: [
+                                TextSpan(text:'www.instagram.com/aliramps'),
+                              ])
+                            ),
+                            onTap: () async {
+                              final url = 'https://www.instagram.com/aliramps'; //example url
+                              if (await canLaunch(url)) {
+                                await launch(url);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            },
+                          ),
+                        ]
+                      ),
+                    )  
+                  ]
+                )
+              ),
+              //sponsored row
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                child: Row(
+                  children: [
+                    Stack(
+                      children: [
+                        CustomBorders.profilePictureBorder(width: 40.0, height: 40.0),
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 1.6, vertical: 1.6),
+                          child: Container(
+                            width: 36.8,
+                            height: 36.8,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                image: AssetImage('assets/profile_page/icons/example_sponsor_image.png'),
+                                fit: BoxFit.scaleDown,
+                              )
+                            )
+                          )
+                        )
+                      ]
+                    ),
+                    SizedBox(width: 16),
+                    RichText(
+                      text: TextSpan( 
+                        style: GoogleFonts.openSans(fontSize: 14, color: Colors.black),
+                        children: [
+                          TextSpan(text:'Sponsored by ', style: TextsStyles.profileDescription()),
+                          TextSpan(text: 'Spitfire Wheels', style: TextsStyles.termsAndConditionsBold(),
+                          ),
+                        ]
+                      )
+                    ),
                   ]
                 )
               ),
