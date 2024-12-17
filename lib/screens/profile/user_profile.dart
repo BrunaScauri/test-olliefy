@@ -275,6 +275,28 @@ class _UserProfileState extends State<UserProfile> {
                   ]
                 )
               ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+                child: Row(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                      },
+                      child: RichText(
+                        text:TextSpan(style: TextsStyles.profileHyperlink(), children: [
+                          TextSpan(text:'Edit profile'),
+                        ])
+                      ),
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.primaryGold60,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                    )
+                  ]
+                ),
+              ),
     );
   }
 }
