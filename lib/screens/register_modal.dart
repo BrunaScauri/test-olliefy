@@ -127,14 +127,12 @@ class _RegisterModalState extends State<RegisterModal> {
             ),
             Consumer<UserModal>(
               builder: (context, modal, child) {
-                return Center(
-                  child: Padding(
+                return Padding(
                   padding: const EdgeInsets.all(16.0),
                       child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Container(
-                        child: ElevatedButton(
+                      ElevatedButton(
                           onPressed: () {
                             if(modal.isStepValid && modal.activeIndex < 4) {
                               Provider.of<UserModal>(context, listen: false).restartEvaluating();
@@ -161,7 +159,6 @@ class _RegisterModalState extends State<RegisterModal> {
                       SizedBox(height: 40),
                     ],
                   )
-                )
                 );
                 
               },
