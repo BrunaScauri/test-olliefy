@@ -32,6 +32,7 @@ class _ProfileNameState extends State<ProfileName> {
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
           child: Column(
             children: [
               const SizedBox(height: 10),
@@ -97,7 +98,7 @@ final TextEditingController _phoneController = TextEditingController();
             Consumer<UserModal>(
               builder: (context, modal, child) {
                 return Container(
-                  // padding: EdgeInsets.all(16.0),
+                  constraints: BoxConstraints(maxWidth: 370),
                   child: Column(
                     children: [
                       SizedBox(height: 10),
@@ -287,6 +288,7 @@ class _TokenState extends State<Token> {
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
           child: Consumer<UserModal>(
               builder: (context, modal, child) {
                 return Column(
@@ -361,6 +363,7 @@ class _PasswordState extends State<Password> {
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
           child: Column(
             children: [
               SizedBox(height: 10),
