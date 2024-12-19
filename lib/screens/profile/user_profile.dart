@@ -8,6 +8,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/borders.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/styles/custom_profile_tab_indicator.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
 import 'package:test_olliefy/screens/profile/user_posts.dart';
@@ -287,6 +288,60 @@ class _UserProfileState extends State<UserProfile> {
                   ]
                 ),
               ),
+              // posts, my store and stats container
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+                child: Column(
+                  children: [
+                    DefaultTabController(
+                      initialIndex: 0,
+                      length: 3,
+                      child: Center(
+                        child: Container(
+                          child: Column(
+                            children: [
+                              Container(
+                                width: 400,
+                                child: TabBar(
+                                  tabs: [
+                                    Tab(child: Align(alignment: Alignment.centerLeft, child: Text(
+                                      'Posts'
+                                    ))),
+                                    Tab(text: 'My Store'),
+                                    Tab(child: Align(alignment: Alignment.centerRight, child: Text(
+                                      'Stats'
+                                    ))),
+                                  ],
+                                  indicatorColor: AppColors.primaryGold70,
+                                  indicator: CustomProfileTabIndicator(),
+                                  labelColor: AppColors.primaryBlack,
+                                  labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                  unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+                                )
+                              ),
+                              SizedBox(
+                                height: 300,
+                                child: TabBarView(
+                                  children: <Widget>[
+                                    UserPosts(),
+                                    UserStore(),
+                                    UserStats(),
+                                  ]
+                                )
+                              )
+                            ]
+                          )
+                        )
+                      )
+                    )
+                  ]
+                ),
+              ),
+              
+            ]
+          ),
+        )
+      )
     );
   }
 }
