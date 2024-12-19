@@ -51,7 +51,7 @@ class _UserProfileState extends State<UserProfile> {
                           iconSize: 18,
                           onPressed: () {
                             // Navigator.of(context).push(
-                            //   pageSlideAnimation(const MainScreen())
+                            //   pageSlideAnimation(const Settings())
                             // );
                           }
                         ),
@@ -60,7 +60,7 @@ class _UserProfileState extends State<UserProfile> {
                           iconSize: 18,
                           onPressed: () {
                             // Navigator.of(context).push(
-                            //   pageSlideAnimation(const MainScreen())
+                            //   pageSlideAnimation(const Favorites())
                             // );
                           }
                         ),
@@ -73,7 +73,7 @@ class _UserProfileState extends State<UserProfile> {
                           iconSize: 18,
                           onPressed: () {
                             // Navigator.of(context).push(
-                            //   pageSlideAnimation(const MainScreen())
+                            //   pageSlideAnimation(const Notifications())
                             // );
                           }
                         ),
@@ -86,7 +86,7 @@ class _UserProfileState extends State<UserProfile> {
                           iconSize: 18,
                           onPressed: () {
                             // Navigator.of(context).push(
-                            //   pageSlideAnimation(const MainScreen())
+                            //   pageSlideAnimation(const Chat())
                             // );
                           }
                         ),
