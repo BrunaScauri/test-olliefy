@@ -107,19 +107,9 @@ class _UserProfileState extends State<UserProfile> {
                           children: [
                             CustomBorders.profilePictureBorder(width: 80.0, height: 80.0),
                             Container(
-                              width: 80.0,
-                              height: 80.0,
                               decoration: BoxDecoration(
                                 color: AppColors.primaryWhite,
                                 shape: BoxShape.circle,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: AppColors.primaryGray30,
-                                    spreadRadius: -8,
-                                    blurRadius: 15.0,
-                                    offset: Offset(5, 10),
-                                  )
-                                ]
                               )
                             ),
                             Padding(
