@@ -9,6 +9,7 @@ class UserModal extends ChangeNotifier {
   String _email = '';
   String _phoneNumber = '';
   String _password = '';
+  String _token = '';
   
   int _activeIndex = 0;
   final int _totalIndex = 3;
@@ -30,7 +31,6 @@ class UserModal extends ChangeNotifier {
     if(_activeIndex > 0) {
       _activeIndex--;
       notifyListeners();
-      //PLEASE LOOK INTO THIS
     } 
   }
 
@@ -47,6 +47,11 @@ class UserModal extends ChangeNotifier {
     //PHONE CONFIRMATION
     _email = value;
     // _isValid = emailRegExp.hasMatch(value);
+    _isValid = value.isNotEmpty;
+    notifyListeners();
+  }
+  void updateToken(String value) {
+    _token = value;
     _isValid = value.isNotEmpty;
     notifyListeners();
   }
