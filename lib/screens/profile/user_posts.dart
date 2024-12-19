@@ -6,12 +6,12 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 
 import 'package:test_olliefy/screens/main_screen.dart';
 
-class UserStats extends StatefulWidget {
+class UserPosts extends StatefulWidget {
   @override
-  _UserStatsState createState() => _UserStatsState();
+  _UserPostsState createState() => _UserPostsState();
 }
 
-class _UserStatsState extends State<UserStats> {
+class _UserPostsState extends State<UserPosts> {
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -24,6 +24,10 @@ class _UserStatsState extends State<UserStats> {
                 constraints: BoxConstraints(maxWidth: 340),
                 child: ElevatedButton(
                   onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => MainScreen()),
+                    );
                   },
                   style: ButtonStyles.socialsButton(
                     backgroundColor: AppColors.primaryWhite,
@@ -35,7 +39,7 @@ class _UserStatsState extends State<UserStats> {
                         text: TextSpan(
                           style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
                           children: [
-                            TextSpan(text: 'User Stats'),
+                            TextSpan(text: 'User Posts'),
                           ],
                         ),
                       ),

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:test_olliefy/utils/colors.dart';
+import 'package:test_olliefy/utils/styles/texts.dart';
+import 'package:test_olliefy/utils/styles/buttons.dart';
+
 import 'package:test_olliefy/screens/main_screen.dart';
 
 class UserStore extends StatefulWidget {
@@ -11,18 +15,38 @@ class _UserStoreState extends State<UserStore> {
   @override
   Widget build(BuildContext context) {
     return Center(
-        child: Container(
-          child: OutlinedButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(
-                PageRouteBuilder(
-                  pageBuilder:(context, animation, secondaryAnimation) => MainScreen(),
-                )
-              );
-            },
-            child: Text('Return to main screen')
-          )
+      child: Container(
+        child: Column (
+          children: [
+            Padding(
+            padding: const EdgeInsets.all(15.0),
+              child: Container(
+                constraints: BoxConstraints(maxWidth: 340),
+                child: ElevatedButton(
+                  onPressed: () {
+                  },
+                  style: ButtonStyles.socialsButton(
+                    backgroundColor: AppColors.primaryWhite,
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RichText(
+                        text: TextSpan(
+                          style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
+                          children: [
+                            TextSpan(text: 'User Store'),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              )
+            ),
+          ]
         )
-      );
+      )
+    );
   }
 }
