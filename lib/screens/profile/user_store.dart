@@ -21,7 +21,7 @@ class _UserStoreState extends State<UserStore> {
             Padding(
             padding: const EdgeInsets.all(15.0),
               child: Container(
-                constraints: BoxConstraints(maxWidth: 340),
+                constraints: BoxConstraints(maxWidth: 370),
                 child: ElevatedButton(
                   onPressed: () {
                   },
