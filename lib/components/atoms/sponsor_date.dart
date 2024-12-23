@@ -12,7 +12,7 @@ class SponsorDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: BoxConstraints(maxWidth: 270),
+      constraints: BoxConstraints(maxWidth: 230),
       child: Text(
         sponsorDate,
         overflow: TextOverflow.ellipsis,
