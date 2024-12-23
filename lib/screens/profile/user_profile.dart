@@ -11,6 +11,11 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/custom_profile_tab_indicator.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
+import 'package:test_olliefy/screens/profile/user_settings.dart';
+import 'package:test_olliefy/screens/profile/user_favorites.dart';
+import 'package:test_olliefy/screens/profile/user_notifications.dart';
+import 'package:test_olliefy/screens/profile/user_chat.dart';
+
 import 'package:test_olliefy/screens/profile/user_posts.dart';
 import 'package:test_olliefy/screens/profile/user_store.dart';
 import 'package:test_olliefy/screens/profile/user_stats.dart';
@@ -51,18 +56,18 @@ class _UserProfileState extends State<UserProfile> {
                           icon: Image.asset('assets/profile_page/icons/settings_icon.png', width: 18),
                           iconSize: 18,
                           onPressed: () {
-                            // Navigator.of(context).push(
-                            //   pageSlideAnimation(const Settings())
-                            // );
+                            Navigator.of(context).push(
+                              pageSlideAnimation(UserSettings())
+                            );
                           }
                         ),
                         IconButton(
                           icon: Image.asset('assets/profile_page/icons/favorites_icon.png', width: 18),
                           iconSize: 18,
                           onPressed: () {
-                            // Navigator.of(context).push(
-                            //   pageSlideAnimation(const Favorites())
-                            // );
+                            Navigator.of(context).push(
+                              pageSlideAnimation(UserFavorites())
+                            );
                           }
                         ),
                         IconButton(
@@ -73,9 +78,9 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                           iconSize: 18,
                           onPressed: () {
-                            // Navigator.of(context).push(
-                            //   pageSlideAnimation(const Notifications())
-                            // );
+                            Navigator.of(context).push(
+                              pageSlideAnimation(UserNotifications())
+                            );
                           }
                         ),
                         IconButton(
@@ -86,9 +91,9 @@ class _UserProfileState extends State<UserProfile> {
                           ),
                           iconSize: 18,
                           onPressed: () {
-                            // Navigator.of(context).push(
-                            //   pageSlideAnimation(const Chat())
-                            // );
+                            Navigator.of(context).push(
+                              pageSlideAnimation(UserChat())
+                            );
                           }
                         ),
                       ]
