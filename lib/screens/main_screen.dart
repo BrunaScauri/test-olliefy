@@ -121,7 +121,7 @@ class MainScreen extends StatelessWidget {
                   'assets/main_screen.png',
                   alignment: Alignment.bottomCenter,
                   fit: BoxFit.fill,
-                  opacity: const AlwaysStoppedAnimation(.8),
+                  opacity: const AlwaysStoppedAnimation(0.70),
                   width: MediaQuery.of(context).size.width,
                 ),
                 ),
