@@ -31,7 +31,7 @@ class ProfilePictureAtoms { //used on posts only the picture and the border is u
     required double horizontalPadding,
     required double verticalPadding,
     required String imagePath,
-    imageFit = BoxFit.fill,
+    imageFit = BoxFit.cover,
   }) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: verticalPadding),
