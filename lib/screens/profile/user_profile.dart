@@ -8,6 +8,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/borders.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/components/atoms/profile_picture.dart';
 import 'package:test_olliefy/utils/styles/custom_profile_tab_indicator.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
@@ -111,27 +112,8 @@ class _UserProfileState extends State<UserProfile> {
                       children: [
                         Stack(
                           children: [
-                            CustomBorders.profilePictureBorder(width: 80.0, height: 80.0),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: AppColors.primaryWhite,
-                                shape: BoxShape.circle,
-                              )
-                            ),
-                            Padding(
-                              padding: EdgeInsets.symmetric(horizontal: 3.2, vertical: 3.2),
-                              child: Container(
-                                width: 73.6,
-                                height: 73.6,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                    image: AssetImage('assets/profile_page/icons/example_profile_picture_icon.png'),
-                                    fit: BoxFit.fill,
-                                  )
-                                )
-                              )
-                            )
+                            ProfilePicture.customPictureBorder(width: 80.0, height: 80.0),
+                            ProfilePicture.customPicture(width: 73.6, height:  73.6, horizontalPadding: 3.2, verticalPadding: 3.2, imagePath: 'assets/profile_page/icons/example_profile_picture_icon.png'),
                           ]
                         ),
                       ]
@@ -240,21 +222,8 @@ class _UserProfileState extends State<UserProfile> {
                   children: [
                     Stack(
                       children: [
-                        CustomBorders.profilePictureBorder(width: 40.0, height: 40.0),
-                        Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 1.6, vertical: 1.6),
-                          child: Container(
-                            width: 36.8,
-                            height: 36.8,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                image: AssetImage('assets/profile_page/icons/example_sponsor_image.png'),
-                                fit: BoxFit.scaleDown,
-                              )
-                            )
-                          )
-                        )
+                        ProfilePicture.customPictureBorder(width: 40.0, height: 40.0),
+                        ProfilePicture.customPicture(width: 36.8, height:  36.8, horizontalPadding: 1.6, verticalPadding: 1.6, imagePath: 'assets/profile_page/icons/example_sponsor_image.png', imageFit: BoxFit.scaleDown),
                       ]
                     ),
                     SizedBox(width: 16),
