@@ -4,6 +4,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
+import 'package:test_olliefy/screens/profile/sponsors.dart';
 
 class UserSettings extends StatefulWidget {
 	@override
@@ -15,14 +16,14 @@ class _UserSettingsState extends State<UserSettings> {
   bool switchValue = true;
 
   final List<Map<String, dynamic>> items = [
-    {'title': 'Edit Profile', 'page': EditProfile()},
+    {'title': 'Edit Profile'},
     {'title': 'Sponsors received', 'page': SponsorsReceived()},
     {'title': 'Sponsors given', 'page': SponsorsGiven()},
-    {'title': 'Report a problem', 'page': ReportProblem()},
-    {'title': 'Terms and conditions', 'page': TermsAndConditions()},
-    {'title': 'Get in touch', 'page': GetInTouch()},
-    {'title': 'Delete account', 'page': DeleteAccount()},
-    {'title': 'Logout', 'page': Logout()},
+    {'title': 'Report a problem'},
+    {'title': 'Terms and conditions'},
+    {'title': 'Get in touch'},
+    {'title': 'Delete account'},
+    {'title': 'Logout'},
   ];
 
 	@override
@@ -61,6 +62,7 @@ class _UserSettingsState extends State<UserSettings> {
                     )
                   ]
                 ),
+                SizedBox(width: 20),
                 Expanded(
                   child: ListView.builder( 
                   padding: const EdgeInsets.symmetric(horizontal: 0),
@@ -72,9 +74,11 @@ class _UserSettingsState extends State<UserSettings> {
                         trailing: Icon(Icons.keyboard_arrow_right),
                         contentPadding: EdgeInsets.symmetric(horizontal: 0),
                         onTap: () {
-                          Navigator.of(context).push(
-                            pageSlideAnimation(item['page'])
-                          );
+                          if (item['page'] != null) {
+                            Navigator.of(context).push(
+                              pageSlideAnimation(item['page'])
+                            );
+                          }
                         },
                       );
                     },
