@@ -86,6 +86,21 @@ class _SponsorsGivenState extends State<SponsorsGiven> {
     {'imagePath': 'assets/profile_page/icons/example_pfp/6.jpeg', 'profileName': 'Latinotricks', 'sponsorDate': 'Subscribed for 2 months.'},
     {'imagePath': 'assets/profile_page/icons/example_pfp/7.jpeg', 'profileName': 'Ensayo_y_error', 'sponsorDate': 'Make a one-time contribution of 45€'},
     {'imagePath': 'assets/profile_page/icons/example_pfp/8.jpeg', 'profileName': 'Danielsoto', 'sponsorDate': 'Make a one-time contribution of 2€'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/4.jpeg', 'profileName': 'Skatenfly', 'sponsorDate': 'This is an example of a really long sponsor date'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/5.jpeg', 'profileName': 'Theboss', 'sponsorDate': 'Subscribed for 2 months.'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/6.jpeg', 'profileName': 'Latinotricks', 'sponsorDate': 'Subscribed for 2 months.'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/7.jpeg', 'profileName': 'Ensayo_y_error', 'sponsorDate': 'Make a one-time contribution of 45€'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/8.jpeg', 'profileName': 'Danielsoto', 'sponsorDate': 'Make a one-time contribution of 2€'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/4.jpeg', 'profileName': 'Skatenfly', 'sponsorDate': 'This is an example of a really long sponsor date'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/5.jpeg', 'profileName': 'Theboss', 'sponsorDate': 'Subscribed for 2 months.'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/6.jpeg', 'profileName': 'Latinotricks', 'sponsorDate': 'Subscribed for 2 months.'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/7.jpeg', 'profileName': 'Ensayo_y_error', 'sponsorDate': 'Make a one-time contribution of 45€'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/8.jpeg', 'profileName': 'Danielsoto', 'sponsorDate': 'Make a one-time contribution of 2€'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/4.jpeg', 'profileName': 'Skatenfly', 'sponsorDate': 'This is an example of a really long sponsor date'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/5.jpeg', 'profileName': 'Theboss', 'sponsorDate': 'Subscribed for 2 months.'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/6.jpeg', 'profileName': 'Latinotricks', 'sponsorDate': 'Subscribed for 2 months.'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/7.jpeg', 'profileName': 'Ensayo_y_error', 'sponsorDate': 'Make a one-time contribution of 45€'},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/8.jpeg', 'profileName': 'Danielsoto', 'sponsorDate': 'Make a one-time contribution of 2€'},
   ];
 
 	@override
