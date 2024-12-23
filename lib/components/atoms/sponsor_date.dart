@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
 class SponsorDate extends StatelessWidget {
@@ -13,8 +12,12 @@ class SponsorDate extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text(sponsorDate, style: TextsStyles.sponsorDate()),
-          
+      constraints: BoxConstraints(maxWidth: 270),
+      child: Text(
+        sponsorDate,
+        overflow: TextOverflow.ellipsis,
+        maxLines: 1,
+      ),
     );
   }
 }
