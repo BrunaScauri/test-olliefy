@@ -57,4 +57,12 @@ class TextsStyles{
       fontWeight: FontWeight.w400,
     );
   }
+
+  static TextStyle sponsorDate(){
+    return TextStyle(
+    color: AppColors.primaryGray30,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    );
+  }
 }
