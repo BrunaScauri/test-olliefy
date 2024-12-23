@@ -8,7 +8,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/borders.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
-import 'package:test_olliefy/components/atoms/profile_picture.dart';
+import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 import 'package:test_olliefy/utils/styles/custom_profile_tab_indicator.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
@@ -112,8 +112,7 @@ class _UserProfileState extends State<UserProfile> {
                       children: [
                         Stack(
                           children: [
-                            ProfilePicture.customPictureBorder(width: 80.0, height: 80.0),
-                            ProfilePicture.customPicture(width: 73.6, height:  73.6, horizontalPadding: 3.2, verticalPadding: 3.2, imagePath: 'assets/profile_page/icons/example_profile_picture_icon.png'),
+                            ProfilePicture(borderWidth: 80.0, borderHeight: 80.0, imageWidth: 73.6, imageHeight: 73.6, imageHorizontalPadding: 3.2, imageVerticalPadding: 3.2, imagePath: 'assets/profile_page/icons/example_profile_picture_icon.png'),
                           ]
                         ),
                       ]
@@ -220,12 +219,7 @@ class _UserProfileState extends State<UserProfile> {
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
                 child: Row(
                   children: [
-                    Stack(
-                      children: [
-                        ProfilePicture.customPictureBorder(width: 40.0, height: 40.0),
-                        ProfilePicture.customPicture(width: 36.8, height:  36.8, horizontalPadding: 1.6, verticalPadding: 1.6, imagePath: 'assets/profile_page/icons/example_sponsor_image.png', imageFit: BoxFit.scaleDown),
-                      ]
-                    ),
+                    ProfilePicture(borderWidth: 40.0, borderHeight: 40.0, imageWidth: 36.8, imageHeight: 36.8, imageHorizontalPadding: 1.6, imageVerticalPadding: 1.6, imagePath: 'assets/profile_page/icons/example_sponsor_image.png', imageFit: BoxFit.scaleDown),
                     SizedBox(width: 16),
                     RichText(
                       text: TextSpan( 
