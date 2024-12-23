@@ -4,10 +4,13 @@ import 'package:provider/provider.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/modal/register_steps.dart';
 import 'package:test_olliefy/screens/map.dart';
+import 'package:test_olliefy/screens/main_screen.dart';
+import 'package:test_olliefy/screens/profile/user_profile.dart';
 
 class RegisterModal extends StatefulWidget {
   const RegisterModal({super.key});
@@ -89,7 +92,7 @@ class _RegisterModalState extends State<RegisterModal> {
                                   Navigator.of(context).push(
                                       pageSlideAnimation(
                                         MainScreen(), 
-    newPageBegin: const Offset(1.0, 0.0),
+                                        newPageBegin: const Offset(1.0, 0.0),
                                       ),
                                   );
                                 }
@@ -139,7 +142,7 @@ class _RegisterModalState extends State<RegisterModal> {
                               Provider.of<UserModal>(context, listen: false).incrementStep(context);
                             } else if(modal.activeIndex == 4) {
                                 Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(builder: (context) => Map()),
+                                  MaterialPageRoute(builder: (context) => UserProfile()),
                                 );
                               }
                             else {
