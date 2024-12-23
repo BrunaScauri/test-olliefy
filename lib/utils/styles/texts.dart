@@ -18,6 +18,14 @@ class TextsStyles{
     );
   }
 
+  static TextStyle profileDataBolder(){
+    return TextStyle(
+      color: AppColors.primaryBlack,
+      fontSize: 16,
+      fontWeight: FontWeight.w800,
+    );
+  }
+
   static TextStyle profileData(){
     return TextStyle(
       color: AppColors.primaryGray30,
@@ -39,6 +47,14 @@ class TextsStyles{
       color: AppColors.primaryBlack,
       fontSize: 14,
       fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle settingsSubtitle(){
+    return TextStyle(
+      color: AppColors.primaryBlack,
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
     );
   }
 }
