@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 
-class ProfilePicture {
+class ProfilePictureAtoms { //used on posts only the picture and the border is used on the locations 
   static customPictureBorder({
     required double width,
     required double height,
