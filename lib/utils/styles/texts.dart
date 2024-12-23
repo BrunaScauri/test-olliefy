@@ -65,4 +65,14 @@ class TextsStyles{
     fontWeight: FontWeight.w400,
     );
   }
+
+  static TextStyle sponsorSubscription({
+    required Color color,
+  }){
+    return TextStyle(
+    color: color,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    );
+  }
 }
