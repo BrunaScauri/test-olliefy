@@ -275,6 +275,7 @@ class Token extends StatefulWidget {
 
 class _TokenState extends State<Token> {
   final TextEditingController _tokenController = TextEditingController();
+  final String token = "";
 
   @override
   void dispose() {
@@ -290,53 +291,69 @@ class _TokenState extends State<Token> {
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),
           child: Consumer<UserModal>(
-              builder: (context, modal, child) {
-                return Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(height: 10),
-                      RichText(
-                        text:TextSpan(style: TextStyles.primaryHeader(), children: [
-                          TextSpan(text:'Enter the code'),
-                        ])
+            builder: (context, modal, child) {
+              return Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    RichText(
+                      text:TextSpan(style: TextStyles.primaryHeader(), children: [
+                        TextSpan(text:'Enter the code'),
+                      ])
+                    ),
+                    SizedBox(height: 16),
+                    RichText(
+                      text:TextSpan(style: TextStyles.primaryText(), children: [
+                        TextSpan(text:'We sent a code to validate your phone number.'),
+                      ])
+                    ),
+                    SizedBox(height: 40),
+                    PinCodeTextField(
+                      appContext: context,
+                      controller: _tokenController,
+                      length: 5,
+                      obscureText: false,
+                      // animationType: AnimationType.slide,
+                      animationDuration: Duration(milliseconds: 500), 
+                      animationCurve: Curves.easeOutQuad,
+                      pinTheme: PinTheme(
+                        shape: PinCodeFieldShape.box,
+                        borderRadius: BorderRadius.circular(5),
+                        borderWidth: 10.0,
+                        fieldHeight: 56,
+                        fieldWidth: 56,
+                        activeColor: AppColors.primaryBlack,
+                        selectedColor: AppColors.primaryGold70,
+                        inactiveColor: AppColors.primaryBlack,
                       ),
-                      SizedBox(height: 16),
-                      RichText(
-                        text:TextSpan(style: TextStyles.primaryText(), children: [
-                          TextSpan(text:'We sent a code to validate your phone number.'),
-                        ])
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 20.0),
-                        child: Text('code')
-                      ),
-                      //code input goes here
-                      RichText(
-                        text:TextSpan(style: TextStyles.primaryText(), children: [
-                          TextSpan(text:'Didn’t receive the message? '),
-                          TextSpan(
-                            text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
-                            // onclick: 
-                            ),
-                        ])
-                      ),
-                      Container(
-                        constraints: BoxConstraints(maxWidth: 340),
-                        child: TextFormField(
-                          controller: _tokenController,
-                          onChanged: (value) {
-                            modal.updateToken(value);
-                          },
-                          decoration: FormDecorations.textFieldDecoration(
-                            labelText: 'Phone number',
-                            prefixIcon: Icons.email_outlined,
-                          ),
+                      keyboardType: TextInputType.number,
+                      autoDismissKeyboard: false,
+                      onCompleted: (value) {
+                        modal.updateEmail(value);
+                      },
+                      // onChanged: (value) {
+                      //   print(value);
+                      // },
+                      // beforeTextPaste: (text) {
+                      //   print("Allowing to paste $text");
+                      //   return true;
+                      // },
+                    ),
+                    SizedBox(height: 40),
+                    RichText(
+                      text:TextSpan(style: TextStyles.primaryText(), children: [
+                        TextSpan(text:'Didn’t receive the message? '),
+                        TextSpan( //add resend logic
+                          text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
                         ),
-                      )
-                    ]
-                  );
-              }
-            )
+                      ])
+                    ),
+                  ]
+                )
+              );
+            }
+          )
         )
       ),
     );
