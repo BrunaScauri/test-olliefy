@@ -37,25 +37,28 @@ class _RegisterModalState extends State<RegisterModal> {
                 return Container(
                   child: Column(
                     children: [
-                      Row(
-                        children: List.generate(
-                          _getMappedActiveIndex(modal.totalIndex),
-                          (index) => Expanded(
-                            child: Container(
-                              height: 8,
-                              decoration: BoxDecoration(
-                                color: index <= _getMappedActiveIndex(modal.activeIndex)
-                                    ? AppColors.primaryGold20Stepper
-                                    : AppColors.primaryGold10,
-                                border: Border.all(
-                                  color: index == _getMappedActiveIndex(modal.activeIndex)
-                                      ? AppColors.primaryGold60
-                                      : AppColors.primaryGold40,
-                                  width: 1,
-                                ),
-                                borderRadius: BorderRadius.only(
-                                  topLeft: index == 0 ? Radius.circular(40) : Radius.zero,
-                                  topRight: index == _getMappedActiveIndex(modal.activeIndex) - 1 ? Radius.circular(40) : Radius.zero,
+                      Container(
+                        color: AppColors.primaryGold60,
+                        child: Row(
+                          children: List.generate(
+                            _getMappedActiveIndex(modal.totalIndex),
+                            (index) => Expanded(
+                              child: Container(
+                                height: 8,
+                                decoration: BoxDecoration(
+                                  color: index <= _getMappedActiveIndex(modal.activeIndex)
+                                      ? AppColors.primaryGold20Stepper
+                                      : AppColors.primaryGold10,
+                                  border: Border.all(
+                                    color: index == _getMappedActiveIndex(modal.activeIndex)
+                                        ? AppColors.primaryGold60
+                                        : AppColors.primaryGold40,
+                                    width: 1,
+                                  ),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: index == 0 ? Radius.circular(40) : Radius.zero,
+                                    topRight: index == _getMappedActiveIndex(modal.totalIndex) - 1 ? Radius.circular(40) : Radius.zero,
+                                  ),
                                 ),
                               ),
                             ),
