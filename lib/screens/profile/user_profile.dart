@@ -238,23 +238,28 @@ class _UserProfileState extends State<UserProfile> {
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
                 child: Row(
                   children: [
-                    ElevatedButton(
-                      onPressed: () {
-                      },
-                      child: RichText(
-                        text:TextSpan(style: TextsStyles.profileHyperlink(), children: [
-                          TextSpan(text:'Edit profile'),
-                        ])
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryGold60,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
+                    Container(
+                      width: 112,
+                      height: 40,
+                      child: ElevatedButton(
+                        onPressed: () {
+                        },
+                        child: RichText(
+                          text:TextSpan(style: TextsStyles.profileHyperlink(), children: [
+                            TextSpan(text:'Edit profile'),
+                          ])
                         ),
-                      ),
-                    )
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primaryGold60,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          padding: EdgeInsets.symmetric(vertical: 10.0),
+                        ),
+                      )
+                    ),
                   ]
-                ),
+                )
               ),
               // posts, my store and stats container
               Padding(
