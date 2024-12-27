@@ -27,6 +27,18 @@ class ButtonStyles {
       ),
     );
   }
+
+  static ButtonStyle marketplaceButton({
+    required Color backgroundColor}) {
+    return ElevatedButton.styleFrom(
+      minimumSize: Size(343, 60),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      side: BorderSide(width: 1.0, color: AppColors.primaryGray50)
+    );
+  }
   
 }
 
