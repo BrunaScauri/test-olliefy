@@ -75,4 +75,12 @@ class TextsStyles{
     fontWeight: FontWeight.w700,
     );
   }
+
+  static TextStyle activityDate(){
+    return TextStyle(
+    color: AppColors.primaryGray30,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    );
+  }
 }
