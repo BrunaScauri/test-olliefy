@@ -93,10 +93,9 @@ class _RegisterModalState extends State<RegisterModal> {
                                 iconSize: 24,
                                 onPressed: () {
                                   Navigator.of(context).push(
-                                      pageSlideAnimation(
-                                        MainScreen(), 
-                                        newPageBegin: const Offset(1.0, 0.0),
-                                      ),
+                                    slideOutgoingDown(
+                                      enterPage: MainScreen(), exitPage: RegisterModal(),
+                                    ),
                                   );
                                 }
                               ),
