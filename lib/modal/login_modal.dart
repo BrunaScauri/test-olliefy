@@ -135,16 +135,19 @@ class _LoginModalState extends State<LoginModal> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'assets/google_logo.png',
-                  height: 12,
-                  width: 12,
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: Image.asset(
+                    'assets/google_logo.png',
+                    height: 12,
+                    width: 12,
+                  ),
                 ),
                 RichText(
                   text: TextSpan(
                     style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
                     children: [
-                      TextSpan(text: '  Continue with Google'),
+                      TextSpan(text: 'Continue with Google'),
                     ],
                   ),
                 ),
@@ -160,16 +163,19 @@ class _LoginModalState extends State<LoginModal> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SvgPicture.asset(
-                  'assets/Apple_logo.svg',
-                  colorFilter: const ColorFilter.mode(AppColors.primaryWhite, BlendMode.srcIn),
-                  height: 15,
+                Padding(
+                  padding: const EdgeInsets.only(right: 8),
+                  child: SvgPicture.asset(
+                    'assets/Apple_logo.svg',
+                    colorFilter: const ColorFilter.mode(AppColors.primaryWhite, BlendMode.srcIn),
+                    height: 15,
+                  ),
                 ),
                 RichText(
                   text: TextSpan(
                     style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite),
                     children: [
-                      TextSpan(text: '  Continue with Apple'),
+                      TextSpan(text: 'Continue with Apple'),
                     ],
                   ),
                 ),
