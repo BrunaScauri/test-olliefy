@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import 'package:test_olliefy/screens/main_screen.dart';
-import 'package:test_olliefy/modal/user_modal.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
@@ -228,23 +226,33 @@ final TextEditingController _phoneController = TextEditingController();
                                     ),
                                     Column(
                                       children: [
-                                      Padding(
-                                        padding: const EdgeInsets.all(15.0),
-                                        child: Container(
-                                          constraints: BoxConstraints(maxWidth: 340),
-                                          child: TextFormField(
-                                            controller: _phoneController,
-                                            onChanged: (value) {
-                                              modal.updatePhoneNumber(value);
-                                            },
-                                            decoration: FormDecorations.textFieldDecoration(
-                                              labelText: 'Phone number',
-                                              prefixIcon: Icons.email_outlined,
-                                            ),
-                                          ),
+                                        Padding(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: Container(
+                                            constraints: BoxConstraints(maxWidth: 340),
+                                            child: Column(
+                                              children: [
+                                                TextFormField(
+                                                  controller: _phoneController,
+                                                  keyboardType: TextInputType.number,
+                                                  inputFormatters: <TextInputFormatter>[
+                                                    FilteringTextInputFormatter.digitsOnly,
+                                                    MaskTextInputFormatter(
+                                                      mask: '+## ### ### ###', 
+                                                    )
+                                                  ],
+                                                  onChanged: (value) {
+                                                    modal.updatePhoneNumber(value);
+                                                  },
+                                                  decoration: FormDecorations.textFieldDecoration(
+                                                    labelText: 'Phone number',
+                                                    prefixIconWidget:  _currentFlag,
+                                                  ),
+                                                ),
+                                              ]
+                                            )
+                                          )
                                         )
-                                      )
-
                                       ]
                                     ),
                                   ]
@@ -260,7 +268,6 @@ final TextEditingController _phoneController = TextEditingController();
                   );
                 }
             ),
-            
           ]
         )
       ),
