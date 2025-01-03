@@ -490,112 +490,110 @@ class Permissions extends StatefulWidget {
 class _PermissionsState extends State<Permissions> {
 
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return ChangeNotifierProvider<UserModal>(
       create: (context) => UserModal(),
-          child: Scaffold(
-            backgroundColor: AppColors.primaryWhite,
-            body: Column(
+      child: Scaffold(
+        backgroundColor: AppColors.primaryWhite,
+        body: Center(
+          child: Container(
+            child: Column(
               children: [
-                Consumer<UserModal>(
-                builder: (context, modal, child) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                    child: Column(
-                      children: [
-                        Container(
-                          child: Column(
+            Consumer<UserModal>(
+            builder: (context, modal, child) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Column(
+                  children: [
+                    Container(
+                      constraints: BoxConstraints(maxWidth: 370),
+                      child: Column(
+                        children: [
+                          SizedBox(height: 20),
+                          Container(
+                            child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
+                          ),
+                          SizedBox(height: 40),
+                          Container(
+                              child: RichText(
+                                text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                                  TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
+                                ])
+                              )
+                          ),
+                        ]
+                      )
+                    ),
+                    SizedBox(height: 40),
+                    Container(
+                      constraints: BoxConstraints(maxWidth: 450),
+                      child: Column(
+                        children: [
+                          Row(
                             children: [
-                              SizedBox(height: 20),
                               Container(
-                                child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
                               ),
-                              SizedBox(height: 40),
-                              Container(
-                                  child: RichText(
-                                    text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
-                                      TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
-                                    ])
-                                  )
+                              SizedBox(width: 16),
+                              RichText(
+                              text:TextSpan(style: TextStyles.primaryText(), children: [
+                                TextSpan(text:'Location'),
+                                ])
                               ),
                             ]
-                          )
-                        ),
-                        SizedBox(height: 40),
-                        Container(
-                          constraints: BoxConstraints(maxWidth: 450),
-                          child: Column(
+                          ),
+                          SizedBox(height: 16),
+                          Row(
                             children: [
-                              Row(
-                                children: [
-                                  Container(
-                                    child: SvgPicture.asset(
-                                      'assets/permissions_page/icons/location_icon.svg',
-                                      colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn),
-                                      height: 15,
-                                    )
-                                  ),
-                                  SizedBox(width: 16),
-                                  RichText(
-                                  text:TextSpan(style: TextStyles.primaryText(), children: [
-                                    TextSpan(text:'Location'),
-                                    ])
-                                  ),
-                                ]
+                              Container(
                               ),
-                              SizedBox(height: 16),
-                              Row(
-                                children: [
-                                  Container(
-                                    // child: SvgPicture.asset('assets/permissions_page/icons/camera_icon.svg', colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn), height: 2),
-                                  ),
-                                  SizedBox(width: 16),
-                                  RichText(
-                                  text:TextSpan(style: TextStyles.primaryText(), children: [
-                                    TextSpan(text:'Camera'),
-                                    ])
-                                  ),
-                                ]
-                              ),
-                              SizedBox(height: 16),
-                              Row(
-                                children: [
-                                  Container(
-                                    // child: Image(image: AssetImage('assets/permissions_page/icons/photo_gallery_icon.svg'), height: 30, width: 30),
-                                  ),
-                                  SizedBox(width: 16),
-                                  RichText(
-                                  text:TextSpan(style: TextStyles.primaryText(), children: [
-                                    TextSpan(text:'Photo gallery'),
-                                    ])
-                                  ),
-                                ]
-                              ),
-                              SizedBox(height: 16),
-                              Row(
-                                children: [
-                                  Container(
-                                    // child: Image(image: AssetImage('assets/permissions_page/icons/contacts_icon.svg'), height: 10, width: 30),
-                                  ),
-                                  SizedBox(width: 16),
-                                  RichText(
-                                  text:TextSpan(style: TextStyles.primaryText(), children: [
-                                    TextSpan(text:'Contacts'),
-                                    ])
-                                  ),
-                                ]
+                              SizedBox(width: 16),
+                              RichText(
+                              text:TextSpan(style: TextStyles.primaryText(), children: [
+                                TextSpan(text:'Camera'),
+                                ])
                               ),
                             ]
-                          )
-                        )
-                      ]
+                          ),
+                          SizedBox(height: 16),
+                          Row(
+                            children: [
+                              Container(
+                              ),
+                              SizedBox(width: 16),
+                              RichText(
+                              text:TextSpan(style: TextStyles.primaryText(), children: [
+                                TextSpan(text:'Photo gallery'),
+                                ])
+                              ),
+                            ]
+                          ),
+                          SizedBox(height: 16),
+                          Row(
+                            children: [
+                              Container(
+                              ),
+                              SizedBox(width: 16),
+                              RichText(
+                              text:TextSpan(style: TextStyles.primaryText(), children: [
+                                TextSpan(text:'Contacts'),
+                                ])
+                              ),
+                            ]
+                          ),
+                        ]
+                      )
                     )
-                  );
-                },
-              )
+                  ]
+                )
+              );
+            },
+          )
+
               ]
             )
           )
-        );
+        )
+      )
+    );
   }
 }
