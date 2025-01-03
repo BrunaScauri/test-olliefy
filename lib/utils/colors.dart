@@ -16,9 +16,11 @@ class AppColors {
 
   static const Color primaryBlack = Color.fromRGBO(0, 0, 0, 1);
   static const Color chatMessageGrey = Color.fromRGBO(247, 247, 247, 1);
+  static const Color primaryGray80 = Color.fromRGBO(30, 28, 23, 1);
   static const Color primaryGray50 = Color.fromRGBO(74, 71, 57, 1);
   static const Color primaryGray30 = Color.fromRGBO(132, 129, 117, 1);
   static const Color primaryGray10 = Color.fromRGBO(74, 71, 57, 1);
+  static const Color primaryGray5 = Color.fromRGBO(204, 202, 193, 1);
   static const Color buttonDisabled12 = Color.fromRGBO(74, 71, 57, 0.12);
   static const Color primaryWhite = Color.fromRGBO(255, 255, 255, 1);
 }
