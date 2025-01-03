@@ -76,8 +76,23 @@ class PhoneOrEmail extends StatefulWidget {
 }
 
 class _PhoneOrEmailState extends State<PhoneOrEmail> {
-final TextEditingController _emailController = TextEditingController();
-final TextEditingController _phoneController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _phoneController = TextEditingController();
+  String _currentFlag = '';
+  
+   void _updateFlag(String value) {
+    if (value.length >= 3) {
+      final prefix = value.substring(1, 3); //extract 2 first chars skipping "+"
+      setState(() {
+        _currentFlag = getImagePath(prefix) ?? _currentFlag;
+        print(prefix);
+      });
+    } else {
+      setState(() {
+        _currentFlag = _currentFlag;
+      });
+    }
+  }
 
   @override
   void dispose() {
@@ -238,15 +253,48 @@ final TextEditingController _phoneController = TextEditingController();
                                                   inputFormatters: <TextInputFormatter>[
                                                     FilteringTextInputFormatter.digitsOnly,
                                                     MaskTextInputFormatter(
-                                                      mask: '+## ### ### ###', 
+                                                      mask: '+## ### ### ###',
                                                     )
                                                   ],
                                                   onChanged: (value) {
+                                                    _updateFlag(value);
                                                     modal.updatePhoneNumber(value);
                                                   },
-                                                  decoration: FormDecorations.textFieldDecoration(
+                                                  decoration: InputDecoration(
                                                     labelText: 'Phone number',
-                                                    prefixIconWidget:  _currentFlag,
+                                                    prefixIcon: _currentFlag == '' ? 
+                                                    SizedBox(
+                                                      width: 50,
+                                                      height: 50,
+                                                      child: Center(
+                                                        child: CircleAvatar(
+                                                          radius: 25,
+                                                          backgroundColor: Colors.transparent,
+                                                          child: Image.asset(
+                                                            'assets/default_flag.png',
+                                                            fit: BoxFit.cover,
+                                                          ),
+                                                        )
+                                                      ),
+                                                    ) : 
+                                                    SizedBox(
+                                                      width: 50,
+                                                      height: 50,
+                                                      child: Center(
+                                                        child: CircleAvatar(
+                                                          radius: 25,
+                                                          // backgroundColor: Colors.transparent,
+                                                          child: ClipOval(
+                                                            child: Image.asset(
+                                                              _currentFlag,
+                                                              package: 'country_icons',
+                                                              fit: BoxFit.fill,
+                                                            ),
+                                                          )
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    border: OutlineInputBorder(),
                                                   ),
                                                 ),
                                               ]
