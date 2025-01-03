@@ -84,3 +84,22 @@ class TextsStyles{
     );
   }
 }
+
+class UserStoreStyles{
+  static TextStyle itemPrice(){
+    return TextStyle(
+    overflow: TextOverflow.ellipsis,
+    color: AppColors.primaryBlack,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    );
+  }
+  static TextStyle itemDescription(){
+    return TextStyle(
+    overflow: TextOverflow.ellipsis,
+    color: AppColors.primaryBlack,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    );
+  }
+}
