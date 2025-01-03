@@ -6,6 +6,8 @@ class FormDecorations {
     String? labelText,
     IconData? prefixIcon,
     Widget? prefixIconWidget,
+    Color? textColor = AppColors.primaryGray50,
+    Color? iconColor = AppColors.primaryBlack,
   }) {
     return InputDecoration(
       border: OutlineInputBorder(
@@ -22,7 +24,7 @@ class FormDecorations {
       ),
       labelText: labelText,
       labelStyle: TextStyle(
-        color: AppColors.primaryGray50,
+        color: textColor,
         fontSize: 16,
       ),
       floatingLabelStyle: TextStyle(
@@ -33,7 +35,7 @@ class FormDecorations {
           padding: EdgeInsets.all(11.0),
           child: prefixIconWidget,
         )
-        : prefixIcon != null ? Icon(prefixIcon) : null,
+        : prefixIcon != null ? Icon(prefixIcon, color: iconColor) : null,
     );
   }
 }
