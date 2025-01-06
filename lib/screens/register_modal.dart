@@ -134,7 +134,7 @@ class _RegisterModalState extends State<RegisterModal> {
               builder: (context, modal, child) {
                 return Padding(
                   padding: const EdgeInsets.all(16.0),
-                      child: Row(
+                      child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
@@ -162,10 +162,9 @@ class _RegisterModalState extends State<RegisterModal> {
                           ),
                         ),
                       SizedBox(height: 40),
-                    ],
+                    ]
                   )
                 );
-                
               },
             ),
           ],
