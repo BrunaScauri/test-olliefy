@@ -77,8 +77,8 @@ class _UserChatState extends State<UserChat> {
                     ),
                     SizedBox(width: 16.0),
                     Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                      margin: EdgeInsets.all(8.0),
+                      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                      margin: EdgeInsets.all(16.0),
                       decoration: BoxDecoration(
                         color: AppColors.chatMessageGrey,
                         borderRadius: BorderRadius.only(
@@ -101,7 +101,7 @@ class _UserChatState extends State<UserChat> {
                     Positioned(
                       right: 0.0,
                       child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
                         margin: EdgeInsets.all(8.0),
                         decoration: BoxDecoration(
                           color: AppColors.primaryGray80,
