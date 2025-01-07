@@ -4,6 +4,7 @@ class AppColors {
 
   static const Color primaryGold70 = Color.fromRGBO(134, 118, 32, 1);
   static const Color primaryGold70SwitchSettings = Color.fromRGBO(107, 95, 16, 1);
+  static const Color primaryGold60FollowButton = Color.fromRGBO(178, 159, 44, 1);
   static const Color primaryGold60 = Color.fromRGBO(222, 199, 55, 1);
   static const Color primaryGold40 = Color.fromRGBO(229, 210, 95, 1);
   static const Color primaryGold30 = Color.fromRGBO(236, 212, 68, 1);
