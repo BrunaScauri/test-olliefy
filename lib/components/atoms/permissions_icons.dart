@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
 
 class ProfileName extends StatelessWidget {
   final String imagePath;
