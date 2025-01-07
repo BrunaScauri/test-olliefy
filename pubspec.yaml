@@ -32,7 +32,7 @@ flutter:
     - ./assets/
     - ./assets/splashscreen/
     - ./assets/icons/
-    - ./assets/icons/permissions_page/icons/
+    - ./assets/permissions_page/icons/
     - ./assets/permissions_page/
     - ./assets/profile_page/
     - ./assets/profile_page/example_posts/
