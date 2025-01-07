@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:test_olliefy/utils/colors.dart';
 
-class ProfileName extends StatelessWidget {
+class PermissionsIcons extends StatelessWidget {
   final String imagePath;
 
-  const ProfileName({
+  const PermissionsIcons({
     Key? key,
     this.imagePath = '',
   }) : super(key: key);
