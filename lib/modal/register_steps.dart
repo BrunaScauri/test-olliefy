@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
-import 'package:test_olliefy/utils/buttons.dart';
-import 'package:flutter_svg/svg.dart';
-
+import 'package:test_olliefy/components/molecules/permissions_card.dart';
 
 class ProfileName extends StatefulWidget {
   @override
@@ -499,96 +498,54 @@ class _PermissionsState extends State<Permissions> {
           child: Container(
             child: Column(
               children: [
-            Consumer<UserModal>(
-            builder: (context, modal, child) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                child: Column(
-                  children: [
-                    Container(
-                      constraints: BoxConstraints(maxWidth: 370),
+                Consumer<UserModal>(
+                  builder: (context, modal, child) {
+                    return Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
                       child: Column(
                         children: [
-                          SizedBox(height: 20),
                           Container(
-                            child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
-                          ),
-                          SizedBox(height: 40),
-                          Container(
-                              child: RichText(
-                                text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
-                                  TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
-                                ])
-                              )
-                          ),
-                        ]
-                      )
-                    ),
-                    SizedBox(height: 40),
-                    Container(
-                      constraints: BoxConstraints(maxWidth: 450),
-                      child: Column(
-                        children: [
-                          Row(
-                            children: [
-                              Container(
-                              ),
-                              SizedBox(width: 16),
-                              RichText(
-                              text:TextSpan(style: TextStyles.primaryText(), children: [
-                                TextSpan(text:'Location'),
-                                ])
-                              ),
-                            ]
-                          ),
-                          SizedBox(height: 16),
-                          Row(
-                            children: [
-                              Container(
-                              ),
-                              SizedBox(width: 16),
-                              RichText(
-                              text:TextSpan(style: TextStyles.primaryText(), children: [
-                                TextSpan(text:'Camera'),
-                                ])
-                              ),
-                            ]
-                          ),
-                          SizedBox(height: 16),
-                          Row(
-                            children: [
-                              Container(
-                              ),
-                              SizedBox(width: 16),
-                              RichText(
-                              text:TextSpan(style: TextStyles.primaryText(), children: [
-                                TextSpan(text:'Photo gallery'),
-                                ])
-                              ),
-                            ]
-                          ),
-                          SizedBox(height: 16),
-                          Row(
-                            children: [
-                              Container(
-                              ),
-                              SizedBox(width: 16),
-                              RichText(
-                              text:TextSpan(style: TextStyles.primaryText(), children: [
-                                TextSpan(text:'Contacts'),
-                                ])
-                              ),
-                            ]
-                          ),
-                        ]
-                      )
-                    )
-                  ]
-                )
-              );
-            },
-          )
+                            constraints: BoxConstraints(maxWidth: 370),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 40.0),
+                                  child: Container(
+                                    child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
+                                  ),
+                                ),
+                                Container(
+                                    child: RichText(
+                                      text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                                        TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
+                                      ])
+                                    )
+                                ),
+                                Padding(
+                                  padding: EdgeInsets.symmetric(vertical: 40.0),
+                                  child: Column(
+                                    children: [
+                                      SizedBox(height: 40),
+                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/location_icon.svg', permissionName: 'Location'),
+                                      SizedBox(height: 16),
+                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/camera_icon.svg', permissionName: 'Camera'),
+                                      SizedBox(height: 16),
+                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/photo_gallery_icon.svg', permissionName: 'Photo gallery'),
+                                      SizedBox(height: 16),
+                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/contacts_icon.svg', permissionName: 'Contacts'),
+                                      SizedBox(height: 16),
 
+                                    ]
+                                  )
+                                )
+                              ]
+                            )
+                          ),
+                        ]
+                      )
+                    );
+                  },
+                )
               ]
             )
           )
