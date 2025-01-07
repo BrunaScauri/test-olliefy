@@ -138,26 +138,28 @@ class _RegisterModalState extends State<RegisterModal> {
                     children: [
                       ElevatedButton(
                           onPressed: () {
-                            if(modal.isStepValid && modal.activeIndex < 4) {
+                            if(modal.isStepValid && modal.activeIndex <= 5) { //validation for controllable pages
                               Provider.of<UserModal>(context, listen: false).restartEvaluating();
                               Provider.of<UserModal>(context, listen: false).incrementStep(context);
-                            } else if(modal.activeIndex == 4) {
-                                Navigator.of(context).pushReplacement(
-                                  MaterialPageRoute(builder: (context) => UserProfile()),
-                                );
-                              }
-                            else {
+                            } else if(modal.activeIndex == 4 || modal.activeIndex == 5) { //exception for controller-less pages (can't be validated but are valid steps)
+                              Provider.of<UserModal>(context, listen: false).restartEvaluating();
+                              Provider.of<UserModal>(context, listen: false).incrementStep(context);
+                            } else if(modal.activeIndex == 5) { //push outside of register steps, last step
+                              Navigator.of(context).pushReplacement(
+                                MaterialPageRoute(builder: (context) => UserProfile()),
+                              );
+                            } else {
                               null;
                             }
                           },
-                          style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex < 4
+                          style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex != 4 && modal.activeIndex != 5
                           ? ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12) 
                           : ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryGold60),
                           child: Text(
-                          modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
-                          style: Provider.of<UserModal>(context).isStepValid
-                          ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack) 
-                          : TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
+                            modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
+                            style: Provider.of<UserModal>(context).isStepValid
+                            ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack) 
+                            : TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
                           ),
                         ),
                       SizedBox(height: 40),
@@ -184,6 +186,8 @@ class _RegisterModalState extends State<RegisterModal> {
         return Password();
       case 4:
         return Permissions();
+      case 5:
+        return SuggestedProfiles();
       default:
         return ProfileName();
     }
