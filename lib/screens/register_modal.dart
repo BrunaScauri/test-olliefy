@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
+import 'package:test_olliefy/utils/route/slide_outgoing_down.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/modal/register_steps.dart';
