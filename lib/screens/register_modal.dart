@@ -20,7 +20,7 @@ class RegisterModal extends StatefulWidget {
   _RegisterModalState createState() => _RegisterModalState();
 }
 
-class _RegisterModalState extends State<RegisterModal> {
+class _RegisterModalState extends State<RegisterModal> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<UserModal>(
@@ -139,16 +139,16 @@ class _RegisterModalState extends State<RegisterModal> {
                     children: [
                       ElevatedButton(
                           onPressed: () {
-                            if(modal.isStepValid && modal.activeIndex <= 5) { //validation for controllable pages
-                              Provider.of<UserModal>(context, listen: false).restartEvaluating();
-                              Provider.of<UserModal>(context, listen: false).incrementStep(context);
-                            } else if(modal.activeIndex == 4 || modal.activeIndex == 5) { //exception for controller-less pages (can't be validated but are valid steps)
-                              Provider.of<UserModal>(context, listen: false).restartEvaluating();
-                              Provider.of<UserModal>(context, listen: false).incrementStep(context);
-                            } else if(modal.activeIndex == 5) { //push outside of register steps, last step
+                            if(modal.activeIndex == 5) { //push outside of register steps, last step
                               Navigator.of(context).pushReplacement(
                                 MaterialPageRoute(builder: (context) => UserProfile()),
                               );
+                            } else if(modal.activeIndex == 4) { //exception for controller-less pages (can't be validated but are valid steps)
+                              Provider.of<UserModal>(context, listen: false).restartEvaluating();
+                              Provider.of<UserModal>(context, listen: false).incrementStep(context);
+                            } if(modal.isStepValid && modal.activeIndex <= 3) { //validation for controllable pages
+                              Provider.of<UserModal>(context, listen: false).restartEvaluating();
+                              Provider.of<UserModal>(context, listen: false).incrementStep(context);
                             } else {
                               null;
                             }
