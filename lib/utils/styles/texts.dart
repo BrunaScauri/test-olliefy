@@ -43,7 +43,7 @@ class TextsStyles{
   }
 
   static TextStyle profileHyperlink(){
-    return TextStyle(
+    return GoogleFonts.openSans(
       color: AppColors.primaryBlack,
       fontSize: 14,
       fontWeight: FontWeight.w700,
