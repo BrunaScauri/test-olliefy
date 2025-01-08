@@ -75,6 +75,24 @@ class TextsStyles{
     fontWeight: FontWeight.w700,
     );
   }
+}
+
+class UserNotifsStyles{
+  static TextStyle activity(){
+    return TextStyle(
+    color: AppColors.primaryBlack,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle activityItem(){
+    return TextStyle(
+    color: AppColors.primaryBlack,
+    fontSize: 14,
+    fontWeight: FontWeight.w700,
+    );
+  }
 
   static TextStyle activityDate(){
     return TextStyle(
@@ -83,6 +101,7 @@ class TextsStyles{
     fontWeight: FontWeight.w400,
     );
   }
+
 }
 
 class UserStoreStyles{
