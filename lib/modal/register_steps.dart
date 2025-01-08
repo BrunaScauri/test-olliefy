@@ -531,7 +531,6 @@ class _PermissionsState extends State<Permissions> {
                                   padding: EdgeInsets.symmetric(vertical: 40.0),
                                   child: Column(
                                     children: [
-                                      SizedBox(height: 40),
                                       PermissionsCard(imagePath: 'assets/permissions_page/icons/location_icon.svg', permissionName: 'Location'),
                                       SizedBox(height: 16),
                                       PermissionsCard(imagePath: 'assets/permissions_page/icons/camera_icon.svg', permissionName: 'Camera'),
