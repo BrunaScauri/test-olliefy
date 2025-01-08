@@ -99,7 +99,7 @@ class MainScreen extends StatelessWidget {
                               ])
                           ),
                           style: ButtonStyles.elevatedButton(backgroundColor: Colors.transparent)),
-                      ]
+                        ]
                       )
                     ),
                   ]
