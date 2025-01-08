@@ -39,6 +39,19 @@ class ButtonStyles {
       side: BorderSide(width: 1.0, color: AppColors.primaryGray50)
     );
   }
+
+  static ButtonStyle followButton({
+    required Color color}) {
+    return ElevatedButton.styleFrom(
+      minimumSize: Size(0, 50),
+      elevation: 0,
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      side: BorderSide(width: 1.2, color: color)
+    );
+  }
   
 }
 
