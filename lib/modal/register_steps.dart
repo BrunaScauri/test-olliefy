@@ -290,15 +290,12 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                                       height: 50,
                                                       child: Center(
                                                         child: CircleAvatar(
-                                                          radius: 25,
+                                                          radius: 12,
                                                           // backgroundColor: Colors.transparent,
-                                                          child: ClipOval(
-                                                            child: Image.asset(
-                                                              _currentFlag,
-                                                              package: 'country_icons',
-                                                              fit: BoxFit.fill,
-                                                            ),
-                                                          )
+                                                          backgroundImage: AssetImage(
+                                                            _currentFlag,
+                                                            package: 'country_icons',
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
