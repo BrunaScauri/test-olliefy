@@ -21,7 +21,7 @@ class UserModal extends ChangeNotifier {
   bool get isStepValid => _isValid;
 
   void incrementStep(context) {
-    if(_activeIndex >= 0 && _activeIndex <= 3) {
+    if(_activeIndex >= 0) {
       _activeIndex++;
       notifyListeners();
     }
@@ -63,17 +63,12 @@ class UserModal extends ChangeNotifier {
   }
 
   void restartEvaluating() {
-    if(_activeIndex > 3) {
-      _isValid = true;
-     notifyListeners();
-    } else {
     _isValid = false;
     notifyListeners();
-    }
   }
 
   set isStepValid(bool value) {
-    if(_activeIndex == 2) {
+    if(_activeIndex == 4) {
       _isValid = true;
      notifyListeners();
     }
