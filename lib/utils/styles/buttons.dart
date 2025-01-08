@@ -28,8 +28,7 @@ class ButtonStyles {
     );
   }
 
-  static ButtonStyle marketplaceButton({
-    required Color backgroundColor}) {
+  static ButtonStyle marketplaceButton() {
     return ElevatedButton.styleFrom(
       minimumSize: Size(343, 60),
       elevation: 0,
