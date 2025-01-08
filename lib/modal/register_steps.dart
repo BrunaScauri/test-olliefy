@@ -11,6 +11,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+
+import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/components/molecules/permissions_card.dart';
 import 'package:test_olliefy/components/organisms/suggested_profiles_card.dart';
 import 'package:test_olliefy/components/atoms/follow_button.dart';
