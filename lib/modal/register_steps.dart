@@ -5,6 +5,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:test_olliefy/utils/styles/prefix_flag.dart';
 import 'package:country_icons/country_icons.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
@@ -334,8 +335,7 @@ class Token extends StatefulWidget {
 }
 
 class _TokenState extends State<Token> {
-  final TextEditingController _tokenController = TextEditingController();
-  final String token = "";
+final TextEditingController _tokenController = TextEditingController();
 
   @override
   void dispose() {
@@ -350,73 +350,74 @@ class _TokenState extends State<Token> {
       body: Center(
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),
-          child: Consumer<UserModal>(
-            builder: (context, modal, child) {
-              return Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    RichText(
-                      text:TextSpan(style: TextStyles.primaryHeader(), children: [
-                        TextSpan(text:'Enter the code'),
-                      ])
-                    ),
-                    SizedBox(height: 16),
-                    RichText(
-                      text:TextSpan(style: TextStyles.primaryText(), children: [
-                        TextSpan(text:'We sent a code to validate your phone number.'),
-                      ])
-                    ),
-                    SizedBox(height: 40),
-                    PinCodeTextField(
-                      appContext: context,
-                      controller: _tokenController,
-                      length: 5,
-                      obscureText: false,
-                      // animationType: AnimationType.slide,
-                      animationDuration: Duration(milliseconds: 500), 
-                      animationCurve: Curves.easeOutQuad,
-                      pinTheme: PinTheme(
-                        shape: PinCodeFieldShape.box,
-                        borderRadius: BorderRadius.circular(5),
-                        borderWidth: 10.0,
-                        fieldHeight: 56,
-                        fieldWidth: 56,
-                        activeColor: AppColors.primaryBlack,
-                        selectedColor: AppColors.primaryGold70,
-                        inactiveColor: AppColors.primaryBlack,
+            child: Column(
+          children: [
+            Consumer<UserModal>(
+              builder: (context, modal, child) {
+                return Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                  child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      RichText(
+                        text:TextSpan(style: TextStyles.primaryHeader(), children: [
+                          TextSpan(text:'Enter the code'),
+                        ])
                       ),
-                      keyboardType: TextInputType.number,
-                      autoDismissKeyboard: false,
-                      onCompleted: (value) {
-                        modal.updateEmail(value);
-                      },
-                      // onChanged: (value) {
-                      //   print(value);
-                      // },
-                      // beforeTextPaste: (text) {
-                      //   print("Allowing to paste $text");
-                      //   return true;
-                      // },
-                    ),
-                    SizedBox(height: 40),
-                    RichText(
-                      text:TextSpan(style: TextStyles.primaryText(), children: [
-                        TextSpan(text:'Didn’t receive the message? '),
-                        TextSpan( //add resend logic
-                          text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                      SizedBox(height: 16),
+                      RichText(
+                        text:TextSpan(style: TextStyles.primaryText(), children: [
+                          TextSpan(text:'We sent a code to validate your phone number.'),
+                        ])
+                      ),
+                      SizedBox(height: 40),
+                      PinCodeTextField(
+                        controller: _tokenController,
+                        appContext: context,
+                        length: 5,
+                        obscureText: false,
+                        // animationType: AnimationType.slide,
+                        animationDuration: Duration(milliseconds: 500), 
+                        animationCurve: Curves.easeOutQuad,
+                        pinTheme: PinTheme(
+                          shape: PinCodeFieldShape.box,
+                          borderRadius: BorderRadius.circular(5),
+                          borderWidth: 10.0,
+                          fieldHeight: 56,
+                          fieldWidth: 56,
+                          activeColor: AppColors.primaryBlack,
+                          selectedColor: AppColors.primaryGold70,
+                          inactiveColor: AppColors.primaryBlack,
                         ),
-                      ])
-                    ),
-                  ]
-                )
-              );
-            }
+                        keyboardType: TextInputType.number,
+                        autoDismissKeyboard: false,
+                        onCompleted: (value) {
+                          modal.updateToken(value);
+                        },
+                        // beforeTextPaste: (text) {
+                        //   print("Allowing to paste $text");
+                        //   return true;
+                        // },
+                      ),
+                      SizedBox(height: 40),
+                      RichText(
+                        text:TextSpan(style: TextStyles.primaryText(), children: [
+                          TextSpan(text:'Didn’t receive the message? '),
+                          TextSpan( //add resend logic
+                            text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                          ),
+                        ])
+                      ),
+                    ]
+                  )
+                );
+              }
+            )
+          ]
+            )
           )
         )
-      ),
-    );
+      );
   }
 }
 
