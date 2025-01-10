@@ -75,6 +75,15 @@ class TextsStyles{
     fontWeight: FontWeight.w700,
     );
   }
+  
+  static TextStyle spacedGray(){
+    return GoogleFonts.openSans(
+    color: AppColors.primaryGray30,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    letterSpacing: 3.0,
+    );
+  }
 }
 
 class UserNotifsStyles{
