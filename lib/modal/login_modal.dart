@@ -64,12 +64,7 @@ class _LoginModalState extends State<LoginModal> {
               children: [
                 Text(
                   'LOG IN',
-                  style: GoogleFonts.openSans(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primaryGray30,
-                    letterSpacing: 3.0,
-                  ),
+                  style: TextsStyles.spacedGray(),
                 ),
                 IconButton(
                   icon: Icon(Icons.close),

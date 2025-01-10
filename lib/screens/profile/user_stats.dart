@@ -14,39 +14,15 @@ class UserStats extends StatefulWidget {
 class _UserStatsState extends State<UserStats> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        child: Column (
-          children: [
-            Padding(
-            padding: const EdgeInsets.all(15.0),
-              child: Container(
-                constraints: BoxConstraints(maxWidth: 370),
-                child: ElevatedButton(
-                  onPressed: () {
-                  },
-                  style: ButtonStyles.socialsButton(
-                    backgroundColor: AppColors.primaryWhite,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
-                          children: [
-                            TextSpan(text: 'User Stats'),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              )
-            ),
-          ]
-        )
-      )
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 48),
+      child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+          Text('SETUP', style: TextsStyles.spacedGray()),
+          
+        ],
+      ),
     );
   }
 }

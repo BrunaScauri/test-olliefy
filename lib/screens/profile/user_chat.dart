@@ -58,12 +58,7 @@ class _UserChatState extends State<UserChat> {
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
             child: Column(
               children: [
-                  Text('TUE, MAY 21, 2024', style: GoogleFonts.openSans(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: AppColors.primaryGray5,
-                        letterSpacing: 3.0,
-                    )
+                  Text('TUE, MAY 21, 2024', style: TextsStyles.spacedGray(),
                   ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
