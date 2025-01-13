@@ -23,75 +23,75 @@ class MainScreen extends StatelessWidget {
           child: Container(
             constraints: BoxConstraints(maxWidth: 450),
             child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SvgPicture.asset(
-                'assets/skateboard_only_logo.svg',
-                colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn),
-                height: 70,
-              ),
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 40.0),
-                child: Column(
-                  children: [
-                    Text(
-                    'Get inspired, find spots, buy and sell.', style: TextsStyles.blackSemiboldLarge()
-                    ),
-                    Text(
-                      'Amplify your skateboarding experience by finding spots and what people is doing.\nIn real time, anywhere in the world.', style: TextsStyles.mainSubtitleNormal()
-                    ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SvgPicture.asset(
+                  'assets/skateboard_only_logo.svg',
+                  colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn),
+                  height: 70,
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 40.0),
+                  child: Column(
+                    children: [
+                      Text(
+                      'Get inspired, find spots, buy and sell.', style: TextsStyles.blackSemiboldLarge()
+                      ),
+                      Text(
+                        'Amplify your skateboarding experience by finding spots and what people is doing.\nIn real time, anywhere in the world.', style: TextsStyles.mainSubtitleNormal()
+                      ),
 
-                  ]
-                )
-              ),
-              ElevatedButton(
-                onPressed: () {
-                  showModalBottomSheet(
-                    context: context,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    builder: (BuildContext context) {
-                      return LoginModal();
-                    },
-                  );
-                },
-                child: RichText(
-                  text:TextSpan(style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite), children: [
-                    TextSpan(text:'Log in'),
-                  ])
+                    ]
+                  )
                 ),
-                style: ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack)
-              ),
-              SizedBox(height: 16),
-              OutlinedButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    easeIncomingIn(
-                      RegisterModal(),
-                    )
-                  );
-                },
-                child: RichText(
-                    text:TextSpan(style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack), children: [
-                      TextSpan(text:'Register'),
+                ElevatedButton(
+                  onPressed: () {
+                    showModalBottomSheet(
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      builder: (BuildContext context) {
+                        return LoginModal();
+                      },
+                    );
+                  },
+                  child: RichText(
+                    text:TextSpan(style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite), children: [
+                      TextSpan(text:'Log in'),
                     ])
+                  ),
+                  style: ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack)
                 ),
-                style: ButtonStyles.elevatedButton(backgroundColor: Colors.transparent)
-              ),
-              Flexible(
-                flex: 5,
-                child: Container(
-                  child: Image.asset(
-                    'assets/main_screen.png',
-                    alignment: Alignment.bottomCenter,
-                    fit: BoxFit.cover,
-                    opacity: const AlwaysStoppedAnimation(0.70),
-                    width: MediaQuery.of(context).size.width,
+                SizedBox(height: 16),
+                OutlinedButton(
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      easeIncomingIn(
+                        RegisterModal(),
+                      )
+                    );
+                  },
+                  child: RichText(
+                      text:TextSpan(style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack), children: [
+                        TextSpan(text:'Register'),
+                      ])
+                  ),
+                  style: ButtonStyles.elevatedButton(backgroundColor: Colors.transparent)
+                ),
+                Flexible(
+                  flex: 5,
+                  child: Container(
+                    child: Image.asset(
+                      'assets/main_screen.png',
+                      alignment: Alignment.bottomCenter,
+                      fit: BoxFit.cover,
+                      opacity: const AlwaysStoppedAnimation(0.70),
+                      width: MediaQuery.of(context).size.width,
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
             ),
           )
         ),
