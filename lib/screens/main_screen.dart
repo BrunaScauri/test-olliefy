@@ -25,6 +25,7 @@ class MainScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                Flexible(flex: 5, child: Container()),
                 SvgPicture.asset(
                   'assets/skateboard_only_logo.svg',
                   colorFilter: const ColorFilter.mode(AppColors.primaryBlack, BlendMode.srcIn),
@@ -79,18 +80,17 @@ class MainScreen extends StatelessWidget {
                   ),
                   style: ButtonStyles.elevatedButton(backgroundColor: Colors.transparent)
                 ),
-                Flexible(
-                  flex: 5,
-                  child: Container(
-                    child: Image.asset(
-                      'assets/main_screen.png',
-                      alignment: Alignment.bottomCenter,
-                      fit: BoxFit.cover,
-                      opacity: const AlwaysStoppedAnimation(0.70),
-                      width: MediaQuery.of(context).size.width,
-                    ),
+                Flexible(flex: 2, child: Container()),
+                Container(
+                  constraints: BoxConstraints(maxWidth: 450),
+                  child: Image.asset(
+                    'assets/main_screen.png',
+                    alignment: Alignment.bottomCenter,
+                    fit: BoxFit.fill,
+                    opacity: const AlwaysStoppedAnimation(0.70),
+                    width: MediaQuery.of(context).size.width,
                   ),
-                ),
+                )
               ],
             ),
           )
