@@ -156,127 +156,126 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                 SizedBox(
                                   height: 300,
                                   child: TabBarView(
-                                  children: <Widget>[
-                                    Column(
-                                      children: [
-                                        const SizedBox(height: 20),
-                                        Consumer<UserModal>(
-                                          builder: (context, modal, child) {
-                                            return Padding(
-                                              padding: const EdgeInsets.all(15.0),
-                                              child: Container(
-                                                constraints: BoxConstraints(maxWidth: 340),
-                                                child: TextFormField(
-                                                  controller: _emailController,
-                                                  onChanged: (value) {
-                                                    modal.updateEmail(value);
-                                                  },
-                                                  decoration: FormDecorations.textFieldDecoration(
-                                                    labelText: 'Email address',
-                                                    prefixIcon: Icons.email_outlined,
+                                    children: <Widget>[
+                                      Column(
+                                        children: [
+                                          const SizedBox(height: 20),
+                                          Consumer<UserModal>(
+                                            builder: (context, modal, child) {
+                                              return Padding(
+                                                padding: const EdgeInsets.all(15.0),
+                                                child: Container(
+                                                  constraints: BoxConstraints(maxWidth: 340),
+                                                  child: TextFormField(
+                                                    controller: _emailController,
+                                                    onChanged: (value) {
+                                                      modal.updateEmail(value);
+                                                    },
+                                                    decoration: FormDecorations.textFieldDecoration(
+                                                      labelText: 'Email address',
+                                                      prefixIcon: Icons.email_outlined,
+                                                    ),
                                                   ),
-                                                ),
+                                                )
+                                              );
+                                            },
+                                          ),
+                                          const SizedBox(height: 10),
+                                          Container(
+                                            constraints: BoxConstraints(maxWidth: 340),
+                                            child: Divider(height: 40, thickness: 0.8),
+                                          ),
+                                          Container(
+                                            constraints: BoxConstraints(maxWidth: 370),
+                                            child: Padding(
+                                              padding: EdgeInsets.all(16.0),
+                                              child: Column(
+                                                children: [
+                                                  CustomButtons.socialsButton(
+                                                    backgroundColor: AppColors.primaryWhite,
+                                                    assetPath: 'assets/google_logo.svg',
+                                                    buttonText: 'Continue with Google',
+                                                    textColor: AppColors.primaryBlack,
+                                                    onPressed: () {
+                                                    },
+                                                  ),
+                                                  const SizedBox(height: 16),
+                                                  CustomButtons.socialsButton(
+                                                    backgroundColor: AppColors.primaryBlack,
+                                                    assetPath: 'assets/apple_logo.svg',
+                                                    buttonText: 'Continue with Apple',
+                                                    textColor: AppColors.primaryWhite,
+                                                    onPressed: () {
+                                                    },
+                                                  ),
+                                                ]
                                               )
-                                            );
-                                          },
-                                        ),
-                                        const SizedBox(height: 10),
-                                        Container(
-                                          constraints: BoxConstraints(maxWidth: 340),
-                                          child: Divider(height: 40, thickness: 0.8),
-                                        ),
-                                        Container(
-                                          constraints: BoxConstraints(maxWidth: 370),
-                                          child: Padding(
-                                            padding: EdgeInsets.all(16.0),
-                                            child: Column(
-                                              children: [
-                                                CustomButtons.socialsButton(
-                                                  backgroundColor: AppColors.primaryWhite,
-                                                  assetPath: 'assets/google_logo.svg',
-                                                  buttonText: 'Continue with Google',
-                                                  textColor: AppColors.primaryBlack,
-                                                  onPressed: () {
-                                                  },
-                                                ),
-                                                const SizedBox(height: 16),
-                                                CustomButtons.socialsButton(
-                                                  backgroundColor: AppColors.primaryBlack,
-                                                  assetPath: 'assets/apple_logo.svg',
-                                                  buttonText: 'Continue with Apple',
-                                                  textColor: AppColors.primaryWhite,
-                                                  onPressed: () {
-                                                  },
-                                                ),
-                                              ]
                                             )
                                           )
-                                        )
-                                        
-                                      ]
-                                    ),
-                                    Column(
-                                      children: [
-                                        Padding(
-                                          padding: const EdgeInsets.all(15.0),
-                                          child: Container(
-                                            constraints: BoxConstraints(maxWidth: 340),
-                                            child: Column(
-                                              children: [
-                                                TextFormField(
-                                                  controller: _phoneController,
-                                                  keyboardType: TextInputType.number,
-                                                  inputFormatters: <TextInputFormatter>[
-                                                    FilteringTextInputFormatter.digitsOnly,
-                                                    MaskTextInputFormatter(
-                                                      mask: '+## ### ### ###',
-                                                    )
-                                                  ],
-                                                  onChanged: (value) {
-                                                    _updateFlag(value);
-                                                    modal.updatePhoneNumber(value);
-                                                  },
-                                                  decoration: InputDecoration(
-                                                    labelText: 'Phone number',
-                                                    prefixIcon: _currentFlag == '' ? 
-                                                    SizedBox(
-                                                      width: 50,
-                                                      height: 50,
-                                                      child: Center(
-                                                        child: CircleAvatar(
-                                                          radius: 25,
-                                                          backgroundColor: Colors.transparent,
-                                                          child: Image.asset(
-                                                            'assets/default_flag.png',
-                                                            fit: BoxFit.cover,
-                                                          ),
-                                                        )
-                                                      ),
-                                                    ) : 
-                                                    SizedBox(
-                                                      width: 50,
-                                                      height: 50,
-                                                      child: Center(
-                                                        child: CircleAvatar(
-                                                          radius: 12,
-                                                          // backgroundColor: Colors.transparent,
-                                                          backgroundImage: AssetImage(
-                                                            _currentFlag,
-                                                            package: 'country_icons',
+                                        ]
+                                      ),
+                                      Column(
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(15.0),
+                                            child: Container(
+                                              constraints: BoxConstraints(maxWidth: 340),
+                                              child: Column(
+                                                children: [
+                                                  TextFormField(
+                                                    controller: _phoneController,
+                                                    keyboardType: TextInputType.number,
+                                                    inputFormatters: <TextInputFormatter>[
+                                                      FilteringTextInputFormatter.digitsOnly,
+                                                      MaskTextInputFormatter(
+                                                        mask: '+## ### ### ###',
+                                                      )
+                                                    ],
+                                                    onChanged: (value) {
+                                                      _updateFlag(value);
+                                                      modal.updatePhoneNumber(value);
+                                                    },
+                                                    decoration: InputDecoration(
+                                                      labelText: 'Phone number',
+                                                      prefixIcon: _currentFlag == '' ? 
+                                                      SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child: Center(
+                                                          child: CircleAvatar(
+                                                            radius: 25,
+                                                            backgroundColor: Colors.transparent,
+                                                            child: Image.asset(
+                                                              'assets/default_flag.png',
+                                                              fit: BoxFit.cover,
+                                                            ),
+                                                          )
+                                                        ),
+                                                      ) : 
+                                                      SizedBox(
+                                                        width: 50,
+                                                        height: 50,
+                                                        child: Center(
+                                                          child: CircleAvatar(
+                                                            radius: 12,
+                                                            // backgroundColor: Colors.transparent,
+                                                            backgroundImage: AssetImage(
+                                                              _currentFlag,
+                                                              package: 'country_icons',
+                                                            ),
                                                           ),
                                                         ),
                                                       ),
+                                                      border: OutlineInputBorder(),
                                                     ),
-                                                    border: OutlineInputBorder(),
                                                   ),
-                                                ),
-                                              ]
+                                                ]
+                                              )
                                             )
                                           )
-                                        )
-                                      ]
-                                    ),
-                                  ]
+                                        ]
+                                      ),
+                                    ]
                                   ),
                                 )
                               ]
@@ -286,8 +285,8 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                       ),  
                     ]
                   )
-                  );
-                }
+                );
+              }
             ),
           ]
         )
