@@ -92,7 +92,6 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
       final prefix = value.substring(1, 3); //extract 2 first chars skipping "+"
       setState(() {
         _currentFlag = getImagePath(prefix) ?? _currentFlag;
-        print(prefix);
       });
     } else {
       setState(() {
