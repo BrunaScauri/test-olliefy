@@ -465,56 +465,43 @@ class _PermissionsState extends State<Permissions> {
         backgroundColor: AppColors.primaryWhite,
         body: Center(
           child: Container(
-            child: Column(
-              children: [
-                Consumer<UserModal>(
-                  builder: (context, modal, child) {
-                    return Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16.0),
-                      child: Column(
-                        children: [
-                          Container(
-                            constraints: BoxConstraints(maxWidth: 370),
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 40.0),
-                                  child: Container(
-                                    child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
-                                  ),
-                                ),
-                                Container(
-                                    child: RichText(
-                                      text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
-                                        TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
-                                      ])
-                                    )
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 40.0),
-                                  child: Column(
-                                    children: [
-                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/location_icon.svg', permissionName: 'Location'),
-                                      SizedBox(height: 16),
-                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/camera_icon.svg', permissionName: 'Camera'),
-                                      SizedBox(height: 16),
-                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/photo_gallery_icon.svg', permissionName: 'Photo gallery'),
-                                      SizedBox(height: 16),
-                                      PermissionsCard(imagePath: 'assets/permissions_page/icons/contacts_icon.svg', permissionName: 'Contacts'),
-                                      SizedBox(height: 16),
-
-                                    ]
-                                  )
-                                )
-                              ]
-                            )
-                          ),
-                        ]
+            constraints: BoxConstraints(maxWidth: 370),
+            child: Consumer<UserModal>(
+              builder: (context, modal, child) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(vertical: 40.0),
+                        child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
+                      ),
+                      Container(
+                          child: RichText(
+                            text:TextSpan(style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: AppColors.primaryBlack), children: [
+                              TextSpan(text:'For a more fun experience, we need to activate some permissions.'),
+                            ])
+                          )
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 40.0),
+                        child: Column(
+                          children: [
+                            PermissionsCard(imagePath: 'assets/permissions_page/icons/location_icon.svg', permissionName: 'Location'),
+                            SizedBox(height: 18),
+                            PermissionsCard(imagePath: 'assets/permissions_page/icons/camera_icon.svg', permissionName: 'Camera'),
+                            SizedBox(height: 16),
+                            PermissionsCard(imagePath: 'assets/permissions_page/icons/photo_gallery_icon.svg', permissionName: 'Photo gallery'),
+                            SizedBox(height: 16),
+                            PermissionsCard(imagePath: 'assets/permissions_page/icons/contacts_icon.svg', permissionName: 'Contacts'),
+                            SizedBox(height: 16),
+                          ]
+                        )
                       )
-                    );
-                  },
-                )
-              ]
+                    ]
+                  )
+                );
+              },
             )
           )
         )
