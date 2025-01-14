@@ -11,6 +11,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/styles/socials_button.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/components/molecules/permissions_card.dart';
@@ -190,55 +191,22 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                             padding: EdgeInsets.all(16.0),
                                             child: Column(
                                               children: [
-                                                ElevatedButton(
+                                                CustomButtons.socialsButton(
+                                                  backgroundColor: AppColors.primaryWhite,
+                                                  assetPath: 'assets/google_logo.svg',
+                                                  buttonText: 'Continue with Google',
+                                                  textColor: AppColors.primaryBlack,
                                                   onPressed: () {
                                                   },
-                                                  style: ButtonStyles.socialsButton(
-                                                    backgroundColor: AppColors.primaryWhite,
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      Image.asset(
-                                                        'assets/google_logo.png',
-                                                        height: 12,
-                                                        width: 12,
-                                                      ),
-                                                      RichText(
-                                                        text: TextSpan(
-                                                          style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
-                                                          children: [
-                                                            TextSpan(text: '  Continue with Google'),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ],
-                                                  ),
                                                 ),
-                                                const SizedBox(height: 15),
-                                                ElevatedButton(
-                                                  onPressed: () {},
-                                                  style: ButtonStyles.socialsButton(
-                                                    backgroundColor: AppColors.primaryBlack
-                                                  ),
-                                                  child: Row(
-                                                    mainAxisAlignment: MainAxisAlignment.center,
-                                                    children: [
-                                                      SvgPicture.asset(
-                                                        'assets/Apple_logo.svg',
-                                                        colorFilter: const ColorFilter.mode(AppColors.primaryWhite, BlendMode.srcIn),
-                                                        height: 15,
-                                                      ),
-                                                      RichText(
-                                                        text: TextSpan(
-                                                          style: TextStyles.elevatedButtonText(color: AppColors.primaryWhite),
-                                                          children: [
-                                                            TextSpan(text: '  Continue with Apple'),
-                                                          ],
-                                                        ),
-                                                      ),
-                                                    ]
-                                                  )
+                                                const SizedBox(height: 16),
+                                                CustomButtons.socialsButton(
+                                                  backgroundColor: AppColors.primaryBlack,
+                                                  assetPath: 'assets/apple_logo.svg',
+                                                  buttonText: 'Continue with Apple',
+                                                  textColor: AppColors.primaryWhite,
+                                                  onPressed: () {
+                                                  },
                                                 ),
                                               ]
                                             )
