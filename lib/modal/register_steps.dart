@@ -56,18 +56,15 @@ class _ProfileNameState extends State<ProfileName> {
                 builder: (context, modal, child) {
                   return Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: Container(
-                      constraints: BoxConstraints(maxWidth: 340),
-                      child: TextFormField(
-                        controller: _profileNameController,
-                        onChanged: (value) {
-                          modal.updateProfileName(value);
-                        },
-                        decoration: FormDecorations.textFieldDecoration(
-                          labelText: 'Username',
-                        ),
+                    child: TextFormField(
+                      controller: _profileNameController,
+                      onChanged: (value) {
+                        modal.updateProfileName(value);
+                      },
+                      decoration: FormDecorations.textFieldDecoration(
+                        labelText: 'Username',
                       ),
-                    )
+                    ),
                   );
                 },
               )
