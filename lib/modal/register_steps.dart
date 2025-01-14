@@ -227,6 +227,7 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                         ignoring: _tabController.animation!.value != 1,
                                         child: Column(
                                           children: [
+                                            const SizedBox(height: 20),
                                             Padding(
                                               padding: const EdgeInsets.all(15.0),
                                               child: Column(
