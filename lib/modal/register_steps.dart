@@ -258,7 +258,6 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                                         child: Center(
                                                           child: CircleAvatar(
                                                             radius: 12,
-                                                            // backgroundColor: Colors.transparent,
                                                             backgroundImage: AssetImage(
                                                               _currentFlag,
                                                               package: 'country_icons',
