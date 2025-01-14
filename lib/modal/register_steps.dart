@@ -312,78 +312,75 @@ final TextEditingController _tokenController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
-      body: Center(
-        child: Container(
-          constraints: BoxConstraints(maxWidth: 370),
-            child: Column(
-          children: [
-            Consumer<UserModal>(
-              builder: (context, modal, child) {
-                return Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                  child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      RichText(
-                        text:TextSpan(style: TextStyles.primaryHeader(), children: [
-                          TextSpan(text:'Enter the code'),
-                        ])
-                      ),
-                      SizedBox(height: 16),
-                      RichText(
-                        text:TextSpan(style: TextStyles.primaryText(), children: [
-                          TextSpan(text:'We sent a code to validate your phone number.'),
-                        ])
-                      ),
-                      SizedBox(height: 40),
-                      PinCodeTextField(
-                        controller: _tokenController,
-                        appContext: context,
-                        length: 5,
-                        obscureText: false,
-                        // animationType: AnimationType.slide,
-                        animationDuration: Duration(milliseconds: 500), 
-                        animationCurve: Curves.easeOutQuad,
-                        pinTheme: PinTheme(
-                          shape: PinCodeFieldShape.box,
-                          borderRadius: BorderRadius.circular(5),
-                          borderWidth: 10.0,
-                          fieldHeight: 56,
-                          fieldWidth: 56,
-                          activeColor: AppColors.primaryBlack,
-                          selectedColor: AppColors.primaryGold70,
-                          inactiveColor: AppColors.primaryBlack,
+    backgroundColor: AppColors.primaryWhite,
+    body: Center(
+      child: Container(
+        constraints: BoxConstraints(maxWidth: 370),
+          child: Column(
+            children: [
+              Consumer<UserModal>(
+                builder: (context, modal, child) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        RichText(
+                          text:TextSpan(style: TextStyles.primaryHeader(), children: [
+                            TextSpan(text:'Enter the code'),
+                          ])
                         ),
-                        keyboardType: TextInputType.number,
-                        autoDismissKeyboard: false,
-                        onCompleted: (value) {
-                          modal.updateToken(value);
-                        },
-                        // beforeTextPaste: (text) {
-                        //   print("Allowing to paste $text");
-                        //   return true;
-                        // },
-                      ),
-                      SizedBox(height: 40),
-                      RichText(
-                        text:TextSpan(style: TextStyles.primaryText(), children: [
-                          TextSpan(text:'Didn’t receive the message? '),
-                          TextSpan( //add resend logic
-                            text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                        SizedBox(height: 16),
+                        RichText(
+                          text:TextSpan(style: TextStyles.primaryText(), children: [
+                            TextSpan(text:'We sent a code to validate your phone number.'),
+                          ])
+                        ),
+                        Padding(
+                          padding: EdgeInsets.symmetric(vertical: 40.0),
+                          child: PinCodeTextField(
+                            controller: _tokenController,
+                            appContext: context,
+                            length: 5,
+                            obscureText: false,
+                            animationDuration: Duration(milliseconds: 500), 
+                            animationType: AnimationType.fade,
+                            pinTheme: PinTheme(
+                              shape: PinCodeFieldShape.box,
+                              borderRadius: BorderRadius.circular(5),
+                              borderWidth: 10.0,
+                              fieldHeight: 56,
+                              fieldWidth: 56,
+                              activeColor: AppColors.primaryBlack,
+                              selectedColor: AppColors.primaryGold70,
+                              inactiveColor: AppColors.primaryBlack,
+                            ),
+                            autoDisposeControllers: false,
+                            keyboardType: TextInputType.number,
+                            autoDismissKeyboard: false,
+                            onCompleted: (value) {
+                              modal.updateToken(value);
+                            },
                           ),
-                        ])
-                      ),
-                    ]
-                  )
-                );
-              }
-            )
-          ]
-            )
+                        ),
+                        RichText(
+                          text:TextSpan(style: TextStyles.primaryText(), children: [
+                            TextSpan(text:'Didn’t receive the message? '),
+                            TextSpan(
+                              text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                            ),
+                          ])
+                        ),
+                      ]
+                    )
+                  );
+                }
+              )
+            ]
           )
         )
-      );
+      )
+    );
   }
 }
 
