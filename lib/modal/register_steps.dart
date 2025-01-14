@@ -81,9 +81,10 @@ class PhoneOrEmail extends StatefulWidget {
   _PhoneOrEmailState createState() => _PhoneOrEmailState();
 }
 
-class _PhoneOrEmailState extends State<PhoneOrEmail> {
+class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderStateMixin {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _phoneController = TextEditingController();
+  late TabController _tabController;
   String _currentFlag = '';
   
    void _updateFlag(String value) {
@@ -101,9 +102,15 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+  }
+  @override
   void dispose() {
     _emailController.dispose();
     _phoneController.dispose();
+    _tabController.dispose();
     super.dispose();
   }
 
@@ -112,57 +119,61 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
     return Scaffold(
       backgroundColor: AppColors.primaryWhite,
       body: Center(
-        child: Column(
-          children: [
-            Consumer<UserModal>(
-              builder: (context, modal, child) {
-                return Container(
-                  constraints: BoxConstraints(maxWidth: 370),
-                  child: Column(
-                    children: [
-                      SizedBox(height: 10),
-                      Padding(
-                        padding: const EdgeInsets.all(15.0),
-                        child: RichText(
-                        text:TextSpan(style: TextStyles.primaryHeader(), children: [
-                          TextSpan(text:'Add a phone number or email address'),
-                          ])
-                        ),
-                      ),
-                      const SizedBox(height: 20),
-                      DefaultTabController(
-                        initialIndex: 0,
-                        length: 2,
-                        child: Center(
-                          child: Container(
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 400,
-                                  child:TabBar(
-                                    tabs: [
-                                      Tab(text: 'Email'),
-                                      Tab(text: 'Phone'),
-                                    ],
-                                    labelColor: AppColors.primaryBlack,
-                                    indicatorColor: AppColors.primaryGold70,
-                                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
-                                  )
-                                ),
-                                SizedBox(
-                                  height: 300,
-                                  child: TabBarView(
-                                    children: <Widget>[
-                                      Column(
-                                        children: [
-                                          const SizedBox(height: 20),
-                                          Consumer<UserModal>(
-                                            builder: (context, modal, child) {
-                                              return Padding(
-                                                padding: const EdgeInsets.all(15.0),
-                                                child: Container(
-                                                  constraints: BoxConstraints(maxWidth: 340),
+        child: Consumer<UserModal>(
+          builder: (context, modal, child) {
+            return Container(
+              constraints: BoxConstraints(maxWidth: 370),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: RichText(
+                    text:TextSpan(style: TextStyles.primaryHeader(), children: [
+                      TextSpan(text:'Add a phone number or email address'),
+                      ])
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  DefaultTabController(
+                    initialIndex: 0,
+                    length: 2,
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 15.0),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 400,
+                            child:TabBar(
+                              controller: _tabController,
+                              tabs: [
+                                Tab(text: 'Email'),
+                                Tab(text: 'Phone'),
+                              ],
+                              labelColor: AppColors.primaryBlack,
+                              indicatorColor: AppColors.primaryGold70,
+                              labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                              unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+                            )
+                          ),
+                          SizedBox(
+                            height: 300,
+                            child: AnimatedBuilder(
+                              animation: _tabController.animation!,
+                              builder: (context, child) {
+                                return Stack(
+                                  children: [
+                                    // email tab
+                                    Opacity(
+                                      opacity: 1.0 - _tabController.animation!.value,
+                                      child: IgnorePointer(
+                                        ignoring: _tabController.animation!.value != 0,
+                                        child: Column(
+                                          children: [
+                                            const SizedBox(height: 20),
+                                            Consumer<UserModal>(
+                                              builder: (context, modal, child) {
+                                                return Padding(
+                                                  padding: const EdgeInsets.all(15.0),
                                                   child: TextFormField(
                                                     controller: _emailController,
                                                     onChanged: (value) {
@@ -173,18 +184,15 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                                       prefixIcon: Icons.email_outlined,
                                                     ),
                                                   ),
-                                                )
-                                              );
-                                            },
-                                          ),
-                                          const SizedBox(height: 10),
-                                          Container(
-                                            constraints: BoxConstraints(maxWidth: 340),
-                                            child: Divider(height: 40, thickness: 0.8),
-                                          ),
-                                          Container(
-                                            constraints: BoxConstraints(maxWidth: 370),
-                                            child: Padding(
+                                                );
+                                              },
+                                            ),
+                                            const SizedBox(height: 10),
+                                            Container(
+                                              constraints: BoxConstraints(maxWidth: 340),
+                                              child: Divider(height: 40, thickness: 0.8),
+                                            ),
+                                            Padding(
                                               padding: EdgeInsets.all(16.0),
                                               child: Column(
                                                 children: [
@@ -208,15 +216,19 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                                 ]
                                               )
                                             )
-                                          )
-                                        ]
+                                          ]
+                                        ),
                                       ),
-                                      Column(
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.all(15.0),
-                                            child: Container(
-                                              constraints: BoxConstraints(maxWidth: 340),
+                                    ),
+                                    // phone tab
+                                    Opacity(
+                                      opacity: _tabController.animation!.value,
+                                      child: IgnorePointer(
+                                        ignoring: _tabController.animation!.value != 1,
+                                        child: Column(
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.all(15.0),
                                               child: Column(
                                                 children: [
                                                   TextFormField(
@@ -232,6 +244,7 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                                       _updateFlag(value);
                                                       modal.updatePhoneNumber(value);
                                                     },
+                                                    //decoration for the flag icon
                                                     decoration: InputDecoration(
                                                       labelText: 'Phone number',
                                                       prefixIcon: _currentFlag == '' ? 
@@ -268,24 +281,24 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> {
                                                 ]
                                               )
                                             )
-                                          )
-                                        ]
+                                          ]
+                                        ),
                                       ),
-                                    ]
-                                  ),
-                                )
-                              ]
-                            )
+                                    ),
+                                  ],
+                                );
+                              },
+                            ),
                           )
-                        ),
-                      ),  
-                    ]
-                  )
-                );
-              }
-            ),
-          ]
-        )
+                        ]
+                      )
+                    )
+                  ),  
+                ]
+              )
+            );
+          }
+        ),
       ),
     );
   }
