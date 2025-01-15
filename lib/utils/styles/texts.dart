@@ -3,15 +3,32 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextsStyles{
+  static TextStyle blackSemiboldLarge(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontWeight: FontWeight.w700,
+      fontSize: 24,
+    );
+  }
+
+  static TextStyle mainSubtitleNormal(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontWeight: FontWeight.w400,
+      fontSize: 16,
+      // textAlign: textAlign,
+    );
+  }
+
   static TextStyle termsAndConditionsBold(){
-    return TextStyle(
-      color: Color.fromRGBO(134, 118, 32, 1),
+    return GoogleFonts.openSans(
+      color: AppColors.primaryGold70,
       fontWeight: FontWeight.w900,
     );
   }
 
   static TextStyle profileDataBold(){
-    return TextStyle(
+    return GoogleFonts.openSans(
       color: AppColors.primaryBlack,
       fontSize: 16,
       fontWeight: FontWeight.w700,
@@ -19,7 +36,7 @@ class TextsStyles{
   }
 
   static TextStyle profileDataBolder(){
-    return TextStyle(
+    return GoogleFonts.openSans(
       color: AppColors.primaryBlack,
       fontSize: 16,
       fontWeight: FontWeight.w800,
@@ -27,7 +44,7 @@ class TextsStyles{
   }
 
   static TextStyle profileData(){
-    return TextStyle(
+    return GoogleFonts.openSans(
       color: AppColors.primaryGray30,
       fontSize: 12,
       fontWeight: FontWeight.w400,
@@ -35,7 +52,7 @@ class TextsStyles{
   }
 
   static TextStyle profileDescription(){
-    return TextStyle(
+    return GoogleFonts.openSans(
       color: AppColors.primaryBlack,
       fontSize: 14,
       fontWeight: FontWeight.w400,
@@ -51,7 +68,7 @@ class TextsStyles{
   }
 
   static TextStyle settingsSubtitle(){
-    return TextStyle(
+    return GoogleFonts.openSans(
       color: AppColors.primaryBlack,
       fontSize: 16,
       fontWeight: FontWeight.w400,
@@ -59,7 +76,7 @@ class TextsStyles{
   }
 
   static TextStyle sponsorDate(){
-    return TextStyle(
+    return GoogleFonts.openSans(
     color: AppColors.primaryGray30,
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -69,7 +86,7 @@ class TextsStyles{
   static TextStyle sponsorSubscription({
     required Color color,
   }){
-    return TextStyle(
+    return GoogleFonts.openSans(
     color: color,
     fontSize: 14,
     fontWeight: FontWeight.w700,
@@ -88,7 +105,7 @@ class TextsStyles{
 
 class UserNotifsStyles{
   static TextStyle activity(){
-    return TextStyle(
+    return GoogleFonts.openSans(
     color: AppColors.primaryBlack,
     fontSize: 14,
     fontWeight: FontWeight.w400,
@@ -96,7 +113,7 @@ class UserNotifsStyles{
   }
 
   static TextStyle activityItem(){
-    return TextStyle(
+    return GoogleFonts.openSans(
     color: AppColors.primaryBlack,
     fontSize: 14,
     fontWeight: FontWeight.w700,
@@ -104,7 +121,7 @@ class UserNotifsStyles{
   }
 
   static TextStyle activityDate(){
-    return TextStyle(
+    return GoogleFonts.openSans(
     color: AppColors.primaryGray30,
     fontSize: 12,
     fontWeight: FontWeight.w400,
@@ -115,19 +132,19 @@ class UserNotifsStyles{
 
 class UserStoreStyles{
   static TextStyle itemPrice(){
-    return TextStyle(
-    overflow: TextOverflow.ellipsis,
+    return GoogleFonts.openSans(
     color: AppColors.primaryBlack,
     fontSize: 14,
     fontWeight: FontWeight.w700,
     );
+    overflow: TextOverflow.ellipsis;
   }
   static TextStyle itemDescription(){
-    return TextStyle(
-    overflow: TextOverflow.ellipsis,
+    return GoogleFonts.openSans(
     color: AppColors.primaryBlack,
     fontSize: 14,
     fontWeight: FontWeight.w400,
     );
+    overflow: TextOverflow.ellipsis;
   }
 }
