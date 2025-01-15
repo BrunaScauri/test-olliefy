@@ -5,6 +5,7 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
+import 'package:test_olliefy/components/atoms/edit_profile_picture_icon.dart';
 
 import 'package:test_olliefy/utils/route/slide_incoming_in.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
@@ -51,7 +52,13 @@ class _EditUserProfileState extends State<EditUserProfile> {
             padding: EdgeInsets.only(top: 15.0, left: 15.0, right: 15.0),
             child: Column(
               children: [
-                ProfilePicture(borderWidth: 150.0, borderHeight: 150.0, imageWidth: 138.0, imageHeight: 138.0, imageHorizontalPadding: 6.0, imageVerticalPadding: 6.0, imagePath: 'assets/profile_page/icons/example_pfp/4.jpeg'),
+                Stack(
+                  alignment: Alignment(1.2, 1.0),
+                  children: [
+                    ProfilePicture(borderWidth: 150.0, borderHeight: 150.0, imageWidth: 138.0, imageHeight: 138.0, imageHorizontalPadding: 6.0, imageVerticalPadding: 6.0, imagePath: 'assets/profile_page/icons/example_pfp/4.jpeg'),
+                    EditProfilePictureIcon(),
+                  ]
+                ),
                 SizedBox(height: 48.0),
                 TextFormField(
                   controller: _usernameController,
