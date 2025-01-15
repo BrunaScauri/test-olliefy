@@ -51,6 +51,17 @@ class ButtonStyles {
       side: BorderSide(width: 1.2, color: color)
     );
   }
+
+  static ButtonStyle outlinedGrayButton(){
+    return ElevatedButton.styleFrom(
+      minimumSize: Size(350, 60),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      elevation: 0.0,
+      shadowColor: Colors.transparent,
+    );
+  }
   
 }
 
