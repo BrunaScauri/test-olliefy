@@ -33,10 +33,10 @@ class _UserFavoritesState extends State<UserFavorites> {
                 Text('Favorites'),
                 
               ]
-            )
+            ),
           )
         )
-			),
+			)
     );
   }
 }
