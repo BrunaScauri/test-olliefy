@@ -6,6 +6,8 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 
+import 'package:test_olliefy/utils/route/slide_incoming_in.dart';
+import 'package:test_olliefy/screens/profile/user_profile.dart';
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -130,6 +132,11 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       SizedBox(height: 48.0),
                       ElevatedButton(
                         onPressed:() {
+                          Navigator.of(context).push(
+                            slideIncomingIn(
+                              enterPage: UserProfile(), exitPage: EditUserProfile(),
+                            ),
+                          );
                         },
                         child: Text(
                           'Save', style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack) 
