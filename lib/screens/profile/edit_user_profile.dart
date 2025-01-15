@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
+import 'package:provider/provider.dart';
+import 'package:flutter/services.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
@@ -75,6 +78,13 @@ class _EditUserProfileState extends State<EditUserProfile> {
                   onChanged: (value) {
                     // modal.updateDateOfBirth(value);
                   },
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.digitsOnly,
+                    MaskTextInputFormatter(
+                      mask: '##/##/####',
+                    )
+                  ],
                   decoration: FormDecorations.textFieldDecoration(
                     labelText: 'Date of birth',
                   )
