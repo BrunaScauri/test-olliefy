@@ -35,7 +35,7 @@ class ButtonStyles {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
-      side: BorderSide(width: 1.0, color: AppColors.primaryGray50)
+      side: BorderSide(width: 1.0, color: AppColors.primaryGray10)
     );
   }
 

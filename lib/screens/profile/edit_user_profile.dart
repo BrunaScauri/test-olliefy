@@ -131,13 +131,13 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           children: [
                             Icon(
                               Icons.add,
-                              color: AppColors.primaryGray50,
+                              color: AppColors.primaryGray10,
                               size: 20,
                             ),
                             SizedBox(width: 4),
                             RichText(
                               text: TextSpan(
-                                style: TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
+                                style: TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
                                 children: [
                                   TextSpan(text: 'Add sponsor'),
                                 ],

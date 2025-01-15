@@ -107,7 +107,7 @@ class _LoginModalState extends State<LoginModal> {
                         text: TextSpan(
                           style: _isButtonEnabled 
                           ? TextStyles.elevatedButtonText(color: AppColors.primaryWhite) 
-                          : TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
+                          : TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
                           children: [
                             TextSpan(text: 'Log in'),
                           ],

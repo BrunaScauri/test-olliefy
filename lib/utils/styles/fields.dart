@@ -6,7 +6,7 @@ class FormDecorations {
     String? labelText,
     IconData? prefixIcon,
     Widget? prefixIconWidget,
-    Color? textColor = AppColors.primaryGray50,
+    Color? textColor = AppColors.primaryGray10,
     Color? iconColor = AppColors.primaryBlack,
   }) {
     return InputDecoration(

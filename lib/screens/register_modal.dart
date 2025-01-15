@@ -160,7 +160,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                             modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
                             style: Provider.of<UserModal>(context).isStepValid
                             ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack) 
-                            : TextStyles.elevatedButtonText(color: AppColors.primaryGray50),
+                            : TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
                           ),
                         ),
                       SizedBox(height: 40),
