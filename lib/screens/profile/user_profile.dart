@@ -12,6 +12,7 @@ import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart'
 import 'package:test_olliefy/utils/styles/custom_profile_tab_indicator.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
+import 'package:test_olliefy/screens/profile/edit_user_profile.dart';
 import 'package:test_olliefy/screens/profile/user_settings.dart';
 import 'package:test_olliefy/screens/profile/user_favorites.dart';
 import 'package:test_olliefy/screens/profile/user_notifications.dart';
@@ -257,6 +258,9 @@ class _UserProfileState extends State<UserProfile> {
                         height: 40,
                         child: ElevatedButton(
                           onPressed: () {
+                            Navigator.of(context).push(
+                              pageSlideAnimation(EditUserProfile())
+                            );
                           },
                           child: RichText(
                             text:TextSpan(style: TextsStyles.profileHyperlink(), children: [
