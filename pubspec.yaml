@@ -38,5 +38,6 @@ flutter:
     - ./assets/profile_page/example_sponsors/
     - ./assets/profile_page/example_posts/
     - ./assets/profile_page/example_stats_items/
+    - ./assets/profile_page/example_store_items/
     - ./assets/profile_page/icons/
     - ./assets/profile_page/icons/example_pfp/
