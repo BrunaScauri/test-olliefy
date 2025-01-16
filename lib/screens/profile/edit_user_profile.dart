@@ -205,9 +205,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
                           ]
                         ),
                       ),
-                      
-                      
-                      
                       OutlinedButton(
                         onPressed: () {
                           showModalBottomSheet(
