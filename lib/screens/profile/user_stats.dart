@@ -86,7 +86,15 @@ class _UserStatsState extends State<UserStats> {
           ),
           OutlinedButton(
             onPressed: () {
-          
+              showModalBottomSheet(
+                context: context,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                builder: (BuildContext context) {
+                  return AddArticleOnStats();
+                },
+              );
             },
             style: ButtonStyles.marketplaceButton(),
             child: Row(
