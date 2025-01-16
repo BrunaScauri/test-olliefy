@@ -6,6 +6,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 import 'package:test_olliefy/utils/route/slide_outgoing_down.dart';
+import 'package:test_olliefy/utils/route/slide_outgoing_right.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/modal/register_steps.dart';
@@ -79,8 +80,8 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                                 onPressed: () {
                                   if(modal.activeIndex == 0) {
                                     Navigator.of(context).push(
-                                      pageSlideAnimation(
-                                        MainScreen(), 
+                                      slideOutgoingRight(
+                                        enterPage: MainScreen(), exitPage: RegisterModal(),
                                       ),
                                     );
                                   } else {
