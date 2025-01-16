@@ -62,6 +62,30 @@ class ButtonStyles {
       shadowColor: Colors.transparent,
     );
   }
+
+  static ButtonStyle articleElevatedButton({required Color backgroundColor}){
+    return ElevatedButton.styleFrom(
+      backgroundColor: backgroundColor,
+      minimumSize: Size(163, 60),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      elevation: 0.0,
+      shadowColor: Colors.transparent,
+    );
+  }
+
+  static ButtonStyle articleOutlined() {
+    return ElevatedButton.styleFrom(
+      backgroundColor: AppColors.primaryWhite,
+      minimumSize: Size(163, 60),
+      elevation: 0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+      side: BorderSide(width: 1.0, color: AppColors.primaryGray10)
+    );
+  }
   
 }
 
