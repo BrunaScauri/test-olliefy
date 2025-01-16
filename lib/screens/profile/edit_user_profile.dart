@@ -9,6 +9,7 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 import 'package:test_olliefy/components/atoms/edit_profile_picture_icon.dart';
+import 'package:test_olliefy/utils/route/slide_incoming_from_top.dart';
 
 import 'package:test_olliefy/utils/route/slide_incoming_in.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
@@ -150,7 +151,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       ElevatedButton(
                         onPressed:() {
                           Navigator.of(context).push(
-                            slideIncomingIn(
+                            slideIncomingFromTop(
                               enterPage: UserProfile(), exitPage: EditUserProfile(),
                             ),
                           );
