@@ -4,7 +4,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
-import 'package:test_olliefy/screens/main_screen.dart';
+import 'package:test_olliefy/screens/profile/add_article_on_stats.dart';
 import 'package:test_olliefy/components/atoms/user_stats_card_description.dart';
 
 class UserStats extends StatefulWidget {
@@ -16,7 +16,7 @@ class _UserStatsState extends State<UserStats> {
   final List<Map<String, String>> items = [
     {'image': '1.jpeg', 'itemName': 'Piled Willms 8.3″X32″ Sk8Mafia Deck', 'itemType': 'Deck',},
     {'image': '2.png', 'itemName': 'Stage 11 Bar Flat Black Standard Independent', 'itemType': 'Truck',},
-    {'image': '3.jpeg', 'itemName': 'Friend Of Sk8 Like A Girl Classic Natural 55mm Spitfire should it have ellipsis', 'itemType': 'Wheels',},
+    {'image': '3.jpeg', 'itemName': 'Friend Of Sk8 Like A Girl Classic Natural 55mm Spitfire', 'itemType': 'Wheels',},
     {'image': '4.png', 'itemName': 'Red Bones Big Balls', 'itemType': 'Bearings',},
     
   ];
