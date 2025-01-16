@@ -328,7 +328,7 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                                   )
                                 ),
                                 SizedBox(
-                                  height: 200,
+                                  height: 400,
                                   child: TabBarView(
                                     children: <Widget>[
                                       UserPosts(),
