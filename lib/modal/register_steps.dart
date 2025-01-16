@@ -484,7 +484,7 @@ class _PermissionsState extends State<Permissions> {
                     children: [
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: 40.0),
-                        child: SvgPicture.asset('assets/permissions_page/permissions_page_hero.svg', height: 160),
+                        child: Image.asset('assets/permissions_page/permissions_page_hero.png', height: 160),
                       ),
                       Container(
                           child: RichText(
