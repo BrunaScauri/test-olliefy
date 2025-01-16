@@ -53,7 +53,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
 				child: Container(
           constraints: BoxConstraints(maxWidth: 370),
           child: Padding(
-            padding: EdgeInsets.only(top: 15.0, left: 15.0, right: 15.0),
+            padding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 16.0),
             child: Column(
               children: [
                 Stack(
@@ -63,7 +63,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
                     EditProfilePictureIcon(),
                   ]
                 ),
-                SizedBox(height: 48.0),
+                SizedBox(height: 20.0),
                 TextFormField(
                   controller: _usernameController,
                   onChanged: (value) {
@@ -112,17 +112,101 @@ class _EditUserProfileState extends State<EditUserProfile> {
                 ),
                 //'my sponsors' section
                 Padding(
-                  padding: EdgeInsets.only(top: 48.0, bottom: 32.0),
+                  padding: EdgeInsets.only(top: 20.0, bottom: 32.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('MY SPONSORS', style: TextsStyles.spacedGray()),
                       SizedBox(height: 16.0),
                       Padding(
-                        padding: EdgeInsets.symmetric(vertical: 48.0),
+                        padding: EdgeInsets.only(bottom: 20.0), 
                         child: Row(
-                        )
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                ProfilePicture(
+                                borderWidth: 50.0,
+                                borderHeight: 50.0,
+                                imageWidth: 46.0,
+                                imageHeight: 46.0,
+                                imageHorizontalPadding: 2.0,
+                                imageVerticalPadding: 2.0,
+                                imagePath: 'assets/profile_page/example_sponsors/1.jpeg'),
+                                SizedBox(width: 8.0),
+                                Text('Tree Skateshop'),
+                              ]
+                            ),
+                            IconButton(
+                              icon: Image.asset('assets/profile_page/icons/trash_icon.png', width: 18),
+                              onPressed: () {
+                              },
+                            ),
+
+                          ]
+                        ),
                       ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 20.0), 
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                ProfilePicture(
+                                borderWidth: 50.0,
+                                borderHeight: 50.0,
+                                imageWidth: 46.0,
+                                imageHeight: 46.0,
+                                imageHorizontalPadding: 2.0,
+                                imageVerticalPadding: 2.0,
+                                imagePath: 'assets/profile_page/example_sponsors/2.jpeg',),
+                                SizedBox(width: 8.0),
+                                Text('DGK Skateboard'),
+                              ]
+                            ),
+                            IconButton(
+                              icon: Image.asset('assets/profile_page/icons/trash_icon.png', width: 18),
+                              // iconSize: 20,
+                              onPressed: () {
+                              },
+                            ),
+
+                          ]
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 20.0), 
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                ProfilePicture(
+                                borderWidth: 50.0,
+                                borderHeight: 50.0,
+                                imageWidth: 46.0,
+                                imageHeight: 46.0,
+                                imageHorizontalPadding: 2.0,
+                                imageVerticalPadding: 2.0,
+                                imagePath: 'assets/profile_page/example_sponsors/3.jpeg',),
+                                SizedBox(width: 8.0),
+                                Text('The Kayo Corp.'),
+                              ]
+                            ),
+                            IconButton(
+                              icon: Image.asset('assets/profile_page/icons/trash_icon.png', width: 18),
+                              // iconSize: 20,
+                              onPressed: () {
+                              },
+                            ),
+
+                          ]
+                        ),
+                      ),
+                      
+                      
+                      
                       OutlinedButton(
                         onPressed: () {
                         },
