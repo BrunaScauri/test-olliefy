@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
@@ -11,8 +12,8 @@ import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart'
 import 'package:test_olliefy/components/atoms/edit_profile_picture_icon.dart';
 import 'package:test_olliefy/utils/route/slide_incoming_from_top.dart';
 
-import 'package:test_olliefy/utils/route/slide_incoming_in.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
+import 'package:test_olliefy/screens/profile/add_sponsor.dart';
 
 class EditUserProfile extends StatefulWidget {
   @override
@@ -209,6 +210,15 @@ class _EditUserProfileState extends State<EditUserProfile> {
                       
                       OutlinedButton(
                         onPressed: () {
+                          showModalBottomSheet(
+                          context: context,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8),
+                          ),
+                          builder: (BuildContext context) {
+                            return AddSponsor();
+                          },
+                        );
                         },
                         style: ButtonStyles.marketplaceButton(),
                         child: Row(
