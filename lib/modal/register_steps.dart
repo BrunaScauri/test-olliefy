@@ -527,26 +527,10 @@ class SuggestedProfiles extends StatefulWidget {
 
 class _SuggestedProfilesState extends State<SuggestedProfiles> {
   final List<Map<String, dynamic>> items = [
-    {'imagePath': 'assets/profile_page/icons/example_pfp/0.jpeg', 'profileName': 'a way too long name', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/1.jpeg', 'profileName': 'this is a scrollable list', 'following': true},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/0.jpeg', 'profileName': 'MeruGrzz', 'following': false},
+    {'imagePath': 'assets/profile_page/icons/example_pfp/1.jpeg', 'profileName': 'Tablasalvaje', 'following': true},
     {'imagePath': 'assets/profile_page/icons/example_pfp/2.jpeg', 'profileName': 'trickwizard', 'following': true},
     {'imagePath': 'assets/profile_page/icons/example_pfp/3.jpeg', 'profileName': 'board_beast', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/0.jpeg', 'profileName': 'sk8_legend', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/1.jpeg', 'profileName': 'pavementripper', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/2.jpeg', 'profileName': 'trickwizard', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/3.jpeg', 'profileName': 'board_beast', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/0.jpeg', 'profileName': 'sk8_legend', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/1.jpeg', 'profileName': 'pavementripper', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/2.jpeg', 'profileName': 'trickwizard', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/3.jpeg', 'profileName': 'board_beast', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/0.jpeg', 'profileName': 'sk8_legend', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/1.jpeg', 'profileName': 'pavementripper', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/2.jpeg', 'profileName': 'trickwizard', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/3.jpeg', 'profileName': 'board_beast', 'following': true},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/0.jpeg', 'profileName': 'sk8_legend', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/1.jpeg', 'profileName': 'pavementripper', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/2.jpeg', 'profileName': 'trickwizard', 'following': false},
-    {'imagePath': 'assets/profile_page/icons/example_pfp/3.jpeg', 'profileName': 'board_beast', 'following': false},
   ];
 
   @override
