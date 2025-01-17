@@ -35,6 +35,8 @@ flutter:
     - ./assets/permissions_page/icons/
     - ./assets/permissions_page/
     - ./assets/profile_page/
+    - ./assets/profile_page/favorites_page/
+    - ./assets/profile_page/favorites_page/icons/
     - ./assets/profile_page/example_sponsors/
     - ./assets/profile_page/example_posts/
     - ./assets/profile_page/example_stats_items/
