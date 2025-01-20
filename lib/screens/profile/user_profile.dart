@@ -187,7 +187,6 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                           ]
                         )
                       )
-                      
                     ]
                   )
                 )
