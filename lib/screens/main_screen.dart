@@ -34,10 +34,12 @@ class MainScreen extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 40.0),
                   child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
                       'Get inspired, find spots, buy and sell.', style: TextsStyles.blackSemiboldLarge()
                       ),
+                      SizedBox(height: 16.0),
                       Text(
                         'Amplify your skateboarding experience by finding spots and what people is doing.\nIn real time, anywhere in the world.', style: TextsStyles.mainSubtitleNormal()
                       ),
