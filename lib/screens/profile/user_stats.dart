@@ -39,7 +39,6 @@ class _UserStatsState extends State<UserStats> {
                 mainAxisSpacing: 10.0,
                 childAspectRatio: 4,
               ),
-              padding: const EdgeInsets.symmetric(horizontal: 8),
               itemCount: items.length,
               itemBuilder: (context, index) {
                 final item = items[index];

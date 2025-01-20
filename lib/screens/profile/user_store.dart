@@ -27,7 +27,7 @@ final List<Map<String, String>> items = [
       children: [
         // Sell in the marketplace button
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+          padding: const EdgeInsets.symmetric(vertical: 24),
           child: Container(
             constraints: BoxConstraints(maxWidth: 370),
             child: OutlinedButton(
@@ -64,7 +64,6 @@ final List<Map<String, String>> items = [
               mainAxisSpacing: 30.0,
               childAspectRatio: 0.65,
             ),
-            padding: const EdgeInsets.symmetric(horizontal: 8),
             itemCount: items.length,
             itemBuilder: (context, index) {
               final item = items[index];
