@@ -24,8 +24,6 @@ class _EventCardsState extends State<EventCards> {
       {'thumbnail': '7.jpeg', 'type': 'event'},
     ];
 
-    final imageIcon = 'assets/profile_page/icons/image_icon.svg';
-    final videoIcon = 'assets/profile_page/icons/video_icon.svg';
     final eventIcon = 'assets/profile_page/icons/event_icon.svg';
 
   @override
