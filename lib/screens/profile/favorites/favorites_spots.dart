@@ -54,81 +54,81 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.primaryWhite,
-      body: Padding(
-      padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-      child: Expanded(
-        child: GridView.builder(
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            crossAxisSpacing: 0,
-            mainAxisSpacing: 1.0,
-            childAspectRatio: 5,
-          ),
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return GridTile(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Positioned(
-                    top: 40.0,
-                    right: 40.0,
-                    child: item['spotIcon'] == 'rail'
-                    ? Image.asset(
-                        railIcon,
-                      )
-                    : item['spotIcon'] == 'stairs'
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 1,
+              crossAxisSpacing: 0,
+              mainAxisSpacing: 1.0,
+              childAspectRatio: 5,
+            ),
+            itemCount: items.length,
+            itemBuilder: (context, index) {
+              final item = items[index];
+              return GridTile(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Positioned(
+                      top: 40.0,
+                      right: 40.0,
+                      child: item['spotIcon'] == 'rail'
                       ? Image.asset(
-                          stairsIcon,
+                          railIcon,
                         )
-                    : item['spotIcon'] == 'ramp'
-                      ? Image.asset(
-                          rampIcon,
-                        )
-                    : item['spotIcon'] == 'bowl'
-                      ? Image.asset(
-                          bowlIcon,
-                        )
-                    : item['spotIcon'] == 'halfpipe'
-                      ? Image.asset(
-                          halfpipeIcon,
-                        )
-                    : Container(),
-                  ),
-                  SizedBox(width: 8.0),
-                  Container(
-                    width: 270,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          item['spotName'],
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: true,
-                        ),
-                        Text(
-                          item['spotAddress'],
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          softWrap: true,
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            color: AppColors.primaryGray30,
-                          ),
-                        ),
-                      ],
+                      : item['spotIcon'] == 'stairs'
+                        ? Image.asset(
+                            stairsIcon,
+                          )
+                      : item['spotIcon'] == 'ramp'
+                        ? Image.asset(
+                            rampIcon,
+                          )
+                      : item['spotIcon'] == 'bowl'
+                        ? Image.asset(
+                            bowlIcon,
+                          )
+                      : item['spotIcon'] == 'halfpipe'
+                        ? Image.asset(
+                            halfpipeIcon,
+                          )
+                      : Container(),
                     ),
-                  )
-                ],
-              ),
-            );
-          },
+                    SizedBox(width: 8.0),
+                    Container(
+                      width: 270,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            item['spotName'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: true,
+                          ),
+                          Text(
+                            item['spotAddress'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: true,
+                            style: TextStyle(
+                              fontSize: 12.0,
+                              color: AppColors.primaryGray30,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                  ],
+                )
+              );
+            },
+          ),
         ),
       ),
-    )
     );
   }
 }
