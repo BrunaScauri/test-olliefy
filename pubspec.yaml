@@ -12,6 +12,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.10+1
   google_fonts: ^6.2.1
+  google_maps_flutter: ^2.10.0
   mask_text_input_formatter: ^2.9.0
   permission_handler: ^11.3.1
   pin_code_fields: ^8.0.1
@@ -28,7 +29,6 @@ flutter:
   assets:
     - ./assets/
     - ./assets/splashscreen/
-    - ./assets/main_app/icons/
     - ./assets/icons/
     - ./assets/permissions_page/icons/
     - ./assets/permissions_page/
@@ -41,3 +41,6 @@ flutter:
     - ./assets/profile_page/example_store_items/
     - ./assets/profile_page/icons/
     - ./assets/profile_page/icons/example_pfp/
+    - ./assets/main_app/icons/
+    - ./assets/map_page/
+    - ./assets/map_page/icons/
