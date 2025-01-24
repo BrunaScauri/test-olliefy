@@ -101,6 +101,22 @@ class TextsStyles{
     letterSpacing: 3.0,
     );
   }
+
+  static TextStyle heading2Bold(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontWeight: FontWeight.w700,
+      fontSize: 32,
+    );
+  }
+
+  static TextStyle smallText(){
+    return GoogleFonts.openSans(
+    color: AppColors.primaryBlack,
+    fontSize: 12,
+    fontWeight: FontWeight.w400,
+    );
+  }
 }
 
 class UserNotifsStyles{
@@ -146,5 +162,24 @@ class UserStoreStyles{
     fontWeight: FontWeight.w400,
     );
     overflow: TextOverflow.ellipsis;
+  }
+}
+
+class AppBarStyles{
+  static TextStyle appBarLabel(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontSize: 10,
+      fontWeight: FontWeight.w600,
+    );
+  }
+  static TextStyle appBarLabelSelected({
+    Color? color = AppColors.tabIconSelected,
+  }){
+    return GoogleFonts.openSans(
+      color: color,
+      fontSize: 10,
+      fontWeight: FontWeight.w600,
+    );
   }
 }
