@@ -7,6 +7,7 @@ import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/socials_button.dart';
+import 'package:test_olliefy/components/atoms/drag_bar.dart';
 
 import 'package:test_olliefy/screens/map.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
@@ -49,13 +50,7 @@ class _LoginModalState extends State<LoginModal> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Container(
-            height: 5,
-            decoration: BoxDecoration(
-              color: Colors.grey[400],
-              borderRadius: BorderRadius.circular(10),
-            ), width: 40,
-          ),
+          DragBar(),
           SizedBox(height: 24),
           //'log in' title 
           Row(

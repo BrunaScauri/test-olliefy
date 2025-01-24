@@ -7,6 +7,7 @@ import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
+import 'package:test_olliefy/components/atoms/drag_bar.dart';
 
 import 'package:test_olliefy/screens/profile/edit_user_profile.dart';
 
@@ -44,14 +45,7 @@ class _AddSponsorState extends State<AddSponsor> {
             padding: EdgeInsets.symmetric(vertical: 24.0),
             child: Column(
               children: [
-                Container(
-                  height: 5,
-                  width: 40,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(10),
-                  ),
-                ),
+                DragBar(),
                 SizedBox(height: 12),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
