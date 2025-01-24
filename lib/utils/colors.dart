@@ -14,6 +14,7 @@ class AppColors {
 
   static const Color feedbackOrError = Color.fromRGBO(186, 26, 26, 1);
   static const Color tabIconSelected = Color.fromRGBO(77, 55, 222, 1);
+  static const Color boxShadow = Color.fromRGBO(161, 159, 148, 0.4);
 
   static const Color primaryBlack = Color.fromRGBO(0, 0, 0, 1);
   static const Color chatMessageGrey = Color.fromRGBO(247, 247, 247, 1);
@@ -26,4 +27,9 @@ class AppColors {
   static const Color primaryWhite = Color.fromRGBO(255, 255, 255, 1);
 
   static const Color primaryClay5 = Color.fromRGBO(245, 244, 240, 1);
+
+
+  static const Color bannerYellow = Color.fromRGBO(255, 255, 70, 1);
+  static const Color bannerGreen = Color.fromRGBO(97, 255, 190, 1);
+
 }
