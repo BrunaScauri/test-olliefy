@@ -1,16 +1,14 @@
 import 'package:flutter/material.dart';
-
-import 'package:test_olliefy/utils/colors.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/svg.dart';
+
+import 'package:google_fonts/google_fonts.dart';
+import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/socials_button.dart';
-import 'package:test_olliefy/components/atoms/drag_bar.dart';
 
-import 'package:test_olliefy/screens/map.dart';
-import 'package:test_olliefy/screens/main_screen.dart';
+import 'package:test_olliefy/screens/app_tab.dart';
 
 class LoginModal extends StatefulWidget {
   @override
@@ -91,7 +89,7 @@ class _LoginModalState extends State<LoginModal> {
                 ElevatedButton(
                   onPressed: _isButtonEnabled ? () {
                     Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => Map()),
+                      MaterialPageRoute(builder: (context) => AppTab()),
                     );
                   } : null,
                   style: _isButtonEnabled ? ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack) : ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12),
