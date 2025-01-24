@@ -72,9 +72,7 @@ class MainScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       easeIncomingIn(
-                        // RegisterModal(),
-                        // UserProfile(),
-                        AppTab(),
+                        RegisterModal(),
                       )
                     );
                   },
