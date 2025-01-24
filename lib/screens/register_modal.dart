@@ -13,6 +13,7 @@ import 'package:test_olliefy/modal/register_steps.dart';
 import 'package:test_olliefy/screens/map.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
+import 'package:test_olliefy/screens/app_tab.dart';
 
 class RegisterModal extends StatefulWidget {
   const RegisterModal({super.key});
@@ -111,27 +112,12 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
               },
             ),
             Expanded(
-              child: Consumer<UserModal>(
-                builder: (context, modal, child) {
-                  return AnimatedSwitcher(
-                    duration: const Duration(milliseconds: 400),
-                    transitionBuilder: (Widget child, Animation<double> animation) {
-                      const begin = Offset(1.0, 0.0);
-                      const end = Offset.zero;
-                      const curve = Curves.easeInOut;
-                      final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-                      final offsetAnimation = animation.drive(tween);
-                      return SlideTransition(
-                        position: offsetAnimation,
-                        child: child,
-                      );
-                    },
-                  child: _getStepContent(modal.activeIndex),
-                  );
-                  
-                },
-              ),
-            ),
+  child: Consumer<UserModal>(
+    builder: (context, modal, child) {
+              return _getStepContent(modal.activeIndex);
+    },
+  ),
+),
             Consumer<UserModal>(
               builder: (context, modal, child) {
                 return Padding(
@@ -143,7 +129,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                           onPressed: () {
                             if(modal.activeIndex == 5) { //push outside of register steps, last step
                               Navigator.of(context).pushReplacement(
-                                MaterialPageRoute(builder: (context) => UserProfile()),
+                                MaterialPageRoute(builder: (context) => AppTab()),
                               );
                             } else if(modal.activeIndex == 4) { //exception for controller-less pages (can't be validated but are valid steps)
                               Provider.of<UserModal>(context, listen: false).restartEvaluating();
@@ -177,8 +163,8 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
     );
   }
 
-  Widget _getStepContent(int stepIndex) {
-    switch (stepIndex) {
+  Widget _getStepContent(int activeIndex) {
+    switch (activeIndex) {
       case 0:
         return ProfileName();
       case 1:
