@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/utils/styles/buttons.dart';
 
 class DragBar extends StatelessWidget {
 
