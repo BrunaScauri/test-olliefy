@@ -7,6 +7,7 @@ import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/socials_button.dart';
+import 'package:test_olliefy/components/atoms/drag_bar.dart';
 
 import 'package:test_olliefy/screens/app_tab.dart';
 
