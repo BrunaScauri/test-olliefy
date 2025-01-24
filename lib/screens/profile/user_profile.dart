@@ -9,7 +9,6 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/borders.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
-import 'package:test_olliefy/utils/styles/custom_profile_tab_indicator.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
 import 'package:test_olliefy/screens/profile/edit_user_profile.dart';
