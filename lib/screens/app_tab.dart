@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-import 'package:test_olliefy/screens/map.dart';
+import 'package:test_olliefy/screens/map/map.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
 
 class AppTab extends StatefulWidget {
