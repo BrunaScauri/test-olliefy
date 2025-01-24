@@ -10,7 +10,6 @@ import 'package:test_olliefy/utils/route/slide_outgoing_right.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/modal/register_steps.dart';
-import 'package:test_olliefy/screens/map.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
 import 'package:test_olliefy/screens/app_tab.dart';

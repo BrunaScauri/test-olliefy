@@ -28,6 +28,7 @@ class UserProfile extends StatefulWidget {
 
 class _UserProfileState extends State<UserProfile> with SingleTickerProviderStateMixin{
   late TabController _tabController;
+  int currentIndex = 0;
 
   @override
   void initState() {
@@ -302,42 +303,46 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                       DefaultTabController(
                         initialIndex: 0,
                         length: 3,
-                        child: Center(
-                          child: Container(
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 400,
-                                  child: TabBar(
-                                    tabs: [
-                                      Tab(child: Align(alignment: Alignment.centerLeft, child: Text(
-                                        'Posts'
-                                      ))),
-                                      Tab(text: 'My Store'),
-                                      Tab(child: Align(alignment: Alignment.centerRight, child: Text(
-                                        'Stats'
-                                      ))),
-                                    ],
-                                    indicatorColor: AppColors.primaryGold70,
-                                    indicator: CustomProfileTabIndicator(),
-                                    labelColor: AppColors.primaryBlack,
-                                    labelStyle: TextStyle(fontWeight: FontWeight.bold),
-                                    unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
-                                  )
-                                ),
-                                SizedBox(
-                                  height: 400,
-                                  child: TabBarView(
-                                    children: <Widget>[
-                                      UserPosts(),
-                                      UserStore(),
-                                      UserStats(),
-                                    ]
-                                  )
-                                )
-                              ]
+                        child: Column(
+                          children: [
+                            Container(
+                              child: TabBar(
+                                onTap: (index) {
+                                  setState(() {
+                                    currentIndex = index;
+                                  });
+                                },
+                                tabs: [
+                                  Tab(child: Align(alignment: Alignment.centerLeft, child: Text(
+                                    'Posts'
+                                  ))),
+                                  Tab(text: 'My Store'),
+                                  Tab(child: Align(alignment: Alignment.centerRight, child: Text(
+                                    'Stats'
+                                  ))),
+                                ],
+                                labelPadding: EdgeInsets.zero,
+                                indicatorColor: AppColors.primaryGold70,
+                                indicatorPadding: currentIndex == 0 ? EdgeInsets.only(right: 80.0)
+                                  : currentIndex == 1 ? EdgeInsets.zero
+                                  : currentIndex == 2 ? EdgeInsets.only(left: 56.0)
+                                  : EdgeInsets.zero, //fix last padding pls
+                                labelColor: AppColors.primaryBlack,
+                                labelStyle: TextStyle(fontWeight: FontWeight.bold),
+                                unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
+                              )
+                            ),
+                            SizedBox(
+                              height: 400,
+                              child: TabBarView(
+                                children: <Widget>[
+                                  UserPosts(),
+                                  UserStore(),
+                                  UserStats(),
+                                ]
+                              )
                             )
-                          )
+                          ]
                         )
                       )
                     ]
