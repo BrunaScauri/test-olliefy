@@ -41,7 +41,10 @@ class _MapState extends State<Map> {
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: <Widget>[
-                  SearchButton(),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: SearchButton()
+                  ),
                   SizedBox(width: 8),
                   FilterButton(text: 'All', isSelected: selectedIndex == 0, onPressed: () => onButtonPressed(0)),
                   SizedBox(width: 8),
