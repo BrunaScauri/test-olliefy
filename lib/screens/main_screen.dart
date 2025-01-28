@@ -50,13 +50,18 @@ class MainScreen extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    showModalBottomSheet(
+                    showModalBottomSheet<dynamic>(
+                      isScrollControlled: true,
                       context: context,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
                       builder: (BuildContext context) {
-                        return LoginModal();
+                        return Wrap(
+                          children: [
+                            LoginModal(),
+                          ],
+                        );
                       },
                     );
                   },
