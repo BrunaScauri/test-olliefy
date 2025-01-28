@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'dart:async'; 
 import 'package:flutter_svg/svg.dart';
+
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
-import 'dart:async'; 
+import 'package:test_olliefy/utils/route/fade_incoming.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});
