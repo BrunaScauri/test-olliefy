@@ -117,6 +117,39 @@ class TextsStyles{
     fontWeight: FontWeight.w400,
     );
   }
+
+  static TextStyle showMore(){
+    return GoogleFonts.openSans(
+    color: AppColors.primaryGold70,
+    fontSize: 12,
+    fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle permissionButton(){
+    return GoogleFonts.openSans(
+    color: Colors.teal,
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle permissionText(){
+    return GoogleFonts.inter(
+      color: AppColors.primaryBlack,
+      fontSize: 16,
+      fontWeight: FontWeight.w600,
+    );
+  }
+
+  static TextStyle permissionBoldText(){
+    return GoogleFonts.inter(
+      color: AppColors.primaryBlack,
+      fontSize: 16,
+      fontWeight: FontWeight.w800,
+    );
+  }
+
 }
 
 class UserNotifsStyles{
