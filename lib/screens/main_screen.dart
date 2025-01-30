@@ -92,10 +92,9 @@ class MainScreen extends StatelessWidget {
                 Container(
                   constraints: BoxConstraints(maxWidth: 450),
                   child: Image.asset(
-                    'assets/main_screen.png',
+                    'assets/main_screen_image.png',
                     alignment: Alignment.bottomCenter,
                     fit: BoxFit.fill,
-                    opacity: const AlwaysStoppedAnimation(0.70),
                     width: MediaQuery.of(context).size.width,
                   ),
                 )
