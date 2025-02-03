@@ -17,32 +17,32 @@ class Splashscreen extends StatefulWidget {
     double _progressValue = 0.0;
     late Timer _timer;
 
-  @override
-  void initState() {
-    super.initState();
-    _simulateLoading();
-  }
+    @override
+    void initState() {
+      super.initState();
+      _simulateLoading();
+    }
 
-  void _simulateLoading() {
-    _timer = Timer.periodic(Duration(milliseconds: 30), (timer) {
-      setState(() {
-        _progressValue += 0.01;
-      });
+    void _simulateLoading() {
+      _timer = Timer.periodic(Duration(milliseconds: 10), (timer) {
+        setState(() {
+          _progressValue += 0.01;
+        });
 
-      if (_progressValue >= 1.0) {
-        _timer.cancel(); 
-        Navigator.of(context).pushReplacement(
-          MaterialPageRoute(builder: (context) => MainScreen()),
-        );
-      }
+        if (_progressValue >= 1.0) {
+          _timer.cancel(); 
+          Navigator.of(context).pushReplacement(
+            createRoute(MainScreen()),
+          );
+        }
       });
     }
 
-  @override
-  void dispose() {
-    _timer.cancel(); 
-    super.dispose();
-  }
+    @override
+    void dispose() {
+      _timer.cancel(); 
+      super.dispose();
+    }
 
     @override
     Widget build(BuildContext context) {
@@ -65,5 +65,4 @@ class Splashscreen extends StatefulWidget {
         )
       );
     }
-
   }
