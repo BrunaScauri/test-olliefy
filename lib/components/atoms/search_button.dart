@@ -4,6 +4,8 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
+import 'package:test_olliefy/screens/search/search_page.dart';
+
 class SearchButton extends StatelessWidget {
 
   const SearchButton({
@@ -12,19 +14,25 @@ class SearchButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: (){
-        // openSearchModal();
-      },
-      child: Image.asset('assets/map_page/icons/search_icon.png', fit: BoxFit.cover,height: 22, width: 22),
-      style: ElevatedButton.styleFrom(
-        minimumSize: Size(60, 60),
-        elevation: 3,
-        padding: EdgeInsets.zero,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        backgroundColor: AppColors.primaryWhite,
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 5),
+      child: ElevatedButton(
+        onPressed: (){
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => SearchPage()),
+          );
+        },
+        child: Image.asset('assets/map_page/icons/search_icon.png', fit: BoxFit.cover,height: 22, width: 22),
+        style: ElevatedButton.styleFrom(
+          minimumSize: Size(60, 60),
+          elevation: 4,
+          padding: EdgeInsets.zero,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(8),
+          ),
+          backgroundColor: AppColors.primaryWhite,
+        )
       )
     );
   }
