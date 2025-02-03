@@ -97,17 +97,8 @@ class _UserFavoritesState extends State<UserFavorites> {
                             FavoritesSpots(),
                             FavoritesMarketplace(),
                             FavoritesPosts(),
-                          ].map((widget) {
-                            return ConstrainedBox(
-                              constraints: BoxConstraints(
-                                minHeight: constraints.maxHeight,
-                                maxHeight: double.infinity,
-                              ),
-                              child: widget,
-                            );
-                          }).toList(),
-                        );
-                      },
+                        ]
+                      )
                     ),
                   ]
                 )  
