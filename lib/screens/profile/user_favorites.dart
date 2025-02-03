@@ -90,15 +90,24 @@ class _UserFavoritesState extends State<UserFavorites> {
                         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
                       ),
                     ),
-                    SizedBox(
-                      height: 700,
-                      child: TabBarView(
-                        children: <Widget>[
-                          FavoritesSpots(),
-                          FavoritesMarketplace(),
-                          FavoritesPosts(),
-                        ]
-                      )
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        return TabBarView(
+                          children: <Widget>[
+                            FavoritesSpots(),
+                            FavoritesMarketplace(),
+                            FavoritesPosts(),
+                          ].map((widget) {
+                            return ConstrainedBox(
+                              constraints: BoxConstraints(
+                                minHeight: constraints.maxHeight,
+                                maxHeight: double.infinity,
+                              ),
+                              child: widget,
+                            );
+                          }).toList(),
+                        );
+                      },
                     ),
                   ]
                 )  
