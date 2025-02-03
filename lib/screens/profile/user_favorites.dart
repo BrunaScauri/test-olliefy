@@ -90,13 +90,13 @@ class _UserFavoritesState extends State<UserFavorites> {
                         unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
                       ),
                     ),
-                    LayoutBuilder(
-                      builder: (context, constraints) {
-                        return TabBarView(
-                          children: <Widget>[
-                            FavoritesSpots(),
-                            FavoritesMarketplace(),
-                            FavoritesPosts(),
+                    SizedBox(
+                      height: 700,
+                      child: TabBarView(
+                        children: <Widget>[
+                          FavoritesSpots(),
+                          FavoritesMarketplace(),
+                          FavoritesPosts(),
                         ]
                       )
                     ),
