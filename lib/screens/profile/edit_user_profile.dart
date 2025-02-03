@@ -50,7 +50,7 @@ class _EditUserProfileState extends State<EditUserProfile> {
           ),
         ),
       ),
-			body: Center(
+			body: SingleChildScrollView(
 				child: Container(
           constraints: BoxConstraints(maxWidth: 370),
           child: Padding(
