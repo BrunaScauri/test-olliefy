@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:provider/provider.dart';
-// import 'package:permission_handler/permission_handler.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
@@ -17,6 +16,8 @@ import 'package:test_olliefy/screens/main_screen.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
 import 'package:test_olliefy/components/atoms/permission_dialogue.dart';
+import 'package:test_olliefy/utils/route/stepper_animation.dart';
+import 'package:test_olliefy/utils/route/stepper_back_animation.dart';
 
 class RegisterModal extends StatefulWidget {
   const RegisterModal({super.key});
@@ -38,7 +39,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
       body: Column(
         children: [
           Consumer<UserModal>(
-            builder: (context, modal, child) {
+            builder: (context, userModal, child) {
               return Container(
                 child: Column(
                   children: [
@@ -46,23 +47,23 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                     Container(
                       color: AppColors.primaryGold60,
                       child: Row(
-                        children: List.generate(modal.totalIndex,
+                        children: List.generate(userModal.totalIndex,
                           (index) => Expanded(
                             child: Container(
                               height: 8,
                               decoration: BoxDecoration(
-                                color: index <= modal.activeIndex
+                                color: index <= userModal.activeIndex
                                     ? AppColors.primaryGold20Stepper
                                     : AppColors.primaryGold10,
                                 border: Border.all(
-                                  color: index == modal.activeIndex
+                                  color: index == userModal.activeIndex
                                       ? AppColors.primaryGold60
                                       : AppColors.primaryGold40,
                                   width: 1,
                                 ),
                                 borderRadius: BorderRadius.only(
                                   topLeft: index == 0 ? Radius.circular(40) : Radius.zero,
-                                  topRight: index == modal.totalIndex - 1 ? Radius.circular(40) : Radius.zero,
+                                  topRight: index == userModal.totalIndex - 1 ? Radius.circular(40) : Radius.zero,
                                 ),
                               ),
                             ),
@@ -71,6 +72,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                       ),
                     ),
                     const SizedBox(height: 40),
+                    //logic for 'back' and 'close' buttons
                     Container(
                       color: AppColors.primaryWhite,
                       child: Padding(
@@ -82,7 +84,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                               icon: Icon(Icons.west),
                               iconSize: 24,
                               onPressed: () {
-                                if(modal.activeIndex == 0) {
+                                if(userModal.activeIndex == 0) {
                                   Navigator.of(context).push(
                                     slideOutgoingRight(
                                       enterPage: MainScreen(), exitPage: RegisterModal(),
@@ -90,13 +92,6 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                                   );
                                 } else {
                                   Provider.of<UserModal>(context, listen: false).decrementStep(context);
-                                  // slideOutgoingRight(
-                                  // enterPage: Provider.of<UserModal>(context, listen: false).decrementStep(context); exitPage: modal.activeIndex
-                                  // context: context,
-                                  // exitPage: RegisterModal(), // Add the current page widget
-                                  // enterPage: RegisterModal(),
-                                  // );
-                                  
                                 }
                               }
                             ),
@@ -120,43 +115,36 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
               );
             },
           ),
+          //animation for the stepper
           Expanded(
-            child: Selector<UserModal, int>(
-              selector: (_, modal) => modal.activeIndex,
-              builder: (context, activeIndex, _) {
-                // Ensure activeIndex is fetched properly
-                final currentStepContent = _getStepContent(activeIndex);
-
-                // Trigger navigation only when activeIndex changes
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  // Navigator.of(context).pushReplacement(
-                  //   PageRouteBuilder(
-                  //     pageBuilder: (context, animation, secondaryAnimation) {
-                  //       return currentStepContent;
-                  //     },
-                      // transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                      //   const begin = Offset(0.0, 1.0); // Slide from bottom
-                      //   const end = Offset.zero;       // Slide to center
-                      //   const curve = Curves.easeInOut;
-
-                      //   final tween = Tween(begin: begin, end: end)
-                      //       .chain(CurveTween(curve: curve));
-                      //   final offsetAnimation = animation.drive(tween);
-
-                        // return SlideTransition(
-                        //   position: offsetAnimation,
-                        //   child: child,
-                        // );
-                      // },
-                    // ),
-                  // );
-                });
-
-                // Return current step content without wrapping it in navigation logic
-                return currentStepContent;
+            child: Consumer<UserModal>(
+              builder: (context, modal, child) {
+                return AnimatedSwitcher(
+                  duration: Duration(milliseconds: 500),
+                  transitionBuilder: (Widget child, Animation<double> animation) {
+                    if (modal.isNextStep) {
+                      return stepperAnimation(
+                        child,
+                        animation,
+                        modal.activeIndex > 0 ? _getStepContent(modal.activeIndex - 1) : null,
+                      );
+                    } else {
+                      return stepperBackAnimation(
+                        child,
+                        animation,
+                        modal.activeIndex > 0 ? _getStepContent(modal.activeIndex - 1) : null,
+                      );
+                    }
+                  },
+                  child: KeyedSubtree(
+                    key: ValueKey<int>(modal.activeIndex),
+                    child: _getStepContent(modal.activeIndex),
+                  ),
+                );
               },
             ),
           ),
+          //logic and styling for 'next'/'activate permissions' button
           Consumer<UserModal>(
             builder: (context, modal, child) {
               return Padding(

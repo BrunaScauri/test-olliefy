@@ -14,6 +14,7 @@ class UserModal extends ChangeNotifier {
   int _activeIndex = 0;
   final int _totalIndex = 3;
   bool _isValid = false;
+  bool isNextStep = true;
 
   int get activeIndex => _activeIndex;
   int get totalIndex => _totalIndex;
@@ -21,6 +22,7 @@ class UserModal extends ChangeNotifier {
   bool get isStepValid => _isValid;
 
   void incrementStep(context) {
+    isNextStep = true;
     if(_activeIndex >= 0) {
       _activeIndex++;
       notifyListeners();
@@ -28,6 +30,7 @@ class UserModal extends ChangeNotifier {
   }
 
   void decrementStep(BuildContext context) {
+    isNextStep = false;
     if(_activeIndex > 0) {
       _activeIndex--;
       notifyListeners();
