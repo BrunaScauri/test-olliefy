@@ -11,7 +11,8 @@ class ChallengesBanner extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 343,
+      height: 88,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
@@ -34,15 +35,19 @@ class ChallengesBanner extends StatelessWidget {
             ),
             SizedBox(width: 6),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   '10 challenges available',
                   style: TextsStyles.profileDataBold(),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
                 Text(
                   'Win prizes and money by skating.',
                   style: TextsStyles.smallText(),
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ]
             ),
