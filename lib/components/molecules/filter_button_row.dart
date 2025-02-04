@@ -32,29 +32,64 @@ class _FilterButtonRowState extends State<FilterButtonRow> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 75,
-        width: double.infinity,
-        child: Padding(
-          padding: EdgeInsets.only(top: 10, bottom: 10),
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            children: <Widget>[
-              widget.searchButton == true ? SearchButton() : Container(),
-              SizedBox(width: 8),
-              FilterButton(text: 'All', isSelected: selectedIndex == 0, onPressed: () => onButtonPressed(0)),
-              SizedBox(width: 8),
-              FilterButton(text: 'Halfpipe', iconPath: halfpipeIcon, isSelected: selectedIndex == 1, onPressed: () => onButtonPressed(1)),
-              SizedBox(width: 8),
-              FilterButton(text: 'Bowl', iconPath: bowlIcon, isSelected: selectedIndex == 2, onPressed: () => onButtonPressed(2)),
-              SizedBox(width: 8),
-              FilterButton(text: 'Rails', iconPath: railIcon, isSelected: selectedIndex == 3, onPressed: () => onButtonPressed(3)),
-              SizedBox(width: 8),
-              FilterButton(text: 'Stairs', iconPath: stairsIcon, isSelected: selectedIndex == 4, onPressed: () => onButtonPressed(4)),
-              SizedBox(width: 8),
-              FilterButton(text: 'Ramp', iconPath: rampIcon, isSelected: selectedIndex == 5, onPressed: () => onButtonPressed(5)),
-            ],
-          ),
+      height: 75,
+      width: double.infinity,
+      child: Padding(
+        padding: EdgeInsets.only(top: 10, bottom: 10),
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            if (widget.searchButton) SearchButton(),
+            if (widget.searchButton) SizedBox(width: 8),
+            FilterButton(
+              text: 'All',
+              isSelected: selectedIndex == 0,
+              onPressed: () => onButtonPressed(0),
+              selectedColor: AppColors.primaryGold60,
+            ),
+            SizedBox(width: 8),
+            FilterButton(
+              text: 'Halfpipe',
+              iconPath: halfpipeIcon,
+              isSelected: selectedIndex == 1,
+              onPressed: () => onButtonPressed(1),
+              selectedColor: AppColors.primaryGold60,
+            ),
+            SizedBox(width: 8),
+            FilterButton(
+              text: 'Bowl',
+              iconPath: bowlIcon,
+              isSelected: selectedIndex == 2,
+              onPressed: () => onButtonPressed(2),
+              selectedColor: AppColors.primaryGold60,
+            ),
+            SizedBox(width: 8),
+            FilterButton(
+              text: 'Rails',
+              iconPath: railIcon,
+              isSelected: selectedIndex == 3,
+              onPressed: () => onButtonPressed(3),
+              selectedColor: AppColors.primaryGold60,
+            ),
+            SizedBox(width: 8),
+            FilterButton(
+              text: 'Stairs',
+              iconPath: stairsIcon,
+              isSelected: selectedIndex == 4,
+              onPressed: () => onButtonPressed(4),
+              selectedColor: AppColors.primaryGold60,
+            ),
+            SizedBox(width: 8),
+            FilterButton(
+              text: 'Ramp',
+              iconPath: rampIcon,
+              isSelected: selectedIndex == 5,
+              onPressed: () => onButtonPressed(5),
+              selectedColor: AppColors.primaryGold60,
+            ),
+          ],
         ),
-      );
+      ),
+    );
   }
 }

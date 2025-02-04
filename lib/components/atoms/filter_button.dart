@@ -9,6 +9,7 @@ class FilterButton extends StatefulWidget {
   final String? iconPath;
   final bool isSelected;
   final VoidCallback onPressed;
+  final Color selectedColor;
 
   const FilterButton({
     Key? key,
@@ -16,6 +17,7 @@ class FilterButton extends StatefulWidget {
     this.iconPath,
     required this.isSelected,
     required this.onPressed,
+    this.selectedColor = AppColors.primaryGold60,
   }) : super(key: key);
 
   @override
@@ -39,7 +41,7 @@ class _FilterButtonState extends State<FilterButton> {
           style: UserStoreStyles.itemDescription(),
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: isSelected ? AppColors.primaryGold60 : AppColors.primaryClay5,
+          backgroundColor: widget.isSelected ? AppColors.primaryGold60 : AppColors.primaryClay5,
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
