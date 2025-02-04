@@ -9,6 +9,8 @@ import 'package:test_olliefy/components/atoms/user_stats_card_description.dart';
 import 'package:test_olliefy/components/atoms/event_cards.dart';
 
 class UserStats extends StatefulWidget {
+  const UserStats({Key? key}) : super(key: key);
+
   @override
   _UserStatsState createState() => _UserStatsState();
 }

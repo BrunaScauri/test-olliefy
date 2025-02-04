@@ -6,6 +6,8 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
 class UserPosts extends StatefulWidget {
+  const UserPosts({Key? key}) : super(key: key);
+
   @override
   _UserPostsState createState() => _UserPostsState();
 }

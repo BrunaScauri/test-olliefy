@@ -7,6 +7,8 @@ import 'package:test_olliefy/components/atoms/user_store_item_card_description.d
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 
 class UserStore extends StatefulWidget {
+  const UserStore({Key? key}) : super(key: key);
+
   @override
   _UserStoreState createState() => _UserStoreState();
 }
