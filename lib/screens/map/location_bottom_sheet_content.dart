@@ -7,6 +7,7 @@ import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/store_item_card.dart';
+import 'package:test_olliefy/components/molecules/skateboarding_recently_card.dart';
 
 class LocationBottomSheetContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -86,16 +87,19 @@ class LocationBottomSheetContent extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
             padding: const EdgeInsets.only(bottom: 8),
-              child: Text(
-                '',
-                style: TextsStyles.spacedGray(),
-              ),
+              child: TitleShowMoreHeader(title: 'SKATEBOARDING RECENTLY'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
             padding: const EdgeInsets.only(bottom: 8),
-              child: TitleShowMoreHeader(title: 'SKATEBOARDING RECENTLY'),
+              child: Column(
+                children: [
+                  SkateboardingRecentlyCard(imagePath: 'assets/profile_page/icons/example_pfp/9.png', profileName: 'RailRider', timestamp: '20 minutes ago'),
+                  SkateboardingRecentlyCard(imagePath: 'assets/profile_page/icons/example_pfp/7.jpeg', profileName: 'Shredmaster', timestamp: '1 hour ago'),
+                  SkateboardingRecentlyCard(imagePath: 'assets/profile_page/icons/example_pfp/0.jpeg', profileName: 'Olliewizard', timestamp: '4 hours ago'),
+                ]
+              )
             )
           ),
           SliverToBoxAdapter(
