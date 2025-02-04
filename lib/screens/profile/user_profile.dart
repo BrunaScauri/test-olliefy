@@ -323,10 +323,19 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                                 ],
                                 labelPadding: EdgeInsets.zero,
                                 indicatorColor: AppColors.primaryGold70,
-                                indicatorPadding: currentIndex == 0 ? EdgeInsets.only(right: 80.0)
-                                  : currentIndex == 1 ? EdgeInsets.zero
-                                  : currentIndex == 2 ? EdgeInsets.only(left: 56.0)
-                                  : EdgeInsets.zero, //fix last padding pls
+                                indicator: UnderlineTabIndicator(
+                                  borderSide: BorderSide(
+                                    width: 2.0,
+                                    color: AppColors.primaryGold70,
+                                  ),
+                                  insets: currentIndex == 0
+                                      ? EdgeInsets.only(right: 70.0)
+                                      : currentIndex == 1
+                                          ? EdgeInsets.zero
+                                          : currentIndex == 2
+                                              ? EdgeInsets.only(left: 75.0)
+                                              : EdgeInsets.zero,
+                                ), //fixed padding, works only for static page
                                 labelColor: AppColors.primaryBlack,
                                 labelStyle: TextStyle(fontWeight: FontWeight.bold),
                                 unselectedLabelStyle: TextStyle(fontWeight: FontWeight.normal),
@@ -356,3 +365,17 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
     );
   }
 }
+//fix animation for the tabs
+
+// Widget _buildPage(int index) {
+//     switch (index) {
+//       case 0:
+//         return UserPosts(key: ValueKey<int>(0));
+//       case 1:
+//         return UserStore(key: ValueKey<int>(1));
+//       case 2:
+//         return UserStats(key: ValueKey<int>(2));
+//       default:
+//         return Container();
+//     }
+//   }
