@@ -342,15 +342,18 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                               )
                             ),
                             SizedBox(
-                              height: 400,
-                              child: TabBarView(
-                                children: <Widget>[
-                                  UserPosts(),
-                                  UserStore(),
-                                  UserStats(),
-                                ]
-                              )
-                            )
+                              height: 400, // Fixed height for the tab content
+                              child: AnimatedSwitcher(
+                                duration: Duration(milliseconds: 300),
+                                transitionBuilder: (Widget child, Animation<double> animation) {
+                                  return FadeTransition(
+                                    opacity: animation,
+                                    child: child,
+                                  );
+                                },
+                                child: _buildPage(currentIndex),
+                              ),
+                            ),
                           ]
                         )
                       )
@@ -364,18 +367,16 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
       )
     );
   }
+  Widget _buildPage(int index) {
+    switch (index) {
+      case 0:
+        return UserPosts(key: ValueKey<int>(0));
+      case 1:
+        return UserStore(key: ValueKey<int>(1));
+      case 2:
+        return UserStats(key: ValueKey<int>(2));
+      default:
+        return Container();
+    }
+  }
 }
-//fix animation for the tabs
-
-// Widget _buildPage(int index) {
-//     switch (index) {
-//       case 0:
-//         return UserPosts(key: ValueKey<int>(0));
-//       case 1:
-//         return UserStore(key: ValueKey<int>(1));
-//       case 2:
-//         return UserStats(key: ValueKey<int>(2));
-//       default:
-//         return Container();
-//     }
-//   }
