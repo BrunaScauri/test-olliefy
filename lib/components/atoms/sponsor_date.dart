@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
 
 class SponsorDate extends StatelessWidget {
   final String sponsorDate;
