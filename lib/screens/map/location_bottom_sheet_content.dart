@@ -17,7 +17,7 @@ class LocationBottomSheetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(top: 16.0),
       child: CustomScrollView(
       controller: scrollController,
         slivers: [
@@ -29,7 +29,7 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: Text(
                 'NOW IN',
                 style: TextsStyles.spacedGray(),
@@ -38,7 +38,7 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: Text(
                 'Barcelona',
                 style: TextsStyles.heading2Bold(),
@@ -47,7 +47,7 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 16),
+              padding: const EdgeInsets.only(bottom: 16, left: 16, right: 16),
               child: Row(
                 children: [
                   Text(
@@ -70,29 +70,32 @@ class LocationBottomSheetContent extends StatelessWidget {
             )
           ),
           SliverToBoxAdapter(
-            child: FilterButtonRow(searchButton: false),
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40, left: 16),
+              child: FilterButtonRow(searchButton: false),
+            )
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 40),
+              padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
               child: ChallengesBanner(),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: TitleShowFeedHeader(title: 'LAST POSTS'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: TitleShowMoreHeader(title: 'SKATEBOARDING RECENTLY'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: Column(
                 children: [
                   SkateboardingRecentlyCard(imagePath: 'assets/profile_page/icons/example_pfp/9.png', profileName: 'RailRider', timestamp: '20 minutes ago'),
@@ -104,13 +107,13 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: TitleShowMoreHeader(title: 'CHALLENGES'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-            padding: const EdgeInsets.only(bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
               child: StoreItemCard(),
             )
           ),
