@@ -23,7 +23,7 @@ class LocationBottomSheetContent extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(top: 24, bottom: 8),
+              padding: const EdgeInsets.only(bottom: 8),
               child: DragBar(),
             )
           ),
