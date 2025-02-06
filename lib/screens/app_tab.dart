@@ -56,6 +56,7 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
         child: Scaffold(
           body: TabBarView(
             controller: _tabController,
+            physics: NeverScrollableScrollPhysics(),
             children: [
               Map(),
               Icon(Icons.directions_transit),
