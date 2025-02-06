@@ -71,7 +71,7 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 40, left: 16),
+              padding: const EdgeInsets.only(bottom: 16, left: 16),
               child: FilterButtonRow(searchButton: false),
             )
           ),
@@ -83,19 +83,19 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
               child: TitleShowFeedHeader(title: 'LAST POSTS'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 2, left: 16, right: 16),
               child: TitleShowMoreHeader(title: 'SKATEBOARDING RECENTLY'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
               child: Column(
                 children: [
                   SkateboardingRecentlyCard(imagePath: 'assets/profile_page/icons/example_pfp/9.png', profileName: 'RailRider', timestamp: '20 minutes ago'),
@@ -107,13 +107,25 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
               child: TitleShowMoreHeader(title: 'CHALLENGES'),
             )
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 8, left: 16, right: 16),
+              padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
+              child: Container(),
+            )
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
+              child: TitleShowMoreHeader(title: 'SELLERS NEARBY'),
+            )
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
               child: StoreItemCard(),
             )
           ),
