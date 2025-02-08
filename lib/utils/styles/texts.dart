@@ -150,6 +150,14 @@ class TextsStyles{
     );
   }
 
+  static TextStyle postsProfileName(){
+    return GoogleFonts.inter(
+      color: AppColors.primaryBlack,
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
 }
 
 class UserNotifsStyles{
