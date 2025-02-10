@@ -8,6 +8,7 @@ import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/store_item_card.dart';
 import 'package:test_olliefy/components/molecules/skateboarding_recently_card.dart';
+import 'package:test_olliefy/components/molecules/challenges_card.dart';
 
 class LocationBottomSheetContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -109,6 +110,12 @@ class LocationBottomSheetContent extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
               child: TitleShowMoreHeader(title: 'CHALLENGES'),
+            )
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
+              child: ChallengesCard(imagePath:'assets/profile_page/icons/example_sponsor_image.png', profileName: 'Spitfire' , challengeName: 'Insane', activityDate:'1 hour ago' ),
             )
           ),
           SliverToBoxAdapter(
