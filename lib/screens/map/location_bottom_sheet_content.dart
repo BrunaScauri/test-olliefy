@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
-import 'package:test_olliefy/components/atoms/challenges_banner.dart';
+import 'package:test_olliefy/components/atoms/challenges_available.dart';
 import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/store_item_card.dart';
 import 'package:test_olliefy/components/molecules/skateboarding_recently_card.dart';
-import 'package:test_olliefy/components/molecules/challenges_card.dart';
+import 'package:test_olliefy/components/atoms/challenges_card.dart';
+import 'package:test_olliefy/components/molecules/challenges_banner.dart';
 
 class LocationBottomSheetContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -79,7 +80,7 @@ class LocationBottomSheetContent extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
-              child: ChallengesBanner(),
+              child: ChallengesAvailable(),
             )
           ),
           SliverToBoxAdapter(
@@ -114,14 +115,20 @@ class LocationBottomSheetContent extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
-              child: ChallengesCard(imagePath:'assets/profile_page/icons/example_sponsor_image.png', profileName: 'Spitfire' , challengeName: 'Insane', activityDate:'1 hour ago' ),
-            )
-          ),
-          SliverToBoxAdapter(
-            child: Padding(
               padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
-              child: Container(),
+              child: Column(
+                children: [
+                  ChallengesCard(imagePath:'assets/profile_page/icons/example_sponsor_image.png', profileName: 'Spitfire' , challengeName: 'Insane', activityDate:'1 hour ago' ),
+                  SizedBox(height: 24),
+                  ChallengesBanner(
+                    imagePath:'assets/profile_page/icons/example_sponsor_image.png', profileName: 'Spitfire', 
+                    challengeName: 'Insane',
+                    challengeSponsor: 'Spitfire',
+                    challengeDescription: 'Jump over an obstacle in the most creative way you can think of.',
+                    challengePrize: '1st Prize 100€'
+                  ),
+                ]
+              )
             )
           ),
           SliverToBoxAdapter(

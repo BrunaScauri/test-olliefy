@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
-import 'package:test_olliefy/components/atoms/challenges_banner.dart';
 
 class SearchPageContent extends StatelessWidget {
   final ScrollController scrollController;

@@ -32,4 +32,5 @@ class AppColors {
   static const Color bannerYellow = Color.fromRGBO(255, 255, 70, 1);
   static const Color bannerGreen = Color.fromRGBO(97, 255, 190, 1);
 
+  static const Color challengePrize = Color.fromRGBO(0, 171, 48, 1);
 }

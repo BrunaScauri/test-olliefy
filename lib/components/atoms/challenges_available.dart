@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-class ChallengesBanner extends StatelessWidget {
+class ChallengesAvailable extends StatelessWidget {
 
-  const ChallengesBanner({
+  const ChallengesAvailable({
     Key? key,
   }) : super(key: key);
 

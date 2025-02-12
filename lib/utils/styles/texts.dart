@@ -77,9 +77,9 @@ class TextsStyles{
 
   static TextStyle sponsorDate(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryGray30,
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
+      color: AppColors.primaryGray30,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
     );
   }
 
@@ -87,18 +87,18 @@ class TextsStyles{
     required Color color,
   }){
     return GoogleFonts.openSans(
-    color: color,
-    fontSize: 14,
-    fontWeight: FontWeight.w700,
+      color: color,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
     );
   }
   
   static TextStyle spacedGray(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryGray30,
-    fontSize: 12,
-    fontWeight: FontWeight.w700,
-    letterSpacing: 3.0,
+      color: AppColors.primaryGray30,
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+      letterSpacing: 3.0,
     );
   }
 
@@ -112,25 +112,25 @@ class TextsStyles{
 
   static TextStyle smallText(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryBlack,
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
+      color: AppColors.primaryBlack,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
     );
   }
 
   static TextStyle showMore(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryGold70,
-    fontSize: 12,
-    fontWeight: FontWeight.w700,
+      color: AppColors.primaryGold70,
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
     );
   }
 
   static TextStyle permissionButton(){
     return GoogleFonts.openSans(
-    color: Colors.teal,
-    fontSize: 12,
-    fontWeight: FontWeight.w600,
+      color: Colors.teal,
+      fontSize: 12,
+      fontWeight: FontWeight.w600,
     );
   }
 
@@ -163,25 +163,25 @@ class TextsStyles{
 class UserNotifsStyles{
   static TextStyle activity(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryBlack,
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
     );
   }
 
   static TextStyle activityItem(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryBlack,
-    fontSize: 14,
-    fontWeight: FontWeight.w700,
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
     );
   }
 
   static TextStyle activityDate(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryGray30,
-    fontSize: 12,
-    fontWeight: FontWeight.w400,
+      color: AppColors.primaryGray30,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
     );
   }
 
@@ -190,17 +190,17 @@ class UserNotifsStyles{
 class UserStoreStyles{
   static TextStyle itemPrice(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryBlack,
-    fontSize: 14,
-    fontWeight: FontWeight.w700,
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
     );
     overflow: TextOverflow.ellipsis;
   }
   static TextStyle itemDescription(){
     return GoogleFonts.openSans(
-    color: AppColors.primaryBlack,
-    fontSize: 14,
-    fontWeight: FontWeight.w400,
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
     );
     overflow: TextOverflow.ellipsis;
   }
@@ -221,6 +221,56 @@ class AppBarStyles{
       color: color,
       fontSize: 10,
       fontWeight: FontWeight.w600,
+    );
+  }
+}
+
+class ChallengesStyles{
+  static TextStyle challengeName(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle challengeNameBanner(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle sponsorName(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryGold60,
+      fontSize: 12,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle challengeText(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle challengePrize(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle joinTheChallengeText(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
     );
   }
 }

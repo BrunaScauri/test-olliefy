@@ -44,3 +44,4 @@ flutter:
     - ./assets/main_app/icons/
     - ./assets/map_page/
     - ./assets/map_page/icons/
+    - ./assets/map_page/challenges/
