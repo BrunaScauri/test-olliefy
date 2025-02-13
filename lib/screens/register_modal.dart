@@ -119,26 +119,22 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
           Expanded(
             child: Consumer<UserModal>(
               builder: (context, modal, child) {
+                Widget currentStep = _getStepContent(modal.activeIndex);
+                Widget? previousStep = modal.activeIndex > 0 ? _getStepContent(modal.activeIndex - 1) : null;
                 return AnimatedSwitcher(
                   duration: Duration(milliseconds: 500),
                   transitionBuilder: (Widget child, Animation<double> animation) {
-                    if (modal.isNextStep) {
-                      return stepperAnimation(
-                        child,
-                        animation,
-                        modal.activeIndex > 0 ? _getStepContent(modal.activeIndex - 1) : null,
-                      );
+                    if (modal.activeIndex == 0) {
+                      return child;
+                    } else if (modal.isNextStep) {
+                      return stepperAnimation(child, animation, previousChild: previousStep);
                     } else {
-                      return stepperBackAnimation(
-                        child,
-                        animation,
-                        modal.activeIndex > 0 ? _getStepContent(modal.activeIndex - 1) : null,
-                      );
+                      return stepperBackAnimation(child, animation, previousChild: previousStep);
                     }
                   },
                   child: KeyedSubtree(
-                    key: ValueKey<int>(modal.activeIndex),
-                    child: _getStepContent(modal.activeIndex),
+                    key: ValueKey(modal.activeIndex),
+                    child: currentStep,
                   ),
                 );
               },
