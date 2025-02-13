@@ -36,6 +36,7 @@ class _ProfileNameState extends State<ProfileName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
@@ -116,6 +117,7 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Consumer<UserModal>(
@@ -321,64 +323,66 @@ final TextEditingController _tokenController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: AppColors.primaryWhite,
-    body: Center(
-      child: Container(
-        constraints: BoxConstraints(maxWidth: 370),
-          child: Column(
-            children: [
-              Consumer<UserModal>(
-                builder: (context, modal, child) {
-                  return Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        RichText(
-                          text:TextSpan(style: TextStyles.primaryHeader(), children: [
-                            TextSpan(text:'Enter the code'),
-                          ])
-                        ),
-                        SizedBox(height: 16),
-                        RichText(
-                          text:TextSpan(style: TextStyles.primaryText(), children: [
-                            TextSpan(text:'We sent a code to validate your phone number.'),
-                          ])
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: 40.0),
-                          child: PinCodeTextField(
-                            controller: _tokenController,
-                            appContext: context,
-                            length: 5,
-                            obscureText: false,
-                            animationDuration: Duration(milliseconds: 500), 
-                            animationType: AnimationType.fade,
-                            pinTheme: PinTheme(
-                              shape: PinCodeFieldShape.box,
-                              borderRadius: BorderRadius.circular(5),
-                              borderWidth: 10.0,
-                              fieldHeight: 56,
-                              fieldWidth: 56,
-                              activeColor: AppColors.primaryBlack,
-                              selectedColor: AppColors.primaryGold70,
-                              inactiveColor: AppColors.primaryBlack,
-                            ),
-                            autoDisposeControllers: false,
-                            keyboardType: TextInputType.number,
-                            autoDismissKeyboard: false,
-                            onCompleted: (value) {
-                              modal.updateToken(value);
-                            },
+      resizeToAvoidBottomInset: false,
+      backgroundColor: AppColors.primaryWhite,
+      body: Center(
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
+            child: Column(
+              children: [
+                Consumer<UserModal>(
+                  builder: (context, modal, child) {
+                    return Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 4.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          RichText(
+                            text:TextSpan(style: TextStyles.primaryHeader(), children: [
+                              TextSpan(text:'Enter the code'),
+                            ])
                           ),
-                        ),
-                        RichText(
-                          text:TextSpan(style: TextStyles.primaryText(), children: [
-                            TextSpan(text:'Didn’t receive the message? '),
-                            TextSpan(
-                              text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                          SizedBox(height: 16),
+                          RichText(
+                            text:TextSpan(style: TextStyles.primaryText(), children: [
+                              TextSpan(text:'We sent a code to validate your phone number.'),
+                            ])
+                          ),
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: 40.0),
+                            child: PinCodeTextField(
+                              controller: _tokenController,
+                              appContext: context,
+                              length: 5,
+                              obscureText: false,
+                              animationDuration: Duration(milliseconds: 500), 
+                              animationType: AnimationType.fade,
+                              pinTheme: PinTheme(
+                                shape: PinCodeFieldShape.box,
+                                borderRadius: BorderRadius.circular(5),
+                                borderWidth: 10.0,
+                                fieldHeight: 56,
+                                fieldWidth: 56,
+                                activeColor: AppColors.primaryBlack,
+                                selectedColor: AppColors.primaryGold70,
+                                inactiveColor: AppColors.primaryBlack,
+                              ),
+                              autoDisposeControllers: false,
+                              keyboardType: TextInputType.number,
+                              autoDismissKeyboard: false,
+                              onCompleted: (value) {
+                                modal.updateToken(value);
+                              },
                             ),
-                          ])
+                          ),
+                          RichText(
+                            text:TextSpan(style: TextStyles.primaryText(), children: [
+                              TextSpan(text:'Didn’t receive the message? '),
+                              TextSpan(
+                                text:' Resend', style: GoogleFonts.openSans(color: AppColors.primaryGold70, fontWeight: FontWeight.bold)
+                              ),
+                            ]
+                          )
                         ),
                       ]
                     )
@@ -410,6 +414,7 @@ class _PasswordState extends State<Password> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
@@ -433,25 +438,25 @@ class _PasswordState extends State<Password> {
               ),
               const SizedBox(height: 20),
               Consumer<UserModal>(
-              builder: (context, modal, child) {
-                return Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Container(
-                    constraints: BoxConstraints(maxWidth: 340),
-                    child: TextFormField(
-                      obscureText: true,
-                      controller: _passwordController,
-                      onChanged: (value) {
-                        modal.updatePassword(value);
-                      },
-                      decoration: FormDecorations.textFieldDecoration(
-                        labelText: 'Password',
+                builder: (context, modal, child) {
+                  return Padding(
+                    padding: const EdgeInsets.all(15.0),
+                    child: Container(
+                      constraints: BoxConstraints(maxWidth: 340),
+                      child: TextFormField(
+                        obscureText: true,
+                        controller: _passwordController,
+                        onChanged: (value) {
+                          modal.updatePassword(value);
+                        },
+                        decoration: FormDecorations.textFieldDecoration(
+                          labelText: 'Password',
+                        ),
                       ),
-                    ),
-                  )
-                );
-              },
-            ),
+                    )
+                  );
+                },
+              ),
             ]
           )
         )
@@ -472,6 +477,7 @@ class _PermissionsState extends State<Permissions> {
     return ChangeNotifierProvider<UserModal>(
       create: (context) => UserModal(),
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: AppColors.primaryWhite,
         body: Center(
           child: Container(
@@ -534,58 +540,58 @@ class _SuggestedProfilesState extends State<SuggestedProfiles> {
   ];
 
   @override
-Widget build(BuildContext context) {
-  return Scaffold(
-    backgroundColor: AppColors.primaryWhite,
-    body: Center(
-      child: Container(
-        constraints: BoxConstraints(maxWidth: 370),
-        child: Column(
-          children: [
-            const SizedBox(height: 10),
-            Padding(
-              padding: EdgeInsets.all(16.0),
-              child: RichText(
-                text: TextSpan(
-                  style: TextStyles.primaryHeader(),
-                  children: [
-                    TextSpan(text: 'Follow some skaters in your area'),
-                  ],
+  Widget build(BuildContext context) {
+    return Scaffold(
+      resizeToAvoidBottomInset: false,
+      backgroundColor: AppColors.primaryWhite,
+      body: Center(
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.all(16.0),
+                child: RichText(
+                  text: TextSpan(
+                    style: TextStyles.primaryHeader(),
+                    children: [
+                      TextSpan(text: 'Follow some skaters in your area'),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 20),
-            Expanded(
-              child: Consumer<UserModal>(
-                builder: (context, modal, child) {
-                  return ListView.separated(
-                    itemCount: items.length,
-                    itemBuilder: (context, index) {
-                      final item = items[index];
-                      return Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SuggestedProfileCard(
-                            imagePath: item['imagePath'],
-                            profileName: item['profileName'],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 1.0),
-                            child: item['following'] == true ? FollowButton() : FollowingButton()
-                          )
-
-                        ]
-                      );
-                    },
-                    separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 29),
-                  );
-                },
+              const SizedBox(height: 20),
+              Expanded(
+                child: Consumer<UserModal>(
+                  builder: (context, modal, child) {
+                    return ListView.separated(
+                      itemCount: items.length,
+                      itemBuilder: (context, index) {
+                        final item = items[index];
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            SuggestedProfileCard(
+                              imagePath: item['imagePath'],
+                              profileName: item['profileName'],
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(right: 1.0),
+                              child: item['following'] == true ? FollowButton() : FollowingButton()
+                            )
+                          ]
+                        );
+                      },
+                      separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 29),
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 }

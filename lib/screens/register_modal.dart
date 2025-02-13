@@ -30,6 +30,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColors.primaryGold60,
         toolbarHeight: 48,
@@ -145,44 +146,44 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
             builder: (context, modal, child) {
               return Padding(
                 padding: const EdgeInsets.all(16.0),
-                    child: Column(
+                child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                        onPressed: () {
-                          if(modal.activeIndex == 5) { //push outside of register steps, last step
-                            Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => AppTab()),
-                            );
-                          } else if(modal.activeIndex == 4) { //exception for controller-less pages (can't be validated but are valid steps)
-                            //permission dialogue (location)
-                            showDialog(
-                              context: context,
-                              builder: (context) => PermissionDialog(),
-                            );
-                          } if(modal.isStepValid && modal.activeIndex <= 3) { //validation for controllable pages
-                            Provider.of<UserModal>(context, listen: false).restartEvaluating();
-                            Provider.of<UserModal>(context, listen: false).incrementStep(context);
-                          } else {
-                            null;
-                          }
-                        },
-                        style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex != 4 && modal.activeIndex != 5
-                        ? ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12) 
-                        : ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryGold60),
-                        child: Text(
-                          modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
-                          style: Provider.of<UserModal>(context).isStepValid
-                          ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack) 
-                          : TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
-                        ),
+                      onPressed: () {
+                        if(modal.activeIndex == 5) { //push outside of register steps, last step
+                          Navigator.of(context).pushReplacement(
+                            MaterialPageRoute(builder: (context) => AppTab()),
+                          );
+                        } else if(modal.activeIndex == 4) { //exception for controller-less pages (can't be validated but are valid steps)
+                          //permission dialogue (location)
+                          showDialog(
+                            context: context,
+                            builder: (context) => PermissionDialog(),
+                          );
+                        } if(modal.isStepValid && modal.activeIndex <= 3) { //validation for controllable pages
+                          Provider.of<UserModal>(context, listen: false).restartEvaluating();
+                          Provider.of<UserModal>(context, listen: false).incrementStep(context);
+                        } else {
+                          null;
+                        }
+                      },
+                      style: !Provider.of<UserModal>(context).isStepValid && modal.activeIndex != 4 && modal.activeIndex != 5
+                      ? ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12) 
+                      : ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryGold60),
+                      child: Text(
+                        modal.activeIndex == 4 ?  'Activate permissions' : 'Next',
+                        style: Provider.of<UserModal>(context).isStepValid
+                        ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack) 
+                        : TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
                       ),
-                    SizedBox(height: 40),
+                    ),
                   ]
                 )
               );
             },
           ),
+          SizedBox(height: 40),
         ],
       ),
     );
