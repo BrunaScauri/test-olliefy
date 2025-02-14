@@ -278,6 +278,12 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                                         ),
                                                       ),
                                                       border: OutlineInputBorder(),
+                                                      focusedBorder: OutlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                          color: AppColors.primaryGold70,
+                                                          width: 2.0,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
                                                 ]
