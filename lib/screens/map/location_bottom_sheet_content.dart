@@ -7,6 +7,7 @@ import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/store_item_card.dart';
+import 'package:test_olliefy/components/molecules/post_card.dart';
 import 'package:test_olliefy/components/molecules/skateboarding_recently_card.dart';
 import 'package:test_olliefy/components/atoms/challenges_card.dart';
 import 'package:test_olliefy/components/molecules/challenges_banner.dart';
@@ -87,6 +88,12 @@ class LocationBottomSheetContent extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(bottom: 24, left: 16, right: 16),
               child: TitleShowFeedHeader(title: 'LAST POSTS'),
+            )
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40, left: 16, right: 16),
+              child: PostCard(),
             )
           ),
           SliverToBoxAdapter(
