@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:test_olliefy/components/molecules/post_card.dart';
+import 'package:test_olliefy/components/molecules/post_card_vertical.dart';
 
 class FavoritesPosts extends StatefulWidget {
   @override
@@ -12,7 +12,7 @@ class _FavoritesPostsState extends State<FavoritesPosts> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        PostCard()
+        PostCardVertical()
       ],
     );
   }
