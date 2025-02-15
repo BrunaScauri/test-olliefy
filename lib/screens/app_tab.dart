@@ -54,16 +54,15 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
       child: DefaultTabController(
         length: 5,
         child: Scaffold(
-          body: TabBarView(
-            controller: _tabController,
-            physics: NeverScrollableScrollPhysics(),
-            children: [
-              Map(),
-              Icon(Icons.directions_transit),
-              Icon(Icons.directions_bike),
-              Icon(Icons.directions_bike),
-              UserProfile(),
-            ],
+          body: AnimatedSwitcher(
+            duration: Duration(milliseconds: 300),
+            transitionBuilder: (Widget child, Animation<double> animation) {
+              return FadeTransition(
+                opacity: animation,
+                child: child,
+              );
+            },
+            child: _buildAnimatedTabContentForIndex(_tabController.index),
           ),
           bottomNavigationBar: Container(
             color: _tabController.index == 1 ? AppColors.primaryBlack : AppColors.primaryClay5,
@@ -89,5 +88,22 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
         ),
       )
     );
+  }
+
+  Widget _buildAnimatedTabContentForIndex(int index) {
+    switch (index) {
+      case 0:
+        return Container(key: ValueKey<int>(0), child: Map());
+      case 1:
+        return Container(key: ValueKey<int>(1), child: Icon(Icons.directions_transit));
+      case 2:
+        return Container(key: ValueKey<int>(2), child: Icon(Icons.directions_bike));
+      case 3:
+        return Container(key: ValueKey<int>(3), child: Icon(Icons.directions_bike));
+      case 4:
+        return Container(key: ValueKey<int>(4), child: UserProfile());
+      default:
+        return Container();
+    }
   }
 }
