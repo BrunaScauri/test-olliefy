@@ -22,16 +22,26 @@ class _EventCardsState extends State<EventCards> {
       {'thumbnail': '6.jpeg', 'type': 'event'},
       {'thumbnail': '2.jpeg', 'type': 'event'},
       {'thumbnail': '7.jpeg', 'type': 'event'},
+      {'thumbnail': '6.jpeg', 'type': 'event'},
+      {'thumbnail': '2.jpeg', 'type': 'event'},
+      {'thumbnail': '7.jpeg', 'type': 'event'},
+      {'thumbnail': '6.jpeg', 'type': 'event'},
+      {'thumbnail': '2.jpeg', 'type': 'event'},
+      {'thumbnail': '7.jpeg', 'type': 'event'},
+      {'thumbnail': '6.jpeg', 'type': 'event'},
+      {'thumbnail': '2.jpeg', 'type': 'event'},
+      {'thumbnail': '7.jpeg', 'type': 'event'},
     ];
 
     final eventIcon = 'assets/profile_page/icons/event_icon.svg';
+    final double cardHeight = 242;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 24),
       child: SizedBox(
-        height: 400,
+        height: cardHeight,
         child: ListView.builder(
           scrollDirection: Axis.horizontal, 
           itemCount: items.length,
@@ -46,7 +56,7 @@ class _EventCardsState extends State<EventCards> {
                     Stack(
                       children: [
                         Container(
-                          height: 242,
+                          height: cardHeight,
                           width: 136,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(6),
