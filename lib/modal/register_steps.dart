@@ -127,7 +127,7 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(15.0),
+                    padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
                     child: RichText(
                     text:TextSpan(style: TextStyles.primaryHeader(), children: [
                       TextSpan(text:'Add a phone number or email address'),
@@ -157,7 +157,7 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                             )
                           ),
                           SizedBox(
-                            height: 300,
+                            height: 270,
                             child: AnimatedBuilder(
                               animation: _tabController.animation!,
                               builder: (context, child) {
@@ -170,11 +170,11 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                         ignoring: _tabController.animation!.value != 0,
                                         child: Column(
                                           children: [
-                                            const SizedBox(height: 20),
+                                            const SizedBox(height: 10),
                                             Consumer<UserModal>(
                                               builder: (context, modal, child) {
                                                 return Padding(
-                                                  padding: const EdgeInsets.all(15.0),
+                                                  padding: const EdgeInsets.all(10.0),
                                                   child: TextFormField(
                                                     controller: _emailController,
                                                     onChanged: (value) {
@@ -194,7 +194,7 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                               child: Divider(height: 40, thickness: 0.8),
                                             ),
                                             Padding(
-                                              padding: EdgeInsets.all(16.0),
+                                              padding: EdgeInsets.all(10.0),
                                               child: Column(
                                                 children: [
                                                   CustomButtons.socialsButton(
