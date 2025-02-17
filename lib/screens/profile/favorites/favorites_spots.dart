@@ -96,8 +96,7 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
                     : Container(),
                   ),
                   SizedBox(width: 8.0),
-                  Container(
-                    width: 310,
+                  Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -106,13 +105,11 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
                           item['spotName'],
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          softWrap: true,
                         ),
                         Text(
                           item['spotAddress'],
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
-                          softWrap: true,
                           style: TextStyle(
                             fontSize: 12.0,
                             color: AppColors.primaryGray30,
@@ -120,7 +117,7 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
                         ),
                       ],
                     ),
-                  )
+                  ),
                 ],
               )
             );
