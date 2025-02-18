@@ -155,7 +155,9 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                         onPressed: () {
                           if(modal.activeIndex == 5) { //push outside of register steps, last step
                             Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => AppTab()),
+                              slideOutgoingDown(
+                                enterPage: AppTab(), exitPage: RegisterModal(),
+                              ),
                             );
                           } else if(modal.activeIndex == 4) { //exception for controller-less pages (can't be validated but are valid steps)
                             //permission dialogue (location)
