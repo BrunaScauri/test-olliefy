@@ -36,7 +36,6 @@ class _ProfileNameState extends State<ProfileName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
@@ -117,7 +116,6 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Consumer<UserModal>(
@@ -329,7 +327,6 @@ final TextEditingController _tokenController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
@@ -420,7 +417,6 @@ class _PasswordState extends State<Password> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
@@ -483,7 +479,6 @@ class _PermissionsState extends State<Permissions> {
     return ChangeNotifierProvider<UserModal>(
       create: (context) => UserModal(),
       child: Scaffold(
-        resizeToAvoidBottomInset: false,
         backgroundColor: AppColors.primaryWhite,
         body: Center(
           child: Container(
@@ -548,7 +543,6 @@ class _SuggestedProfilesState extends State<SuggestedProfiles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
