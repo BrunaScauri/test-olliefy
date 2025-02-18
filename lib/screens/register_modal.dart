@@ -30,7 +30,6 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColors.primaryGold60,
         toolbarHeight: 48,
