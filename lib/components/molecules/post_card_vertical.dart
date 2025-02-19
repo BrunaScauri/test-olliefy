@@ -29,7 +29,7 @@ class _PostCardVerticalState extends State<PostCardVertical> {
 
   Widget _buildPostCard(Map<String, dynamic> item) {
     return Container(
-      width: 163,
+      width: 160,
       margin: EdgeInsets.only(bottom: 16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,7 +45,7 @@ class _PostCardVerticalState extends State<PostCardVertical> {
                   borderRadius: BorderRadius.circular(4),
                   child: Image.asset(
                     'assets/map_page/posts/${item['thumbnail']}',
-                    width: 163,
+                    width: 160,
                     height: 290,
                     fit: BoxFit.cover,
                   ),
