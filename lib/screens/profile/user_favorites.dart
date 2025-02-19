@@ -89,11 +89,11 @@ class _UserFavoritesState extends State<UserFavorites> {
                           indicatorColor: AppColors.primaryGold70,
                           labelPadding: EdgeInsets.zero,
                           indicatorPadding: currentIndex == 0
-                              ? EdgeInsets.only(right: 80.0)
+                              ? EdgeInsets.only(right: 75.0)
                               : currentIndex == 1
                                   ? EdgeInsets.zero
                                   : currentIndex == 2
-                                      ? EdgeInsets.only(left: 79.0)
+                                      ? EdgeInsets.only(left: 60.0)
                                       : EdgeInsets.zero,
                           labelColor: AppColors.primaryBlack,
                           labelStyle: TextStyle(fontWeight: FontWeight.bold),
