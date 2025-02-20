@@ -20,32 +20,12 @@ class _LocationBottomSheetState extends State<LocationBottomSheet> {
  @override
   void initState() {
     super.initState();
-    _controller.addListener(_onChanged);
   }
 
   @override
   void dispose() {
-    _controller.removeListener(_onChanged);
     _controller.dispose();
     super.dispose();
-  }
-
-  void _onChanged() {
-    final currentSize = _controller.size;
-    if (currentSize <= 0.05) _collapse();
-  }
-
-  void _collapse() => _animateSheet(sheet.snapSizes!.first);
-  void _anchor() => _animateSheet(sheet.snapSizes!.last);
-  void _expand() => _animateSheet(sheet.maxChildSize);
-  void _hide() => _animateSheet(sheet.minChildSize);
-
-  void _animateSheet(double size) {
-    _controller.animateTo(
-      size,
-      duration: const Duration(milliseconds: 300),
-      curve: Curves.easeInOut,
-    );
   }
 
   DraggableScrollableSheet get sheet => (_sheet.currentWidget as DraggableScrollableSheet);
@@ -57,14 +37,14 @@ class _LocationBottomSheetState extends State<LocationBottomSheet> {
         return DraggableScrollableSheet(
           key: _sheet,
           controller: _controller,
-          initialChildSize: 0.5,
-          minChildSize: 0,
+          initialChildSize: 0.6,
+          minChildSize: 0.2,
           maxChildSize: 1,
           expand: true,
           snap: true,
           snapSizes: [
-            60 / constraints.maxHeight,
-            0.5,
+            0.2,
+            0.6,
           ],
           builder: (BuildContext context, ScrollController scrollController){
             return GestureDetector(
