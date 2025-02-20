@@ -52,10 +52,6 @@ class _MapScreenState extends State<MapScreen> {
       backgroundColor: AppColors.primaryWhite,
       body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 16, top: 64),
-            child: FilterButtonRow(searchButton: true),
-          ),
           Container(
             child: GoogleMap(
               onMapCreated: _onMapCreated,
@@ -65,6 +61,10 @@ class _MapScreenState extends State<MapScreen> {
               ),
               markers: _createMarkers(),
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 16, top: 64),
+            child: FilterButtonRow(searchButton: true),
           ),
           LocationBottomSheet(),
         ],
