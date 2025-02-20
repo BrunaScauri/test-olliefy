@@ -71,14 +71,14 @@ class _AddSponsorState extends State<AddSponsor> {
                     imagePath: 'assets/profile_page/icons/empty_profile_image_icon.png',
                   ),
                 ),
-                SizedBox(height: 48.0),
+                SizedBox(height: 12.0),
                 TextFormField(
                   controller: _sponsorNameController,
                   decoration: FormDecorations.textFieldDecoration(
                     labelText: 'Sponsor name',
                   ),
                 ),
-                SizedBox(height: 32.0),
+                SizedBox(height: 12.0),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.of(context).pop();
