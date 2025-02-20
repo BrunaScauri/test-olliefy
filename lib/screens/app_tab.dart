@@ -4,7 +4,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-import 'package:test_olliefy/screens/map/map.dart';
+import 'package:test_olliefy/screens/map/map_screen.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
 
 class AppTab extends StatefulWidget {
@@ -93,7 +93,7 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
   Widget _buildAnimatedTabContentForIndex(int index) {
     switch (index) {
       case 0:
-        return Container(key: ValueKey<int>(0), child: Map());
+        return Container(key: ValueKey<int>(0), child: MapScreen());
       case 1:
         return Container(key: ValueKey<int>(1), child: Icon(Icons.directions_transit));
       case 2:

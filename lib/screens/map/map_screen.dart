@@ -8,12 +8,12 @@ import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/screens/map/map_pointers.dart';
 import 'package:test_olliefy/screens/map/map_style.dart';
 
-class Map extends StatefulWidget {
+class MapScreen extends StatefulWidget {
   @override
-  _MapState createState() => _MapState();
+  _MapScreenState createState() => _MapScreenState();
 }
 
-class _MapState extends State<Map> {
+class _MapScreenState extends State<MapScreen> {
 
   late GoogleMapController mapController;    
   final LatLng _center = const LatLng(41.38717210733345, 2.1701155937147556);
@@ -26,19 +26,7 @@ class _MapState extends State<Map> {
       return Marker(
         markerId: MarkerId(point.toString()),
         position: point,
-        infoWindow: InfoWindow(title: 'Location', snippet: 'Lat: ${point.latitude}, Lng: ${point.longitude}'),
-      );
-    }).toSet();
-  }
-
-  Set<Circle> _createHeatmapCircles() {
-    return heatmapPoints.map((point) {
-      return Circle(
-        circleId: CircleId(point.toString()),
-        center: point,
-        radius: 500,
-        fillColor: Colors.red.withOpacity(0.5),
-        strokeWidth: 0,
+        infoWindow: InfoWindow.noText,
       );
     }).toSet();
   }
@@ -76,7 +64,6 @@ class _MapState extends State<Map> {
                 zoom: 11.0,
               ),
               markers: _createMarkers(),
-              circles: _createHeatmapCircles(),
             ),
           ),
           LocationBottomSheet(),
