@@ -28,7 +28,6 @@ class ChallengesCard extends StatelessWidget {
             Row(
               children: [
                 RichText(
-                  overflow: TextOverflow.ellipsis,
                   text: TextSpan(
                     children: [
                       TextSpan(
