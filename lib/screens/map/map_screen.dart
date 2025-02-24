@@ -7,6 +7,8 @@ import 'package:test_olliefy/screens/map/location_bottom_sheet.dart';
 import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/screens/map/map_pointers.dart';
 import 'package:test_olliefy/screens/map/map_style.dart';
+import 'package:test_olliefy/screens/map/map_details_page.dart';
+import 'package:test_olliefy/screens/map/place.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -18,15 +20,48 @@ class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;    
   final LatLng _center = const LatLng(41.38717210733345, 2.1701155937147556);
   final String styleSheet = MapData.style;
-
-  final List<LatLng> heatmapPoints = HeatmapData.barcelonaHeatmapPoints;
+  final List<Place> places = HeatmapData.barcelonaPlaces;
+  bool _showPersistentSheet = true;
 
   Set<Marker> _createMarkers() {
-    return heatmapPoints.map((point) {
+    return places.map((place) {
       return Marker(
-        markerId: MarkerId(point.toString()),
-        position: point,
+        markerId: MarkerId(place.name),
+        position: place.coordinate,
         infoWindow: InfoWindow.noText,
+        onTap: () {
+          if (_showPersistentSheet) {
+            setState(() {
+              _showPersistentSheet = false;
+            });
+          };
+          showModalBottomSheet(
+            context: context,
+            barrierColor: Colors.transparent,
+            isScrollControlled: true,
+            builder: (BuildContext context) {
+              return DraggableScrollableSheet(
+                initialChildSize: 0.4,
+                minChildSize: 0.4,
+                maxChildSize: 1,
+                expand: false,
+                builder: (BuildContext context, ScrollController scrollController) {
+                  return Container(
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+                    ),
+                    padding: const EdgeInsets.all(16),
+                    child: SingleChildScrollView(
+                      controller: scrollController,
+                      child: MapDetailsPage(place: place),
+                    ),
+                  );
+                },
+              );
+            }
+          );
+        }
       );
     }).toSet();
   }
@@ -66,7 +101,7 @@ class _MapScreenState extends State<MapScreen> {
             padding: const EdgeInsets.only(left: 16, top: 64),
             child: FilterButtonRow(searchButton: true),
           ),
-          LocationBottomSheet(),
+          if (_showPersistentSheet) LocationBottomSheet(),
         ],
       )  
     );
