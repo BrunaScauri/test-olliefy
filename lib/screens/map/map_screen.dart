@@ -16,9 +16,8 @@ class MapScreen extends StatefulWidget {
 }
 
 class _MapScreenState extends State<MapScreen> {
-
   late GoogleMapController mapController;    
-  final LatLng _center = const LatLng(41.38717210733345, 2.1701155937147556);
+  final LatLng _center = const LatLng(41.31513013789628, 2.1658136248462085);
   final String styleSheet = MapData.style;
   final List<Place> places = HeatmapData.barcelonaPlaces;
   bool _showPersistentSheet = true;
