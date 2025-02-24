@@ -12,6 +12,7 @@ import 'package:test_olliefy/components/molecules/skateboarding_recently_card.da
 import 'package:test_olliefy/components/atoms/challenges_card.dart';
 import 'package:test_olliefy/components/molecules/challenges_banner.dart';
 import 'package:test_olliefy/components/molecules/side_scroll_store_item_card.dart';
+import 'package:test_olliefy/components/atoms/location_condition.dart';
 
 class MapDetailsPage extends StatelessWidget {
   final Place place;
@@ -45,6 +46,10 @@ class MapDetailsPage extends StatelessWidget {
               place.name,
               style: TextsStyles.heading2Bold(),
             ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16, left: 16),
+            child: LocationCondition(),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 16, left: 16),
