@@ -14,7 +14,7 @@ class TitleShowMoreHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: TextsStyles.spacedGray()),
+        Text(title, style: TextsStyles.spacedGray(), overflow: TextOverflow.ellipsis),
         Text('Show more', style: TextsStyles.showMore()),
       ]
     );
