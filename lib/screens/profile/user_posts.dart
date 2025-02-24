@@ -143,52 +143,55 @@ class _UserPostsState extends State<UserPosts> {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 5.0,
-          mainAxisSpacing: 5.0,
-          childAspectRatio: 0.7,
-        ),
-        padding: const EdgeInsets.symmetric(horizontal: 8),
-        itemCount: items.length,
-        itemBuilder: (context, index) {
-          final item = items[index];
-          return GridTile(
-            child: Stack(
-              children: [
-                Container(
-                  height: 158,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(6),
-                    border: Border.all(
-                      color: AppColors.primaryGray5,
-                      width: 1.0,
-                    ),
-                    image: DecorationImage(
-                      image: AssetImage('assets/profile_page/example_posts/${item['thumbnail']}'),
-                      fit: BoxFit.cover,
+    return Column(
+      children: [
+        GridView.builder(
+          shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 5.0,
+            mainAxisSpacing: 5.0,
+            childAspectRatio: 0.7,
+          ),
+          padding: const EdgeInsets.symmetric(horizontal: 8),
+          itemCount: items.length,
+          itemBuilder: (context, index) {
+            final item = items[index];
+            return GridTile(
+              child: Stack(
+                children: [
+                  Container(
+                    height: 158,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6),
+                      border: Border.all(
+                        color: AppColors.primaryGray5,
+                        width: 1.0,
+                      ),
+                      image: DecorationImage(
+                        image: AssetImage('assets/profile_page/example_posts/${item['thumbnail']}'),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                ),
-                Positioned(
-                  top: 8.7,
-                  right: 8.4,
-                  child: item['type'] == 'image'
-                  ? SvgPicture.asset(imageIcon, width: 13.0, height: 13.0)
-                  : item['type'] == 'video'
-                  ? SvgPicture.asset(videoIcon, width: 13.0, height: 13.0)
-                  : item['type'] == 'event'
-                  ? SvgPicture.asset(eventIcon, width: 13.0, height: 13.0)
-                  : Container(),
-                ),
-              ],
-            ),
-          );
-        },
-      ),
+                  Positioned(
+                    top: 8.7,
+                    right: 8.4,
+                    child: item['type'] == 'image'
+                    ? SvgPicture.asset(imageIcon, width: 13.0, height: 13.0)
+                    : item['type'] == 'video'
+                    ? SvgPicture.asset(videoIcon, width: 13.0, height: 13.0)
+                    : item['type'] == 'event'
+                    ? SvgPicture.asset(eventIcon, width: 13.0, height: 13.0)
+                    : Container(),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ]
     );
   }
 }
