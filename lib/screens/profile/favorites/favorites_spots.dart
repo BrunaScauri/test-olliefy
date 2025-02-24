@@ -52,9 +52,7 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        GridView.builder(
+    return GridView.builder(
           shrinkWrap: true,
           physics: NeverScrollableScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -96,35 +94,31 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
                     : Container(),
                   ),
                   SizedBox(width: 8.0),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          item['spotName'],
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        item['spotName'],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      Text(
+                        item['spotAddress'],
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontSize: 12.0,
+                          color: AppColors.primaryGray30,
                         ),
-                        Text(
-                          item['spotAddress'],
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            color: AppColors.primaryGray30,
-                          ),
-                        ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ],
               )
             );
           },
-        ),
-      ]  
-    );
+        );
   }
 }
 
