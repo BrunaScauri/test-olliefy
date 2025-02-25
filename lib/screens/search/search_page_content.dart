@@ -8,6 +8,8 @@ import 'package:test_olliefy/components/atoms/recent_searches.dart';
 import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
 import 'package:test_olliefy/components/atoms/search_page_spots.dart';
 import 'package:test_olliefy/components/molecules/search_page_users.dart';
+import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
+import 'package:test_olliefy/components/molecules/post_card.dart';
 
 class SearchPageContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -117,6 +119,18 @@ class SearchPageContent extends StatelessWidget {
 
                   ]
                 )
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: TitleShowFeedHeader(title: 'LAST POSTS'),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: PostCard(),
               ),
             ),
           ],
