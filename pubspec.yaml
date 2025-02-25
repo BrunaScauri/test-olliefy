@@ -46,3 +46,4 @@ flutter:
     - ./assets/map_page/icons/
     - ./assets/map_page/challenges/
     - ./assets/map_page/posts/
+    - ./assets/map_page/spots/

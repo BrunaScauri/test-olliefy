@@ -4,6 +4,8 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
 import 'package:test_olliefy/components/atoms/recent_searches.dart';
+import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
+import 'package:test_olliefy/components/atoms/search_page_spots.dart';
 
 class SearchPageContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -82,6 +84,18 @@ class SearchPageContent extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 48),
                 child: RecentSearches(),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: TitleShowMoreHeader(title: 'SPOTS'),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 48),
+                child: SearchPageSpots(),
               ),
             ),
           ],
