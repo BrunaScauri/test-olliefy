@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
+import 'package:test_olliefy/components/atoms/recent_searches.dart';
 
 class SearchPageContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -71,10 +72,18 @@ class SearchPageContent extends StatelessWidget {
                 ),
               )
             ),
+            SliverToBoxAdapter(
               child: Text(
-                'LAST POSTS',
+                'RECENT SEARCHES',
                 style: TextsStyles.spacedGray(),
               ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 48),
+                child: RecentSearches(),
+              ),
+            ),
           ],
         ),
       )
