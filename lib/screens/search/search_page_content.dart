@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
+
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
 import 'package:test_olliefy/components/atoms/recent_searches.dart';
 import 'package:test_olliefy/components/atoms/title_show_more_header.dart';
 import 'package:test_olliefy/components/atoms/search_page_spots.dart';
+import 'package:test_olliefy/components/molecules/search_page_users.dart';
 
 class SearchPageContent extends StatelessWidget {
   final ScrollController scrollController;
@@ -96,6 +98,25 @@ class SearchPageContent extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(bottom: 48),
                 child: SearchPageSpots(),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 24),
+                child: TitleShowMoreHeader(title: 'USERS'),
+              ),
+            ),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 48),
+                child: Column(
+                  children: [
+                    SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/9.png', profileName: 'Fakiephenom'),
+                    SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/7.jpeg', profileName: 'Dropindynamo'),
+                    SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/0.jpeg', profileName: 'Asphaltartist'),
+
+                  ]
+                )
               ),
             ),
           ],
