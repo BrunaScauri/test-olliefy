@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/route/slide_incoming_from_bottom.dart';
 
 import 'package:test_olliefy/screens/search/search_page.dart';
+import 'package:test_olliefy/screens/map/map_screen.dart';
 
 class SearchButton extends StatelessWidget {
 
@@ -18,9 +20,10 @@ class SearchButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 5),
       child: ElevatedButton(
         onPressed: (){
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => SearchPage()),
+           Navigator.of(context).push(
+            SlideIncomingFromBottom(
+              enterPage: SearchPage(), exitPage: MapScreen(),
+            ),
           );
         },
         child: Image.asset('assets/map_page/icons/search_icon.png', fit: BoxFit.cover,height: 22, width: 22),
