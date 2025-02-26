@@ -10,6 +10,7 @@ import 'package:test_olliefy/components/atoms/search_page_spots.dart';
 import 'package:test_olliefy/components/molecules/search_page_users.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/post_card.dart';
+import 'package:test_olliefy/components/atoms/recent_searches_example.dart';
 
 class SearchPageContent extends StatefulWidget {
   final ScrollController scrollController;
@@ -23,15 +24,20 @@ class SearchPageContent extends StatefulWidget {
 class _SearchPageContentState extends State<SearchPageContent> {
   bool _isSearchActive = false;
   late FocusNode _searchFocusNode;
+  late TextEditingController _searchController;
 
   @override
   void initState() {
     super.initState();
     _searchFocusNode = FocusNode();
+    _searchController = TextEditingController();
     _searchFocusNode.addListener(() {
       setState(() {
-        _isSearchActive = _searchFocusNode.hasFocus;
+        _isSearchActive = _searchController.text.isNotEmpty;
       });
+    });
+    _searchController.addListener(() {
+      setState(() {});
     });
   }
 
@@ -62,12 +68,9 @@ class _SearchPageContentState extends State<SearchPageContent> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    GestureDetector(
-                      onTap: () => Navigator.pop(context),
-                      child: Text(
-                        'Search',
-                        style: TextsStyles.heading2Bold(),
-                      ),
+                    Text(
+                      'Search',
+                      style: TextsStyles.heading2Bold(),
                     ),
                     IconButton(
                       icon: Icon(Icons.close),
@@ -86,6 +89,7 @@ class _SearchPageContentState extends State<SearchPageContent> {
                 padding: const EdgeInsets.only(bottom: 48),
                 child: TextFormField(
                   focusNode: _searchFocusNode,
+                  controller: _searchController,
                   onTap: () {
                     setState(() {
                       _isSearchActive = true;
@@ -93,6 +97,13 @@ class _SearchPageContentState extends State<SearchPageContent> {
                   },
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search, color: Colors.grey),
+                    suffixIcon: (_searchController.text.isNotEmpty)
+                      ? IconButton(
+                          icon: Image.asset('assets/map_page/icons/go_search_icon.png'),
+                          onPressed: () {
+                          },
+                        )
+                      : null,
                     hintText: 'Search spots, users or items',
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(3.0),
@@ -104,7 +115,7 @@ class _SearchPageContentState extends State<SearchPageContent> {
                     contentPadding: EdgeInsets.symmetric(vertical: 12.0, horizontal: 16.0),
                   ),
                   onChanged: (value) {
-                    print("Search query: $value");
+                    //prompt autofill for locations
                   },
                 ),
               ),
@@ -164,14 +175,15 @@ class _SearchPageContentState extends State<SearchPageContent> {
                   child: PostCard(),
                 ),
               ),
-            ] : [
+            ] : _searchController.text.isNotEmpty ? [
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 24),
-                  child: Container(),
+                  child: RecentSearchesExample(),
                 ),
               ),
-            ])
+            ] : []
+            )
           ],
         ),
       ),
