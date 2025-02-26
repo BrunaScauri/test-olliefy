@@ -11,10 +11,35 @@ import 'package:test_olliefy/components/molecules/search_page_users.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/post_card.dart';
 
-class SearchPageContent extends StatelessWidget {
+class SearchPageContent extends StatefulWidget {
   final ScrollController scrollController;
 
   const SearchPageContent({Key? key, required this.scrollController}) : super(key: key);
+
+  @override
+  _SearchPageContentState createState() => _SearchPageContentState();
+}
+
+class _SearchPageContentState extends State<SearchPageContent> {
+  bool _isSearchActive = false;
+  late FocusNode _searchFocusNode;
+
+  @override
+  void initState() {
+    super.initState();
+    _searchFocusNode = FocusNode();
+    _searchFocusNode.addListener(() {
+      setState(() {
+        _isSearchActive = _searchFocusNode.hasFocus;
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchFocusNode.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +48,17 @@ class SearchPageContent extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.primaryWhite,
         body: CustomScrollView(
-          controller: scrollController,
+          controller: widget.scrollController,
           slivers: [
             SliverToBoxAdapter(
               child: Padding(
                 padding: const EdgeInsets.only(top: 24),
                 child: DragBar(),
-              )
+              ),
             ),
             SliverToBoxAdapter(
               child: Padding(
-              padding: const EdgeInsets.only(bottom: 24, top: 40),
+                padding: const EdgeInsets.only(bottom: 24, top: 40),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -52,14 +77,20 @@ class SearchPageContent extends StatelessWidget {
                         Navigator.pop(context);
                       },
                     ),
-                  ]
+                  ],
                 ),
-              )
+              ),
             ),
             SliverToBoxAdapter(
               child: Padding(
-              padding: const EdgeInsets.only(bottom: 48),
+                padding: const EdgeInsets.only(bottom: 48),
                 child: TextFormField(
+                  focusNode: _searchFocusNode,
+                  onTap: () {
+                    setState(() {
+                      _isSearchActive = true;
+                    });
+                  },
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search, color: Colors.grey),
                     hintText: 'Search spots, users or items',
@@ -76,66 +107,74 @@ class SearchPageContent extends StatelessWidget {
                     print("Search query: $value");
                   },
                 ),
-              )
-            ),
-            SliverToBoxAdapter(
-              child: Text(
-                'RECENT SEARCHES',
-                style: TextsStyles.spacedGray(),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 48),
-                child: RecentSearches(),
+            ...(!_isSearchActive ? [
+              SliverToBoxAdapter(
+                child: Text(
+                  'RECENT SEARCHES',
+                  style: TextsStyles.spacedGray(),
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 24),
-                child: TitleShowMoreHeader(title: 'SPOTS'),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 48),
+                  child: RecentSearches(),
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 48),
-                child: SearchPageSpots(),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: TitleShowMoreHeader(title: 'SPOTS'),
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 24),
-                child: TitleShowMoreHeader(title: 'USERS'),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 48),
+                  child: SearchPageSpots(),
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 48),
-                child: Column(
-                  children: [
-                    SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/9.png', profileName: 'Fakiephenom'),
-                    SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/7.jpeg', profileName: 'Dropindynamo'),
-                    SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/0.jpeg', profileName: 'Asphaltartist'),
-
-                  ]
-                )
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: TitleShowMoreHeader(title: 'USERS'),
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 24),
-                child: TitleShowFeedHeader(title: 'LAST POSTS'),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 48),
+                  child: Column(
+                    children: [
+                      SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/9.png', profileName: 'Fakiephenom'),
+                      SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/7.jpeg', profileName: 'Dropindynamo'),
+                      SearchPageUsers(imagePath: 'assets/profile_page/icons/example_pfp/0.jpeg', profileName: 'Asphaltartist'),
+                    ],
+                  ),
+                ),
               ),
-            ),
-            SliverToBoxAdapter(
-              child: Padding(
-                padding: const EdgeInsets.only(bottom: 24),
-                child: PostCard(),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: TitleShowFeedHeader(title: 'LAST POSTS'),
+                ),
               ),
-            ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: PostCard(),
+                ),
+              ),
+            ] : [
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 24),
+                  child: Container(),
+                ),
+              ),
+            ])
           ],
         ),
-      )
+      ),
     );
   }
 }
