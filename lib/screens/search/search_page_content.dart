@@ -11,6 +11,9 @@ import 'package:test_olliefy/components/molecules/search_page_users.dart';
 import 'package:test_olliefy/components/atoms/title_show_feed_header.dart';
 import 'package:test_olliefy/components/molecules/post_card.dart';
 import 'package:test_olliefy/components/atoms/recent_searches_example.dart';
+import 'package:test_olliefy/utils/route/slide_incoming_from_bottom.dart';
+import 'package:test_olliefy/screens/search/search_page.dart';
+import 'package:test_olliefy/screens/search/search_query_page.dart';
 
 class SearchPageContent extends StatefulWidget {
   final ScrollController scrollController;
@@ -101,6 +104,12 @@ class _SearchPageContentState extends State<SearchPageContent> {
                       ? IconButton(
                           icon: Image.asset('assets/map_page/icons/go_search_icon.png'),
                           onPressed: () {
+                            Navigator.of(context).push(
+                              SlideIncomingFromBottom(
+                                enterPage: SearchQueryPage(), exitPage: SearchPage(),
+                              ),
+                            );
+                            setState(() {});
                           },
                         )
                       : null,
