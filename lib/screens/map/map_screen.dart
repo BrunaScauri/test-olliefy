@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart' hide ClusterManager;
+import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart' hide Cluster; 
+import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart' as cluster_manager;
 
 import 'package:test_olliefy/utils/colors.dart';
+import 'package:test_olliefy/utils/cluster_icon_generator.dart';
 
 import 'package:test_olliefy/screens/map/location_bottom_sheet.dart';
 import 'package:test_olliefy/components/molecules/filter_button_row.dart';
@@ -21,48 +24,37 @@ class _MapScreenState extends State<MapScreen> {
   final String styleSheet = MapData.style;
   final List<Place> places = HeatmapData.barcelonaPlaces;
   bool _showPersistentSheet = true;
+  late cluster_manager.ClusterManager<Place> _clusterManager;
+  Set<Marker> markers = {};
 
-  Set<Marker> _createMarkers() {
-    return places.map((place) {
-      return Marker(
-        markerId: MarkerId(place.name),
-        position: place.coordinate,
-        infoWindow: InfoWindow.noText,
-        onTap: () {
-          if (_showPersistentSheet) {
-            setState(() {
-              _showPersistentSheet = false;
-            });
-          };
-          showModalBottomSheet(
-            context: context,
-            barrierColor: Colors.transparent,
-            isScrollControlled: true,
-            builder: (BuildContext context) {
-              return DraggableScrollableSheet(
-                initialChildSize: 0.4,
-                minChildSize: 0.4,
-                maxChildSize: 1,
-                expand: false,
-                builder: (BuildContext context, ScrollController scrollController) {
-                  return Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
-                    ),
-                    padding: const EdgeInsets.all(16),
-                    child: SingleChildScrollView(
-                      controller: scrollController,
-                      child: MapDetailsPage(place: place),
-                    ),
-                  );
-                },
-              );
-            }
-          );
-        }
-      );
-    }).toSet();
+  Future<Marker> _markerBuilder(cluster_manager.Cluster<Place> cluster) async {
+  BitmapDescriptor icon = cluster.isMultiple
+      ? await getClusterBitmap(cluster.count)
+      : BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed);
+
+  return Marker(
+    markerId: MarkerId(cluster.getId()),
+    position: cluster.location,
+    icon: icon,
+    onTap: () {
+      if (cluster.isMultiple) {
+        mapController.animateCamera(CameraUpdate.newLatLngZoom(cluster.location, 14));
+      } else {
+        final place = cluster.items.first;
+        showModalBottomSheet(
+          context: context,
+          isScrollControlled: true,
+          builder: (_) => MapDetailsPage(place: place),
+        );
+      }
+    },
+  );
+}
+
+  void _updateMarkers(Set<Marker> newMarkers) {
+    setState(() {
+      this.markers = newMarkers;
+    });
   }
 
   void _setMapStyle() async {
@@ -73,11 +65,27 @@ class _MapScreenState extends State<MapScreen> {
   void _onMapCreated(GoogleMapController controller) {
     mapController = controller;
     _setMapStyle();
+    _clusterManager.setMapId(controller.mapId);
   }
+
+  void _onCameraMove(CameraPosition position) {
+  _clusterManager.onCameraMove(position);
+
+  if (position.zoom <= 4.0) {
+    _clusterManager.updateMap();
+  } else {
+    _clusterManager.setItems(places);
+  }
+}
 
   @override
   void initState() {
     super.initState();
+    _clusterManager = cluster_manager.ClusterManager<Place>(
+      places,
+      _updateMarkers,
+      markerBuilder: _markerBuilder,
+    );
   }
 
   @override
@@ -93,7 +101,9 @@ class _MapScreenState extends State<MapScreen> {
                 target: _center,
                 zoom: 11.0,
               ),
-              markers: _createMarkers(),
+              markers: markers,
+              onCameraMove: _onCameraMove,
+              onCameraIdle: _clusterManager.updateMap,
             ),
           ),
           Padding(

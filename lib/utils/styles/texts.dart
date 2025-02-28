@@ -158,6 +158,14 @@ class TextsStyles{
     );
   }
 
+  static TextStyle mapClusteringNumber(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 24,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
 }
 
 class UserNotifsStyles{
