@@ -34,13 +34,15 @@ class _SearchPageContentState extends State<SearchPageContent> {
     super.initState();
     _searchFocusNode = FocusNode();
     _searchController = TextEditingController();
-    _searchFocusNode.addListener(() {
+    _searchController.addListener(() {
       setState(() {
         _isSearchActive = _searchController.text.isNotEmpty;
       });
     });
-    _searchController.addListener(() {
-      setState(() {});
+    _searchFocusNode.addListener(() {
+      setState(() {
+        _isSearchActive = _searchController.text.isNotEmpty;
+      });
     });
   }
 
@@ -94,9 +96,6 @@ class _SearchPageContentState extends State<SearchPageContent> {
                   focusNode: _searchFocusNode,
                   controller: _searchController,
                   onTap: () {
-                    setState(() {
-                      _isSearchActive = true;
-                    });
                   },
                   decoration: InputDecoration(
                     prefixIcon: Icon(Icons.search, color: Colors.grey),
@@ -184,7 +183,7 @@ class _SearchPageContentState extends State<SearchPageContent> {
                   child: PostCard(),
                 ),
               ),
-            ] : _searchController.text.isNotEmpty ? [
+            ] : _isSearchActive ? [
               SliverToBoxAdapter(
                 child: Padding(
                   padding: const EdgeInsets.only(bottom: 24),
