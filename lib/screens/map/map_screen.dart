@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart' hide ClusterManager;
 import 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart' hide Cluster; 
 import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart' as cluster_manager;
+import 'dart:ui' as ui;
+import 'package:flutter/services.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/cluster_icon_generator.dart';
@@ -13,6 +15,7 @@ import 'package:test_olliefy/screens/map/map_style.dart';
 import 'package:test_olliefy/screens/map/location_details.dart';
 import 'package:test_olliefy/screens/map/place.dart';
 import 'package:test_olliefy/screens/map/heatmap_overlay.dart';
+import 'package:test_olliefy/screens/map/heatmap_cluster.dart';
 
 class MapScreen extends StatefulWidget {
   @override
@@ -22,20 +25,59 @@ class MapScreen extends StatefulWidget {
 class _MapScreenState extends State<MapScreen> {
   late GoogleMapController mapController;    
   final String styleSheet = MapData.style;
+  final GlobalKey _mapKey = GlobalKey();
+  double _currentZoom = 11.0;
+
   final LatLng _center = const LatLng(41.31513013789628, 2.1658136248462085);
   final List<Place> places = HeatmapData.barcelonaPlaces;
-  bool _showPersistentSheet = true;
-  late cluster_manager.ClusterManager<Place> _clusterManager;
   Set<Marker> markers = {};
-  double _currentZoom = 11.0;
+  late cluster_manager.ClusterManager<Place> _clusterManager;
+
+  bool _showPersistentSheet = true;
   List<Offset> _heatmapOffsets = [];
-  final GlobalKey _mapKey = GlobalKey();
+
+  //load, resize and return first frame as png byte data
+  Future<BitmapDescriptor> getResizedMarker(String assetPath, int targetWidth) async {
+    final ByteData data = await rootBundle.load(assetPath);
+    final ui.Codec codec = await ui.instantiateImageCodec(
+      data.buffer.asUint8List(),
+      targetWidth: targetWidth,
+    );
+    final ui.FrameInfo frameInfo = await codec.getNextFrame();
+    final ByteData? bytes = await frameInfo.image.toByteData(format: ui.ImageByteFormat.png);
+    return BitmapDescriptor.fromBytes(bytes!.buffer.asUint8List());
+  }
 
   //marker builder
   Future<Marker> _markerBuilder(cluster_manager.Cluster<Place> cluster) async {
-    BitmapDescriptor icon = cluster.isMultiple
-        ? await getClusterBitmap(cluster.count)
-        : BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed);
+    BitmapDescriptor icon;
+    if(cluster.isMultiple) {
+      icon = await getClusterBitmap(cluster.count);
+    } else {
+      final place = cluster.items.first;
+      switch (place.type) {
+        case 'bowl':
+          icon = await getResizedMarker('assets/map_page/markers/bowl_marker.png', 100);
+          break;
+        case 'halfpipe':
+          icon = await getResizedMarker('assets/map_page/markers/halfpipe_marker.png', 100);
+          break;
+        case 'rail':
+          icon = await getResizedMarker('assets/map_page/markers/rails_marker.png', 100);
+          break;
+        case 'ramp':
+          icon = await getResizedMarker('assets/map_page/markers/ramp_marker.png', 100);
+          break;
+        case 'stairs':
+          icon = await getResizedMarker('assets/map_page/markers/stairs_marker.png', 100);
+          break;
+        case 'userLocation':
+          icon = await getResizedMarker('assets/map_page/markers/stairs_marker.png', 100);
+          break;
+        default:
+          icon = BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed);
+      }
+    }
     return Marker(
       markerId: MarkerId(cluster.getId()),
       position: cluster.location,
@@ -45,15 +87,22 @@ class _MapScreenState extends State<MapScreen> {
           mapController.animateCamera(CameraUpdate.newLatLngZoom(cluster.location, 14));
         } else {
           final place = cluster.items.first;
-          showModalBottomSheet(
-            context: context,
-            isScrollControlled: true,
-            builder: (_) => MapDetailsPage(place: place),
-          );
+          // LocationDetails(place: place);
         }
       },
     );
   }
+
+  List<HeatmapCluster> getHeatmapClusters(List<Offset> offsets, double zoom) {
+  const double farthestZoom = 11.0;
+  if (zoom > farthestZoom) {
+    return [HeatmapCluster(points: offsets)];
+    } else {
+      const double clusterThreshold = 50.0;
+      return clusterOffsets(offsets, clusterThreshold);
+    }
+  }
+
 
   void _updateMarkers(Set<Marker> newMarkers) {
     setState(() {
@@ -117,10 +166,10 @@ class _MapScreenState extends State<MapScreen> {
   double getDynamicRadius(double zoom) {
     const double maxRadius = 80.0;
     const double minRadius = 30.0;
-    // Normalize zoom between 4 and 11.
+    // normalize zoom between 4 and 11.
     double t = (zoom - 4) / (11 - 4);
     t = t.clamp(0.0, 1.0);
-    // Linear interpolation between maxRadius and minRadius.
+    //linear interpolation between maxRadius and minRadius.
     return maxRadius * (1 - t) + minRadius * t;
   }
 

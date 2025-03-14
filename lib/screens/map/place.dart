@@ -4,8 +4,9 @@ import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart' as
 class Place with cluster_manager.ClusterItem {
   final LatLng coordinate;
   final String name;
+  final String type;
 
-  Place({required this.coordinate, required this.name});
+  Place({required this.coordinate, required this.name, required this.type});
 
   @override
   LatLng get location => coordinate;
