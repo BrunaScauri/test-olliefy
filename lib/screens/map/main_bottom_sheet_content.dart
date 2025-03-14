@@ -12,10 +12,10 @@ import 'package:test_olliefy/components/atoms/challenges_card.dart';
 import 'package:test_olliefy/components/molecules/challenges_banner.dart';
 import 'package:test_olliefy/components/molecules/side_scroll_store_item_card.dart';
 
-class LocationBottomSheetContent extends StatelessWidget {
+class MainBottomSheetContent extends StatelessWidget {
   final ScrollController scrollController;
 
-  const LocationBottomSheetContent({Key? key, required this.scrollController}) : super(key: key);
+  const MainBottomSheetContent({Key? key, required this.scrollController}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

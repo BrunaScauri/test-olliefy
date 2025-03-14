@@ -6,11 +6,11 @@ import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart' as
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/cluster_icon_generator.dart';
 
-import 'package:test_olliefy/screens/map/location_bottom_sheet.dart';
+import 'package:test_olliefy/screens/map/main_bottom_sheet.dart';
 import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/screens/map/map_pointers.dart';
 import 'package:test_olliefy/screens/map/map_style.dart';
-import 'package:test_olliefy/screens/map/map_details_page.dart';
+import 'package:test_olliefy/screens/map/location_details.dart';
 import 'package:test_olliefy/screens/map/place.dart';
 import 'package:test_olliefy/screens/map/heatmap_overlay.dart';
 
@@ -164,7 +164,7 @@ class _MapScreenState extends State<MapScreen> {
             padding: const EdgeInsets.only(left: 16, top: 64),
             child: FilterButtonRow(searchButton: true),
           ),
-          if (_showPersistentSheet) LocationBottomSheet(),
+          if (_showPersistentSheet) MainBottomSheet(),
         ],
       ),
     );

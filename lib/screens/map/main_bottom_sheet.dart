@@ -6,14 +6,14 @@ import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-import 'package:test_olliefy/screens/map/location_bottom_sheet_content.dart';
+import 'package:test_olliefy/screens/map/main_bottom_sheet_content.dart';
 
-class LocationBottomSheet extends StatefulWidget {
+class MainBottomSheet extends StatefulWidget {
   @override
-  _LocationBottomSheetState createState() => _LocationBottomSheetState();
+  _MainBottomSheetState createState() => _MainBottomSheetState();
 }
 
-class _LocationBottomSheetState extends State<LocationBottomSheet> {
+class _MainBottomSheetState extends State<MainBottomSheet> {
   final _sheet = GlobalKey();
   final DraggableScrollableController _controller = DraggableScrollableController();
 
@@ -75,7 +75,7 @@ class _LocationBottomSheetState extends State<LocationBottomSheet> {
                     ),
                   ],
                 ),
-                child: LocationBottomSheetContent(scrollController: scrollController),
+                child: MainBottomSheetContent(scrollController: scrollController),
               ),
             );
           },
