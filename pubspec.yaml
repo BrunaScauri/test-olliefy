@@ -49,3 +49,4 @@ flutter:
     - ./assets/map_page/challenges/
     - ./assets/map_page/posts/
     - ./assets/map_page/spots/
+    - ./assets/map_page/markers/
