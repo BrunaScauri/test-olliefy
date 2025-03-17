@@ -4,7 +4,8 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
-import 'package:test_olliefy/screens/profile/sponsors.dart';
+import 'package:test_olliefy/screens/profile/sponsors_received.dart';
+import 'package:test_olliefy/screens/profile/sponsors_given.dart';
 
 class UserSettings extends StatefulWidget {
 	@override
