@@ -53,72 +53,62 @@ class _FavoritesSpotsState extends State<FavoritesSpots> {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-          shrinkWrap: true,
-          physics: NeverScrollableScrollPhysics(),
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 1,
-            crossAxisSpacing: 0,
-            mainAxisSpacing: 1.0,
-            childAspectRatio: 5,
-          ),
-          itemCount: items.length,
-          itemBuilder: (context, index) {
-            final item = items[index];
-            return GridTile(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  Positioned(
-                    top: 40.0,
-                    right: 40.0,
-                    child: item['spotIcon'] == 'rail'
-                    ? Image.asset(
-                        railIcon,
-                      )
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 1,
+        crossAxisSpacing: 0,
+        mainAxisSpacing: 1.0,
+        childAspectRatio: 5,
+      ),
+      itemCount: items.length,
+      itemBuilder: (context, index) {
+        final item = items[index];
+        return GridTile(
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                child: item['spotIcon'] == 'rail'
+                    ? Image.asset(railIcon)
                     : item['spotIcon'] == 'stairs'
-                      ? Image.asset(
-                          stairsIcon,
-                        )
-                    : item['spotIcon'] == 'ramp'
-                      ? Image.asset(
-                          rampIcon,
-                        )
-                    : item['spotIcon'] == 'bowl'
-                      ? Image.asset(
-                          bowlIcon,
-                        )
-                    : item['spotIcon'] == 'halfpipe'
-                      ? Image.asset(
-                          halfpipeIcon,
-                        )
-                    : Container(),
-                  ),
-                  SizedBox(width: 8.0),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        item['spotName'],
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                        ? Image.asset(stairsIcon)
+                        : item['spotIcon'] == 'ramp'
+                            ? Image.asset(rampIcon)
+                            : item['spotIcon'] == 'bowl'
+                                ? Image.asset(bowlIcon)
+                                : item['spotIcon'] == 'halfpipe'
+                                    ? Image.asset(halfpipeIcon)
+                                    : Container(),
+              ),
+              SizedBox(width: 8.0),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      item['spotName'],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      item['spotAddress'],
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 12.0,
+                        color: AppColors.primaryGray30,
                       ),
-                      Text(
-                        item['spotAddress'],
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontSize: 12.0,
-                          color: AppColors.primaryGray30,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              )
-            );
-          },
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          )
         );
+      },
+    );
   }
 }
 
