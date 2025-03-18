@@ -63,6 +63,12 @@ class _MarketplaceState extends State<Marketplace> {
               ),
             ),
           ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
+              child: MarketplaceFilterButtonRow(),
+            ),
+          ),
         ]
       ),
     );
