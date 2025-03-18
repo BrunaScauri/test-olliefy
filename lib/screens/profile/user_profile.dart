@@ -45,7 +45,6 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(

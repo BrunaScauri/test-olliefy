@@ -30,7 +30,6 @@ class _UserSettingsState extends State<UserSettings> {
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
-			backgroundColor: AppColors.primaryWhite,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(90.0),
         child: Padding(

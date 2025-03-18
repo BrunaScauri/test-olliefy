@@ -35,7 +35,6 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
         toolbarHeight: 48,
         automaticallyImplyLeading: false
       ),
-      backgroundColor: AppColors.primaryWhite,
       body: Column(
         children: [
           Consumer<UserModal>(

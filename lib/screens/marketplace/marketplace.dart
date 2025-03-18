@@ -26,7 +26,6 @@ class _MarketplaceState extends State<Marketplace> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: CustomScrollView(
         slivers:[
           SliverToBoxAdapter(

@@ -36,7 +36,6 @@ class _SponsorsReceivedState extends State<SponsorsReceived> {
 	@override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(90.0),
         child: Container(
@@ -66,11 +65,11 @@ class _SponsorsReceivedState extends State<SponsorsReceived> {
                   );
                 },
               separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 48),
-              ),
-            )
-          ),
+            ),
+          )
         ),
-      );
+      ),
+    );
   }
 }
 

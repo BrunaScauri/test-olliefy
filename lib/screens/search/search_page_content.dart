@@ -57,7 +57,6 @@ class _SearchPageContentState extends State<SearchPageContent> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Scaffold(
-        backgroundColor: AppColors.primaryWhite,
         body: CustomScrollView(
           controller: widget.scrollController,
           slivers: [

@@ -36,78 +36,77 @@ class _SponsorsGivenState extends State<SponsorsGiven> {
 	@override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
-        appBar: PreferredSize(
-          preferredSize: Size.fromHeight(90.0),
-          child: Container(
-            constraints: BoxConstraints(maxWidth: 370),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 24.0),
-              child: AppBar(
-                title: Text('Sponsors given', style: TextsStyles.profileDataBold()),
-                backgroundColor: AppColors.primaryWhite,
-              ),
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(90.0),
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 24.0),
+            child: AppBar(
+              title: Text('Sponsors given', style: TextsStyles.profileDataBold()),
+              backgroundColor: AppColors.primaryWhite,
+            ),
+          ),
+        )
+      ),
+      body: Center(
+        child: Container(
+          constraints: BoxConstraints(maxWidth: 370),
+          child: Padding(
+            padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
+            child: ListView.separated(
+                itemCount: items.length,
+                itemBuilder: (context, index) { //logica para caso lista vazia
+                  final item = items[index];
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SponsorCard(
+                        imagePath: item['imagePath'],
+                        profileName: item['profileName'],
+                        sponsorDate: item['sponsorDate'],
+                      ),
+                      if (item['sponsorDate'].contains('months')) 
+                      GestureDetector(
+                        onTap: () {
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 48,
+                          height: 48,
+                          child: RichText(
+                            textAlign: TextAlign.center,
+                            text: TextSpan(
+                              style: TextsStyles.sponsorSubscription(color: AppColors.feedbackOrError),
+                              children: [
+                                TextSpan(text: 'Cancel'),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      if (item['sponsorDate'].contains('one-time')) 
+                      GestureDetector(
+                        onTap: () {
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 48,
+                          height: 48,
+                          child: RichText(textAlign: TextAlign.center, text:TextSpan(style: TextsStyles.sponsorSubscription(color: AppColors.primaryGold70), children: [
+                              TextSpan(text:'Renew'),
+                            ])
+                          ),
+                        ),
+                      )
+                    ]
+                  );
+                },
+              separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 48),
             ),
           )
         ),
-        body: Center(
-          child: Container(
-            constraints: BoxConstraints(maxWidth: 370),
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 24, horizontal: 16),
-              child: ListView.separated(
-                  itemCount: items.length,
-                  itemBuilder: (context, index) { //logica para caso lista vazia
-                    final item = items[index];
-                    return Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SponsorCard(
-                          imagePath: item['imagePath'],
-                          profileName: item['profileName'],
-                          sponsorDate: item['sponsorDate'],
-                        ),
-                        if (item['sponsorDate'].contains('months')) 
-                        GestureDetector(
-                          onTap: () {
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 48,
-                            height: 48,
-                            child: RichText(
-                              textAlign: TextAlign.center,
-                              text: TextSpan(
-                                style: TextsStyles.sponsorSubscription(color: AppColors.feedbackOrError),
-                                children: [
-                                  TextSpan(text: 'Cancel'),
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                        if (item['sponsorDate'].contains('one-time')) 
-                        GestureDetector(
-                          onTap: () {
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 48,
-                            height: 48,
-                            child: RichText(textAlign: TextAlign.center, text:TextSpan(style: TextsStyles.sponsorSubscription(color: AppColors.primaryGold70), children: [
-                                TextSpan(text:'Renew'),
-                              ])
-                            ),
-                          ),
-                        )
-                      ]
-                    );
-                  },
-                separatorBuilder: (BuildContext context, int index) => const SizedBox(height: 48),
-              ),
-            )
-          ),
-        ),
+      ),
     );
   }
 }

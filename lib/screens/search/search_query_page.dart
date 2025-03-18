@@ -30,7 +30,6 @@ class _SearchQueryPageState extends State<SearchQueryPage> {
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Scaffold(
-        backgroundColor: AppColors.primaryWhite,
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(

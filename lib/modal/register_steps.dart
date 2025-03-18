@@ -36,7 +36,6 @@ class _ProfileNameState extends State<ProfileName> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),
@@ -116,7 +115,6 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Consumer<UserModal>(
           builder: (context, modal, child) {
@@ -327,7 +325,6 @@ final TextEditingController _tokenController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),
@@ -417,7 +414,6 @@ class _PasswordState extends State<Password> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),
@@ -479,7 +475,6 @@ class _PermissionsState extends State<Permissions> {
     return ChangeNotifierProvider<UserModal>(
       create: (context) => UserModal(),
       child: Scaffold(
-        backgroundColor: AppColors.primaryWhite,
         body: Center(
           child: Container(
             constraints: BoxConstraints(maxWidth: 370),
@@ -543,7 +538,6 @@ class _SuggestedProfilesState extends State<SuggestedProfiles> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.primaryWhite,
       body: Center(
         child: Container(
           constraints: BoxConstraints(maxWidth: 370),

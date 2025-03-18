@@ -30,7 +30,11 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        textTheme: GoogleFonts.openSansTextTheme()
+        textTheme: GoogleFonts.openSansTextTheme(),
+        scaffoldBackgroundColor: AppColors.primaryWhite,
+        bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: AppColors.primaryWhite,
+        ),
       ),
       home: const Splashscreen(),
     );
