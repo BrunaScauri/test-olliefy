@@ -7,6 +7,7 @@ import 'package:test_olliefy/utils/route/slide_incoming_from_bottom.dart';
 
 import 'package:test_olliefy/components/molecules/markerplace_filter_button.dart';
 import 'package:test_olliefy/screens/marketplace/sell_in_the_marketplace.dart';
+import 'package:test_olliefy/screens/profile/favorites/favorites_marketplace.dart';
 
 class Marketplace extends StatefulWidget {
   @override
@@ -73,7 +74,7 @@ class _MarketplaceState extends State<Marketplace> {
           ),
           SliverToBoxAdapter(
             child: Padding(
-              padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 12),
               child: OutlinedButton(
                 onPressed: () {
                   Navigator.of(context).push(
@@ -103,6 +104,12 @@ class _MarketplaceState extends State<Marketplace> {
               ),
             ),
           ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16),
+              child: FavoritesMarketplace(),
+            ),
+          )
         ]
       ),
     );

@@ -34,11 +34,10 @@ class _FavoritesMarketplaceState extends State<FavoritesMarketplace> {
     return Column(
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 28.0),
+          padding: const EdgeInsets.symmetric(vertical: 16.0),
           child: GridView.builder(
             shrinkWrap: true,
             physics: NeverScrollableScrollPhysics(),
-            padding: EdgeInsets.symmetric(horizontal: 16),
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
               crossAxisSpacing: 15.0,
