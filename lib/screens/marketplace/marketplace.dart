@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/route/slide_incoming_from_bottom.dart';
 
 import 'package:test_olliefy/components/molecules/markerplace_filter_button.dart';
+import 'package:test_olliefy/screens/marketplace/sell_in_the_marketplace.dart';
 
 class Marketplace extends StatefulWidget {
   @override
@@ -67,6 +69,38 @@ class _MarketplaceState extends State<Marketplace> {
             child: Padding(
               padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
               child: MarketplaceFilterButtonRow(),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 24),
+              child: OutlinedButton(
+                onPressed: () {
+                  Navigator.of(context).push(
+                    SlideIncomingFromBottom(exitPage:Marketplace(), enterPage: SellInTheMarketplace())
+                  );
+                },
+                style: ButtonStyles.marketplaceButton(),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.add,
+                      color: AppColors.primaryGray10,
+                      size: 20,
+                    ),
+                    SizedBox(width: 4),
+                    RichText(
+                      text: TextSpan(
+                        style: TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
+                        children: [
+                          TextSpan(text: 'Sell in the marketplace'),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ]
