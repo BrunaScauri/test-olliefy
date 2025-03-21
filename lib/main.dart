@@ -28,12 +28,19 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Olliefy Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryGold70),
         useMaterial3: true,
         textTheme: GoogleFonts.openSansTextTheme(),
         scaffoldBackgroundColor: AppColors.primaryWhite,
         bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: AppColors.primaryWhite,
+        ),
+        checkboxTheme: CheckboxThemeData(
+          checkColor: MaterialStateProperty.all(AppColors.primaryWhite),
+        ),
+        radioTheme: RadioThemeData(
+          fillColor: MaterialStateProperty.all(AppColors.primaryGold70SwitchSettings),
+          overlayColor: MaterialStateProperty.all(Colors.blue.withOpacity(0.1)),
         ),
       ),
       home: const Splashscreen(),
