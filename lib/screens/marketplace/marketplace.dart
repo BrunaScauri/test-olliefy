@@ -58,7 +58,7 @@ class _MarketplaceState extends State<Marketplace> {
                     icon: Image.asset('assets/map_page/icons/filter_icon.png', width: 18),
                     iconSize: 24,
                     onPressed: () {
-                      // Navigator.pop(context);
+                      _showMainBottomSheet(context);
                     },
                   ),
                 ],
