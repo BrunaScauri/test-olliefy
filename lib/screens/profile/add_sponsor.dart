@@ -81,7 +81,7 @@ class _AddSponsorState extends State<AddSponsor> {
                 SizedBox(height: 12.0),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    Navigator.pop(context);
                   },
                   child: Text(
                     'Save',
