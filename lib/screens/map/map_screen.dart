@@ -32,6 +32,7 @@ class _MapScreenState extends State<MapScreen> {
   final List<Place> places = HeatmapData.barcelonaPlaces;
   Set<Marker> markers = {};
   late cluster_manager.ClusterManager<Place> _clusterManager;
+  Place? _selectedPlace;
 
   bool _showPersistentSheet = true;
   List<Offset> _heatmapOffsets = [];
@@ -86,8 +87,10 @@ class _MapScreenState extends State<MapScreen> {
         if (cluster.isMultiple) {
           mapController.animateCamera(CameraUpdate.newLatLngZoom(cluster.location, 14));
         } else {
-          final place = cluster.items.first;
-          // LocationDetails(place: place);
+          setState(() {
+            _selectedPlace = cluster.items.first;
+            _showPersistentSheet = true;
+          });
         }
       },
     );
@@ -212,7 +215,8 @@ class _MapScreenState extends State<MapScreen> {
             padding: const EdgeInsets.only(left: 16, top: 64),
             child: FilterButtonRow(searchButton: true),
           ),
-          if (_showPersistentSheet) MainBottomSheet(),
+          if (_showPersistentSheet && _selectedPlace != null)
+          LocationDetails(place: _selectedPlace!),
         ],
       ),
     );
