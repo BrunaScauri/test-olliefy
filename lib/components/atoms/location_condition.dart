@@ -7,9 +7,16 @@ class LocationCondition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        ImageIcon(
-          AssetImage('assets/map_page/icons/good_condition_icon.png'),
-          size: 16,
+        Container(
+          height: 16,
+          width: 16,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/map_page/icons/good_condition_icon.png',
+              ),
+            ),
+          ),
         ),
         SizedBox(width: 6),
         Text('Good Condition', style: TextsStyles.sponsorDate()),
