@@ -204,6 +204,7 @@ class UserStoreStyles{
     );
     overflow: TextOverflow.ellipsis;
   }
+
   static TextStyle itemDescription(){
     return GoogleFonts.openSans(
       color: AppColors.primaryBlack,
@@ -211,6 +212,14 @@ class UserStoreStyles{
       fontWeight: FontWeight.w400,
     );
     overflow: TextOverflow.ellipsis;
+  }
+
+  static TextStyle sendAMessage(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryGold70,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
   }
 }
 
@@ -222,6 +231,7 @@ class AppBarStyles{
       fontWeight: FontWeight.w600,
     );
   }
+  
   static TextStyle appBarLabelSelected({
     Color? color = AppColors.tabIconSelected,
   }){
@@ -279,6 +289,16 @@ class ChallengesStyles{
       color: AppColors.primaryBlack,
       fontSize: 14,
       fontWeight: FontWeight.w700,
+    );
+  }
+}
+
+class MarketplaceStyles{
+  static TextStyle articleTitle(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryBlack,
+      fontWeight: FontWeight.w400,
+      fontSize: 24,
     );
   }
 }
