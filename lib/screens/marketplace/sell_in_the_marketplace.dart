@@ -5,7 +5,9 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
+
 import 'package:test_olliefy/screens/marketplace/example_selected_photos.dart';
+import 'package:test_olliefy/screens/marketplace/example_article_page.dart';
 
 class SellInTheMarketplace extends StatefulWidget {
 	@override
@@ -88,7 +90,9 @@ class _SellInTheMarketplaceState extends State<SellInTheMarketplace> {
                     child: Container(
                       child: ElevatedButton(
                         onPressed: _areFieldsFilled ? () {
-                          Navigator.of(context).pop();
+                          Navigator.of(context).push(
+                            pageSlideAnimation(ExampleArticlePage())
+                          );
                         } : null,
                         style: ButtonStyles.elevatedButton(backgroundColor: _areFieldsFilled ? AppColors.primaryGold60 : AppColors.primaryGray10),
                         child: Text(
