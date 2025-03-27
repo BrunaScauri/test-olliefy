@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
+import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 
 import 'package:test_olliefy/components/atoms/follow_button.dart';
 import 'package:test_olliefy/components/atoms/profile_name.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
+import 'package:test_olliefy/screens/marketplace/shipping_details';
 
 class ExampleArticlePage extends StatefulWidget {
   @override
@@ -141,6 +143,9 @@ class _ExampleArticlePageState extends State<ExampleArticlePage> {
                         children: [
                           ElevatedButton(
                             onPressed: () {
+                              Navigator.of(context).push(
+                                pageSlideAnimation(ShippingDetails())
+                              );
                             },
                             style: ButtonStyles.elevatedButton(
                             backgroundColor: AppColors.primaryGold60),
