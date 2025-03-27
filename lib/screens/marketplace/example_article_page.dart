@@ -24,6 +24,22 @@ class _ExampleArticlePageState extends State<ExampleArticlePage> {
           padding: EdgeInsets.symmetric(vertical: 24.0),
           child: AppBar(
             backgroundColor: AppColors.primaryWhite,
+            actions: [
+              IconButton(
+                icon: ImageIcon(
+                  AssetImage('assets/marketplace_page/icons/favorite_icon.png'),
+                ),
+                onPressed: () {
+                },
+              ),
+              IconButton(
+                icon: ImageIcon(
+                  AssetImage('assets/marketplace_page/icons/share_icon.png'),
+                ),
+                onPressed: () {
+                },
+              ),
+            ],
           ),
         ),
       ),
