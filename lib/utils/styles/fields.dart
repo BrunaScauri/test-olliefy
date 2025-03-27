@@ -5,7 +5,9 @@ class FormDecorations {
   static InputDecoration textFieldDecoration({
     String? labelText,
     IconData? prefixIcon,
+    IconData? suffixIcon,
     Widget? prefixIconWidget,
+    Widget? suffixIconWidget,
     Color? textColor = AppColors.primaryGray10,
     Color? iconColor = AppColors.primaryBlack,
   }) {
@@ -30,6 +32,12 @@ class FormDecorations {
       floatingLabelStyle: TextStyle(
         color: AppColors.primaryGold70,
       ),
+      suffixIcon: suffixIconWidget != null
+      ? Padding(
+          padding: EdgeInsets.only(right: 8.0),
+          child: suffixIconWidget,
+        )
+        : suffixIcon != null ? Icon(suffixIcon, color: iconColor) : null,
       prefixIcon: prefixIconWidget != null 
         ? Padding(
           padding: EdgeInsets.all(11.0),
