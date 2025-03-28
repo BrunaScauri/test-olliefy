@@ -31,11 +31,19 @@ class _UserChatState extends State<UserChat> {
               Positioned(
                 left: 108.0,
                 top: 10.0,
-                child: Text( 'Vortex', style: TextsStyles.profileDataBold()),
+                child: Text('Vortex', style: TextsStyles.profileDataBold()),
               ),
               Positioned(
                 left: 56.0,
-                child: ProfilePicture(borderWidth: 40.0, borderHeight: 40.0, imageWidth: 36.8, imageHeight: 36.8, imageHorizontalPadding: 1.6, imageVerticalPadding: 1.6, imagePath: 'assets/profile_page/icons/example_pfp/4.jpeg'),
+                child: ProfilePicture(
+                  borderWidth: 40.0,
+                  borderHeight: 40.0,
+                  imageWidth: 36.8,
+                  imageHeight: 36.8,
+                  imageHorizontalPadding: 1.6,
+                  imageVerticalPadding: 1.6,
+                  imagePath: 'assets/profile_page/icons/example_pfp/4.jpeg',
+                ),
               ),
               Positioned(
                 right: 10.0,
@@ -45,26 +53,33 @@ class _UserChatState extends State<UserChat> {
                   height: 16,
                   width: 16,
                 ),
-              )
-            ]
-          )
+              ),
+            ],
+          ),
         ),
       ),
-			body: Center(
-				child: Container(
+      body: Center(
+        child: Container(
           constraints: BoxConstraints(maxWidth: 370),
-          child:Padding(
+          child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 16),
             child: Column(
               children: [
-                  Text('TUE, MAY 21, 2024', style: TextsStyles.spacedGray(),
-                  ),
+                Text('TUE, MAY 21, 2024', style: TextsStyles.spacedGray()),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(bottom: 5),
-                      child: ProfilePicture(borderWidth: 30.0, borderHeight: 30.0, imageWidth: 27.6, imageHeight: 27.6, imageHorizontalPadding: 1.2, imageVerticalPadding: 1.2, imagePath: 'assets/profile_page/icons/example_pfp/4.jpeg'),
+                      child: ProfilePicture(
+                        borderWidth: 30.0,
+                        borderHeight: 30.0,
+                        imageWidth: 27.6,
+                        imageHeight: 27.6,
+                        imageHorizontalPadding: 1.2,
+                        imageVerticalPadding: 1.2,
+                        imagePath: 'assets/profile_page/icons/example_pfp/4.jpeg',
+                      ),
                     ),
                     SizedBox(width: 16.0),
                     Container(
@@ -83,69 +98,68 @@ class _UserChatState extends State<UserChat> {
                         style: TextStyle(fontSize: 16.0, color: Colors.black),
                       ),
                     ),
-                  ]
+                  ],
                 ),
                 SizedBox(width: 16.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Positioned(
-                      right: 0.0,
-                      child: Container(
-                        padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-                        margin: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          color: AppColors.primaryGray80,
-                            borderRadius: BorderRadius.only(
-                                topRight: Radius.circular(40.0),
-                                topLeft: Radius.circular(40.0),
-                                bottomLeft: Radius.circular(40.0)),
-                          ),
-                          child: Text("You're welcome ;)", style: TextStyle(color: AppColors.primaryWhite)),
+                    Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+                      margin: EdgeInsets.all(8.0),
+                      decoration: BoxDecoration(
+                        color: AppColors.primaryGray80,
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(40.0),
+                          topLeft: Radius.circular(40.0),
+                          bottomLeft: Radius.circular(40.0),
+                        ),
                       ),
-                    )
-                  ]
+                      child: Text(
+                        "You're welcome ;)",
+                        style: TextStyle(color: AppColors.primaryWhite),
+                      ),
+                    ),
+                  ],
                 ),
                 Expanded(
                   child: Container(
                     color: AppColors.primaryWhite,
                   ),
                 ),
-                Positioned(
-                  bottom: 0.0,
-                  child: Stack(
-                    children: [
-                      Container(
-                        constraints: BoxConstraints(maxWidth: 340),
-                        child: TextFormField(
-                          onChanged: (value) {
-                          },
-                          decoration: FormDecorations.textFieldDecoration(
-                            labelText: 'Write a message', textColor: AppColors.primaryGray5
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 0.5,
-                        top: 4.25,
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                          child: Icon(
-                            Icons.arrow_circle_right, color: AppColors.primaryGray5
-                          )
-                        ),
-                      )
-
-                    ]
-            
-                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(16.0),
+        color: AppColors.primaryWhite,
+        child: Stack(
+          children: [
+            Container(
+              child: TextFormField(
+                onChanged: (value) {},
+                decoration: FormDecorations.textFieldDecoration(
+                  labelText: 'Write a message',
+                  textColor: AppColors.primaryGray5,
                 ),
-                
-              ]
-            )
-          )
-        )
-			),
+              ),
+            ),
+            Positioned(
+              right: 10.0,
+              top: 4.25,
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+                child: Icon(
+                  Icons.arrow_circle_right,
+                  color: AppColors.primaryGray5,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
