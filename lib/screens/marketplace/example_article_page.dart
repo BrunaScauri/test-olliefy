@@ -141,15 +141,18 @@ class _ExampleArticlePageState extends State<ExampleArticlePage> {
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).push(
-                                pageSlideAnimation(ShippingDetails())
-                              );
-                            },
-                            style: ButtonStyles.elevatedButton(
-                            backgroundColor: AppColors.primaryGold60),
-                            child: Text('Buy', style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack),
+                          Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                Navigator.of(context).push(
+                                  pageSlideAnimation(ShippingDetails())
+                                );
+                              },
+                              style: ButtonStyles.elevatedButton(
+                              backgroundColor: AppColors.primaryGold60),
+                              child: Text('Buy', style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack),
+                              ),
                             ),
                           ),
                           SizedBox(height: 16.0),
