@@ -7,6 +7,7 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/screens/map/map_screen.dart';
 import 'package:test_olliefy/screens/profile/user_profile.dart';
 import 'package:test_olliefy/screens/marketplace/marketplace.dart';
+import 'package:test_olliefy/screens/feed/feed.dart';
 
 class AppTab extends StatefulWidget {
   @override
@@ -96,7 +97,7 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
       case 0:
         return Container(key: ValueKey<int>(0), child: MapScreen());
       case 1:
-        return Container(key: ValueKey<int>(1), child: Icon(Icons.directions_transit));
+        return Container(key: ValueKey<int>(1), child: Feed());
       case 2:
         return Container(key: ValueKey<int>(2), child: Icon(Icons.directions_bike));
       case 3:
