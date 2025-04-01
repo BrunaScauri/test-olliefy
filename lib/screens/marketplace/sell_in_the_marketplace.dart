@@ -45,68 +45,74 @@ class _SellInTheMarketplaceState extends State<SellInTheMarketplace> {
           ),
         ),
       ),
-			body: Center(
-				child: Container(
-          constraints: BoxConstraints(maxWidth: 380),
-          child:Padding(
-            padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-            child: Column(
-              children: [
-                SelectedPhotosRow(),
-                SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _titleController,
-                  onChanged: (value) {
-                    setState(() {});
-                  },
-                  decoration: FormDecorations.textFieldDecoration(
-                    labelText: 'Title',
+			body: SingleChildScrollView(
+        child: Center(
+          child: Container(
+            constraints: BoxConstraints(maxWidth: 380),
+            child:Padding(
+              padding: EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+              child: Column(
+                children: [
+                  SelectedPhotosRow(),
+                  SizedBox(height: 16.0),
+                  TextFormField(
+                    controller: _titleController,
+                    onChanged: (value) {
+                      setState(() {});
+                    },
+                    decoration: FormDecorations.textFieldDecoration(
+                      labelText: 'Title',
+                    ),
                   ),
-                ),
-                SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _priceController,
-                  onChanged: (value) {
-                    setState(() {});
-                  },
-                  decoration: FormDecorations.textFieldDecoration(
-                    labelText: 'Price',
+                  SizedBox(height: 16.0),
+                  TextFormField(
+                    controller: _priceController,
+                    onChanged: (value) {
+                      setState(() {});
+                    },
+                    decoration: FormDecorations.textFieldDecoration(
+                      labelText: 'Price',
+                    ),
                   ),
-                ),
-                SizedBox(height: 16.0),
-                TextFormField(
-                  controller: _descriptionController,
-                  onChanged: (value) {
-                    setState(() {});
-                  },
-                  decoration: FormDecorations.textFieldDecoration(
-                    labelText: 'Description',
+                  SizedBox(height: 16.0),
+                  TextFormField(
+                    controller: _descriptionController,
+                    onChanged: (value) {
+                      setState(() {});
+                    },
+                    decoration: FormDecorations.textFieldDecoration(
+                      labelText: 'Description',
+                    ),
                   ),
-                ),
-                SizedBox(height: 48.0),
-                Expanded(
-                  child: Align(
-                    alignment: FractionalOffset.bottomCenter,
-                    child: Container(
-                      child: ElevatedButton(
-                        onPressed: _areFieldsFilled ? () {
-                          Navigator.of(context).push(
-                            pageSlideAnimation(ExampleArticlePage())
-                          );
-                        } : null,
-                        style: ButtonStyles.elevatedButton(backgroundColor: _areFieldsFilled ? AppColors.primaryGold60 : AppColors.primaryGray10),
-                        child: Text(
-                          'Post Article',
-                          style: _areFieldsFilled ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack) : TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
-                        ),
-                      ),
-                    )
-                  ),
-                ),
-              ]
+                  SizedBox(height: 16.0),
+                ]
+              )
             )
-          )
-			  ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(16.0),
+        child: ElevatedButton(
+          onPressed: _areFieldsFilled
+              ? () {
+                  Navigator.of(context).push(
+                    pageSlideAnimation(ExampleArticlePage()),
+                  );
+                }
+              : null,
+          style: ButtonStyles.elevatedButton(
+            backgroundColor: _areFieldsFilled
+                ? AppColors.primaryGold60
+                : AppColors.primaryGray10,
+          ),
+          child: Text(
+            'Post Article',
+            style: _areFieldsFilled
+                ? TextStyles.elevatedButtonText(color: AppColors.primaryBlack)
+                : TextStyles.elevatedButtonText(color: AppColors.primaryGray10),
+          ),
+        ),
       ),
     );
 	}
