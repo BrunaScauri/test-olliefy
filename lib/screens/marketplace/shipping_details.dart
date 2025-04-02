@@ -21,9 +21,7 @@ class ShippingDetails extends StatelessWidget {
         preferredSize: Size.fromHeight(90.0),
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 24.0),
-          child: AppBar(
-            backgroundColor: AppColors.primaryWhite,
-          ),
+          child: AppBar(),
         ),
       ),
       body: ConstrainedBox(
