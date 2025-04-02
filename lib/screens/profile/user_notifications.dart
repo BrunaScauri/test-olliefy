@@ -72,7 +72,6 @@ class _UserNotificationsState extends State<UserNotifications> {
               padding: EdgeInsets.symmetric(vertical: 24.0),
               child: AppBar(
                 title: Text('Notifications', style: TextsStyles.profileDataBold()),
-                backgroundColor: AppColors.primaryWhite,
               ),
             ),
           )

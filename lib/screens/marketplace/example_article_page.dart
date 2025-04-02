@@ -25,7 +25,6 @@ class _ExampleArticlePageState extends State<ExampleArticlePage> {
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 24.0),
           child: AppBar(
-            backgroundColor: AppColors.primaryWhite,
             actions: [
               IconButton(
                 icon: ImageIcon(

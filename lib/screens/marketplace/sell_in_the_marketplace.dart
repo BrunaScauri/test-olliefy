@@ -41,7 +41,6 @@ class _SellInTheMarketplaceState extends State<SellInTheMarketplace> {
           padding: EdgeInsets.symmetric(vertical: 24.0),
           child: AppBar(
             title: Text('Sell in marketplace', style: TextsStyles.profileDataBold()),
-            backgroundColor: AppColors.primaryWhite,
           ),
         ),
       ),

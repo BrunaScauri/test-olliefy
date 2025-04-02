@@ -44,7 +44,6 @@ class _SponsorsReceivedState extends State<SponsorsReceived> {
             padding: EdgeInsets.symmetric(vertical: 24.0),
             child: AppBar(
               title: Text('Sponsors received', style: TextsStyles.profileDataBold()),
-              backgroundColor: AppColors.primaryWhite,
             ),
           ),
         )

@@ -25,7 +25,6 @@ class _UserChatState extends State<UserChat> {
             children: [
               Positioned(
                 child: AppBar(
-                  backgroundColor: AppColors.primaryWhite,
                 ),
               ),
               Positioned(

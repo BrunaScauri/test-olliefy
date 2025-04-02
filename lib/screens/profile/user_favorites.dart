@@ -28,7 +28,6 @@ class _UserFavoritesState extends State<UserFavorites> {
             padding: EdgeInsets.symmetric(vertical: 24.0),
             child: AppBar(
               title: Text('Favorites', style: TextsStyles.profileDataBold()),
-              backgroundColor: AppColors.primaryWhite,
             ),
           ),
         ),

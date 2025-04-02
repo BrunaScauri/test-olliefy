@@ -45,7 +45,6 @@ class _EditUserProfileState extends State<EditUserProfile> {
           padding: EdgeInsets.symmetric(vertical: 24.0),
           child: AppBar(
             title: Text('Edit Profile', style: TextsStyles.profileDataBold()),
-            backgroundColor: AppColors.primaryWhite,
           ),
         ),
       ),

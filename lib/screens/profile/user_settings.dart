@@ -36,7 +36,6 @@ class _UserSettingsState extends State<UserSettings> {
           padding: EdgeInsets.symmetric(vertical: 24.0),
           child: AppBar(
             title: Text('Settings', style: TextsStyles.profileDataBold()),
-            backgroundColor: AppColors.primaryWhite,
           ),
         ),
       ),
