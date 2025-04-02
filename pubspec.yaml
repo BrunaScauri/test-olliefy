@@ -53,3 +53,4 @@ flutter:
     - ./assets/marketplace_page/
     - ./assets/marketplace_page/example_photos/
     - ./assets/marketplace_page/icons/
+    - ./assets/feed_page/icons/
