@@ -302,3 +302,13 @@ class MarketplaceStyles{
     );
   }
 }
+
+class FeedStyles {
+  static TextStyle iconText(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+  }
+}
