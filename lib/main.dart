@@ -28,6 +28,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Olliefy Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+          backgroundColor: AppColors.primaryWhite,
+          scrolledUnderElevation: 0.0,
+        ),
         colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryGold70),
         useMaterial3: true,
         textTheme: GoogleFonts.openSansTextTheme(),
