@@ -52,8 +52,11 @@ class _FeedState extends State<Feed> with TickerProviderStateMixin {
             color: Colors.blue,
             child: Stack(
               children: [
+                Container(
+                  color: Colors.blue,
+                ),
                 SidebarActions(),
-                Container(),
+                PostMetadata(),
               ]
             )
           ),
