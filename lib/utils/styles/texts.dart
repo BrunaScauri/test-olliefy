@@ -311,4 +311,28 @@ class FeedStyles {
       fontWeight: FontWeight.w700,
     );
   }
+
+  static TextStyle profileName(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
+  static TextStyle videoDate(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryGray30,
+      fontSize: 12,
+      fontWeight: FontWeight.w400,
+    );
+  }
+
+  static TextStyle videoDescription(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 14,
+      fontWeight: FontWeight.w400,
+    );
+  }
 }
