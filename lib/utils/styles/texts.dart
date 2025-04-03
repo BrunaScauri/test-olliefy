@@ -312,6 +312,14 @@ class FeedStyles {
     );
   }
 
+  static TextStyle iconTextTapped(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryGold60,
+      fontSize: 16,
+      fontWeight: FontWeight.w700,
+    );
+  }
+
   static TextStyle profileName(){
     return GoogleFonts.openSans(
       color: AppColors.primaryWhite,

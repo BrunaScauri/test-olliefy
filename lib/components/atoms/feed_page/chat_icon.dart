@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-class ChatIcon extends StatelessWidget {
+class ChatIcon extends StatefulWidget {
   const ChatIcon({Key? key}) : super(key: key);
+
+  @override
+  State<ChatIcon> createState() => _ChatIconState();
+}
+
+class _ChatIconState extends State<ChatIcon> {
+  bool _isTapped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,10 @@ class ChatIcon extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-
+              setState(() {
+                _isTapped = !_isTapped;
+                //prop up example chat
+              });
             },
             child: Container(
               height: 30,
@@ -21,14 +31,16 @@ class ChatIcon extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/feed_page/icons/chat_icon.png',
+                    _isTapped
+                    ? 'assets/feed_page/icons/chat_icon_tapped.png'
+                    : 'assets/feed_page/icons/chat_icon.png',
                   ),
                 ),
               ),
             ),
           ),
           SizedBox(height: 8),
-          Text('3', style: FeedStyles.iconText()),
+          Text('3', style: _isTapped ? FeedStyles.iconTextTapped() : FeedStyles.iconText()),
         ]
       )
     );

@@ -2,8 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-class ShareIcon extends StatelessWidget {
+class ShareIcon extends StatefulWidget {
   const ShareIcon({Key? key}) : super(key: key);
+
+  @override
+  State<ShareIcon> createState() => _ShareIconState();
+}
+
+class _ShareIconState extends State<ShareIcon> {
+  bool _isTapped = false;
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +20,9 @@ class ShareIcon extends StatelessWidget {
         children: [
           GestureDetector(
             onTap: () {
-
+              setState(() {
+                _isTapped = !_isTapped;
+              });
             },
             child: Container(
               height: 30,
@@ -21,14 +30,16 @@ class ShareIcon extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    'assets/feed_page/icons/share_icon.png',
+                    _isTapped
+                    ? 'assets/feed_page/icons/share_icon_tapped.png'
+                    : 'assets/feed_page/icons/share_icon.png',
                   ),
                 ),
               ),
             ),
           ),
           SizedBox(height: 8),
-          Text('4', style: FeedStyles.iconText()),
+          Text('444', style: _isTapped ? FeedStyles.iconTextTapped() : FeedStyles.iconText()),
         ]
       )
     );
