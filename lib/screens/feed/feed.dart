@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/components/molecules/feed_page/sidebar_actions.dart';
+import 'package:test_olliefy/components/molecules/feed_page/post_metadata.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
