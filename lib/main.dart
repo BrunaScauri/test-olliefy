@@ -9,6 +9,7 @@ import 'package:test_olliefy/screens/main_screen.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     MultiProvider(
       providers: [
@@ -16,7 +17,7 @@ void main() {
       ],
       child: MyApp(),
     ),
-    );
+  );
 }
 
 class MyApp extends StatelessWidget {
