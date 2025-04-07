@@ -1,4 +1,3 @@
-
 final Map<String, String> prefixToImagePath = {
   '01': ('icons/flags/png250px/us.png'),  
   '07': ('icons/flags/png250px/ru.png'),  
