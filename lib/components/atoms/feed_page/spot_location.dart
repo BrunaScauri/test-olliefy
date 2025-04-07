@@ -36,7 +36,6 @@ class SpotLocation extends StatelessWidget {
             ),
             SizedBox(width: 8),
             Text(location, style: ChallengesStyles.challengeText()),
-
           ]
         )
       ),
