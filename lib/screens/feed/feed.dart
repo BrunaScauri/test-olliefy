@@ -35,6 +35,9 @@ class _FeedState extends State<Feed> with TickerProviderStateMixin {
       appBar: AppBar(
         leadingWidth: 40.0,
         backgroundColor: Colors.transparent,
+        iconTheme: IconThemeData(
+          color: AppColors.primaryWhite
+        ),
         actions: [
           IconButton(
             icon: ImageIcon(
