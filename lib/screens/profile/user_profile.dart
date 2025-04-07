@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/utils/styles/borders.dart';
-import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 

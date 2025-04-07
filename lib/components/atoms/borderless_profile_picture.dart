@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:test_olliefy/utils/colors.dart';
 
 class BorderlessProfilePicture extends StatelessWidget {
   final double imageWidth;

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
-import 'package:test_olliefy/utils/styles/fields.dart';
-import 'package:test_olliefy/utils/styles/buttons.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
 
 import 'package:test_olliefy/screens/search/search_page_content.dart';
 
@@ -36,9 +32,6 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   void _collapse() => _animateSheet(sheet.snapSizes!.first);
-  void _anchor() => _animateSheet(sheet.snapSizes!.last);
-  void _expand() => _animateSheet(sheet.maxChildSize);
-  void _hide() => _animateSheet(sheet.minChildSize);
 
   void _animateSheet(double size) {
     _controller.animateTo(

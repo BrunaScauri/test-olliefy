@@ -5,10 +5,8 @@ import 'package:google_maps_cluster_manager/google_maps_cluster_manager.dart' as
 import 'dart:ui' as ui;
 import 'package:flutter/services.dart';
 
-import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/cluster_icon_generator.dart';
 
-import 'package:test_olliefy/screens/map/main_bottom_sheet.dart';
 import 'package:test_olliefy/components/molecules/filter_button_row.dart';
 import 'package:test_olliefy/screens/map/map_pointers.dart';
 import 'package:test_olliefy/screens/map/map_style.dart';
@@ -59,22 +57,16 @@ class _MapScreenState extends State<MapScreen> {
       switch (place.type) {
         case 'bowl':
           icon = await getResizedMarker('assets/map_page/markers/bowl_marker.png', 100);
-          break;
         case 'halfpipe':
           icon = await getResizedMarker('assets/map_page/markers/halfpipe_marker.png', 100);
-          break;
         case 'rail':
           icon = await getResizedMarker('assets/map_page/markers/rails_marker.png', 100);
-          break;
         case 'ramp':
           icon = await getResizedMarker('assets/map_page/markers/ramp_marker.png', 100);
-          break;
         case 'stairs':
           icon = await getResizedMarker('assets/map_page/markers/stairs_marker.png', 100);
-          break;
         case 'userLocation':
           icon = await getResizedMarker('assets/map_page/markers/stairs_marker.png', 100);
-          break;
         default:
           icon = BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed);
       }

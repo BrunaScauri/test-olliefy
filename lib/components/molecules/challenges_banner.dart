@@ -4,7 +4,6 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
-import 'package:test_olliefy/components/atoms/user_store_item_card_description.dart';
 import 'package:test_olliefy/components/atoms/join_the_challenge_button.dart';
 
 class ChallengesBanner extends StatelessWidget {

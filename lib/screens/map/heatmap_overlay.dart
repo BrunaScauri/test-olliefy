@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:test_olliefy/screens/map/heatmap_cluster.dart';
 import 'package:test_olliefy/screens/map/heatmap_painter.dart';
 
 class HeatmapOverlay extends StatelessWidget {

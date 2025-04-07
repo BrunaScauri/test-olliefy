@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/utils/styles/buttons.dart';
 
 import 'package:test_olliefy/components/atoms/user_store_item_card_description.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/route/slide_incoming_from_bottom.dart';
 
 import 'package:test_olliefy/screens/search/search_page.dart';

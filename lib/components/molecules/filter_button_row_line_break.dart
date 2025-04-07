@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/colors.dart';
 
 import 'package:test_olliefy/components/atoms/filter_button.dart';
-import 'package:test_olliefy/components/atoms/search_button.dart';
 
 class FilterButtonRowLineBreak extends StatefulWidget {
   @override

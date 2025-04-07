@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 import 'package:test_olliefy/components/atoms/profile_name.dart';
-import 'package:test_olliefy/components/atoms/follow_button.dart';
-import 'package:test_olliefy/components/atoms/following_button.dart';
 
 class SuggestedProfileCard extends StatelessWidget {
   final String profileName;

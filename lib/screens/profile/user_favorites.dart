@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/components/molecules/notification_card.dart';
-import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 
 import 'package:test_olliefy/screens/profile/favorites/favorites_spots.dart';
 import 'package:test_olliefy/screens/profile/favorites/favorites_marketplace.dart';

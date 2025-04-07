@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
 class CustomButtons {

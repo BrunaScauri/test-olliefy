@@ -202,7 +202,6 @@ class UserStoreStyles{
       fontSize: 14,
       fontWeight: FontWeight.w700,
     );
-    overflow: TextOverflow.ellipsis;
   }
 
   static TextStyle itemDescription(){
@@ -211,7 +210,6 @@ class UserStoreStyles{
       fontSize: 14,
       fontWeight: FontWeight.w400,
     );
-    overflow: TextOverflow.ellipsis;
   }
 
   static TextStyle sendAMessage(){

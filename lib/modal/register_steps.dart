@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:test_olliefy/utils/styles/prefix_flag.dart';
-import 'package:country_icons/country_icons.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 
 import 'package:google_fonts/google_fonts.dart';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
 
 class FavoritesSpots extends StatefulWidget {
   @override

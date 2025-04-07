@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:flutter/foundation.dart';
-
-import 'package:test_olliefy/screens/main_screen.dart';
 
 class UserModal extends ChangeNotifier {
   String _profileName = '';

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/utils/colors.dart';
 
 import 'package:test_olliefy/screens/map/place.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';

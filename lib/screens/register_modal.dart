@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
-import 'dart:io';
 import 'package:provider/provider.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
-import 'package:test_olliefy/utils/route/page_slide_animation.dart';
 import 'package:test_olliefy/utils/route/slide_outgoing_down.dart';
 import 'package:test_olliefy/utils/route/slide_outgoing_right.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/modal/register_steps.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
-import 'package:test_olliefy/screens/profile/user_profile.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
 import 'package:test_olliefy/components/atoms/permission_dialogue.dart';
 import 'package:test_olliefy/utils/route/stepper_animation.dart';

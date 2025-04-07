@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:test_olliefy/screens/map/heatmap_overlay.dart';
-
 class HeatmapCluster {
   final List<Offset> points;
   HeatmapCluster({required this.points});

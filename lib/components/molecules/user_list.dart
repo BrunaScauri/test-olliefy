@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
-import 'package:test_olliefy/components/atoms/profile_name.dart';
 import 'package:test_olliefy/components/atoms/sponsor_date.dart';
 
 class UserList extends StatelessWidget {

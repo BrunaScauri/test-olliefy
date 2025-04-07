@@ -14,10 +14,6 @@ Route pageSlideAnimation(
           .chain(CurveTween(curve: curve));
       var newPageAnimation = animation.drive(newPageTween);
 
-      var oldPageTween = Tween(begin: oldPageBegin, end: const Offset(-1.0, 0.0))
-          .chain(CurveTween(curve: curve));
-      var oldPageAnimation = secondaryAnimation.drive(oldPageTween);
-
       return Stack(
         children: [
           SlideTransition(

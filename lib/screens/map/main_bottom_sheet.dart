@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
-import 'package:test_olliefy/utils/styles/fields.dart';
-import 'package:test_olliefy/utils/styles/buttons.dart';
-import 'package:test_olliefy/utils/styles/texts.dart';
 
 import 'package:test_olliefy/screens/map/main_bottom_sheet_content.dart';
 

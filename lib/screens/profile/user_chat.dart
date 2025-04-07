@@ -5,7 +5,6 @@ import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart'
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class UserChat extends StatefulWidget {
   @override

@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
-
-import 'package:test_olliefy/screens/profile/edit_user_profile.dart';
 
 class AddSponsor extends StatefulWidget {
   // final void Function(Sponsor) onSponsorAdded;

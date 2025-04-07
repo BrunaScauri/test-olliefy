@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-import 'package:country_icons/country_icons.dart';
 
 final Map<String, String> prefixToImagePath = {
   '01': ('icons/flags/png250px/us.png'),  
