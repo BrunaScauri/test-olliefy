@@ -57,3 +57,4 @@ flutter:
     - ./assets/marketplace_page/example_photos/
     - ./assets/marketplace_page/icons/
     - ./assets/feed_page/icons/
+    - ./assets/feed_page/example_videos/
