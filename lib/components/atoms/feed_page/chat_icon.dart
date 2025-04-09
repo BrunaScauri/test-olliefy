@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
 
+import 'package:test_olliefy/screens/feed/chat_bottom_sheet.dart';
+
 class ChatIcon extends StatefulWidget {
   const ChatIcon({Key? key}) : super(key: key);
 
@@ -22,7 +24,20 @@ class _ChatIconState extends State<ChatIcon> {
             onTap: () {
               setState(() {
                 _isTapped = !_isTapped;
-                //prop up example chat
+                showModalBottomSheet<dynamic>(
+                      isScrollControlled: true,
+                      context: context,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      builder: (BuildContext context) {
+                        return Wrap(
+                          children: [
+                            ChatBottomSheet(),
+                          ],
+                        );
+                      },
+                    );
               });
             },
             child: Container(
