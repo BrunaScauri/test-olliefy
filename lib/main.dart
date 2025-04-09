@@ -42,11 +42,11 @@ class MyApp extends StatelessWidget {
           backgroundColor: AppColors.primaryWhite,
         ),
         checkboxTheme: CheckboxThemeData(
-          checkColor: MaterialStateProperty.all(AppColors.primaryWhite),
+          checkColor: WidgetStateProperty.all(AppColors.primaryWhite),
         ),
         radioTheme: RadioThemeData(
-          fillColor: MaterialStateProperty.all(AppColors.primaryGold70SwitchSettings),
-          overlayColor: MaterialStateProperty.all(Colors.blue.withOpacity(0.1)),
+          fillColor: WidgetStateProperty.all(AppColors.primaryGold70SwitchSettings),
+          overlayColor: WidgetStateProperty.all(Colors.blue.withOpacity(0.1)),
         ),
       ),
       home: const Splashscreen(),
