@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+
 import 'package:test_olliefy/utils/colors.dart';
 
 import 'package:test_olliefy/components/molecules/feed_page/sidebar_actions.dart';
 import 'package:test_olliefy/components/molecules/feed_page/post_metadata.dart';
+import 'package:test_olliefy/components/molecules/feed_page/video_player.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
@@ -12,21 +14,16 @@ class Feed extends StatefulWidget {
 
 class _FeedState extends State<Feed> with TickerProviderStateMixin {
   late PageController _pageViewController;
-  late TabController _tabController;
+  
 
   void initState() {
     super.initState();
     _pageViewController = PageController();
-    _tabController = TabController(
-      length: 2,
-      vsync: this,
-    );
   }
 
   void dispose() {
     super.dispose();
     _pageViewController.dispose();
-    _tabController.dispose();
   }
 
   @override
@@ -54,11 +51,13 @@ class _FeedState extends State<Feed> with TickerProviderStateMixin {
         scrollDirection: Axis.vertical,
         children: [
           Container(
-            color: Colors.blue,
             child: Stack(
-              children: [
+              children: <Widget>[
                 Container(
-                  color: Colors.blue,
+                  height: MediaQuery.of(context).size.height,
+                  child: VideoPlayer(
+                    videoUrl: 'asset:///assets/feed_page/example_videos/1.mp4'
+                  ),
                 ),
                 SidebarActions(),
                 PostMetadata(),
@@ -66,21 +65,31 @@ class _FeedState extends State<Feed> with TickerProviderStateMixin {
             )
           ),
           Container(
-            color: Colors.black,
-            child: Center(
-              child: Text(
-                'Page 1',
-                style: TextStyle(fontSize: 24),
-              ),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: VideoPlayer(
+                    videoUrl: 'asset:///assets/feed_page/example_videos/2.mp4'
+                  ),
+                ),
+                SidebarActions(),
+                PostMetadata(),
+              ]
             ),
           ),
           Container(
-            color: Colors.red,
-            child: Center(
-              child: Text(
-                'Page 2',
-                style: TextStyle(fontSize: 24),
-              ),
+            child: Stack(
+              children: <Widget>[
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  child: VideoPlayer(
+                    videoUrl: 'asset:///assets/feed_page/example_videos/3.mp4'
+                  ),
+                ),
+                SidebarActions(),
+                PostMetadata(),
+              ]
             ),
           ),
         ],
