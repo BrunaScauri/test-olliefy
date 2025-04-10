@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:test_olliefy/utils/styles/texts.dart';
 
-import 'package:test_olliefy/screens/feed/chat_bottom_sheet.dart';
+import 'package:test_olliefy/screens/feed/comments_bottom_sheet.dart';
 
 class ChatIcon extends StatefulWidget {
   const ChatIcon({Key? key}) : super(key: key);
@@ -33,7 +33,7 @@ class _ChatIconState extends State<ChatIcon> {
                       builder: (BuildContext context) {
                         return Wrap(
                           children: [
-                            ChatBottomSheet(),
+                            CommentsBottomSheet(),
                           ],
                         );
                       },
