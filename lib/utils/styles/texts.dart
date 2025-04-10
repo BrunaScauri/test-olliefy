@@ -341,4 +341,12 @@ class FeedStyles {
       fontWeight: FontWeight.w400,
     );
   }
+
+  static TextStyle commentUsername(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryGray10,
+      fontSize: 14,
+      fontWeight: FontWeight.w700,
+    );
+  }
 }
