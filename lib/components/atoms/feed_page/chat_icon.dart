@@ -23,21 +23,25 @@ class _ChatIconState extends State<ChatIcon> {
           GestureDetector(
             onTap: () {
               setState(() {
-                _isTapped = !_isTapped;
+                _isTapped = true;
                 showModalBottomSheet<dynamic>(
-                      isScrollControlled: true,
-                      context: context,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      builder: (BuildContext context) {
-                        return Wrap(
-                          children: [
-                            CommentsBottomSheet(),
-                          ],
-                        );
-                      },
+                  isScrollControlled: true,
+                  context: context,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  builder: (BuildContext context) {
+                    return Wrap(
+                      children: [
+                        CommentsBottomSheet(),
+                      ],
                     );
+                  },
+                ).whenComplete(() {
+                  setState(() {
+                    _isTapped = false;
+                  });
+                });
               });
             },
             child: Container(
