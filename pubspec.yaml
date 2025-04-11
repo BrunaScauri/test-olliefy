@@ -60,3 +60,5 @@ flutter:
     - ./assets/marketplace_page/icons/
     - ./assets/feed_page/icons/
     - ./assets/feed_page/example_videos/
+    - ./assets/create_page/
+    - ./assets/create_page/icons/
