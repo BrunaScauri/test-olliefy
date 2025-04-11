@@ -350,3 +350,14 @@ class FeedStyles {
     );
   }
 }
+
+class CreateStyles {
+  static TextStyle iconText(){
+    return GoogleFonts.openSans(
+      color: AppColors.primaryWhite,
+      fontSize: 11,
+      fontWeight: FontWeight.w600,
+      letterSpacing: 0.5,
+    );
+  }
+}
