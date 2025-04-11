@@ -37,13 +37,16 @@ class _FeedState extends State<Feed> with TickerProviderStateMixin {
           color: AppColors.primaryWhite
         ),
         actions: [
-          IconButton(
-            icon: ImageIcon(
-              AssetImage('assets/feed_page/icons/search_icon.png'),
+          Padding(
+            padding: EdgeInsets.only(right: 8),
+            child: IconButton(
+              icon: ImageIcon(
+                AssetImage('assets/feed_page/icons/search_icon.png'),
+              ),
+              onPressed: () {
+              },
             ),
-            onPressed: () {
-            },
-          ),
+          )
         ],
       ),
       body: PageView(
