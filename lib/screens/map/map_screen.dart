@@ -106,7 +106,7 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   void _setMapStyle() async {
-    await mapController!.setMapStyle(styleSheet);
+    await mapController.setMapStyle(styleSheet);
   }
 
 
