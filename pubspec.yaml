@@ -62,3 +62,4 @@ flutter:
     - ./assets/feed_page/example_videos/
     - ./assets/create_page/
     - ./assets/create_page/icons/
+    - ./assets/create_page/icons/post_settings_icons/
