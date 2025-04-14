@@ -19,25 +19,22 @@ class BottomSheetHeader extends StatelessWidget {
       children: [
         SizedBox(height: 24),
         DragBar(),
-        Padding(
-          padding: EdgeInsets.all(16),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                title,
-                style: TextsStyles.spacedGray(),
-              ),
-              IconButton(
-                icon: Icon(Icons.close),
-                iconSize: 24,
-                color: AppColors.primaryGray30,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ]
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: TextsStyles.spacedGray(),
+            ),
+            IconButton(
+              icon: Icon(Icons.close),
+              iconSize: 24,
+              color: AppColors.primaryGray30,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+          ]
         ),
       ],
     );
