@@ -5,6 +5,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/components/molecules/feed_page/video_player.dart';
 import 'package:test_olliefy/components/molecules/create_page/capture_actions.dart';
 import 'package:test_olliefy/components/molecules/create_page/pre_recording_sidebar_actions.dart';
+import 'package:test_olliefy/components/molecules/create_page/post_recording_sidebar_actions.dart';
 
 class Create extends StatefulWidget {
   @override
@@ -48,9 +49,8 @@ class _CreateState extends State<Create> with TickerProviderStateMixin {
                     videoUrl: 'asset:///assets/feed_page/example_videos/1.mp4'
                   ),
                 ),
-                PreRecordingSidebarActions(),
-                // PostRecordingSidebarActions(),
-                CaptureActions(),
+                // PreRecordingSidebarActions(),
+                PostRecordingSidebarActions(),
               ]
             ),
           ),
