@@ -66,7 +66,7 @@ class _PostCardVerticalState extends State<PostCardVertical> {
             width: 163,
             child: Text(
               item['description'],
-              style: UserNotifsStyles.activity(), // Or TextsStyles.postsProfileName()
+              style: UserNotifsStyles.activity(),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
             ),
