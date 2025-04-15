@@ -7,7 +7,6 @@ class ModalBottomSheet extends StatelessWidget {
   const ModalBottomSheet({super.key, required this.onTap, required this.child});
 
   @override
-    @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
