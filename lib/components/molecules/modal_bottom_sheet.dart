@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+class ModalBottomSheet extends StatelessWidget {
+  final Widget onTap;
+  final Widget child;
+
+  const ModalBottomSheet({super.key, required this.onTap, required this.child});
+
+  @override
+    @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        showModalBottomSheet<dynamic>(
+          isScrollControlled: true,
+          context: context,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only( topRight: Radius.circular(20), topLeft: Radius.  circular(30)),
+          ),
+          builder: (BuildContext context) {
+            return Wrap(
+              children: [
+                onTap,
+              ],
+            );
+          },
+        );
+      },
+      child: child,
+    );
+  }
+}
