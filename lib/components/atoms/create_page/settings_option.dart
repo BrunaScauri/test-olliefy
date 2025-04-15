@@ -37,16 +37,17 @@ class _SettingsOptionState extends State<SettingsOption> {
             ),
           ),
           SizedBox(width: 14),
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(widget.title, style: TextsStyles.profileDescription()),
-              Text(widget.description, style: TextsStyles.profileData())
-            ],
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(widget.title, style: TextsStyles.profileDescription()),
+                Text(widget.description, style: TextsStyles.profileData()),
+              ],
+            ),
           )
         ],
       ),
     );
-    
   }
 }
