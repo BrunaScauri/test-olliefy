@@ -15,9 +15,9 @@ class PreRecordingSidebarActions extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          ModalBottomSheet(onTap: Container(), child: SidebarActionIcon(text: 'Camera', imagePath: 'assets/create_page/icons/switch_camera_icon.png')),
-          ModalBottomSheet(onTap: Container(), child: SidebarActionIcon(text: 'Flash', imagePath: 'assets/create_page/icons/flash_icon.png')),
-          ModalBottomSheet(onTap: Container(), child: SidebarActionIcon(text: 'Timer', imagePath: 'assets/create_page/icons/timer_icon.png')),
+          ModalBottomSheet(onTap: () => Container(), child: SidebarActionIcon(text: 'Camera', imagePath: 'assets/create_page/icons/switch_camera_icon.png')),
+          ModalBottomSheet(onTap: () => Container(), child: SidebarActionIcon(text: 'Flash', imagePath: 'assets/create_page/icons/flash_icon.png')),
+          ModalBottomSheet(onTap: () => Container(), child: SidebarActionIcon(text: 'Timer', imagePath: 'assets/create_page/icons/timer_icon.png')),
         ]
       )
     );

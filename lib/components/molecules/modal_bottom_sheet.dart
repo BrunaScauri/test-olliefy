@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ModalBottomSheet extends StatelessWidget {
-  final Widget onTap;
+  final Widget Function() onTap;
   final Widget child;
 
   const ModalBottomSheet({super.key, required this.onTap, required this.child});
@@ -19,7 +19,7 @@ class ModalBottomSheet extends StatelessWidget {
           builder: (BuildContext context) {
             return Wrap(
               children: [
-                onTap,
+                onTap(),
               ],
             );
           },
