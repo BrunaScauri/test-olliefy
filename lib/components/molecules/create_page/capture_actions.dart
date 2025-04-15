@@ -8,21 +8,15 @@ class CaptureActions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Positioned(
-      right: 0,
-      left: 0,
-      top: MediaQuery.of(context).size.height - 170,
-      bottom: 0,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          UploadIcon(),
-          SizedBox(width: 30),
-          RecordIcon(),
-          SizedBox(width: 30),
-          Container()
-        ]
-      )
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        UploadIcon(),
+        SizedBox(width: 30),
+        RecordIcon(),
+        SizedBox(width: 30),
+        Container()
+      ]
     );
   }
 }
