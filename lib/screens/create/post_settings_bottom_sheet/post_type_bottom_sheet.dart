@@ -37,7 +37,7 @@ class _PostTypeBottomSheetState extends State<PostTypeBottomSheet> {
               },
             ),
             SizedBox(height: 48),
-            MainConfirmButton(title: 'Save', onTap: () => {}),
+            MainConfirmButton(title: 'Save', onTap: () => {Navigator.pop(context)}),
           ],
         ),
       ),
