@@ -7,6 +7,7 @@ class FilterButton extends StatefulWidget {
   final String text;
   final String? iconPath;
   final bool isSelected;
+  final bool? multipleSelected;
   final VoidCallback onPressed;
   final Color selectedColor;
 
@@ -15,6 +16,7 @@ class FilterButton extends StatefulWidget {
     required this.text,
     this.iconPath,
     required this.isSelected,
+    this.multipleSelected,
     required this.onPressed,
     this.selectedColor = AppColors.primaryGold60,
   }) : super(key: key);
@@ -24,10 +26,9 @@ class FilterButton extends StatefulWidget {
 }
 
 class _FilterButtonState extends State<FilterButton> {
-  bool isSelected = false;
-
   @override
   Widget build(BuildContext context) {
+    final bool selected = widget.multipleSelected ?? widget.isSelected;
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 5),
       child: ElevatedButton.icon(
@@ -40,7 +41,7 @@ class _FilterButtonState extends State<FilterButton> {
           style: UserStoreStyles.itemDescription(),
         ),
         style: ElevatedButton.styleFrom(
-          backgroundColor: widget.isSelected ? AppColors.primaryGold60 : AppColors.primaryClay5,
+          backgroundColor: selected ? widget.selectedColor : AppColors.primaryClay5,
           padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(32),
