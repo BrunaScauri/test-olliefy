@@ -17,6 +17,7 @@ class _PostVisibilityBottomSheetState extends State<PostVisibilityBottomSheet> {
         child: Column(
           children: [
             BottomSheetHeader(title: 'VISIBILITY'),
+            SizedBox(height: 38),
             SettingsOption(
               icon: 'assets/create_page/icons/post_settings_icons/post_visibility_public_icon.png',
               title: 'Public',

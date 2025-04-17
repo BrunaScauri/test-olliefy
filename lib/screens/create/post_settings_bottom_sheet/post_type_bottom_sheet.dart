@@ -18,6 +18,7 @@ class _PostTypeBottomSheetState extends State<PostTypeBottomSheet> {
         child: Column(
           children: [
             BottomSheetHeader(title: 'TYPE'),
+            SizedBox(height: 38),
             SettingsOption(
               icon: 'assets/create_page/icons/post_settings_icons/post_type_events_icon.png',
               title: 'Posts',
