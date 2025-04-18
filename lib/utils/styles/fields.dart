@@ -8,6 +8,7 @@ class FormDecorations {
     IconData? suffixIcon,
     Widget? prefixIconWidget,
     Widget? suffixIconWidget,
+    EdgeInsetsGeometry? contentPadding,
     Color? textColor = AppColors.primaryGray10,
     Color? iconColor = AppColors.primaryBlack,
   }) {
@@ -25,6 +26,7 @@ class FormDecorations {
         ),
       ),
       labelText: labelText,
+      contentPadding: contentPadding ?? EdgeInsets.all(16),
       labelStyle: TextStyle(
         color: textColor,
         fontSize: 16,
