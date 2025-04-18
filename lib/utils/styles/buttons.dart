@@ -3,10 +3,10 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ButtonStyles {
-  static ButtonStyle elevatedButton({required Color backgroundColor}){
+  static ButtonStyle elevatedButton({required Color backgroundColor, Size? minimumSize = const Size(350, 60)}) {
     return ElevatedButton.styleFrom(
       backgroundColor: backgroundColor,
-      minimumSize: Size(350, 60),
+      minimumSize: minimumSize,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8),
       ),
