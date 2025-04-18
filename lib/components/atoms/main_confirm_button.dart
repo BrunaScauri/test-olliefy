@@ -7,11 +7,13 @@ class MainConfirmButton extends StatefulWidget {
   _MainConfirmButtonState createState() => _MainConfirmButtonState();
   final String title;
   final GestureTapCallback onTap;
+  final Size minimumSize;
 
   const MainConfirmButton({
     Key? key,
     required this.title,
     required this.onTap,
+    this.minimumSize = const Size(350, 60),
   }) : super(key: key);
 }
 
@@ -22,7 +24,7 @@ class _MainConfirmButtonState extends State<MainConfirmButton> {
       onPressed: widget.onTap,
       child: Text(widget.title, style: TextStyles.elevatedButtonText(color: AppColors.primaryBlack),
       ),
-      style: ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryGold60),
+      style: ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryGold60, minimumSize: widget.minimumSize),
     );
   }
 }
