@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_olliefy/screens/app_tab.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 
@@ -32,6 +33,16 @@ class _CreateState extends State<Create> with TickerProviderStateMixin {
       backgroundColor: AppColors.primaryGold60FollowButton,
       appBar: AppBar(
         leadingWidth: 40.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => AppTab(initialIndex: 2),
+              ),
+            );
+          },
+        ),
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
           color: AppColors.primaryWhite

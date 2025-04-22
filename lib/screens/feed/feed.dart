@@ -5,6 +5,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/components/molecules/feed_page/sidebar_actions.dart';
 import 'package:test_olliefy/components/molecules/feed_page/post_metadata.dart';
 import 'package:test_olliefy/components/molecules/feed_page/video_player.dart';
+import 'package:test_olliefy/screens/app_tab.dart';
 
 class Feed extends StatefulWidget {
   const Feed({Key? key}) : super(key: key);
@@ -32,6 +33,16 @@ class _FeedState extends State<Feed> with TickerProviderStateMixin {
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         leadingWidth: 40.0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => AppTab(initialIndex: 0),
+              ),
+            );
+          },
+        ),
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
           color: AppColors.primaryWhite
