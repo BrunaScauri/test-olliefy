@@ -17,6 +17,7 @@ class AppColors {
   static const Color boxShadow = Color.fromRGBO(161, 159, 148, 0.4);
 
   static const Color primaryBlack = Color.fromRGBO(0, 0, 0, 1);
+  static const Color snackbarColor = Color.fromRGBO(16, 16, 15, 1);
   static const Color feedSpotLocation = Color.fromRGBO(0, 0, 0, 0.3);
   static const Color chatMessageGrey = Color.fromRGBO(247, 247, 247, 1);
   static const Color primaryGray80 = Color.fromRGBO(30, 28, 23, 1);
