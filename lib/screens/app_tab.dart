@@ -11,12 +11,15 @@ import 'package:test_olliefy/screens/feed/feed.dart';
 import 'package:test_olliefy/screens/create/create.dart';
 
 class AppTab extends StatefulWidget {
+  final int initialIndex;
+  const AppTab({Key? key, this.initialIndex = 0}) : super(key: key);
+
   @override
   _AppTabState createState() => _AppTabState();
 }
 
 class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
-  late TabController _tabController;
+  late final TabController _tabController;
   final activeIcon = ColorFilter.mode(AppColors.tabIconSelected, BlendMode.srcIn);
   final feedIconSelected = ColorFilter.mode(AppColors.primaryWhite, BlendMode.srcIn);
   final inactiveIcon = ColorFilter.mode(AppColors.primaryGray10, BlendMode.srcIn);
@@ -38,7 +41,11 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 5, vsync: this);
+    _tabController = TabController(
+      length: 5,
+      vsync: this,
+      initialIndex: widget.initialIndex,
+    );
     _tabController.addListener(() {
       setState(() {});
     });
@@ -54,9 +61,7 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Container(
       color: AppColors.primaryWhite,
-      child: DefaultTabController(
-        length: 5,
-        child: Scaffold(
+      child: Scaffold(
           body: AnimatedSwitcher(
             duration: Duration(milliseconds: 300),
             transitionBuilder: (Widget child, Animation<double> animation) {
@@ -89,7 +94,6 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
             ),
           )
         ),
-      )
     );
   }
 
