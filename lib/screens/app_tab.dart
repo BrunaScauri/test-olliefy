@@ -59,41 +59,44 @@ class _AppTabState extends State<AppTab> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    final hideTabs = _tabController.index == 2;
+
     return Container(
       color: AppColors.primaryWhite,
       child: Scaffold(
-          body: AnimatedSwitcher(
-            duration: Duration(milliseconds: 300),
-            transitionBuilder: (Widget child, Animation<double> animation) {
-              return FadeTransition(
-                opacity: animation,
-                child: child,
-              );
-            },
-            child: _buildAnimatedTabContentForIndex(_tabController.index),
-          ),
-          bottomNavigationBar: Container(
-            color: _tabController.index == 1 ? AppColors.primaryBlack : AppColors.primaryClay5,
-            child: TabBar(
-              controller: _tabController,
-              indicator: BoxDecoration(),
-              unselectedLabelColor: _tabController.index == 1 ? AppColors.primaryWhite : AppColors.primaryGray10,
-              labelStyle: _tabController.index == 1 ? AppBarStyles.appBarLabelSelected(color: AppColors.primaryGold60) : AppBarStyles.appBarLabelSelected(),
-              unselectedLabelStyle: AppBarStyles.appBarLabel(),
-              tabs: [
-                Tab(text: 'Map', icon: _tabController.index == 0 ? selectedMapIcon : SvgPicture.asset('assets/main_app/icons/map_icon.svg', colorFilter: colorPicker(0))),
-
-                Tab(text: 'Feed', icon: _tabController.index == 1 ? selectedFeedIcon : SvgPicture.asset('assets/main_app/icons/feed_icon.svg', colorFilter: inactiveIcon)),
-
-                Tab(text: 'Create', icon: SvgPicture.asset('assets/main_app/icons/create_icon.svg', colorFilter: colorPicker(2))),
-
-                Tab(text: 'Marketplace', icon: _tabController.index == 3 ? selectedMarketplaceIcon : SvgPicture.asset('assets/main_app/icons/marketplace_icon.svg', colorFilter: colorPicker(3))),
-
-                Tab(text: 'Profile', icon: _tabController.index == 4 ? selectedProfileIcon : SvgPicture.asset('assets/main_app/icons/profile_icon.svg', colorFilter: colorPicker(4))),
-              ],
-            ),
-          )
+        body: AnimatedSwitcher(
+          duration: Duration(milliseconds: 300),
+          transitionBuilder: (Widget child, Animation<double> animation) {
+            return FadeTransition(
+              opacity: animation,
+              child: child,
+            );
+          },
+          child: _buildAnimatedTabContentForIndex(_tabController.index),
         ),
+        bottomNavigationBar: hideTabs ? null
+        : Container(
+          color: _tabController.index == 1 ? AppColors.primaryBlack : AppColors.primaryClay5,
+          child: TabBar(
+            controller: _tabController,
+            indicator: BoxDecoration(),
+            unselectedLabelColor: _tabController.index == 1 ? AppColors.primaryWhite : AppColors.primaryGray10,
+            labelStyle: _tabController.index == 1 ? AppBarStyles.appBarLabelSelected(color: AppColors.primaryGold60) : AppBarStyles.appBarLabelSelected(),
+            unselectedLabelStyle: AppBarStyles.appBarLabel(),
+            tabs: [
+              Tab(text: 'Map', icon: _tabController.index == 0 ? selectedMapIcon : SvgPicture.asset('assets/main_app/icons/map_icon.svg', colorFilter: colorPicker(0))),
+
+              Tab(text: 'Feed', icon: _tabController.index == 1 ? selectedFeedIcon : SvgPicture.asset('assets/main_app/icons/feed_icon.svg', colorFilter: inactiveIcon)),
+
+              Tab(text: 'Create', icon: SvgPicture.asset('assets/main_app/icons/create_icon.svg', colorFilter: colorPicker(2))),
+
+              Tab(text: 'Marketplace', icon: _tabController.index == 3 ? selectedMarketplaceIcon : SvgPicture.asset('assets/main_app/icons/marketplace_icon.svg', colorFilter: colorPicker(3))),
+
+              Tab(text: 'Profile', icon: _tabController.index == 4 ? selectedProfileIcon : SvgPicture.asset('assets/main_app/icons/profile_icon.svg', colorFilter: colorPicker(4))),
+            ],
+          ),
+        )
+      ),
     );
   }
 
