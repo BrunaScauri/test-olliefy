@@ -14,7 +14,7 @@ class ModalBottomSheet extends StatelessWidget {
           isScrollControlled: true,
           context: context,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.only( topRight: Radius.circular(20), topLeft: Radius.  circular(30)),
+            borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
           ),
           builder: (BuildContext context) {
             return Wrap(
