@@ -30,7 +30,7 @@ class _CreateState extends State<Create> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: AppColors.primaryGold60FollowButton,
+      backgroundColor: AppColors.primaryBlack,
       appBar: AppBar(
         leadingWidth: 40.0,
         leading: IconButton(
