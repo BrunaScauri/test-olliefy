@@ -38,7 +38,7 @@ class _CreateState extends State<Create> with TickerProviderStateMixin {
           onPressed: () {
             Navigator.of(context).push(
               MaterialPageRoute<void>(
-                builder: (BuildContext context) => AppTab(initialIndex: 2),
+                builder: (BuildContext context) => AppTab(initialIndex: 1),
               ),
             );
           },
