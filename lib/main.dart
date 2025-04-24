@@ -53,7 +53,7 @@ class MyApp extends StatelessWidget {
         ),
         radioTheme: RadioThemeData(
           fillColor: WidgetStateProperty.all(AppColors.primaryGold70SwitchSettings),
-          overlayColor: WidgetStateProperty.all(Colors.blue.withOpacity(0.1)),
+          overlayColor: WidgetStateProperty.all(Colors.transparent),
         ),
       ),
       home: const Splashscreen(),
