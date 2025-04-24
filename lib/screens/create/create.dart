@@ -4,8 +4,8 @@ import 'package:test_olliefy/screens/app_tab.dart';
 import 'package:test_olliefy/utils/colors.dart';
 
 import 'package:test_olliefy/components/molecules/feed_page/video_player.dart';
-import 'package:test_olliefy/components/molecules/create_page/capture_actions.dart';
 import 'package:test_olliefy/components/molecules/create_page/pre_recording_sidebar_actions.dart';
+import 'package:test_olliefy/components/molecules/create_page/capture_actions.dart';
 import 'package:test_olliefy/components/molecules/create_page/post_recording_sidebar_actions.dart';
 
 class Create extends StatefulWidget {
