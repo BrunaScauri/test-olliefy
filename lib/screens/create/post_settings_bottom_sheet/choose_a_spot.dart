@@ -100,6 +100,7 @@ class _ChooseASpotScreenState extends State<ChooseASpotScreen> {
                                   Radio<String>(
                                     value: 'regular',
                                     groupValue: _selectedOption,
+                                    onChanged: (v) => setState(() => _selectedOption = v),
                                   ),
                                   SizedBox(width: 20),
                                   Text('Regular', style: ChallengesStyles.joinTheChallengeText()),
