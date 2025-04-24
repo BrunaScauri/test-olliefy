@@ -7,6 +7,7 @@ import 'package:test_olliefy/components/molecules/feed_page/video_player.dart';
 import 'package:test_olliefy/components/molecules/create_page/pre_recording_sidebar_actions.dart';
 import 'package:test_olliefy/components/molecules/create_page/capture_actions.dart';
 import 'package:test_olliefy/components/molecules/create_page/post_recording_sidebar_actions.dart';
+import 'package:test_olliefy/components/molecules/create_page/post_actions.dart';
 
 class Create extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class Create extends StatefulWidget {
 
 class _CreateState extends State<Create> with TickerProviderStateMixin {
   late PageController _pageViewController;
+  bool _isRecording = false;
 
   void initState() {
     super.initState();
@@ -60,8 +62,35 @@ class _CreateState extends State<Create> with TickerProviderStateMixin {
                     videoUrl: 'asset:///assets/feed_page/example_videos/1.mp4'
                   ),
                 ),
-                // PreRecordingSidebarActions(),
-                PostRecordingSidebarActions(),
+                
+                Center(
+                  child: ElevatedButton(
+                    child: Text('Toggle between modes'),
+                    onPressed:() => setState(() {
+                      _isRecording = !_isRecording;
+                    }),
+                  ),
+                ),
+                ...(_isRecording ? [
+                  PostRecordingSidebarActions(),
+                  Positioned(
+                    right: 0,
+                    left: 0,
+                    top: MediaQuery.of(context).size.height - 200,
+                    bottom: 0,
+                    child: PostActions(),
+                  ),
+                ]
+                : [
+                  PreRecordingSidebarActions(),
+                  Positioned(
+                    right: 0,
+                    left: 0,
+                    top: MediaQuery.of(context).size.height - 130,
+                    bottom: 0,
+                    child: CaptureActions(),
+                  ),
+                ]),
               ]
             ),
           ),
