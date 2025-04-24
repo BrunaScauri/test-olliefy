@@ -15,7 +15,7 @@ class CaptureActions extends StatelessWidget {
         SizedBox(width: 30),
         RecordIcon(),
         SizedBox(width: 30),
-        Container()
+        Container(width: 40)
       ]
     );
   }
