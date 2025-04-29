@@ -6,8 +6,8 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
 import 'package:test_olliefy/modal/login_modal.dart';
+import 'package:test_olliefy/screens/register_modal.dart';
 import 'package:test_olliefy/utils/route/ease_incoming_in.dart';
-import 'package:test_olliefy/screens/app_tab.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
@@ -75,8 +75,7 @@ class MainScreen extends StatelessWidget {
                   onPressed: () {
                     Navigator.of(context).push(
                       easeIncomingIn(
-                        // RegisterModal(),
-                        AppTab(),
+                        RegisterModal(),
                       )
                     );
                   },
