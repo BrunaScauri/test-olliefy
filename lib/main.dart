@@ -1,8 +1,5 @@
-import 'dart:io';
-
-import 'package:firebase_core/firebase_core.dart';
-import 'package:test_olliefy/firebase_options.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:provider/provider.dart';
 import 'package:media_kit/media_kit.dart';
 
