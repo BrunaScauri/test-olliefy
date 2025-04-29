@@ -35,6 +35,7 @@ class _CreateState extends State<Create> with TickerProviderStateMixin {
       backgroundColor: AppColors.primaryBlack,
       appBar: AppBar(
         leadingWidth: 40.0,
+        forceMaterialTransparency: true,
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {

@@ -10,8 +10,8 @@ class PreRecordingSidebarActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 0,
-      top: 40, //temporary fix
-      right: 16,
+      top: 0,
+      right: 26,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [

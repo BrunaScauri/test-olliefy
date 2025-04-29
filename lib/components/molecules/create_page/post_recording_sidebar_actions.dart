@@ -15,7 +15,7 @@ class PostRecordingSidebarActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       bottom: 0,
-      top: 40, //temporary fix
+      top: 0,
       right: 16,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
