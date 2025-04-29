@@ -13,10 +13,8 @@ import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
 
 Future<void> main() async {
-   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   WidgetsFlutterBinding.ensureInitialized();
+   Firebase.initializeApp();
   MediaKit.ensureInitialized();
   runApp(
     MultiProvider(
