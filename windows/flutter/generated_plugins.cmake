@@ -3,6 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  cloud_firestore
+  firebase_auth
   firebase_core
   media_kit_libs_windows_video_fork
   media_kit_video

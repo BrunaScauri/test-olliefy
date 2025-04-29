@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 import 'package:media_kit/media_kit.dart';
 
@@ -9,9 +10,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
 
+  const host = 'localhost';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-   Firebase.initializeApp();
+  Firebase.initializeApp();
   MediaKit.ensureInitialized();
   runApp(
     MultiProvider(
@@ -21,6 +24,11 @@ Future<void> main() async {
       child: MyApp(),
     ),
   );
+  _connectToEmulator();
+}
+
+Future<void> _connectToEmulator() async {
+  FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
 }
 
 class MyApp extends StatelessWidget {
