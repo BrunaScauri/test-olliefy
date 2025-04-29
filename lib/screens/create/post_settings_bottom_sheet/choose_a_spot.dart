@@ -6,6 +6,7 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
 import 'package:test_olliefy/components/atoms/main_confirm_button.dart';
 import 'package:test_olliefy/components/molecules/bottom_sheet_header.dart';
+import 'package:test_olliefy/screens/map/map_screen.dart';
 
 class ChooseASpotScreen extends StatefulWidget {
   const ChooseASpotScreen({super.key});
@@ -191,6 +192,7 @@ class _ChooseASpotScreenState extends State<ChooseASpotScreen> {
               ),
             ],
           ),
+          MapScreen(),
         ]
       ),
     );
