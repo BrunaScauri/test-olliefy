@@ -13,9 +13,11 @@ import 'package:test_olliefy/modal/user_modal.dart';
   const host = 'localhost';
 
 Future<void> main() async {
+  //todo: fix async/await issue
   WidgetsFlutterBinding.ensureInitialized();
-  Firebase.initializeApp();
   MediaKit.ensureInitialized();
+  Firebase.initializeApp();
+  _connectToEmulator();
   runApp(
     MultiProvider(
       providers: [
@@ -24,7 +26,6 @@ Future<void> main() async {
       child: MyApp(),
     ),
   );
-  _connectToEmulator();
 }
 
 Future<void> _connectToEmulator() async {
