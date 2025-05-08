@@ -43,12 +43,12 @@ Future<void> main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => UserModal()),
       ],
-      child: MyApp(),
+      child: OlliefyApp(),
     ),
   );
 }
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class OlliefyApp extends StatelessWidget {
+  const OlliefyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
