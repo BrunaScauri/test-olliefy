@@ -13,17 +13,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
-
-//determine if the app is running on an emulator or a real device
-Future<String> _determineHost() async {
-  if (Platform.isAndroid) {
-    final info = await DeviceInfoPlugin().androidInfo;
-    final isEmulator = info.fingerprint.startsWith('generic') == true
-        || info.model.toLowerCase().contains('emulator') == true;
-    return isEmulator ? '10.0.2.2' : '192.168.15.9';
-  }
-  return 'localhost';
-}
+import 'package:test_olliefy/utils/emulator_host.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +24,7 @@ Future<void> main() async {
   );
 
   //setup for firebase emulator
-  final String host = await _determineHost();
+  final host = await determineEmulatorHost();
   FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
   FirebaseAuth.instance.useAuthEmulator(host, 9099);
 
