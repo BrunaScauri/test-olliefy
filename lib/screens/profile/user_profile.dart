@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -288,6 +289,46 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                       ]
                     )
                   )
+                ),
+                // todo: logout button
+                Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
+                  child: Container(
+                    constraints: BoxConstraints(maxWidth: 370),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 112,
+                          height: 40,
+                          child: ElevatedButton(
+                            onPressed: () async {
+                              try {
+                                await FirebaseAuth.instance.signOut();
+                              } catch (e) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text('Error logging out: $e')),
+                                );
+                              }
+                            },
+                            child: RichText(
+                              text: TextSpan(
+                                style: TextsStyles.profileHyperlink(),
+                                children: [
+                                  TextSpan(text: 'Logout'),
+                                ],
+                              ),
+                            ),
+                            style: ElevatedButton.styleFrom(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              padding: EdgeInsets.symmetric(vertical: 10.0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
                 // posts, my store and stats container
                 Padding(
