@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'dart:io';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:media_kit/media_kit.dart';
+import 'package:device_info_plus/device_info_plus.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -10,14 +14,30 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
 
-  const host = 'localhost';
+//determine if the app is running on an emulator or a real device
+Future<String> _determineHost() async {
+  if (Platform.isAndroid) {
+    final info = await DeviceInfoPlugin().androidInfo;
+    final isEmulator = info.fingerprint.startsWith('generic') == true
+        || info.model.toLowerCase().contains('emulator') == true;
+    return isEmulator ? '10.0.2.2' : '192.168.15.9';
+  }
+  return 'localhost';
+}
 
 Future<void> main() async {
-  //todo: fix async/await issue
+  WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
   MediaKit.ensureInitialized();
-  Firebase.initializeApp();
-  _connectToEmulator();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
+  //setup for firebase emulator
+  final String host = await _determineHost();
+  FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
+  FirebaseAuth.instance.useAuthEmulator(host, 9099);
+
   runApp(
     MultiProvider(
       providers: [
@@ -27,11 +47,6 @@ Future<void> main() async {
     ),
   );
 }
-
-Future<void> _connectToEmulator() async {
-  FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
-}
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
