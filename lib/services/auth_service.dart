@@ -4,20 +4,20 @@ import 'package:firebase_auth/firebase_auth.dart';
 ValueNotifier<AuthService> authService = ValueNotifier(AuthService());
 
 class AuthService {
-  final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
-  User? get currentUser => firebaseAuth.currentUser;
+  User? get currentUser => _auth.currentUser;
   // String? get userId => firebaseAuth.currentUser?.uid;
   // String? get userEmail => firebaseAuth.currentUser?.email;
   // String? get userName => firebaseAuth.currentUser?.displayName;
   // String? get userPhotoUrl => firebaseAuth.currentUser?.photoURL;
-  Stream<User?> get authStateChanges => firebaseAuth.authStateChanges();
+  Stream<User?> get authStateChanges => _auth.authStateChanges();
 
   Future<UserCredential> signIn({
     required String email,
     required String password,
   }) async {
-    return await firebaseAuth.signInWithEmailAndPassword(
+    return await _auth.signInWithEmailAndPassword(
       email: email,
       password: password,
     );
@@ -27,17 +27,17 @@ class AuthService {
     required String email,
     required String password,
   }) async {
-    return await firebaseAuth.createUserWithEmailAndPassword(
+    return await _auth.createUserWithEmailAndPassword(
       email: email,
       password: password,
     );
   }
 
   Future<void> signOut() async {
-    await firebaseAuth.signOut();
+    await _auth.signOut();
   }
 
   Future<void> sendPasswordResetEmail({required String email}) async {
-    await firebaseAuth.sendPasswordResetEmail(email: email);
+    await _auth.sendPasswordResetEmail(email: email);
   }
 }
