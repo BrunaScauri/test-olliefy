@@ -6,12 +6,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:media_kit/media_kit.dart';
-import 'package:device_info_plus/device_info_plus.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'package:test_olliefy/screens/splashscreen.dart';
+import 'package:test_olliefy/services/auth_gate.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/utils/emulator_host.dart';
 
@@ -65,7 +64,7 @@ class OlliefyApp extends StatelessWidget {
           overlayColor: WidgetStateProperty.all(Colors.transparent),
         ),
       ),
-      home: const Splashscreen(),
+      home: AuthGate(),
     );
   }
 }
