@@ -47,6 +47,7 @@ class MainScreen extends StatelessWidget {
                   )
                 ),
                 ElevatedButton(
+                  key: const Key('login_button'),
                   onPressed: () {
                     showModalBottomSheet<dynamic>(
                       isScrollControlled: true,
@@ -72,6 +73,7 @@ class MainScreen extends StatelessWidget {
                 ),
                 SizedBox(height: 16),
                 OutlinedButton(
+                  key: const Key('register_button'),
                   onPressed: () {
                     Navigator.of(context).push(
                       easeIncomingIn(
