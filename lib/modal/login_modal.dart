@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:test_olliefy/services/auth_service.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_olliefy/utils/colors.dart';
@@ -7,7 +10,6 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/utils/styles/socials_button.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
-
 import 'package:test_olliefy/screens/app_tab.dart';
 
 class LoginModal extends StatefulWidget {
@@ -124,6 +126,12 @@ class _LoginModalState extends State<LoginModal> {
                   buttonText: 'Continue with Google',
                   textColor: AppColors.primaryBlack,
                   onPressed: () {
+                    try{
+                      authService.value.signInWithGoogle();
+                      Navigator.pop(context);
+                    } catch(e) {
+                      print(e.toString());
+                    }
                   },
                 ),
                 const SizedBox(height: 16),

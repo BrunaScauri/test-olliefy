@@ -7,6 +7,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 import 'package:test_olliefy/components/molecules/profile_picture_molecule.dart';
 import 'package:test_olliefy/utils/route/page_slide_animation.dart';
+import 'package:test_olliefy/services/auth_service.dart';
 
 import 'package:test_olliefy/screens/profile/edit_user_profile.dart';
 import 'package:test_olliefy/screens/profile/user_settings.dart';
@@ -304,6 +305,7 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                             onPressed: () async {
                               try {
                                 await FirebaseAuth.instance.signOut();
+                                await authService.value.googleSignIn.disconnect();
                               } catch (e) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text('Error logging out: $e')),
