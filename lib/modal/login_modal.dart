@@ -8,6 +8,8 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
+
+import 'package:test_olliefy/components/molecules/bottom_sheet_header.dart';
 import 'package:test_olliefy/utils/styles/socials_button.dart';
 import 'package:test_olliefy/components/atoms/drag_bar.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
@@ -50,25 +52,8 @@ class _LoginModalState extends State<LoginModal> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          DragBar(),
-          SizedBox(height: 24),
-          //'log in' title 
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'LOG IN',
-                style: TextsStyles.spacedGray(),
-              ),
-              IconButton(
-                icon: Icon(Icons.close),
-                iconSize: 24,
-                color: AppColors.primaryGray30,
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-              ),
-            ]
+          BottomSheetHeader(
+            title: 'LOG IN',
           ),
           //textfield for login and button
           Padding(
