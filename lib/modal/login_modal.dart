@@ -30,6 +30,14 @@ class _LoginModalState extends State<LoginModal> {
       _isButtonEnabled = _controller.text.isNotEmpty;
     });
   }
+  signinUserByGoogle() async {
+    try{
+      authService.value.signInWithGoogle();
+      Navigator.pop(context);
+    } catch(e) {
+      print(e.toString());
+    }
+  }
 
   @override
   void dispose() {
@@ -107,12 +115,7 @@ class _LoginModalState extends State<LoginModal> {
                   buttonText: 'Continue with Google',
                   textColor: AppColors.primaryBlack,
                   onPressed: () {
-                    try{
-                      authService.value.signInWithGoogle();
-                      Navigator.pop(context);
-                    } catch(e) {
-                      print(e.toString());
-                    }
+                    signinUserByGoogle();
                   },
                 ),
                 const SizedBox(height: 16),
@@ -122,6 +125,7 @@ class _LoginModalState extends State<LoginModal> {
                   buttonText: 'Continue with Apple',
                   textColor: AppColors.primaryWhite,
                   onPressed: () {
+                    //todo: wait for apple developer program account
                   },
                 ),
 
