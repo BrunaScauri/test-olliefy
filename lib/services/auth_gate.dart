@@ -60,18 +60,21 @@ class _AuthGateState extends State<AuthGate> {
       },
     );
   }
+
   Future<void> _initializeFirebase() async {
     splashProgress.value = 0.0;
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-     splashProgress.value = 0.5;
+    splashProgress.value = 0.5;
+
     final host = await determineEmulatorHost();
     FirebaseAuth.instance.useAuthEmulator(host, 9099);
     FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
     Future.delayed(const Duration(milliseconds: 1500), () {});
     splashProgress.value = 0.8;
-    await FirebaseAuth.instance.authStateChanges().first;
+    
+    await Future.delayed(const Duration(milliseconds: 1500));  
     splashProgress.value = 1.0;
   }
 }
