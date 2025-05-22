@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:test_olliefy/services/auth_service.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
@@ -65,23 +65,20 @@ class _LoginModalState extends State<LoginModal> {
             child: Column(
               children: [
                 TextFormField(
-                    controller: _controller,
-                    onChanged: (value) {
-                    final emailRegExp = RegExp(
-                      r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$',
-                    );
+                  controller: _controller,
+                  onChanged: (value) {
                     setState(() {
-                        _isButtonEnabled = emailRegExp.hasMatch(value);
-                      });
-                    },
-                    decoration: FormDecorations.textFieldDecoration(labelText: 'Phone, email or username'),
-                  ),
+                      inputText = value;
+                    });
+                  },
+                  decoration: FormDecorations.textFieldDecoration(labelText: 'Phone, email or username'),
+                ),
                 SizedBox(height: 16),
                 ElevatedButton(
-                  onPressed: _isButtonEnabled ? () {
-                    Navigator.of(context).pushReplacement(
-                      MaterialPageRoute(builder: (context) => AppTab()),
-                    );
+                  onPressed:
+                  _isButtonEnabled ? () {
+                    print(inputText);
+                    checkIfUserExists(inputText);
                   } : null,
                   style: _isButtonEnabled ? ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack) : ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12),
                   child: Row(
