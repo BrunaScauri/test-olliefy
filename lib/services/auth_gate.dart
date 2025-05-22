@@ -11,11 +11,26 @@ import 'package:test_olliefy/screens/main_screen.dart';
 
 final ValueNotifier<double> splashProgress = ValueNotifier(0);
 
-class AuthGate extends StatelessWidget {
+class AuthGate extends StatefulWidget {
+  const AuthGate({Key? key}) : super(key: key);
+
+  @override
+  _AuthGateState createState() => _AuthGateState();
+}
+
+class _AuthGateState extends State<AuthGate> {
+  late final Future<void> _initFuture;
+
+  @override
+  void initState() {
+    super.initState();
+    _initFuture = _initializeFirebase();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _initializeFirebase(),
+    return FutureBuilder<void>(
+      future: _initFuture,
       builder: (context, initSnapshot) {
         if (initSnapshot.connectionState != ConnectionState.done) {
           return const Splashscreen();
@@ -23,9 +38,10 @@ class AuthGate extends StatelessWidget {
         return StreamBuilder<User?>(
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, authSnapshot) {
-            final Widget next = authSnapshot.hasData
-                ? AppTab(initialIndex: 1)
-                : MainScreen();
+            final loggedIn = authSnapshot.hasData;
+            final Widget next = loggedIn
+                ? AppTab(key: const ValueKey('app_tab'), initialIndex: 1)
+                : MainScreen(key: const ValueKey('main_screen'));
                 //todo: fix animation not working
             return AnimatedSwitcher(
               duration: const Duration(milliseconds: 1000),
