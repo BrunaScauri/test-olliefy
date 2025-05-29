@@ -53,7 +53,33 @@ class AuthService {
     await _auth.signOut();
   }
 
-  Future<void> sendPasswordResetEmail({required String email}) async {
-    await _auth.sendPasswordResetEmail(email: email);
+  signInUserByPhone({required String phone}) async {
+    _auth.verifyPhoneNumber(
+      phoneNumber: phone,
+      timeout: const Duration(seconds: 120),
+      verificationCompleted: (cred) async {
+        await FirebaseAuth.instance.signInWithCredential(cred);
+      },
+      verificationFailed: (FirebaseAuthException e) {
+      },
+      codeSent: (String verificationId, int? resendToken) async {
+         _myVerificationId = verificationId;
+      },
+      codeAutoRetrievalTimeout: (String verificationId) {
+        _myVerificationId = verificationId;
+      },  
+    );
+  }
+
+  Future<UserCredential> signInWithSmsCode({
+    verificationId,
+    smsCode
+  }) {
+    final credential = PhoneAuthProvider.credential(
+      verificationId: _myVerificationId,
+      smsCode: smsCode,
+    );
+    return _auth.signInWithCredential(credential);
+  }
   }
 }

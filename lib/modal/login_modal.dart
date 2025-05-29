@@ -7,8 +7,12 @@ import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
 
+import 'package:test_olliefy/services/user_service.dart';
+import 'package:test_olliefy/services/auth_service.dart';
 import 'package:test_olliefy/components/molecules/bottom_sheet_header.dart';
 import 'package:test_olliefy/utils/styles/socials_button.dart';
+import 'package:test_olliefy/modal/authenticate_passwordless_user.dart';
+import 'package:test_olliefy/components/atoms/create_page/success_snackbar.dart';
 
 class LoginModal extends StatefulWidget {
   @override
@@ -17,7 +21,18 @@ class LoginModal extends StatefulWidget {
 
 class _LoginModalState extends State<LoginModal> {
   final TextEditingController _controller = TextEditingController();
+  final _userService = UserService();
+  
   bool _isButtonEnabled = false;
+  String inputText = '';
+  isEmail(value) => RegExp(r'^[\w.+-]+@[\w-]+\.[\w.-]+$').hasMatch(value);
+  isPhoneNumber(value) => RegExp(r'^\+?[0-9]+$').hasMatch(value);
+  String normalizePhone(String input) {
+    input = input.trim();
+    return input.startsWith('+') ? input : '+$input';
+  }
+  bool _phoneFound = false;
+  bool _emailFound = false;
 
   @override
   void initState() {
@@ -30,6 +45,43 @@ class _LoginModalState extends State<LoginModal> {
       _isButtonEnabled = _controller.text.isNotEmpty;
     });
   }
+  checkIfUserExists(String inputValue) async  {
+    if(isPhoneNumber(inputValue)) {
+      final input = normalizePhone(inputValue);
+      final checkPhone = await _userService.doesPhoneExist(input);
+      if(checkPhone) {
+        _phoneFound = true;
+        signInUserByPhone(input);
+      }
+    } else if(isEmail(inputValue)) {
+      final checkEmail = await _userService.doesEmailExist(inputValue);
+      if(checkEmail) {
+        _emailFound = true;
+        signInUserByEmail(inputValue);
+      }
+    } else if(!_phoneFound && !_emailFound){
+      final checkUsername = await _userService.doesUsernameExist(inputValue);
+      if(checkUsername) {
+        signInUserByUsername(inputValue);
+      } else {
+        print('credential error');
+      }
+    } else{
+    }
+    return;
+  }
+
+  signInUserByPhone(inputValue) async {
+    try {
+      authService.value.signInUserByPhone(phone: inputValue);
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => AuthenticatePasswordlessUser(phoneNumber: inputValue)),
+      );
+    } on FirebaseAuthException catch (e) {
+      print(e.toString());
+    };
+  }
+
   signinUserByGoogle() async {
     try{
       authService.value.signInWithGoogle();
@@ -77,7 +129,6 @@ class _LoginModalState extends State<LoginModal> {
                 ElevatedButton(
                   onPressed:
                   _isButtonEnabled ? () {
-                    print(inputText);
                     checkIfUserExists(inputText);
                   } : null,
                   style: _isButtonEnabled ? ButtonStyles.elevatedButton(backgroundColor: AppColors.primaryBlack) : ButtonStyles.elevatedButton(backgroundColor: AppColors.buttonDisabled12),
