@@ -304,8 +304,11 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                           child: ElevatedButton(
                             onPressed: () async {
                               try {
-                                await FirebaseAuth.instance.signOut();
-                                await authService.value.googleSignIn.disconnect();
+                                if(FirebaseAuth.instance.currentUser != null) {
+                                  await FirebaseAuth.instance.signOut();
+                                } else {
+                                  await authService.value.googleSignIn.disconnect();
+                                }
                               } catch (e) {
                                 ScaffoldMessenger.of(context).showSnackBar(
                                   SnackBar(content: Text('Error logging out: $e')),
