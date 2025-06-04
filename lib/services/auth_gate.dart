@@ -1,13 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:test_olliefy/utils/emulator_host.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
+import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:test_olliefy/firebase_options.dart';
-import 'package:test_olliefy/screens/splashscreen.dart';
 
-import 'package:test_olliefy/utils/emulator_host.dart';
+import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
+import 'package:test_olliefy/services/auth_service.dart';
 
 final ValueNotifier<double> splashProgress = ValueNotifier(0);
 
@@ -76,5 +77,16 @@ class _AuthGateState extends State<AuthGate> {
     
     await Future.delayed(const Duration(milliseconds: 1500));  
     splashProgress.value = 1.0;
+
+    final PendingDynamicLinkData? initial = await FirebaseDynamicLinks.instance.getInitialLink();
+    if (initial?.link != null) {
+      await authService.value.completeSignInWithEmailLink(initial!.link.toString());
+    }
+
+    FirebaseDynamicLinks.instance.onLink.listen((data) {
+      final link = data.link.toString();
+      print(data);
+      authService.value.completeSignInWithEmailLink(link);
+    });
   }
 }

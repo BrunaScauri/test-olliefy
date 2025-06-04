@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 ValueNotifier<AuthService> authService = ValueNotifier(AuthService());
 
@@ -13,16 +14,16 @@ class AuthService {
   // String? get userName => firebaseAuth.currentUser?.displayName;
   // String? get userPhotoUrl => firebaseAuth.currentUser?.photoURL;
   Stream<User?> get authStateChanges => _auth.authStateChanges();
-
-  Future<UserCredential> signIn({
-    required String email,
-    required String password,
-  }) async {
-    return await _auth.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
-  }
+  String cred = '';
+  String _myVerificationId = '';
+  final actionCodeSettings = ActionCodeSettings(
+    url: 'https://testolliefy.page.link/finishSignIn',
+    handleCodeInApp: true,
+    // iOSBundleId: 'com.example.ios',
+    androidPackageName: 'com.example.test_olliefy', 
+    androidInstallApp: true,
+    androidMinimumVersion: '12'
+  );
 
   final GoogleSignIn googleSignIn = GoogleSignIn(
     scopes: [
@@ -81,5 +82,28 @@ class AuthService {
     );
     return _auth.signInWithCredential(credential);
   }
+
+  Future<void> sendSignInLink({required String email}) async{
+    try {
+      await FirebaseAuth.instance.sendSignInLinkToEmail(email: email, actionCodeSettings: actionCodeSettings);
+      final prefs = await SharedPreferences.getInstance()..setString('emailForSignIn', email);
+    } catch(e) {
+      print(e);
+    }
+  }
+
+  Future<void> completeSignInWithEmailLink(String link) async {
+    if(FirebaseAuth.instance.isSignInWithEmailLink(link)) {
+      final prefs = await SharedPreferences.getInstance()..getString('emailForSignIn');
+      final email = prefs.getString('emailForSignIn');
+      if(email == null) {
+        return;
+      }
+      try{
+        final userCredential = await FirebaseAuth.instance.signInWithEmailLink(email: email, emailLink: link);
+      } catch(e) {
+        print('$e');
+      }
+    }
   }
 }

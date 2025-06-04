@@ -45,6 +45,7 @@ class _LoginModalState extends State<LoginModal> {
       _isButtonEnabled = _controller.text.isNotEmpty;
     });
   }
+
   checkIfUserExists(String inputValue) async  {
     if(isPhoneNumber(inputValue)) {
       final input = normalizePhone(inputValue);
@@ -54,10 +55,11 @@ class _LoginModalState extends State<LoginModal> {
         signInUserByPhone(input);
       }
     } else if(isEmail(inputValue)) {
-      final checkEmail = await _userService.doesEmailExist(inputValue);
+      final trimmedMail = inputValue.trim();
+      final checkEmail = await _userService.doesEmailExist(trimmedMail);
       if(checkEmail) {
         _emailFound = true;
-        signInUserByEmail(inputValue);
+        signInUserByEmail(trimmedMail);
       }
     } else if(!_phoneFound && !_emailFound){
       final checkUsername = await _userService.doesUsernameExist(inputValue);
@@ -69,6 +71,15 @@ class _LoginModalState extends State<LoginModal> {
     } else{
     }
     return;
+  }
+
+  signInUserByEmail(inputValue) async {
+    final email = inputValue.trim();
+    try {
+      await authService.value.sendSignInLink(email: email);
+    } catch (e) {
+      print(e.toString());
+    }
   }
 
   signInUserByPhone(inputValue) async {
