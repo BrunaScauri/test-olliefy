@@ -39,5 +39,5 @@ Future<BitmapDescriptor> getClusterBitmap(int size) async {
   final ByteData? byteData = await img.toByteData(format: ui.ImageByteFormat.png);
   final Uint8List uint8List = byteData!.buffer.asUint8List();
 
-  return BitmapDescriptor.fromBytes(uint8List);
+  return BitmapDescriptor.bytes(uint8List);
 }

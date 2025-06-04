@@ -219,9 +219,9 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                                   ])
                                 ),
                                 onTap: () async {
-                                  final url = 'https://www.instagram.com/aliramps'; //example url
-                                  if (await canLaunch(url)) {
-                                    await launch(url);
+                                  final url = Uri.parse('https://www.instagram.com/aliramps'); //example url
+                                  if (await canLaunchUrl(url)) {
+                                    await canLaunchUrl(url);
                                   } else {
                                     throw 'Could not launch $url';
                                   }
