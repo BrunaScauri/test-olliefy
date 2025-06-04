@@ -351,7 +351,7 @@ final TextEditingController _tokenController = TextEditingController();
                             child: PinCodeTextField(
                               controller: _tokenController,
                               appContext: context,
-                              length: 5,
+                              length: 6,
                               obscureText: false,
                               animationDuration: Duration(milliseconds: 500), 
                               animationType: AnimationType.fade,
