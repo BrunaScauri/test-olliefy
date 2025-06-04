@@ -53,6 +53,8 @@ class MainScreen extends StatelessWidget {
                     showModalBottomSheet<dynamic>(
                       isScrollControlled: true,
                       context: context,
+                      //removed barrier color to prevent successSnackbar from appearing to be on another context.
+                      barrierColor: Colors.transparent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                       ),
