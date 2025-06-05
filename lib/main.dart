@@ -47,6 +47,7 @@ class OlliefyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Olliefy Demo',
+      home: AuthGate(),
       theme: ThemeData(
         appBarTheme: AppBarTheme(
           backgroundColor: AppColors.primaryWhite,
@@ -67,7 +68,6 @@ class OlliefyApp extends StatelessWidget {
           overlayColor: WidgetStateProperty.all(Colors.transparent),
         ),
       ),
-      home: AuthGate(),
     );
   }
 }
