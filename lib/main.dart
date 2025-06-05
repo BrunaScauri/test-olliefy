@@ -52,7 +52,7 @@ class OlliefyApp extends StatelessWidget {
           backgroundColor: AppColors.primaryWhite,
           scrolledUnderElevation: 0.0,
         ),
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primaryGold70),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color.fromRGBO(58, 153, 254, 1)),
         useMaterial3: true,
         textTheme: GoogleFonts.openSansTextTheme(),
         scaffoldBackgroundColor: AppColors.primaryWhite,
