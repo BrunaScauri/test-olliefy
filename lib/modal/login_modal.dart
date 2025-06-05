@@ -19,7 +19,7 @@ class LoginModal extends StatefulWidget {
   _LoginModalState createState() => _LoginModalState();
 }
 
-class _LoginModalState extends State<LoginModal> {
+class _LoginModalState extends State<LoginModal> with WidgetsBindingObserver {
   final TextEditingController _controller = TextEditingController();
   final _userService = UserService();
   
@@ -38,6 +38,17 @@ class _LoginModalState extends State<LoginModal> {
   void initState() {
     super.initState();
     _controller.addListener(_checkIfEmpty);
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  //handle login modal being propped open when user is logged in from email link
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if(state == AppLifecycleState.resumed) {
+      FocusScope.of(context).unfocus();
+    } if(mounted) {
+      Navigator.of(context).pop();
+    }
   }
 
   void _checkIfEmpty() {
@@ -105,6 +116,7 @@ class _LoginModalState extends State<LoginModal> {
   @override
   void dispose() {
     _controller.dispose();
+    WidgetsBinding.instance.removeObserver(this);
     super.dispose();
   }
 
