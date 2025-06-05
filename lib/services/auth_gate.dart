@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:test_olliefy/utils/emulator_host.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
+import 'package:flutter/services.dart';
 import 'package:test_olliefy/firebase_options.dart';
+import 'package:app_links/app_links.dart';
+import 'dart:async';
 
 import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
@@ -21,11 +23,53 @@ class AuthGate extends StatefulWidget {
 
 class _AuthGateState extends State<AuthGate> {
   late final Future<void> _initFuture;
+  StreamSubscription<Uri?>? _sub;
+
+  Future<void> _initializeFirebase() async {
+    splashProgress.value = 0.0;
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await Future.delayed(const Duration(milliseconds: 1000), () {});
+    splashProgress.value = 0.5;
+    await Future.delayed(const Duration(milliseconds: 1000), () {});
+    splashProgress.value = 0.8;
+    await Future.delayed(const Duration(milliseconds: 1000), () {});
+    splashProgress.value = 1.0;
+
+  //handle app's cold start (login from email link)
+  Future<void> _handleInitialUri() async  {
+    try {
+      final String? initialLink = await AppLinks().getInitialLinkString();
+      if(initialLink != null) {
+        authService.value.completeSignInWithEmailLink(initialLink.toString());
+      }
+    } on PlatformException {
+      // ignore wrong uri
+    } on FormatException {
+      // ignore wrong uri
+    }
+  }
 
   @override
   void initState() {
     super.initState();
     _initFuture = _initializeFirebase();
+    _handleInitialUri();
+    _sub = AppLinks().uriLinkStream.listen((Uri? uri) {
+      if(uri != null) {
+        final linkString = uri.toString();
+        authService.value.completeSignInWithEmailLink(linkString);
+      }
+    }, onError: (err) {
+      null;
+    });
+  }
+
+  @override
+  void dispose() {
+    _sub?.cancel();
+    super.dispose();
   }
 
   @override
@@ -60,33 +104,5 @@ class _AuthGateState extends State<AuthGate> {
         );
       },
     );
-  }
-
-  Future<void> _initializeFirebase() async {
-    splashProgress.value = 0.0;
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
-    splashProgress.value = 0.5;
-
-    final host = await determineEmulatorHost();
-    FirebaseAuth.instance.useAuthEmulator(host, 9099);
-    FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
-    Future.delayed(const Duration(milliseconds: 1500), () {});
-    splashProgress.value = 0.8;
-    
-    await Future.delayed(const Duration(milliseconds: 1500));  
-    splashProgress.value = 1.0;
-
-    final PendingDynamicLinkData? initial = await FirebaseDynamicLinks.instance.getInitialLink();
-    if (initial?.link != null) {
-      await authService.value.completeSignInWithEmailLink(initial!.link.toString());
-    }
-
-    FirebaseDynamicLinks.instance.onLink.listen((data) {
-      final link = data.link.toString();
-      print(data);
-      authService.value.completeSignInWithEmailLink(link);
-    });
   }
 }

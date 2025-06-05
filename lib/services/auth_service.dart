@@ -17,7 +17,7 @@ class AuthService {
   String cred = '';
   String _myVerificationId = '';
   final actionCodeSettings = ActionCodeSettings(
-    url: 'https://testolliefy.page.link/finishSignIn',
+    url: 'https://test-olliefy.firebaseapp.com/finishSignIn',
     handleCodeInApp: true,
     // iOSBundleId: 'com.example.ios',
     androidPackageName: 'com.example.test_olliefy', 
@@ -86,7 +86,8 @@ class AuthService {
   Future<void> sendSignInLink({required String email}) async{
     try {
       await FirebaseAuth.instance.sendSignInLinkToEmail(email: email, actionCodeSettings: actionCodeSettings);
-      final prefs = await SharedPreferences.getInstance()..setString('emailForSignIn', email);
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setString('emailForSignIn', email);
     } catch(e) {
       print(e);
     }
@@ -94,7 +95,7 @@ class AuthService {
 
   Future<void> completeSignInWithEmailLink(String link) async {
     if(FirebaseAuth.instance.isSignInWithEmailLink(link)) {
-      final prefs = await SharedPreferences.getInstance()..getString('emailForSignIn');
+      final prefs = await SharedPreferences.getInstance();
       final email = prefs.getString('emailForSignIn');
       if(email == null) {
         return;
