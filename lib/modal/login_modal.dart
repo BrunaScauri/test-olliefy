@@ -64,6 +64,8 @@ class _LoginModalState extends State<LoginModal> with WidgetsBindingObserver {
       if(checkPhone) {
         _phoneFound = true;
         signInUserByPhone(input);
+      } else {
+        showSuccessSnackbar(context, label: 'Phone number not found.');
       }
     } else if(isEmail(inputValue)) {
       final trimmedMail = inputValue.trim();
@@ -71,15 +73,18 @@ class _LoginModalState extends State<LoginModal> with WidgetsBindingObserver {
       if(checkEmail) {
         _emailFound = true;
         signInUserByEmail(trimmedMail);
+      } else {
+        showSuccessSnackbar(context, label: 'Email not found.');
       }
     } else if(!_phoneFound && !_emailFound){
       final checkUsername = await _userService.doesUsernameExist(inputValue);
       if(checkUsername) {
         signInUserByUsername(inputValue);
       } else {
-        print('credential error');
+        showSuccessSnackbar(context, label: 'Please input a valid username.');
       }
     } else{
+      showSuccessSnackbar(context, label: 'Unknown error. Please try again.');
     }
     return;
   }

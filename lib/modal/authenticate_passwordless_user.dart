@@ -36,7 +36,7 @@ class _AuthenticatePasswordlessUserState extends State<AuthenticatePasswordlessU
         MaterialPageRoute(builder: (context) => AppTab(initialIndex: 1)),
       );
     } catch(e) {
-      showSuccessSnackbar(label: 'Please input a valid code.');
+      showSuccessSnackbar(context, label: 'Please input a valid code.');
       print(e);
     }
   }
@@ -111,9 +111,9 @@ class _AuthenticatePasswordlessUserState extends State<AuthenticatePasswordlessU
                               ..onTap = () async {
                                 try {
                                   await authService.value.signInUserByPhone(phone: widget.phoneNumber);
-                                  showSuccessSnackbar(label: 'SMS code was resent');
+                                  showSuccessSnackbar(context, label: 'SMS code was resent');
                                 } catch (e) {
-                                  showSuccessSnackbar(label: 'Unknown error. Please try again.');
+                                  showSuccessSnackbar(context, label: 'Unknown error. Please try again.');
                                 }
                               }
                           )
