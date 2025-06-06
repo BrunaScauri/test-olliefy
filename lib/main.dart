@@ -13,6 +13,8 @@ import 'package:test_olliefy/services/auth_gate.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
 import 'package:test_olliefy/utils/emulator_host.dart';
 
+final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,6 +49,7 @@ class OlliefyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Olliefy Demo',
+      scaffoldMessengerKey: rootScaffoldMessengerKey,
       home: AuthGate(),
       theme: ThemeData(
         appBarTheme: AppBarTheme(
