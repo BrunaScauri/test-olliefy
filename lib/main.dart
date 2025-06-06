@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/services.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'firebase_options.dart';
 import 'package:provider/provider.dart';
 import 'package:media_kit/media_kit.dart';
@@ -11,7 +10,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:test_olliefy/services/auth_gate.dart';
 import 'package:test_olliefy/modal/user_modal.dart';
-import 'package:test_olliefy/utils/emulator_host.dart';
+// import 'package:test_olliefy/utils/emulator_host.dart';
 
 final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
 
@@ -22,11 +21,10 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-
   //setup for firebase emulator
-  final host = await determineEmulatorHost();
-  FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
-  FirebaseAuth.instance.useAuthEmulator(host, 9099);
+  // final host = await determineEmulatorHost();
+  // FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
+  // FirebaseAuth.instance.useAuthEmulator(host, 9099);
 
   runApp(
     MultiProvider(
