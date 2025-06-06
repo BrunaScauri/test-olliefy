@@ -6,7 +6,6 @@ import 'package:test_olliefy/utils/styles/texts.dart';
 void showSuccessSnackbar(
   BuildContext context, {
     required String label,
-
   }) {
   final snackBar = SnackBar(
     content: Row(
