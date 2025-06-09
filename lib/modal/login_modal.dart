@@ -90,12 +90,13 @@ class _LoginModalState extends State<LoginModal> with WidgetsBindingObserver {
   }
 
   signInUserByEmail(inputValue) async {
-    final email = inputValue.trim();
     try {
-      await authService.value.sendSignInLink(email: email);
-    } catch (e) {
+      await authService.value.sendSignInLink(email: inputValue);
+    } on FirebaseAuthException catch (e) {
       print(e.toString());
-    }
+    };
+  }
+  signInUserByUsername(username) async {
   }
 
   signInUserByPhone(inputValue) async {
