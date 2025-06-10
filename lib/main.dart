@@ -16,7 +16,6 @@ final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey = GlobalKey<Sca
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  WidgetsFlutterBinding.ensureInitialized();
   MediaKit.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
