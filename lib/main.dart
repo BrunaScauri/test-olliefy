@@ -39,6 +39,7 @@ class OlliefyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //prevent app from going landscape
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
