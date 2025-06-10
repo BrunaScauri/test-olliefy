@@ -1,0 +1,2 @@
+/home/bruna/Documents/study/flutter/olliefy_test/test_olliefy/test_olliefy/android/app/.cxx/Debug/542l522d/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/bruna/Documents/study/flutter/olliefy_test/test_olliefy/test_olliefy/android/app/.cxx/Debug/542l522d/armeabi-v7a/CMakeFiles/rebuild_cache.dir
