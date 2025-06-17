@@ -73,6 +73,7 @@ class _LoginModalState extends State<LoginModal> with WidgetsBindingObserver {
       if(checkEmail) {
         _emailFound = true;
         signInUserByEmail(trimmedMail);
+        showSuccessSnackbar(context, label: 'Please check your email.');
       } else {
         showSuccessSnackbar(context, label: 'Email not found.');
       }
