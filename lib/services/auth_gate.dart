@@ -5,7 +5,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/services.dart';
 import 'package:test_olliefy/firebase_options.dart';
 import 'package:app_links/app_links.dart';
-// import 'package:test_olliefy/utils/emulator_host.dart';
 
 import 'package:test_olliefy/screens/splashscreen.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
@@ -32,25 +31,22 @@ class _AuthGateState extends State<AuthGate> {
   late final Future<void> _initFuture;
   StreamSubscription<Uri?>? _sub;
 
-  Future<void> _initializeFirebase() async {
+  runSplashscreenTimer() async {
     splashProgress.value = 0.0;
-    await Firebase.initializeApp(
-      options: DefaultFirebaseOptions.currentPlatform,
-    );
     await Future.delayed(const Duration(milliseconds: 1000), () {});
     splashProgress.value = 0.5;
     await Future.delayed(const Duration(milliseconds: 1000), () {});
     splashProgress.value = 0.8;
     await Future.delayed(const Duration(milliseconds: 1000), () {});
     splashProgress.value = 1.0;
+    await Future.delayed(const Duration(milliseconds: 500), () {});
+  }
 
-    // final host = await determineEmulatorHost();
-    // assert(() {
-    //   FirebaseAuth.instance.useAuthEmulator(host, 9099);
-    //   FirebaseFirestore.instance.useFirestoreEmulator(host, 8080);
-    //   return true;
-    // }());
-      // firebase emulators:start --only auth,firestore
+  Future<void> _initializeFirebase() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    await runSplashscreenTimer();
   }
 
   //handle app's cold start (login from email link)
