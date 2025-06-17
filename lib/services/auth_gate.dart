@@ -15,7 +15,14 @@ import 'package:test_olliefy/services/auth_service.dart';
 final ValueNotifier<double> splashProgress = ValueNotifier(0);
 
 class AuthGate extends StatefulWidget {
-  const AuthGate({Key? key}) : super(key: key);
+  final Future<void> Function()? initOverride;
+  final Stream<User?>? authStreamOverride;
+
+  const AuthGate({
+    Key? key,
+    this.initOverride,
+    this.authStreamOverride,
+  }) : super(key: key);
 
   @override
   _AuthGateState createState() => _AuthGateState();
@@ -63,7 +70,7 @@ class _AuthGateState extends State<AuthGate> {
   @override
   void initState() {
     super.initState();
-    _initFuture = _initializeFirebase();
+    _initFuture = widget.initOverride?.call() ?? _initializeFirebase();
     _handleInitialUri();
     _sub = AppLinks().uriLinkStream.listen((Uri? uri) {
       if(uri != null) {
@@ -89,8 +96,9 @@ class _AuthGateState extends State<AuthGate> {
         if (initSnapshot.connectionState != ConnectionState.done) {
           return const Splashscreen();
         }
+        final authStream = widget.authStreamOverride ?? FirebaseAuth.instance.authStateChanges();
         return StreamBuilder<User?>(
-          stream: FirebaseAuth.instance.authStateChanges(),
+          stream: authStream,
           builder: (context, authSnapshot) {
             final loggedIn = authSnapshot.hasData;
             final Widget next = loggedIn
