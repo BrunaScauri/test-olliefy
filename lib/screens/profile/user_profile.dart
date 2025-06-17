@@ -291,7 +291,6 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                     )
                   )
                 ),
-                // todo: logout button
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 10.0),
                   child: Container(
@@ -306,8 +305,12 @@ class _UserProfileState extends State<UserProfile> with SingleTickerProviderStat
                               try {
                                 if(FirebaseAuth.instance.currentUser != null) {
                                   await FirebaseAuth.instance.signOut();
-                                } else {
+                                } else if(authService.value.googleSignIn.currentUser != null) {
                                   await authService.value.googleSignIn.disconnect();
+                                } else {
+                                  Navigator.of(context).pushReplacement(
+                                    MaterialPageRoute(builder: (context) => MainScreen()),
+                                  );
                                 }
                               } catch (e) {
                                 ScaffoldMessenger.of(context).showSnackBar(
