@@ -7,7 +7,12 @@ import 'package:test_olliefy/utils/route/slide_outgoing_down.dart';
 import 'package:test_olliefy/utils/route/slide_outgoing_right.dart';
 
 import 'package:test_olliefy/modal/user_modal.dart';
-import 'package:test_olliefy/modal/register_steps.dart';
+import 'package:test_olliefy/screens/register_user/profile_name.dart';
+import 'package:test_olliefy/screens/register_user/phone_or_email.dart';
+import 'package:test_olliefy/screens/register_user/token.dart';
+import 'package:test_olliefy/screens/register_user/password.dart';
+import 'package:test_olliefy/screens/register_user/permissions.dart';
+import 'package:test_olliefy/screens/register_user/suggested_profiles.dart';
 import 'package:test_olliefy/screens/main_screen.dart';
 import 'package:test_olliefy/screens/app_tab.dart';
 import 'package:test_olliefy/components/atoms/permission_dialogue.dart';
