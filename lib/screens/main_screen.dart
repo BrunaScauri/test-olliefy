@@ -11,21 +11,22 @@ import 'package:test_olliefy/screens/register_modal.dart';
 import 'package:test_olliefy/utils/route/ease_incoming_in.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  final Future<void>? precacheFuture;
+  const MainScreen({super.key, this.precacheFuture});
 
   @override
   State<MainScreen> createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
-  late Future<void> _precacheFuture;
+  late Future<void> precacheFuture;
   bool _initializedPrecache = false;
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
     if(!_initializedPrecache) {
-      _precacheFuture = precacheImage(const AssetImage('assets/main_screen_image.png'), context);
+      precacheFuture = widget.precacheFuture ?? precacheImage(const AssetImage('assets/main_screen_image.png'), context);
     }
     _initializedPrecache = true;
   }
@@ -33,7 +34,7 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-      future: _precacheFuture,
+      future: precacheFuture,
       builder:(context, snapshot) {
         if(snapshot.connectionState != ConnectionState.done) {
           return const Splashscreen();
