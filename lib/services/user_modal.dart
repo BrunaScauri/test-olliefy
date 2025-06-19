@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class UserModal extends ChangeNotifier {
-  String _profileName = '';
-  String _email = '';
-  String _phoneNumber = '';
-  String _password = '';
-  String _token = '';
+  String profileName = '';
+  String email = '';
+  String phoneNumber = '';
+  String password = '';
+  String token = '';
   
   int _activeIndex = 0;
   final int _totalIndex = 3;
@@ -34,30 +34,30 @@ class UserModal extends ChangeNotifier {
   }
 
   void updateProfileName(String value) {
-    _profileName = value;
-    _isValid = _profileName.isNotEmpty;
+    profileName = value;
+    _isValid = profileName.isNotEmpty;
     notifyListeners();
   }
 
   void updateEmail(String value) {
-    _email = value;
+    email = value;
     _isValid = value.isNotEmpty;
     notifyListeners();
   }
 
   void updatePhoneNumber(String value) {
-    _phoneNumber = value;
+    phoneNumber = value;
     _isValid = value.isNotEmpty;
     notifyListeners();
   }
   void updateToken(String value) {
-    _token = value;
+    token = value;
     _isValid = value.isNotEmpty;
     notifyListeners();
   }
 
   void updatePassword(String value) {
-    _password = value;
+    password = value;
     _isValid = value.isNotEmpty;
     notifyListeners();
   }
