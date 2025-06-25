@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_olliefy/services/user_service.dart';
 
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/utils/route/slide_outgoing_down.dart';
 import 'package:test_olliefy/utils/route/slide_outgoing_right.dart';
 
-import 'package:test_olliefy/modal/user_modal.dart';
+import 'package:test_olliefy/services/user_modal.dart';
 import 'package:test_olliefy/screens/register_user/profile_name.dart';
 import 'package:test_olliefy/screens/register_user/phone_or_email.dart';
 import 'package:test_olliefy/screens/register_user/token.dart';
@@ -99,7 +100,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                               icon: Icon(Icons.close),
                               iconSize: 24,
                               onPressed: () {
-                                Navigator.of(context).push(
+                                Navigator.of(context).pushReplacement(
                                   slideOutgoingDown(
                                     enterPage: MainScreen(), exitPage: RegisterModal(),
                                   ),

@@ -9,7 +9,7 @@ import 'package:test_olliefy/utils/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'package:test_olliefy/services/auth_gate.dart';
-import 'package:test_olliefy/modal/user_modal.dart';
+import 'package:test_olliefy/services/user_modal.dart';
 // import 'package:test_olliefy/utils/emulator_host.dart';
 
 final GlobalKey<ScaffoldMessengerState> rootScaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();

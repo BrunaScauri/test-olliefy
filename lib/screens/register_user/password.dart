@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:test_olliefy/utils/styles/fields.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
-import 'package:test_olliefy/modal/user_modal.dart';
+import 'package:test_olliefy/services/user_modal.dart';
 
 
 class Password extends StatefulWidget {

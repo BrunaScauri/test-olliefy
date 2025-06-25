@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
-import 'package:test_olliefy/modal/user_modal.dart';
+import 'package:test_olliefy/services/user_modal.dart';
 import 'package:test_olliefy/components/organisms/suggested_profiles_card.dart';
 import 'package:test_olliefy/components/atoms/follow_button.dart';
 import 'package:test_olliefy/components/atoms/following_button.dart';

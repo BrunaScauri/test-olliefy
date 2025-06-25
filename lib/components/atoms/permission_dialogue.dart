@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_olliefy/utils/colors.dart';
 import 'package:test_olliefy/utils/styles/texts.dart';
-import 'package:test_olliefy/modal/user_modal.dart';
+import 'package:test_olliefy/services/user_modal.dart';
 import 'package:test_olliefy/utils/styles/buttons.dart';
 
 class PermissionDialog extends StatelessWidget {
