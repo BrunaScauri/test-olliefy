@@ -7,28 +7,26 @@ class UserModal extends ChangeNotifier {
   String password = '';
   String token = '';
   
-  int _activeIndex = 0;
+  int activeIndex = 0;
   final int _totalIndex = 3;
   bool _isValid = false;
   bool isNextStep = true;
 
-  int get activeIndex => _activeIndex;
   int get totalIndex => _totalIndex;
-
   bool get isStepValid => _isValid;
 
   void incrementStep(context) {
     isNextStep = true;
-    if(_activeIndex >= 0) {
-      _activeIndex++;
+    if(activeIndex >= 0) {
+      activeIndex++;
       notifyListeners();
     }
   }
 
   void decrementStep(BuildContext context) {
     isNextStep = false;
-    if(_activeIndex > 0) {
-      _activeIndex--;
+    if(activeIndex > 0) {
+      activeIndex--;
       notifyListeners();
     } 
   }
