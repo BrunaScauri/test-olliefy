@@ -238,7 +238,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
       case 5:
         return SuggestedProfiles();
       default:
-        return ProfileName(formKey: _usernameFormKey);
+        return SizedBox();
     }
   }
 }
