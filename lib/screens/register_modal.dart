@@ -28,6 +28,11 @@ class RegisterModal extends StatefulWidget {
 }
 
 class _RegisterModalState extends State<RegisterModal> with SingleTickerProviderStateMixin {
+  final _userService = UserService();
+  final _usernameFormKey = GlobalKey<FormState>();
+  final _emailFormKey = GlobalKey<FormState>();
+  final _phoneNumberFormKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -197,9 +202,9 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
   Widget _getStepContent(int activeIndex) {
     switch (activeIndex) {
       case 0:
-        return ProfileName();
+        return ProfileName(formKey: _usernameFormKey);
       case 1:
-        return PhoneOrEmail();
+        return PhoneOrEmail(emailFormKey: _emailFormKey, phoneNumberFormKey: _phoneNumberFormKey);
       case 2:
         return Token();
       case 3:
@@ -209,7 +214,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
       case 5:
         return SuggestedProfiles();
       default:
-        return ProfileName();
+        return ProfileName(formKey: _usernameFormKey);
     }
   }
 }

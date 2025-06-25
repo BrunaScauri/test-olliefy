@@ -12,8 +12,17 @@ import 'package:test_olliefy/utils/styles/socials_button.dart';
 import 'package:test_olliefy/services/user_modal.dart';
 
 class PhoneOrEmail extends StatefulWidget {
+  final GlobalKey<FormState> phoneNumberFormKey;
+  final GlobalKey<FormState> emailFormKey;
+
   @override
   _PhoneOrEmailState createState() => _PhoneOrEmailState();
+
+  const PhoneOrEmail({
+    required this.phoneNumberFormKey,
+    required this.emailFormKey,
+    Key? key,  
+  }) : super(key: key);
 }
 
 class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderStateMixin {
@@ -39,6 +48,9 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
   void initState() {
     super.initState();
     _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() {
+      Provider.of<UserModal>(context, listen: false).updateContactTab(_tabController.index);
+    });
   }
   @override
   void dispose() {
@@ -108,14 +120,21 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                               builder: (context, modal, child) {
                                                 return Padding(
                                                   padding: const EdgeInsets.all(10.0),
-                                                  child: TextFormField(
-                                                    controller: _emailController,
-                                                    onChanged: (value) {
-                                                      modal.updateEmail(value);
-                                                    },
-                                                    decoration: FormDecorations.textFieldDecoration(
-                                                      labelText: 'Email address',
-                                                      prefixIcon: Icons.email_outlined,
+                                                  child: Form(
+                                                    key: widget.emailFormKey,
+                                                    child: TextFormField(
+                                                      controller: _emailController,
+                                                      onChanged: (value) {
+                                                        modal.updateEmail(value);
+                                                      },
+                                                      decoration: FormDecorations.textFieldDecoration(
+                                                        labelText: 'Email address',
+                                                        prefixIcon: Icons.email_outlined,
+                                                      ),
+                                                      validator: (value) {
+                                                        if(!modal.isValidEmail) return 'Invalid email format.';
+                                                        return null;
+                                                      }
                                                     ),
                                                   ),
                                                 );
@@ -166,55 +185,61 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                               padding: const EdgeInsets.all(15.0),
                                               child: Column(
                                                 children: [
-                                                  TextFormField(
-                                                    controller: _phoneController,
-                                                    keyboardType: TextInputType.number,
-                                                    inputFormatters: <TextInputFormatter>[
-                                                      FilteringTextInputFormatter.digitsOnly,
-                                                      MaskTextInputFormatter(
-                                                        mask: '+## ### ### ###',
-                                                      )
-                                                    ],
-                                                    onChanged: (value) {
-                                                      _updateFlag(value);
-                                                      modal.updatePhoneNumber(value);
-                                                    },
-                                                    //decoration for the flag icon
-                                                    decoration: InputDecoration(
-                                                      labelText: 'Phone number',
-                                                      prefixIcon: _currentFlag == '' ? 
-                                                      SizedBox(
-                                                        width: 50,
-                                                        height: 50,
-                                                        child: Center(
-                                                          child: CircleAvatar(
-                                                            radius: 25,
-                                                            backgroundColor: Colors.transparent,
-                                                            child: Image.asset(
-                                                              'assets/default_flag.png',
-                                                              fit: BoxFit.cover,
-                                                            ),
-                                                          )
-                                                        ),
-                                                      ) : 
-                                                      SizedBox(
-                                                        width: 50,
-                                                        height: 50,
-                                                        child: Center(
-                                                          child: CircleAvatar(
-                                                            radius: 12,
-                                                            backgroundImage: AssetImage(
-                                                              _currentFlag,
-                                                              package: 'country_icons',
+                                                  Form(
+                                                    key: widget.phoneNumberFormKey,
+                                                    child: TextFormField(
+                                                      controller: _phoneController,
+                                                      keyboardType: TextInputType.number,
+                                                      inputFormatters: <TextInputFormatter>[
+                                                        FilteringTextInputFormatter.digitsOnly,
+                                                        MaskTextInputFormatter(
+                                                          mask: '+## ### ### ###',
+                                                        )
+                                                      ],
+                                                      validator: (value) {
+                                                        return null;
+                                                      },
+                                                      onChanged: (value) {
+                                                        _updateFlag(value);
+                                                        modal.updatePhoneNumber(value);
+                                                      },
+                                                      //decoration for the flag icon
+                                                      decoration: InputDecoration(
+                                                        labelText: 'Phone number',
+                                                        prefixIcon: _currentFlag == '' ? 
+                                                        SizedBox(
+                                                          width: 50,
+                                                          height: 50,
+                                                          child: Center(
+                                                            child: CircleAvatar(
+                                                              radius: 25,
+                                                              backgroundColor: Colors.transparent,
+                                                              child: Image.asset(
+                                                                'assets/default_flag.png',
+                                                                fit: BoxFit.cover,
+                                                              ),
+                                                            )
+                                                          ),
+                                                        ) : 
+                                                        SizedBox(
+                                                          width: 50,
+                                                          height: 50,
+                                                          child: Center(
+                                                            child: CircleAvatar(
+                                                              radius: 12,
+                                                              backgroundImage: AssetImage(
+                                                                _currentFlag,
+                                                                package: 'country_icons',
+                                                              ),
                                                             ),
                                                           ),
                                                         ),
-                                                      ),
-                                                      border: OutlineInputBorder(),
-                                                      focusedBorder: OutlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                          color: AppColors.primaryGold70,
-                                                          width: 2.0,
+                                                        border: OutlineInputBorder(),
+                                                        focusedBorder: OutlineInputBorder(
+                                                          borderSide: BorderSide(
+                                                            color: AppColors.primaryGold70,
+                                                            width: 2.0,
+                                                          ),
                                                         ),
                                                       ),
                                                     ),
