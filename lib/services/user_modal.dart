@@ -14,6 +14,13 @@ class UserModal extends ChangeNotifier {
 
   int get totalIndex => _totalIndex;
   bool get isStepValid => _isValid;
+  int contactTabIndex = 0;
+
+  void updateContactTab(int index) {
+    contactTabIndex = index;
+    notifyListeners();
+  }
+
 
   bool get isValidUsername {
     final regex = RegExp(r'^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$');
