@@ -46,6 +46,7 @@ class FormDecorations {
           child: prefixIconWidget,
         )
         : prefixIcon != null ? Icon(prefixIcon, color: iconColor) : null,
+        errorMaxLines: 3,
     );
   }
 }
