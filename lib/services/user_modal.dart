@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class UserModal extends ChangeNotifier {
-  String profileName = '';
+  String username = '';
   String email = '';
   String phoneNumber = '';
   String password = '';
@@ -21,6 +21,15 @@ class UserModal extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool get isValidPhoneNumber {
+    final regex = RegExp(r'^\+?[0-9]+$');
+    return phoneNumber == regex.hasMatch(phoneNumber);
+  }
+
+  bool get isValidEmail {
+    final regex = RegExp(r'^[\w.+-]+@[\w-]+\.[\w.-]+$');
+    return regex.hasMatch(email);
+  }
 
   bool get isValidUsername {
     final regex = RegExp(r'^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$');
