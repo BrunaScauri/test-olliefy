@@ -11,6 +11,11 @@ class ProfileName extends StatefulWidget {
 
   @override
   _ProfileNameState createState() => _ProfileNameState();
+
+  const ProfileName({
+    required this.formKey,
+    Key? key,  
+  }) : super(key: key);
 }
 
 class _ProfileNameState extends State<ProfileName> {
