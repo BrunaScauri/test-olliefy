@@ -140,10 +140,9 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                                 );
                                               },
                                             ),
-                                            const SizedBox(height: 10),
                                             Container(
                                               constraints: BoxConstraints(maxWidth: 340),
-                                              child: Divider(height: 20, thickness: 0.8),
+                                              child: Divider(height: 10, thickness: 0.8),
                                             ),
                                             Padding(
                                               padding: EdgeInsets.all(10.0),
@@ -180,7 +179,6 @@ class _PhoneOrEmailState extends State<PhoneOrEmail> with SingleTickerProviderSt
                                         ignoring: _tabController.animation!.value != 1,
                                         child: Column(
                                           children: [
-                                            const SizedBox(height: 20),
                                             Padding(
                                               padding: const EdgeInsets.all(15.0),
                                               child: Column(

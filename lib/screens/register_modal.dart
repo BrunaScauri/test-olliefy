@@ -193,7 +193,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
               );
             },
           ),
-          SizedBox(height: 40),
+          SizedBox(height: 20),
         ],
       ),
     );
