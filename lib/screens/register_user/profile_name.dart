@@ -7,6 +7,8 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/services/user_modal.dart';
 
 class ProfileName extends StatefulWidget {
+  final GlobalKey<FormState> formKey;
+
   @override
   _ProfileNameState createState() => _ProfileNameState();
 }
@@ -43,15 +45,23 @@ class _ProfileNameState extends State<ProfileName> {
                 builder: (context, modal, child) {
                   return Padding(
                     padding: const EdgeInsets.all(15.0),
-                    child: TextFormField(
-                      controller: _profileNameController,
-                      onChanged: (value) {
-                        modal.updateProfileName(value);
-                      },
-                      decoration: FormDecorations.textFieldDecoration(
-                        labelText: 'Username',
+                    child: Form(
+                      key: widget.formKey,
+                      child: TextFormField(
+                        controller: _profileNameController,
+                        validator: (value) {
+                          if(value!.length < 8) return 'Username must be at least 8 characters.';
+                          if(!modal.isValidUsername) return 'Invalid username format. Please use only letters (a-z), numbers, periods or underscores.';
+                          return null;
+                        },
+                        onChanged: (value) {
+                          modal.updateProfileName(value);
+                        },
+                        decoration: FormDecorations.textFieldDecoration(
+                          labelText: 'Username',
+                        ),
                       ),
-                    ),
+                    )
                   );
                 },
               )

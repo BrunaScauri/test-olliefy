@@ -157,7 +157,22 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       ElevatedButton(
-                        onPressed: () {
+                        onPressed: () async {
+                          //existence checks on db for username page
+                          if(modal.activeIndex == 0) {
+                            if(!(_usernameFormKey.currentState?.validate() ?? false)) {
+                              return;
+                            }
+                            if(await _userService.doesUsernameExist(modal.username)) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text('This username is already taken.')),
+                              );
+                              return;
+                            } else {
+                              Provider.of<UserModal>(context, listen: false).restartEvaluating();
+                              Provider.of<UserModal>(context, listen: false).incrementStep(context);
+                            }
+                          }
                           if(modal.activeIndex == 5) { //push outside of register steps, last step
                             Navigator.of(context).pushReplacement(
                               slideOutgoingDown(
@@ -170,7 +185,8 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
                               context: context,
                               builder: (context) => PermissionDialog(),
                             );
-                          } if(modal.isStepValid && modal.activeIndex <= 3) { //validation for controllable pages
+                          } 
+                          if(modal.isStepValid && modal.activeIndex == 3 || modal.activeIndex == 2) { //validation for controllable pages
                             Provider.of<UserModal>(context, listen: false).restartEvaluating();
                             Provider.of<UserModal>(context, listen: false).incrementStep(context);
                           } else {

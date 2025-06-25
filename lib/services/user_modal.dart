@@ -15,6 +15,11 @@ class UserModal extends ChangeNotifier {
   int get totalIndex => _totalIndex;
   bool get isStepValid => _isValid;
 
+  bool get isValidUsername {
+    final regex = RegExp(r'^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$');
+    return regex.hasMatch(username);
+  }
+
   void incrementStep(context) {
     isNextStep = true;
     if(activeIndex >= 0) {
@@ -32,8 +37,8 @@ class UserModal extends ChangeNotifier {
   }
 
   void updateProfileName(String value) {
-    profileName = value;
-    _isValid = profileName.isNotEmpty;
+    username = value;
+    _isValid = username.isNotEmpty;
     notifyListeners();
   }
 
@@ -66,7 +71,7 @@ class UserModal extends ChangeNotifier {
   }
 
   set isStepValid(bool value) {
-    if(_activeIndex == 4) {
+    if(activeIndex == 4) {
       _isValid = true;
      notifyListeners();
     }
