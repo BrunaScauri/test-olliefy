@@ -7,13 +7,13 @@ import 'package:test_olliefy/utils/styles/buttons.dart';
 import 'package:test_olliefy/services/user_modal.dart';
 
 class ProfileName extends StatefulWidget {
-  final GlobalKey<FormState> formKey;
+  final GlobalKey<FormState> usernameFormKey;
 
   @override
   _ProfileNameState createState() => _ProfileNameState();
 
   const ProfileName({
-    required this.formKey,
+    required this.usernameFormKey,
     Key? key,  
   }) : super(key: key);
 }
@@ -51,7 +51,7 @@ class _ProfileNameState extends State<ProfileName> {
                   return Padding(
                     padding: const EdgeInsets.all(15.0),
                     child: Form(
-                      key: widget.formKey,
+                      key: widget.usernameFormKey,
                       child: TextFormField(
                         controller: _profileNameController,
                         validator: (value) {

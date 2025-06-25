@@ -226,7 +226,7 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
   Widget _getStepContent(int activeIndex) {
     switch (activeIndex) {
       case 0:
-        return ProfileName(formKey: _usernameFormKey);
+        return ProfileName(usernameFormKey: _usernameFormKey);
       case 1:
         return PhoneOrEmail(emailFormKey: _emailFormKey, phoneNumberFormKey: _phoneNumberFormKey);
       case 2:
