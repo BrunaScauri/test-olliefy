@@ -34,6 +34,14 @@ class _RegisterModalState extends State<RegisterModal> with SingleTickerProvider
   final _phoneNumberFormKey = GlobalKey<FormState>();
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<UserModal>(context, listen: false).reset();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,

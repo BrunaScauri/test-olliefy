@@ -79,4 +79,13 @@ class UserModal extends ChangeNotifier {
     notifyListeners();
   }
 
+  void reset() {
+    activeIndex = 0;
+    isStepValid = false;
+    username = '';
+    email = '';
+    phoneNumber = '';
+    password = '';
+    notifyListeners();
+  }
 }
